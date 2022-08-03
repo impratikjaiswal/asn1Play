@@ -1,0 +1,896 @@
+headerValue ProfileElement ::= header : { 
+
+ major-version 2, 
+
+ minor-version 3, 
+
+ profileType "GSMA Profile Package", 
+
+ iccid '89019990001234567893'H, 
+
+ eUICC-Mandatory-services { 
+
+ usim NULL, 
+
+ milenage NULL 
+
+}, 
+
+ eUICC-Mandatory-GFSTEList { 
+
+ -- see Note 1 
+
+ id-MF, 
+
+ id-USIM 
+
+ } 
+
+} 
+
+ 
+
+mfValue ProfileElement ::= mf : { 
+
+ mf-header { 
+
+ mandated NULL, 
+
+ identification 1 
+
+ }, 
+
+ templateID id-MF, 
+
+ mf { 
+
+ fileDescriptor : { 
+
+ pinStatusTemplateDO '01020A'H 
+
+ } 
+
+ }, 
+
+ ef-pl { 
+
+ fileDescriptor : { 
+
+ -- EF PL modified to use Access Rule 15 within EF ARR 
+
+ securityAttributesReferenced '0F'H 
+
+ } 
+
+ }, 
+
+ ef-iccid { 
+
+ -- swapped ICCID: 98109909002143658739 
+
+ fillFileContent '98109909002143658739'H 
+
+ }, 
+
+ ef-dir { 
+
+ fileDescriptor { 
+
+
+
+
+ -- Shareable Linear Fixed File 
+
+ -- 4 records, record length: 38 bytes 
+
+ fileDescriptor '42210026'H, 
+
+ efFileSize '98'H 
+
+ }, 
+
+ -- USIM AID: A0000000871002FF33FF018900000100 
+
+ fillFileContent :  '61184F10A0000000871002FF33FF01890000010050045553494D'H 
+
+ }, 
+
+ ef-arr { 
+
+ fileDescriptor : { 
+
+ fileDescriptor '42210025'H, 
+
+ lcsi '05'H, 
+
+ efFileSize '022B'H 
+
+ }, 
+
+ fillFileContent : '8001019000800102A406830101950108800158A40683010A950108'H, 
+
+ fillFileOffset : 10, 
+
+ fillFileContent : '800101A40683010195010880015AA40683010A950108'H, 
+
+ fillFileOffset : 15, 
+
+ fillFileContent : '80015BA40683010A950108'H, 
+
+ fillFileOffset : 26, 
+
+ fillFileContent : '800101900080015A9700'H, 
+
+ fillFileOffset : 27, 
+
+ fillFileContent : '800103A406830101950108800158A40683010A950108'H, 
+
+ fillFileOffset : 15, 
+
+ fillFileContent : '800111A40683010195010880014AA40683010A950108'H, 
+
+ fillFileOffset : 15, 
+
+ fillFileContent : '800103A406830101950108800158A40683010A950108840132A406830101950108'H, 
+
+ fillFileOffset : 4, 
+
+ fillFileContent : '800101A406830101950108800102A406830181950108800158A40683010A950108'H, 
+
+ fillFileOffset : 4, 
+
+ fillFileContent : '800101900080011AA406830101950108800140A40683010A950108'H, 
+
+ fillFileOffset : 10, 
+
+ fillFileContent : '800101900080015AA40683010A950108'H, 
+
+ fillFileOffset : 21, 
+
+ fillFileContent : '8001019000800118A40683010A9501088001429700'H, 
+
+ fillFileOffset : 16, 
+
+ fillFileContent : '800101A40683010195010880015A9700'H, 
+
+ fillFileOffset : 21, 
+
+ fillFileContent : '800113A406830101950108800148A40683010A950108'H, 
+
+ fillFileOffset : 15, 
+
+ fillFileContent : '80015EA40683010A950108'H, 
+
+ fillFileOffset : 26, 
+
+ fillFileContent : '8001019000800102A010A406830101950108A406830102950108800158A40683010A950108'H 
+ } 
+
+} 
+
+ 
+
+pukVal ProfileElement ::= pukCodes : { 
+
+ puk-Header { 
+
+ mandated NULL, 
+
+ identification 2 
+
+ }, 
+
+ pukCodes { 
+
+ { 
+
+ keyReference pukAppl1, 
+
+ pukValue '3030303030303030'H, 
+
+ -- maxNumOfAttemps:9, retryNumLeft:9 
+
+ maxNumOfAttemps-retryNumLeft 153 
+
+ }, 
+
+ { 
+
+ keyReference pukAppl2, 
+
+ pukValue '3132333435363738'H 
+
+ }, 
+
+ { 
+
+ keyReference secondPUKAppl1, 
+
+ pukValue '3932393435363738'H, 
+
+ -- maxNumOfAttemps:8, retryNumLeft:8 
+
+ maxNumOfAttemps-retryNumLeft 136 
+
+ } 
+
+ } 
+
+} 
+
+pinVal ProfileElement ::= pinCodes : { 
+
+ pin-Header { 
+
+ mandated NULL, 
+
+ identification 3 
+
+ }, 
+
+ pinCodes pinconfig : { 
+
+ { 
+
+ keyReference pinAppl1, 
+
+ pinValue '31323334FFFFFFFF'H, 
+
+ unblockingPINReference pukAppl1 
+
+ }, 
+
+ { 
+
+ keyReference pinAppl2, 
+
+ pinValue '30303030FFFFFFFF'H, 
+
+ unblockingPINReference pukAppl2 
+
+ }, 
+
+
+
+
+ { 
+
+ keyReference adm1, 
+
+ pinValue '35363738FFFFFFFF'H, 
+
+ pinAttributes 1 
+
+ } 
+
+ } 
+
+} 
+
+usimValue ProfileElement ::= usim : { 
+
+ usim-header { 
+
+ mandated NULL, 
+
+ identification 4 
+
+ }, 
+
+ templateID id-USIM, 
+
+ adf-usim { 
+
+ fileDescriptor : { 
+
+ fileID '7FF1'H, 
+
+ dfName 'A0000000871002FF33FF018900000100'H, 
+
+ pinStatusTemplateDO '01810A'H 
+
+ } 
+
+ }, 
+
+ ef-imsi { 
+
+ -- numerical format: 234101943787656 
+
+ fillFileContent '082943019134876765'H 
+
+ }, 
+
+ ef-arr { 
+
+ fileDescriptor { 
+
+ linkPath '2F06'H 
+
+ } 
+
+ }, 
+
+ ef-ust { 
+
+ -- Service Dialling Numbers, Short Message Storage… 
+
+ fillFileContent '0A2E178CE73204000000000000'H 
+
+ }, 
+
+ ef-spn { 
+
+ -- ASCII format: "GSMA eUICC" 
+
+ fillFileContent '0247534D41206555494343FFFFFFFFFFFF'H 
+
+ }, 
+
+ ef-est { 
+
+ -- Services deactivated 
+
+ fillFileContent '00'H 
+
+ }, 
+
+ ef-acc { 
+
+ -- Access class 4 
+
+ fillFileContent '0040'H 
+
+ }, 
+
+
+
+
+ ef-ecc { 
+
+ -- Emergency Call Code 911 
+
+ fillFileContent '19F1FF01'H 
+
+ } 
+
+} 
+
+ 
+
+usimPin ProfileElement ::= pinCodes : { 
+
+ pin-Header { 
+
+ mandated NULL, 
+
+ identification 5 
+
+ }, 
+
+ pinCodes pinconfig : { 
+
+ { 
+
+ keyReference secondPINAppl1, 
+
+ pinValue '39323338FFFFFFFF'H 
+
+ unblockingPINReference secondPUKAppl1, 
+
+ -- PIN is Enabled 
+
+ pinAttributes 1, 
+
+ -- maxNumOfAttemps:2, retryNumLeft:2 
+
+ maxNumOfAttemps-retryNumLeft 34 
+
+ } 
+
+ } 
+
+} 
+
+ 
+
+akaParamValue ProfileElement ::= akaParameter : { 
+
+ aka-header { 
+
+ mandated NULL, 
+
+ identification 6 
+
+ }, 
+
+ algoConfiguration algoParameter : { 
+
+ algorithmID milenage, 
+
+ -- RES and MAC 64 bits, CK and IK 128 bits 
+
+ algorithmOptions '01'H, 
+
+ key '000102030405060708090A0B0C0D0E0F'H, 
+
+ opc '0102030405060708090A0B0C0D0E0F00'H, 
+
+ -- rotationConstants uses default: '4000204060'H 
+
+ -- xoringConstants uses default value 
+
+ authCounterMax '010203'H 
+
+ } 
+
+ -- sqnOptions uses default: '02'H 
+
+ -- sqnDelta uses default: '000010000000'H 
+
+ -- sqnAgeLimit uses default: '000010000000'H 
+
+ -- sqnInit uses default: all bytes zero 
+
+} 
+
+ 
+
+
+
+
+mnoSdValue ProfileElement ::= securityDomain : { 
+
+ sd-Header { 
+
+ mandated NULL, 
+
+ identification 7 
+
+ }, 
+
+ instance { 
+
+ applicationLoadPackageAID 'A0000001515350'H, 
+
+ classAID 'A000000151535041'H, 
+
+ instanceAID 'A000000151000000'H, 
+
+ applicationPrivileges '82FC80'H, 
+
+ -- Secured 
+
+ lifeCycleState '0F'H, 
+
+ -- SCP80 supported 
+
+ applicationSpecificParametersC9 '810280008201F08701F0'H, 
+
+ -- other parameters MAY be necessary 
+
+ applicationParameters { 
+
+ -- TAR: B20100, MSL: 12 
+
+ uiccToolkitApplicationSpecificParametersField 
+
+ '0100000100000002011203B2010000'H 
+
+ } 
+
+ }, 
+
+ keyList { 
+
+ { 
+
+ -- C-ENC + R-ENC 
+
+ keyUsageQualifier '38'H, 
+
+ -- ENC key 
+
+ keyIdentifier '01'H, 
+
+ keyVersionNumber '01'H, 
+
+ keyCompontents { 
+
+ { 
+
+ -- DES mode implicitly known (as an example) 
+
+ keyType '80'H, 
+
+ -- This value MAY be freely changed 
+
+ keyData '112233445566778899AABBCCDDEEFF10'H 
+
+ } 
+
+ } 
+
+ }, 
+
+ { 
+
+ -- C-MAC + R-MAC 
+
+ keyUsageQualifier '34'H, 
+
+ -- MAC key 
+
+ keyIdentifier '02'H, 
+
+ keyVersionNumber '01'H, 
+
+ keyCompontents { 
+
+ { 
+
+
+
+
+ -- DES mode implicitly known (as an example) 
+
+ keyType '80'H, 
+
+ -- This value MAY be freely changed 
+
+ keyData '112233445566778899AABBCCDDEEFF10'H 
+
+ } 
+
+ } 
+
+ }, 
+
+ { 
+
+ -- C-DEK + R-DEK 
+
+ keyUsageQualifier 'C8'H, 
+
+ -- data ENC key 
+
+ keyIdentifier '03'H, 
+
+ keyVersionNumber '01'H, 
+
+ keyCompontents { 
+
+ { 
+
+ -- DES mode implicitly known (as an example) 
+
+ keyType '80'H, 
+
+ -- This value MAY be freely changed 
+
+ keyData '112233445566778899AABBCCDDEEFF10'H 
+
+ } 
+
+ } 
+
+ }, 
+
+ -- AES Token Key (as an example) 
+
+ -- This value MAY be freely changed 
+
+ keyUsageQualifier '81'H, 
+
+ -- MAY be used by SD 
+
+ keyAccess '01'H, 
+
+ -- Key Id 01 
+
+ keyIdentifier '01'H, 
+
+ keyVersionNumber '70'H, 
+
+ keyCompontents { 
+
+ { 
+
+ -- AES (16 bytes key length) 
+
+ -- This value MAY be freely changed 
+
+ keyType '88'H, 
+
+ -- This value MAY be freely changed 
+
+ keyData 'CDFE56B7B72FAE6A047341F003D7A48D'H 
+
+ } 
+
+ } 
+
+ }, 
+
+ { 
+
+ -- Receipt (the AES scheme SHALL be supported) 
+
+ keyUsageQualifier '44'H, 
+
+ -- MAY be used by SD 
+
+ keyAccess '01'H, 
+
+
+
+
+ -- Key Id 01 
+
+ keyIdentifier '01'H, 
+
+ keyVersionNumber '71'H, 
+
+ keyCompontents { 
+
+ { 
+
+ -- AES (16 bytes key length) 
+
+ keyType '88'H, 
+
+ -- This value MAY be freely changed 
+
+ keyData '11121314212223243132333441424344'H 
+
+ } 
+
+ } 
+
+ } 
+
+ } 
+
+} 
+
+ 
+
+ssdValue ProfileElement ::= securityDomain : { 
+
+ sd-Header { 
+
+ mandated NULL, 
+
+ identification 8 
+
+ }, 
+
+ instance { 
+
+ applicationLoadPackageAID 'A0000001515350'H, 
+
+ classAID 'A000000151535041'H, 
+
+ instanceAID 'A00000055910100102736456616C7565'H, 
+
+ -- by default extradited under MNO-SD 
+
+ -- Privileges: Security Domain + Trusted Path 
+
+ applicationPrivileges '808000'H, 
+
+ -- Personalized 
+
+ lifeCycleState '0F'H, 
+
+ -- SCP80 supported, extradiction supported 
+
+ applicationSpecificParametersC9 '810280008201F0'H, 
+
+ applicationParameters { 
+
+ -- TAR: 6C7565, MSL: 12 
+
+ uiccToolkitApplicationSpecificParametersField 
+
+ '01000001000000020112036C756500'H 
+
+ } 
+
+ }, 
+
+ keyList { 
+
+ { 
+
+ -- C-ENC + R-ENC 
+
+ keyUsageQualifier '38'H, 
+
+ keyIdentifier '01'H, 
+
+ keyVersionNumber '01'H, 
+
+ keyCompontents { 
+
+ { 
+
+
+
+
+ -- DES mode implicitly known (as an example) 
+
+ keyType '80'H, 
+
+ -- This value MAY be freely changed 
+
+ keyData '11223344556677881122334455667788'H 
+
+ } 
+
+ } 
+
+ }, 
+
+ { 
+
+ -- C-MAC + R-MAC 
+
+ keyUsageQualifier '34'H, 
+
+ -- MAC key 
+
+ keyIdentifier '02'H, 
+
+ keyVersionNumber '01'H, 
+
+ keyCompontents { 
+
+ { 
+
+ -- DES mode implicitly known (as an example) 
+
+ keyType '80'H, 
+
+ -- This value MAY be freely changed 
+
+ keyData '11223344556677881122334455667788'H 
+
+ } 
+
+ } 
+
+ }, 
+
+ { 
+
+ -- C-DEK + R-DEK 
+
+ keyUsageQualifier 'C8'H, 
+
+ -- data ENC key 
+
+ keyIdentifier '03'H, 
+
+ keyVersionNumber '01'H, 
+
+ keyCompontents { 
+
+ { 
+
+ -- DES mode implicitly known (as an example) 
+
+ keyType '80'H, 
+
+ -- This value MAY be freely changed 
+
+ keyData '11223344556677881122334455667788'H 
+
+ } 
+
+ } 
+
+ } 
+
+ } 
+
+} 
+
+ 
+
+rfmUicc ProfileElement ::= rfm : { 
+
+ rfm-header { 
+
+ identification 11 
+
+ }, 
+
+ -- Instance AID 
+
+
+
+
+ instanceAID ' A00000055910100001'H, 
+
+ tarList { 
+
+ 'B00000'H 
+
+ }, 
+
+ -- cryptographic checksum + counter higher 
+
+ minimumSecurityLevel '12'H, 
+
+ -- full access 
+
+ uiccAccessDomain '00'H, 
+
+ -- full access 
+
+ uiccAdminAccessDomain '00'H 
+
+} 
+
+ 
+
+rfmUsim ProfileElement ::= rfm : { 
+
+ rfm-header { 
+
+ identification 12 
+
+ }, 
+
+ -- Instance AID 
+
+ instanceAID 'A00000055910100002'H, 
+
+ tarList { 
+
+ 'B00020'H 
+
+ }, 
+
+ -- cryptographic checksum + counter higher 
+
+ minimumSecurityLevel '12'H, 
+
+ -- full access 
+
+ uiccAccessDomain '00'H, 
+
+ -- full access 
+
+ uiccAdminAccessDomain '00'H, 
+
+ adfRFMAccess { 
+
+ adfAID 'A0000000871002FF33FF018900000100'H, 
+
+ -- UICC access condition: ADM1 
+
+ adfAccessDomain '02000100'H, 
+
+ -- UICC access condition: ADM1 
+
+ adfAdminAccessDomain '02000100'H 
+
+ } 
+
+} 
+
+ 
+
+endValue ProfileElement ::= end : { 
+
+ end-header { 
+
+ mandated NULL, 
+
+ identification 99 
+
+ } 
+
+} 

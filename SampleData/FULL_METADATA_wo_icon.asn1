@@ -1,0 +1,65 @@
+{ 
+
+ iccid '989209012143658709F5'H, 
+
+ serviceProviderName "SP Name 1", 
+
+ profileName "Operational Profile Name 1", 
+
+ iconType png, 
+
+ profileClass operational, 
+
+ notificationConfigurationInfo { 
+
+ { profileManagementOperation { 
+
+ notificationInstall, 
+
+ notificationEnable, 
+
+ notificationDisable, 
+
+ notificationDelete 
+
+ }, 
+
+ notificationAddress "testsmdpplus1.example.com" 
+
+ } 
+
+ }, 
+
+ profileOwner { 
+
+ mccMnc '92F918'H
+
+ }, 
+
+ profilePolicyRules {ppr1} ,
+
+  
+  serviceSpecificDataStoredInEuicc { 
+
+ { 
+
+ vendorOid {2 999 16}, 
+
+ vendorSpecificData 'C1020304'H 
+
+ } 
+
+}, 
+
+serviceSpecificDataNotStoredInEuicc { 
+
+ { 
+
+ vendorOid {2 999 17}, 
+
+ vendorSpecificData '02020202'H
+
+ } 
+
+}
+}
