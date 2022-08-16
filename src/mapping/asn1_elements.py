@@ -1,5 +1,5 @@
-from asn1.GSMA import SGP_22
-from asn1.TCA import eUICC_Profile_Package
+from src.asn1.GSMA import SGP_22
+from src.asn1.TCA import eUICC_Profile_Package
 
 sgp_22 = {
     'AuthenticateClientOk': SGP_22.RSPDefinitions.AuthenticateClientOk,

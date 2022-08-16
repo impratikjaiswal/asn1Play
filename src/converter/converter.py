@@ -2,9 +2,9 @@ import base64
 import re
 from binascii import unhexlify
 
-from helper.util import is_hex, print_iter
-from mapping.asn1_elements import all_mapping
-from mapping.general import base64_formats, hex_formats, txt_formats, input_formats_supported, parsing_format_mapping
+from src.helper.util import is_hex, print_iter
+from src.mapping.asn1_elements import all_mapping
+from src.mapping.general import base64_formats, hex_formats, txt_formats, input_formats_supported, parsing_format_mapping
 
 TAB = '    '
 M = None
