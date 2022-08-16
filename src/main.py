@@ -1,10 +1,10 @@
 from asn1.GSMA import SGP_22
 from asn1.TCA import eUICC_Profile_Package
 from helper.data import Data
-from helper.options import options
+from helper.options import Options
 from helper.util import print_done
-from src.convert_data import parse_or_update_any_data
-from src.helper.formats import Formats
+from convert_data import parse_or_update_any_data
+from helper.formats import Formats
 
 
 def process_data(option):
@@ -13,7 +13,7 @@ def process_data(option):
     parse_op = False
     asn1_element = None
 
-    if option == options.parse_store_meta_data_pool_console_output:
+    if option == Options.parse_store_meta_data_pool_console_output:
         asn1_element = SGP_22.RSPDefinitions.StoreMetadataRequest
         #
         data_pool = [
@@ -36,7 +36,7 @@ def process_data(option):
                 parse_or_update_any_data(data, print_inp=print_ip, print_info=print_info, re_parse_op=parse_op,
                                          asn1_element=asn1_element)
 
-    if option == options.parse_profile_element_data_pool_console_output:
+    if option == Options.parse_profile_element_data_pool_console_output:
         asn1_element = eUICC_Profile_Package.PEDefinitions.ProfileElement
         #
         data_pool = [
@@ -55,7 +55,7 @@ def process_data(option):
                 parse_or_update_any_data(data, print_inp=print_ip, print_info=print_info, re_parse_op=parse_op,
                                          asn1_element=asn1_element)
 
-    if option == options.parse_update_meta_data_pool_console_output:
+    if option == Options.parse_update_meta_data_pool_console_output:
         asn1_element = SGP_22.RSPDefinitions.UpdateMetadataRequest
         #
         data_pool = [
@@ -84,7 +84,7 @@ def process_data(option):
                 parse_or_update_any_data(data, print_inp=print_ip, print_info=print_info, re_parse_op=parse_op,
                                          asn1_element=asn1_element)
 
-    if option == options.parse_any_data_console_output:
+    if option == Options.parse_any_data_console_output:
         input_format = Formats.DER
         output_format = Formats.ASN1
         data = 'bf2a0499020520'
@@ -100,11 +100,11 @@ def main():
     :return:
     """
     data_processing_options = [
-        options.parse_store_meta_data_pool_console_output,
-        options.parse_update_meta_data_pool_console_output,
-        options.parse_profile_element_data_pool_console_output,
-        options.parse_any_data_pool_console_output,
-        options.parse_any_data_console_output,
+        Options.parse_store_meta_data_pool_console_output,
+        Options.parse_update_meta_data_pool_console_output,
+        Options.parse_profile_element_data_pool_console_output,
+        Options.parse_any_data_pool_console_output,
+        Options.parse_any_data_console_output,
     ]
     for data_processing_option in data_processing_options:
         process_data(data_processing_option)

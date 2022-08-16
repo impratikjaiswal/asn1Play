@@ -2,8 +2,8 @@ import os
 
 from converter.converter import decode_encode_asn
 from helper.util import print_separator
-from src.helper.formats import Formats
-from src.mapping.general import txt_formats
+from helper.formats import Formats
+from mapping.general import txt_formats
 
 
 def parse_or_update_any_data(base_data, input_format=Formats.DEFAULT_INPUT, output_format=Formats.DEFAULT_OUTPUT,
