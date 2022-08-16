@@ -2,9 +2,11 @@ import base64
 import re
 from binascii import unhexlify
 
+from src.helper.formats import Formats
 from src.helper.util import is_hex, print_iter
 from src.mapping.asn1_elements import all_mapping
-from src.mapping.general import base64_formats, hex_formats, txt_formats, input_formats_supported, parsing_format_mapping
+from src.mapping.general import base64_formats, hex_formats, txt_formats, input_formats_supported, \
+    parsing_format_mapping
 
 TAB = '    '
 M = None
@@ -18,7 +20,8 @@ Enable Flags for Debugging
 # _debug = True
 
 
-def decode_encode_asn(input_data='', parse_only=True, input_format='der', output_format='asn1', asn1_element=None):
+def decode_encode_asn(input_data='', parse_only=True, input_format=Formats.DEFAULT_INPUT,
+                      output_format=Formats.DEFAULT_OUTPUT, asn1_element=None):
     """
     Ref: https://github.com/P1sec/pycrate/wiki/Using-the-pycrate-asn1-runtime
     :param input_data:
@@ -64,7 +67,7 @@ def decode_encode_asn(input_data='', parse_only=True, input_format='der', output
         record_count += 1
         print_debug_var('offset', offset)
         print_debug_var('len', len)
-        if input_format in 'der':
+        if input_format in Formats.DER:
             temp = bytes.fromhex(input_data[offset:])
             try:  # Needed For Unknown data / TLV
                 M.from_der(temp)
@@ -73,7 +76,7 @@ def decode_encode_asn(input_data='', parse_only=True, input_format='der', output
                 exception_msg = str(e)
                 known_data = False
             offset += (len(temp) * 2)
-        if input_format in 'asn1':
+        if input_format in Formats.ASN1:
             temp = input_data[offset:]
             next_offset = find_offset_of_section(temp, '{', '}') + 1
             print_debug_var('next_offset', next_offset)

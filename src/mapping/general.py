@@ -1,26 +1,28 @@
-txt_formats = ['asn1', 'get_val', 'get_val_paths']
+from src.helper.formats import Formats
 
-base64_formats = ['der_with_base64', 'ber_with_base64']
+txt_formats = [Formats.ASN1, Formats.GET_VAL, Formats.GET_VAL_PATHS]
 
-hex_formats = ['der', 'ber']
+base64_formats = [Formats.DER_64, Formats.BER_64]
 
-input_formats_supported = ['der', 'asn1']
+hex_formats = [Formats.DER, Formats.BER]
+
+input_formats_supported = [Formats.DER, Formats.DER_64, Formats.ASN1]
 
 parsing_format_mapping = {
-    'asn1': 'to_asn1',
-    'der': 'to_der',
-    'der_with_base64': 'to_der',
-    'get_val': 'get_val',
-    'get_val_paths': 'get_val_paths',
-    'get_proto': 'get_proto',
-    'ber': 'to_ber',
-    'ber_with_base64': 'to_ber',
-    'aper': 'to_aper',
-    'ber_ws': 'to_ber_ws',
-    'cer': 'to_cer',
-    'cer_ws': 'to_cer_ws',
-    'der_ws': 'to_der_ws',
-    'jer': 'to_jer',
-    'json': 'to_json',
-    'uper': 'to_uper',
+    Formats.ASN1: 'to_asn1',
+    Formats.DER: 'to_der',
+    Formats.DER_64: 'to_der',
+    Formats.GET_VAL: 'get_val',
+    Formats.GET_VAL_PATHS: 'get_val_paths',
+    Formats.GET_PROTO: 'get_proto',
+    Formats.BER: 'to_ber',
+    Formats.BER_64: 'to_ber',
+    Formats.APER: 'to_aper',
+    Formats.BER_WS: 'to_ber_ws',
+    Formats.CER: 'to_cer',
+    Formats.CER_WS: 'to_cer_ws',
+    Formats.DER_WS: 'to_der_ws',
+    Formats.JER: 'to_jer',
+    Formats.JSON: 'to_json',
+    Formats.UPER: 'to_uper',
 }

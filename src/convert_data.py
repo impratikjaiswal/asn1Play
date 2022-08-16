@@ -5,8 +5,8 @@ from helper.util import print_separator
 from src.mapping.general import txt_formats
 
 
-def parse_or_update_any_data(base_data, input_format='der', output_format='asn1', print_inp=None, re_parse_op=None,
-                             asn1_element=None):
+def parse_or_update_any_data(base_data, input_format=Formats.DEFAULT_INPUT, output_format=Formats.DEFAULT_OUTPUT,
+                             print_inp=None, re_parse_op=None, asn1_element=None):
     if isinstance(base_data, list):
         parsed_data_list = []
         for data in base_data:
@@ -24,9 +24,9 @@ def parse_or_update_any_data(base_data, input_format='der', output_format='asn1'
             with open(base_data, 'rb') as the_file:
                 resp = the_file.read()
         if os.path.splitext(base_data)[1] == ".asn1":
-            input_format = 'asn1'
-            if output_format in ['asn1']:
-                output_format = 'der'
+            input_format = Formats.ASN1
+            if output_format in [Formats.ASN1]:
+                output_format = Formats.DER
         base_data = resp
 
     # Set Default Values if nothing is set

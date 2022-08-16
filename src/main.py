@@ -4,6 +4,7 @@ from helper.data import Data
 from helper.options import options
 from helper.util import print_done
 from src.convert_data import parse_or_update_any_data
+from src.helper.formats import Formats
 
 
 def process_data(option):
@@ -45,7 +46,8 @@ def process_data(option):
             (raw_data="""{
             profilePolicyRules {ppr2}
         }""",
-             input_format='asn1', output_format='der', asn1_element=SGP_22.RSPDefinitions.UpdateMetadataRequest
+             input_format=Formats.ASN1, output_format=Formats.DER,
+             asn1_element=SGP_22.RSPDefinitions.UpdateMetadataRequest
              ),
             #
             Data(raw_data='bf2a0499020520', asn1_element=SGP_22.RSPDefinitions.UpdateMetadataRequest),
@@ -59,8 +61,8 @@ def process_data(option):
                                      output_format=data.output_format)
 
     if option == options.parse_any_data_console_output:
-        input_format = 'der'
-        output_format = 'asn1'
+        input_format = Formats.DER
+        output_format = Formats.ASN1
         data = 'bf2a0499020520'
         asn1_element = SGP_22.RSPDefinitions.UpdateMetadataRequest
         parse_or_update_any_data(data, print_inp=print_ip, re_parse_op=parse_op, asn1_element=asn1_element,

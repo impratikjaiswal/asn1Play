@@ -9,4 +9,3 @@
 # from src.asn1.GSMA.SGP_22.v2_2_2.sgp22 import RSPDefinitions
 # from src.asn1.GSMA.SGP_22.v2_3.sgp22 import RSPDefinitions
 from src.asn1.GSMA.SGP_22.v2_4.sgp22 import RSPDefinitions
-
