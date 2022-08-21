@@ -5,6 +5,8 @@ import sys
 def is_hex(s):
     # Don't verify length here, this is just to verify String Type
     return all(c in string.hexdigits for c in s)
+
+
 def check_if_iter(the_iter):
     if the_iter is None:
         return False, the_iter
