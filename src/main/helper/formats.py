@@ -15,5 +15,3 @@ class Formats:
     CER_WS = 'cer_ws'
     JER = 'jer'
     UPER = 'uper'
-    DEFAULT_INPUT = DER
-    DEFAULT_OUTPUT = ASN1

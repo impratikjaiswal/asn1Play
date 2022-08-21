@@ -1,9 +1,29 @@
 import string
+import sys
 
 
 def is_hex(s):
     # Don't verify length here, this is just to verify String Type
     return all(c in string.hexdigits for c in s)
+def check_if_iter(the_iter):
+    if the_iter is None:
+        return False, the_iter
+    # Duck Typing
+    try:
+        # Check if iterable, but not String as String is also iterable
+        if isinstance(the_iter, str):
+            is_iter = False
+        else:
+            iter(the_iter)
+            is_iter = True
+    except TypeError:
+        try:
+            # Check if dict attribute is present but obj is not iterable by default, e.g: Namespace
+            the_iter = the_iter.__dict__
+            is_iter = True
+        except AttributeError:
+            is_iter = False
+    return is_iter, the_iter
 
 
 def print_iter(the_iter, header=None, log=None, list_as_str=None):
@@ -45,27 +65,6 @@ def print_iter(the_iter, header=None, log=None, list_as_str=None):
         print_or_log(each_item)
 
 
-def check_if_iter(the_iter):
-    if the_iter is None:
-        return False, the_iter
-    # Duck Typing
-    try:
-        # Check if iterable, but not String as String is also iterable
-        if isinstance(the_iter, str):
-            is_iter = False
-        else:
-            iter(the_iter)
-            is_iter = True
-    except TypeError:
-        try:
-            # Check if dict attribute is present but obj is not iterable by default, e.g: Namespace
-            the_iter = the_iter.__dict__
-            is_iter = True
-        except AttributeError:
-            is_iter = False
-    return is_iter, the_iter
-
-
 def print_separator(character='-', count=80, main_text='', log=None, get_only=False):
     print_or_log = log.info if log else print
     if main_text is None:
@@ -88,4 +87,22 @@ def print_separator(character='-', count=80, main_text='', log=None, get_only=Fa
 def print_done(log=None):
     print_separator(log=log)
     print_separator(character=' ', count=35, main_text='All Done.', log=log)
+    print_separator(log=log)
+
+
+def print_error(str_heading, log=None):
+    print_separator(log=log)
+    print_separator(main_text=f'Error Occured: {str_heading}', log=log)
+    print_separator(log=log)
+
+
+def get_tool_name_w_version(tool_name=None, tool_version=None):
+    return ' version is '.join(filter(None, [tool_name, f'v{tool_version}' if tool_version else None]))
+
+
+def print_version(tool_name, tool_version, log=None):
+    print_or_log = log.info if log else print
+    print_separator(log=log)
+    print_or_log(f'Python version is {sys.version}')
+    print_or_log(get_tool_name_w_version(tool_name=tool_name, tool_version=tool_version))
     print_separator(log=log)

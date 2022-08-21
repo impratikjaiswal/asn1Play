@@ -2,10 +2,11 @@ import base64
 import re
 from binascii import unhexlify
 
-from src.helper.formats import Formats
-from src.helper.util import is_hex, print_iter
-from src.mapping.asn1_elements import all_mapping
-from src.mapping.general import base64_formats, hex_formats, txt_formats, input_formats_supported, \
+from src.main.helper.defaults import Defaults
+from src.main.helper.formats import Formats
+from src.main.helper.util import is_hex, print_iter
+from src.main.mapping.asn1_elements import all_mapping
+from src.main.mapping.general import base64_formats, hex_formats, txt_formats, input_formats_supported, \
     parsing_format_mapping
 
 TAB = '    '
@@ -20,8 +21,8 @@ Enable Flags for Debugging
 # _debug = True
 
 
-def decode_encode_asn(input_data='', parse_only=True, input_format=Formats.DEFAULT_INPUT,
-                      output_format=Formats.DEFAULT_OUTPUT, asn1_element=None):
+def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORMAT_INPUT,
+                      output_format=Defaults.FORMAT_OUTPUT, asn1_element=None):
     """
     Ref: https://github.com/P1sec/pycrate/wiki/Using-the-pycrate-asn1-runtime
     :param input_data:

@@ -1,4 +1,4 @@
-from src.helper.formats import Formats
+from src.main.helper.formats import Formats
 
 txt_formats = [Formats.ASN1, Formats.GET_VAL, Formats.GET_VAL_PATHS]
 
