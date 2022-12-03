@@ -25,21 +25,29 @@ class StoreMetaData(ConvertData):
             #
             "BF2581885A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031930101B621301F800204F0811974657374736D6470706C7573312E6578616D706C652E636F6DB705800392F91899020640BF220F300D8003883710A1060404C1020304BF230F300D8003883711A106040402020202",
             #
-            r"..\..\SampleData\FULL_METADATA.asn1",
+            r"..\..\SampleData\StoreMetadataRequest.asn1",
             #
-            r"..\..\SampleData\FULL_METADATA_wo_icon.asn1",
+            r"..\..\SampleData\StoreMetadataRequest_wo_icon.asn1",
             #
-            r"..\..\SampleData\FULL_METADATA.hex",
+            r"..\..\SampleData\StoreMetadataRequest.hex",
             #
-            r"..\..\SampleData\FULL_METADATA_wo_icon.hex",
+            r"..\..\SampleData\StoreMetadataRequest_wo_icon.hex",
             #
-            r"..\..\SampleData\FULL_METADATA.base64",
+            r"..\..\SampleData\StoreMetadataRequest.base64",
             #
-            r"..\..\SampleData\FULL_METADATA_wo_icon.base64",
+            r"..\..\SampleData\StoreMetadataRequest_wo_icon.base64",
             #
-            r"..\..\SampleData\FULL_METADATA_Generated.asn1",
+            r"..\..\SampleData\StoreMetadataRequest_Generated.asn1",
             #
-            r"..\..\SampleData\FULL_METADATA_wo_icon_Generated.asn1",
+            r"..\..\SampleData\StoreMetadataRequest_wo_icon_Generated.asn1",
+            #
+            r"..\..\SampleData\StoreMetadataRequest_Mandatory.asn1",
+            #
+            r"..\..\SampleData\StoreMetadataRequest_ppr.asn1",
+            #
+            r"..\..\SampleData\StoreMetadataRequest_Mandatory.hex",
+            #
+            r"..\..\SampleData\StoreMetadataRequest_ppr.hex",
             #
         ]
         super().set_data_pool(data_pool)

@@ -31,5 +31,12 @@ class AnyData(ConvertData):
                 output_format=Formats.ASN1
             ),
             #
+            Data(
+                raw_data="BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640",
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER,
+                output_format=Formats.ASN1
+            ),
+            #
         ]
         super().set_data_pool(data_pool)

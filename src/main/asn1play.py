@@ -9,9 +9,9 @@ from src.main.helper.util import print_done, print_version
 
 def process_data():
     data_types = [
-        StoreMetaData(),
-        UpdateMetadataRequest(),
-        ProfileElement(),
+        # StoreMetaData(),
+        # UpdateMetadataRequest(),
+        # ProfileElement(),
         AnyData(),
 
     ]
