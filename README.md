@@ -6,4 +6,5 @@
 <li>GSMA SGP.22
 <li>TCA eUICC_Profile_Package (SAIP)
 </ol>
-<BR> However, Tool can be extended to support any ASN based conversion.
+<BR> However, Tool can be extended to support any ASN1 based conversion.
+Temp
