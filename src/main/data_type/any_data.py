@@ -38,5 +38,20 @@ class AnyData(ConvertData):
                 output_format=Formats.ASN1
             ),
             #
+            Data(
+                raw_data=r"..\..\SampleData\StoreMetadataRequest_wo_icon.base64",
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER_64,
+                output_format=Formats.ASN1,
+            ),
+            #
+            Data(
+                raw_data=r"..\..\SampleData\StoreMetadataRequest_wo_icon.base64",
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER_64,
+                output_format=Formats.ASN1,
+                re_parse_output=True
+            ),
+            #
         ]
         super().set_data_pool(data_pool)

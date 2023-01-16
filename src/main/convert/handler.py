@@ -7,7 +7,7 @@ from src.main.helper.formats import Formats
 from src.main.helper.util import is_hex, print_iter
 from src.main.mapping.asn1_elements import all_mapping
 from src.main.mapping.general import base64_formats, hex_formats, txt_formats, input_formats_supported, \
-    parsing_format_mapping
+    parsing_format_mapping, input_formats_supported_hex
 
 TAB = '    '
 M = None
@@ -46,7 +46,7 @@ def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORM
                     ('but not available' if isinstance(asn1_element, str) else 'and done'))
     if isinstance(input_data, bytes):
         input_data = input_data.hex()
-    if input_format in hex_formats and not is_hex(input_data):
+    if input_format in input_formats_supported_hex and not is_hex(input_data):
         input_data = base64.b64decode(input_data).hex()
         print_debug('base_profile hex conversion done, data is {0}'.format(input_data))
     if not asn1_element:
@@ -68,7 +68,7 @@ def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORM
         record_count += 1
         print_debug_var('offset', offset)
         print_debug_var('len', len)
-        if input_format in Formats.DER:
+        if input_format in [Formats.DER, Formats.DER_64]:
             temp = bytes.fromhex(input_data[offset:])
             try:  # Needed For Unknown data / TLV
                 M.from_der(temp)
