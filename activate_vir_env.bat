@@ -1,1 +1,0 @@
-call .venv\Scripts\activate

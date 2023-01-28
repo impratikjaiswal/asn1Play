@@ -3,7 +3,7 @@ import os
 from src.main.convert.handler import decode_encode_asn
 from src.main.helper.defaults import Defaults
 from src.main.helper.formats import Formats
-from src.main.helper.util import print_separator
+from util_helpers.util import print_separator
 from src.main.mapping.general import txt_formats
 
 

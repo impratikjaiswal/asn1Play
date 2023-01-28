@@ -4,7 +4,7 @@ from binascii import unhexlify
 
 from src.main.helper.defaults import Defaults
 from src.main.helper.formats import Formats
-from src.main.helper.util import is_hex, print_iter
+from util_helpers.util import is_hex, print_iter
 from src.main.mapping.asn1_elements import all_mapping
 from src.main.mapping.general import base64_formats, hex_formats, txt_formats, input_formats_supported, \
     parsing_format_mapping, input_formats_supported_hex
