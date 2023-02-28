@@ -1,12 +1,13 @@
 import base64
 import re
+
 from binascii import unhexlify
+from util_helpers.util import is_hex, print_iter
 
 from src.main.helper.defaults import Defaults
 from src.main.helper.formats import Formats
-from util_helpers.util import is_hex, print_iter
 from src.main.mapping.asn1_elements import all_mapping
-from src.main.mapping.general import base64_formats, hex_formats, txt_formats, input_formats_supported, \
+from src.main.mapping.general import base64_formats, txt_formats, input_formats_supported, \
     parsing_format_mapping, input_formats_supported_hex
 
 TAB = '    '
@@ -50,6 +51,13 @@ def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORM
         input_data = base64.b64decode(input_data).hex()
         print_debug('base_profile hex conversion done, data is {0}'.format(input_data))
     if not asn1_element:
+        print_debug('asn1_element is not provided; Only Conversion will be performed')
+        if input_format in input_formats_supported_hex:
+            # Data is converted to Hex
+            if output_format in [Formats.DER_64]:
+                return base64.b64encode(unhexlify(input_data)).decode()
+            if output_format in [Formats.DER]:
+                return input_data
         raise ValueError('asn1_element is not provided')
 
     parsing_data_current = ''

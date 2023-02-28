@@ -1,4 +1,5 @@
 from src.generated_code.asn1.GSMA import SGP_22
+from src.generated_code.asn1.GSMA.SGP_22 import version, Version
 from src.main.helper.convert_data import ConvertData
 from src.main.helper.data import Data
 from src.main.helper.formats import Formats
@@ -25,6 +26,22 @@ class AnyData(ConvertData):
         data_pool = [
             #
             Data(
+                raw_data="BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640",
+                asn1_element=None,
+                input_format=Formats.DER,
+                output_format=Formats.DER_64,
+                re_parse_output=True
+            ),
+            #
+            Data(
+                raw_data="vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAxmQIGQA==",
+                asn1_element=None,
+                input_format=Formats.DER_64,
+                output_format=Formats.DER,
+                re_parse_output=True
+            ),
+            #
+            Data(
                 raw_data="bf2a0499020520",
                 asn1_element=SGP_22.RSPDefinitions.UpdateMetadataRequest,
                 input_format=Formats.DER,
@@ -39,19 +56,22 @@ class AnyData(ConvertData):
             ),
             #
             Data(
-                raw_data=r"..\..\SampleData\StoreMetadataRequest_wo_icon.base64",
+                raw_data=
+                r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest_wo_icon.base64" if version == Version.v3_0_0
+                else r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest_wo_icon.base64",
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1,
             ),
             #
             Data(
-                raw_data=r"..\..\SampleData\StoreMetadataRequest_wo_icon.base64",
+                raw_data=
+                r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest_wo_icon.base64" if version == Version.v3_0_0
+                else r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest_wo_icon.base64",
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1,
                 re_parse_output=True
             ),
-            #
         ]
         super().set_data_pool(data_pool)

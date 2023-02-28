@@ -2,9 +2,11 @@
 wheel
 # Required Build Tool
 cmake
-# Util Lib From Main Branch
-# git+https://github.com/impratikjaiswal/pythonHelpers
-# Util Lib From Specific Tag
-git+https://github.com/impratikjaiswal/pythonHelpers@v1.3.0
-# Pycrate lib
+# Pycrate
 pycrate
+# Pandas
+pandas
+# Util Lib From Specific Tag (Remove @ String for Main Branch)
+git+https://impratikjaiswal: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@github.com/impratikjaiswal/pythonHelpers@v1.7.0
+# Util Lib From Local Path
+# D:\Other\Github_Self\pythonHelpers

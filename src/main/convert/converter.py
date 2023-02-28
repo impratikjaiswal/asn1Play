@@ -54,12 +54,12 @@ def parse_or_update_any_data(base_data, input_format=Defaults.FORMAT_INPUT, outp
     output_sep = multi_line_sep if output_format in txt_formats else one_line_sep
     if print_info:
         print(multi_obj_sep.join(filter(None, [
-            f'Asn1 Element is{one_line_sep}{asn1_element.fullname()}',
+            f'Asn1 Element is{one_line_sep}{asn1_element.fullname()}' if asn1_element else 'Conversion Mode',
             f'Input Format is{one_line_sep}{input_format}',
             f'Output Format is{one_line_sep}{output_format}',
             '' if base_data_org == base_data else f'Input File is{one_line_sep}{base_data_org}'
         ])))
-    if print_info:
+    if print_input:
         print(f'Input Data is{input_sep}{base_data}')
     print(f'OutPut Data is{output_sep}{parsed_data}')
     if re_parse_output:

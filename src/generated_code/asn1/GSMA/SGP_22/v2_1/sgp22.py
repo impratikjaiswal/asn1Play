@@ -702,7 +702,7 @@ class PKIX1Explicit88:
     
     #-----< EmailAddress >-----#
     EmailAddress = STR_IA5(name='EmailAddress', mode=MODE_TYPE)
-    EmailAddress._const_sz = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=1, ub=255)], ev=None, er=[])
+    EmailAddress._const_sz = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=1, ub=128)], ev=None, er=[])
     
     #-----< Name >-----#
     Name = CHOICE(name='Name', mode=MODE_TYPE)
@@ -1305,6 +1305,7 @@ class PKIX1Explicit88:
     #-----< TerminalType >-----#
     TerminalType = INT(name='TerminalType', mode=MODE_TYPE)
     TerminalType._cont = ASN1Dict([('telex', 3), ('teletex', 4), ('g3-facsimile', 5), ('g4-facsimile', 6), ('ia5-terminal', 7), ('videotex', 8)])
+    TerminalType._const_val = ASN1Set(rv=[], rr=[ASN1RangeInt(lb=0, ub=256)], ev=None, er=[])
     
     #-----< teletex-domain-defined-attributes >-----#
     teletex_domain_defined_attributes = INT(name='teletex-domain-defined-attributes', mode=MODE_VALUE)
@@ -1366,7 +1367,7 @@ class PKIX1Explicit88:
     
     #-----< ub-emailaddress-length >-----#
     ub_emailaddress_length = INT(name='ub-emailaddress-length', mode=MODE_VALUE)
-    ub_emailaddress_length._val = 255
+    ub_emailaddress_length._val = 128
     
     #-----< ub-common-name-length >-----#
     ub_common_name_length = INT(name='ub-common-name-length', mode=MODE_VALUE)
