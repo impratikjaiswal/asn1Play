@@ -7,6 +7,6 @@ pycrate
 # Pandas
 pandas
 # Util Lib From Specific Tag (Remove @ String for Main Branch)
-git+https://impratikjaiswal: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@github.com/impratikjaiswal/pythonHelpers@v1.7.0
+git+https://impratikjaiswal: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@github.com/impratikjaiswal/pythonHelpers@v1.7.0
 # Util Lib From Local Path
 # D:\Other\Github_Self\pythonHelpers
