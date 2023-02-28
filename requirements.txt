@@ -1,12 +1,3 @@
-# Required Build Tool
-wheel
-# Required Build Tool
-cmake
-# Pycrate
-pycrate
-# Pandas
-pandas
-# Util Lib From Specific Tag (Remove @ String for Main Branch)
-git+https://impratikjaiswal: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@github.com/impratikjaiswal/pythonHelpers@v1.7.0
-# Util Lib From Local Path
-# D:\Other\Github_Self\pythonHelpers
+-r requirements_build.txt
+-r requirements_external.txt
+-r requirements_internal.txt
