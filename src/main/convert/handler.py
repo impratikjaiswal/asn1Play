@@ -1,14 +1,14 @@
 import base64
 import re
 
+import util_helpers
 from binascii import unhexlify
-from util_helpers.util import is_hex, print_iter
-
+from util_helpers.util import is_hex, print_iter, trim_and_kill_all_white_spaces
 from src.main.helper.defaults import Defaults
 from src.main.helper.formats import Formats
+from src.main.helper.formatsGroup import FormatsGroup
 from src.main.mapping.asn1_elements import all_mapping
-from src.main.mapping.general import base64_formats, txt_formats, input_formats_supported, \
-    parsing_format_mapping, input_formats_supported_hex
+from src.main.mapping.general import parsing_format_mapping
 
 TAB = '    '
 M = None
@@ -39,23 +39,32 @@ def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORM
     print_debug_var('output_format', output_format)
     print_debug_var('asn1_element', asn1_element)
     offset = 0
-    if input_format not in input_formats_supported:
-        raise ValueError('Unknown input format {0}.format(input_format)')
+    if input_format not in FormatsGroup.INPUT_FORMATS:
+        raise ValueError(f'Unknown input format {input_format}')
     if isinstance(asn1_element, str):  # Str is provided, check the mapping
         asn1_element = all_mapping.get(asn1_element, asn1_element)
         print_debug('main_element mapping conversion is needed ' +
                     ('but not available' if isinstance(asn1_element, str) else 'and done'))
     if isinstance(input_data, bytes):
         input_data = input_data.hex()
-    if input_format in input_formats_supported_hex and not is_hex(input_data):
-        input_data = base64.b64decode(input_data).hex()
+    if input_format in FormatsGroup.INPUT_FORMATS_ASCII:
+        input_data = util_helpers.util.ascii_to_hex_str(input_data)
         print_debug('base_profile hex conversion done, data is {0}'.format(input_data))
+    if input_format in FormatsGroup.INPUT_FORMATS_HEX:
+        # Trim Hex Data
+        input_data = trim_and_kill_all_white_spaces(input_data)
+        print_debug('base_profile Trimming done, data is {0}'.format(input_data))
+        if not is_hex(input_data):
+            input_data = base64.b64decode(input_data).hex()
+            print_debug('base_profile hex conversion done, data is {0}'.format(input_data))
     if not asn1_element:
         print_debug('asn1_element is not provided; Only Conversion will be performed')
-        if input_format in input_formats_supported_hex:
+        if input_format in FormatsGroup.INPUT_FORMATS_NON_TXT:
             # Data is converted to Hex
             if output_format in [Formats.DER_64]:
                 return base64.b64encode(unhexlify(input_data)).decode()
+            if output_format in FormatsGroup.ASCII_FORMATS:
+                return util_helpers.util.hex_str_to_ascii(input_data)
             if output_format in [Formats.DER]:
                 return input_data
         raise ValueError('asn1_element is not provided')
@@ -112,7 +121,7 @@ def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORM
                     parsing_data_current = M.to_asn1()
                     parsing_data_current = M.from_asn1()
             else:
-                if input_format in txt_formats:
+                if input_format in FormatsGroup.TXT_FORMATS:
                     parsing_data_current = 'Unknown Data Found: ' + str(temp)
                 else:
                     parsing_data_current = 'Unknown Data Found: ' + temp.hex()
@@ -120,7 +129,7 @@ def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORM
             if parsing_data_current:
                 # Test cases of asn paring are failing due to 'os.linesep', need to replace same in stored data
                 # parsing_data_concatenated = parsing_data_concatenated + os.linesep + parsing_data_current
-                sep = '\n' if (output_format in txt_formats or not known_data) else ''
+                sep = '\n' if (output_format in FormatsGroup.TXT_FORMATS or not known_data) else ''
                 parsing_data_concatenated = sep.join(
                     filter(None, [parsing_data_concatenated, exception_msg, parsing_data_current]))
             if known_data:
@@ -129,7 +138,7 @@ def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORM
         if not known_data:
             continue
 
-    if parse_only and output_format in base64_formats:
+    if parse_only and output_format in FormatsGroup.BASE64_FORMATS:
         parsing_data_concatenated = base64.b64encode(unhexlify(parsing_data_concatenated)).decode()
     if parse_only:
         return parsing_data_concatenated

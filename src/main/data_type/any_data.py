@@ -25,6 +25,27 @@ class AnyData(ConvertData):
 
     def set_data_pool(self):
         data_pool = [
+            # Der to ASCII
+            Data(
+                raw_data="50726174696B204A61697377616C",
+                asn1_element=None,
+                input_format=Formats.DER,
+                output_format=Formats.ASCII
+            ),
+            # Hex to ASCII
+            Data(
+                raw_data="50726174696B204A61697377616C",
+                asn1_element=None,
+                input_format=Formats.HEX,
+                output_format=Formats.ASCII
+            ),
+            # ASCII to Hex
+            Data(
+                raw_data="Pratik Jaiswal",
+                asn1_element=None,
+                input_format=Formats.ASCII,
+                output_format=Formats.DER
+            ),
             # Hex to Base 64
             Data(
                 raw_data="BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640",
@@ -39,6 +60,79 @@ class AnyData(ConvertData):
                 input_format=Formats.DER_64,
                 output_format=Formats.DER
             ),
+            # ASCII to Base 64
+            Data(
+                raw_data="Pratik Jaiswal",
+                asn1_element=None,
+                input_format=Formats.ASCII,
+                output_format=Formats.DER_64
+            ),
+            # Base 64 to ASCII
+            Data(
+                raw_data="UHJhdGlrIEphaXN3YWw=",
+                asn1_element=None,
+                input_format=Formats.DER_64,
+                output_format=Formats.ASCII
+            ),
+            # Input Data with White spaces
+            Data(
+                raw_data="bf2a   04 99 02 05 20    ",
+                asn1_element=SGP_22.RSPDefinitions.UpdateMetadataRequest,
+                input_format=Formats.DER,
+                output_format=Formats.ASN1
+            ),
+            # Input Data From File
+            Data(
+                raw_data=
+                r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64" if version == Version.v3_0_0
+                else r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64",
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER_64,
+                output_format=Formats.ASN1
+            ),
+            # Input Data From Directory (All Known File Extensions)
+            Data(
+                raw_data=r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest" if version == Version.v3_0_0
+                else r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest",
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format='',
+                output_format=None
+            ),
+            # Input Data From Directory (Only ASN1 Files)
+            Data(
+                raw_data=r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest" if version == Version.v3_0_0
+                else r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest",
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.ASN1,
+                output_format=Formats.DER_64
+            ),
+            # Input Data From Directory (Only Base64 Files)
+            Data(
+                raw_data=r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest" if version == Version.v3_0_0
+                else r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest",
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER_64,
+                output_format=Formats.ASN1
+            ),
+            # Input Data From Directory (Only Hex Files)
+            Data(
+                raw_data=r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest" if version == Version.v3_0_0
+                else r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest",
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER,
+                output_format=Formats.ASN1
+            ),
+            # Input Data with List
+            Data(
+                raw_data=[
+                    'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
+                    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                    'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640',
+                ],
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER_64,
+                output_format=Formats.ASN1
+            ),
             # re_parse_output=True
             Data(
                 raw_data="BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640",
@@ -46,15 +140,6 @@ class AnyData(ConvertData):
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
                 re_parse_output=True
-            ),
-            # Input From File
-            Data(
-                raw_data=
-                r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest_wo_icon.base64" if version == Version.v3_0_0
-                else r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest_wo_icon.base64",
-                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
-                input_format=Formats.DER_64,
-                output_format=Formats.ASN1
             ),
             # ProfileElement
             Data(

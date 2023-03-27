@@ -6,16 +6,33 @@ from src.main.data_type.any_data import AnyData
 from src.main.data_type.profile_element import ProfileElement
 from src.main.data_type.store_metadata_request import StoreMetaData
 from src.main.data_type.update_metadata_request import UpdateMetadataRequest
+from src.main.data_type.user_data import UserData
 from src.main.helper.constants_config import ConfigConst
 from src.main.helper.convert_data import ConvertData
 
 
 def process_data():
     data_types = [
+        # #####
+        # # Sample Store Meta Data Request
+        # #####
         # StoreMetaData(),
+        # #####
+        # # Sample Update Meta Data Request
+        # #####
         # UpdateMetadataRequest(),
+        # #####
+        # # Sample Profile Elements
+        # #####
         # ProfileElement(),
-        AnyData(),
+        # #####
+        # # Sample With Plenty vivid Examples
+        # #####
+        # AnyData(),
+        # #####
+        # # Empty class for user usage
+        # #####
+        UserData(),
     ]
     for data_type in data_types:
         data_type.set_data_pool()

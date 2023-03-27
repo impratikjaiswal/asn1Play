@@ -1,0 +1,16 @@
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1",
+  iconType 1 -- png --,
+  notificationConfigurationInfo {
+    {
+      profileManagementOperation 'F'H -- notificationInstall | notificationLocalEnable | notificationLocalDisable | notificationLocalDelete --,
+      notificationAddress "testsmdpplus1.example.com"
+    }
+  },
+  profileOwner {
+    mccMnc '92F918'H
+  },
+  profilePolicyRules '01'B -- ppr1 --
+}

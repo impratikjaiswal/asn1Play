@@ -15,3 +15,5 @@ class Formats:
     CER_WS = 'cer_ws'
     JER = 'jer'
     UPER = 'uper'
+    ASCII = 'ascii'
+    HEX = 'hex'

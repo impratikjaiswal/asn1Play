@@ -29,56 +29,60 @@ class StoreMetaData(ConvertData):
 
         data_pool_files_input_2_4 = [
             #
-            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest.asn1",
+            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.asn1",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest_wo_icon.asn1",
+            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_wo_icon.asn1",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest.hex",
+            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest_wo_icon.hex",
+            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.hex",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest.base64",
+            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest_wo_icon.base64",
+            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.base64",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest_Generated.asn1",
+            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest_wo_icon_Generated.asn1",
+            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_Generated.asn1",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest_Mandatory.asn1",
+            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_wo_icon_Generated.asn1",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest_ppr.asn1",
+            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest_Mandatory.hex",
+            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_ppr.asn1",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest_ppr.hex",
+            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_Mandatory.hex",
+            #
+            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_ppr.hex",
             #
         ]
         data_pool_files_input_3_0_0 = [
             #
-            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest.asn1",
+            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.asn1",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest_wo_icon.asn1",
+            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.asn1",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest.hex",
+            r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest_wo_icon.hex",
+            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.hex",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest.base64",
+            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest_wo_icon.base64",
+            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.base64",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest_Generated.asn1",
+            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest_wo_icon_Generated.asn1",
+            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Generated.asn1",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest_Mandatory.asn1",
+            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon_Generated.asn1",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest_ppr.asn1",
+            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest_Mandatory.hex",
+            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_ppr.asn1",
             #
-            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest_ppr.hex",
+            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.hex",
+            #
+            r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_ppr.hex",
             #
         ]
         data_pool = data_pool_direct_input
