@@ -85,7 +85,8 @@ def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORM
         record_count += 1
         print_debug_var('offset', offset)
         print_debug_var('len', len)
-        if input_format in [Formats.DER, Formats.DER_64]:
+        temp = ''
+        if input_format in FormatsGroup.INPUT_FORMATS_HEX:
             temp = bytes.fromhex(input_data[offset:])
             try:  # Needed For Unknown data / TLV
                 M.from_der(temp)
