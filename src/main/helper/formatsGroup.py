@@ -12,7 +12,7 @@ class FormatsGroup:
 
     INPUT_FORMATS_HEX = [Formats.DER, Formats.DER_64, Formats.HEX]
 
-    INPUT_FORMATS_DER = [Formats.DER]
+    INPUT_FORMATS_DER = [Formats.DER, Formats.HEX]
 
     INPUT_FORMATS_DER_BASE_64 = [Formats.DER_64]
 

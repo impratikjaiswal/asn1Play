@@ -61,11 +61,11 @@ def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORM
         print_debug('asn1_element is not provided; Only Conversion will be performed')
         if input_format in FormatsGroup.INPUT_FORMATS_NON_TXT:
             # Data is converted to Hex
-            if output_format in [Formats.DER_64]:
+            if output_format in FormatsGroup.INPUT_FORMATS_DER_BASE_64:
                 return base64.b64encode(unhexlify(input_data)).decode()
             if output_format in FormatsGroup.ASCII_FORMATS:
                 return util_helpers.util.hex_str_to_ascii(input_data)
-            if output_format in [Formats.DER]:
+            if output_format in FormatsGroup.INPUT_FORMATS_DER:
                 return input_data
         raise ValueError('asn1_element is not provided')
 
@@ -95,7 +95,7 @@ def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORM
                 exception_msg = str(e)
                 known_data = False
             offset += (len(temp) * 2)
-        if input_format in Formats.ASN1:
+        if input_format in FormatsGroup.INPUT_FORMATS_ASN:
             temp = input_data[offset:]
             next_offset = find_offset_of_section(temp, '{', '}') + 1
             print_debug_var('next_offset', next_offset)

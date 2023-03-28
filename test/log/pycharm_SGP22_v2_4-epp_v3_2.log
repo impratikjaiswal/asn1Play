@@ -1,6 +1,6 @@
 --------------------------------------------------------------------------------
 Python version is 3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
-asn1play version is v3.0.1
+asn1play version is v3.0.2
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 pythonHelpers version is v1.7.0
@@ -1486,6 +1486,10 @@ Conversion Mode; Input Format is: der; Output Format is: ascii
 Input Data is: 50726174696B204A61697377616C
 OutPut Data is: Pratik Jaiswal
 --------------------------------------------------------------------------------
+Conversion Mode; Input Format is: hex; Output Format is: ascii
+Input Data is: 50726174696B204A61697377616C
+OutPut Data is: Pratik Jaiswal
+--------------------------------------------------------------------------------
 Conversion Mode; Input Format is: ascii; Output Format is: der
 Input Data is: Pratik Jaiswal
 OutPut Data is: 50726174696b204a61697377616c
@@ -2436,6 +2440,16 @@ OutPut Data is:
   profilePolicyRules '01'B -- ppr1 --
 }
 --------------------------------------------------------------------------------
+Asn1 Element is: StoreMetadataRequest; Input Format is: hex; Output Format is: asn1
+Input Data is: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
+OutPut Data is:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1",
+  profilePolicyRules '01'B -- ppr1 --
+}
+--------------------------------------------------------------------------------
 Asn1 Element is: StoreMetadataRequest; Input Format is: der; Output Format is: asn1
 Input Data is: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
 OutPut Data is:
@@ -2794,6 +2808,10 @@ OutPut Data is:
   profileName "Operational Profile Name 1",
   profilePolicyRules '01'B -- ppr1 --
 }
+--------------------------------------------------------------------------------
+Conversion Mode; Input Format is: hex; Output Format is: ascii
+Input Data is: 57656c636f6d6520546f2041736e506c617920212121
+OutPut Data is: Welcome To AsnPlay !!!
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
               All Done.              
