@@ -22,11 +22,10 @@ However, same can be modified as per user choice.
 
 # Few Features 
 <ul>
-<li>Auto Trimming of HEX Data (White Spaces Deletion) 
-<li>Auto Detection of Base64 & its conversion
-<li>Conversion Mode for HEX, ASCII & Base 64
-<li>Input Data can be provided in file (Binary as well as Text; any extension) OR List OR inline.
-<li>If input file extension is ".asn1", then default input/output formats will be used (if not defined).
+<li>Auto Trimming of HEX Data (White Spaces Deletion).
+<li>Auto Detection of Base64 & Hex data.
+<li>Conversion Mode for HEX, ASCII & Base64.
+<li>Support of Individual Mode; Raw/Target Data can be configured Directly or file path (Binary as well as Text File; any extension) can be passed.
+<li>Support of Bulk Mode; Raw/Target Data can be configured Directly in List/Array format or Directory Path can be passed (Files with Known extensions will be picked based on Input Format).
+<li>For Known File Extensions (".asn1", ".asn", ".base64", ".hex"), Input/Output Format may be modified automatically as per Default Values.
 </ul>
-
-".asn1"
