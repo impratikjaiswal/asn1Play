@@ -3,3 +3,6 @@ pandas
 
 # Pycrate
 pycrate
+
+# Pyyaml
+pyyaml

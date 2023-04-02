@@ -30,6 +30,8 @@ class FormatsGroup:
 
     INPUT_FILE_FORMATS_ASN = ['.asn1', '.asn']
 
+    INPUT_FILE_FORMATS_YML = ['.yaml', '.yml']
+
     INPUT_FILE_FORMATS = INPUT_FILE_FORMATS_HEX + INPUT_FILE_FORMATS_BASE_64 + INPUT_FILE_FORMATS_ASN
 
     # Not able to use python list comprehension

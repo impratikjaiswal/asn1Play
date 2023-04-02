@@ -24,7 +24,25 @@ class AnyData(ConvertData):
         pass
 
     def set_data_pool(self):
+        data_pool_experiment = [
+            # # Der to ASCII via YAML
+            # Data(
+            #     raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\Generic\ASCII\hex_to_ascii.yaml",
+            # ),
+            # # Der to ASCII via YAML, same file
+            # Data(
+            #     raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\Generic\ASCII\hex_to_ascii_op_same_file.yaml",
+            # ),
+        ]
         data_pool = [
+            # Der to ASCII via YAML
+            Data(
+                raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\Generic\ASCII\hex_to_ascii.yaml",
+            ),
+            # Der to ASCII via YAML, same file
+            Data(
+                raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\Generic\ASCII\hex_to_ascii_op_same_file.yaml",
+            ),
             # Der to ASCII
             Data(
                 raw_data="50726174696B204A61697377616C",
@@ -171,3 +189,4 @@ class AnyData(ConvertData):
             ),
         ]
         super().set_data_pool(data_pool)
+        # super().set_data_pool(data_pool_experiment)

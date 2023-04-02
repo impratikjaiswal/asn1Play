@@ -4,8 +4,8 @@ import re
 import util_helpers
 from binascii import unhexlify
 from util_helpers.util import is_hex, print_iter, trim_and_kill_all_white_spaces
+
 from src.main.helper.defaults import Defaults
-from src.main.helper.formats import Formats
 from src.main.helper.formatsGroup import FormatsGroup
 from src.main.mapping.asn1_elements import all_mapping
 from src.main.mapping.general import parsing_format_mapping
@@ -39,6 +39,8 @@ def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORM
     print_debug_var('output_format', output_format)
     print_debug_var('asn1_element', asn1_element)
     offset = 0
+    if not input_data:
+        raise ValueError(f'Mandatory input_data is missing.')
     if input_format not in FormatsGroup.INPUT_FORMATS:
         raise ValueError(f'Unknown input format {input_format}')
     if isinstance(asn1_element, str):  # Str is provided, check the mapping
