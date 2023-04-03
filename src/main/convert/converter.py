@@ -51,7 +51,8 @@ def print_data(base_data, input_format, output_format, print_input, print_info, 
             {'output_data': pss(parsed_data) if output_format in FormatsGroup.TXT_FORMATS else parsed_data})
     if re_parse_output:
         print(f'Re-parsed Data is{input_sep}{re_parsed_data}')
-        output_dic.update({'re_parsed_data': re_parsed_data})
+        output_dic.update(
+            {'re_parsed_data': pss(re_parsed_data) if input_format in FormatsGroup.TXT_FORMATS else re_parsed_data})
     util.print_separator()
     return output_dic
 
