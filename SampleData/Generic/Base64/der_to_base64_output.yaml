@@ -1,0 +1,19 @@
+# Der to Base 64
+input:
+    asn1_element: None
+    input_format: Formats.DER
+    output_format: Formats.DER_64
+    raw_data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
+    output_file: output
+output:
+    info: 'Conversion Mode; Input Format is: der; Output Format is: der_with_base64'
+    info_additional: 'Input Yml is: D:\Other\Github_Self\asn1Play\SampleData\Generic\Base64\der_to_base64.yaml'
+    input_data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
+    output_data: vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAxmQIGQA==
+output_version:
+    Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
+    pythonHelpers: v1.7.3
+    asn1play: v4.0.0
+    SGP22: v3_0_0
+    eUICC_Profile_Package: v3_2
+time_stamp: 2023-04-03 16:25:38.760770

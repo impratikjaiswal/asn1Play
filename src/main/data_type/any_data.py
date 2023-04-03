@@ -25,23 +25,27 @@ class AnyData(ConvertData):
 
     def set_data_pool(self):
         data_pool_experiment = [
-            # # Der to ASCII via YAML
-            # Data(
-            #     raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\Generic\ASCII\hex_to_ascii.yaml",
-            # ),
-            # # Der to ASCII via YAML, same file
-            # Data(
-            #     raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\Generic\ASCII\hex_to_ascii_op_same_file.yaml",
-            # ),
         ]
         data_pool = [
             # Der to ASCII via YAML
-            Data(
-                raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\Generic\ASCII\hex_to_ascii.yaml",
-            ),
+            Data(raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\Generic\ASCII\hex_to_ascii.yaml"),
             # Der to ASCII via YAML, same file
+            Data(raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\Generic\ASCII\hex_to_ascii_op_same_file.yaml"),
+            # Der to Base64 via YAML
+            Data(raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\Generic\Base64\der_to_base64.yaml"),
+            # Base64 to Der via YAML
+            Data(raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\Generic\Base64\base64_to_der.yaml"),
+            # StoreMetadataRequest; Der to ASN via YAML
             Data(
-                raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\Generic\ASCII\hex_to_ascii_op_same_file.yaml",
+                raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.hex.yaml"
+            ),
+            # StoreMetadataRequest; ASN to Der via YAML
+            Data(
+                raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.asn1.yaml"
+            ),
+            # PROFILE_OPERATIONAL1; Der to Der via YAML
+            Data(
+                raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\TCA\eUICC_Profile_Package\v3_2\PROFILE_OPERATIONAL1.hex.yaml"
             ),
             # Der to ASCII
             Data(

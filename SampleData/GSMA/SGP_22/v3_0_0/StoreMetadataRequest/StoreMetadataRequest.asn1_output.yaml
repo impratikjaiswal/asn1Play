@@ -1,0 +1,30 @@
+input:
+    asn1_element: SGP_22.RSPDefinitions.StoreMetadataRequest
+    input_format: Formats.ASN1
+    output_format: Formats.DER
+    output_file: output
+    raw_data: |-
+        {
+          iccid '989209012143658709F5'H,
+          serviceProviderName "SP Name 1",
+          profileName "Operational Profile Name 1",
+          profilePolicyRules '01'B -- ppr1 --
+        }
+output:
+    info: 'Asn1 Element is: StoreMetadataRequest; Input Format is: asn1; Output Format is: der'
+    info_additional: 'Input Yml is: D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.asn1.yaml'
+    input_data: |-
+        {
+          iccid '989209012143658709F5'H,
+          serviceProviderName "SP Name 1",
+          profileName "Operational Profile Name 1",
+          profilePolicyRules '01'B -- ppr1 --
+        }
+    output_data: bf25375a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d65203199020640
+output_version:
+    Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
+    pythonHelpers: v1.7.3
+    asn1play: v4.0.0
+    SGP22: v3_0_0
+    eUICC_Profile_Package: v3_2
+time_stamp: 2023-04-03 16:25:38.780717

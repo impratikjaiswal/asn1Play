@@ -1,12 +1,15 @@
 import copy
 import os
 
-import yaml
+from ruamel.yaml import YAML
+from ruamel.yaml.scalarstring import PreservedScalarString as pss
 from util_helpers import util
 from util_helpers.constants_config import ConfigConst as util_ConfigConst
 from util_helpers.util import get_tool_name_w_version
 
+from src.generated_code.asn1.GSMA import SGP_22
 from src.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
+from src.generated_code.asn1.TCA import eUICC_Profile_Package
 from src.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
 from src.main.convert.handler import decode_encode_asn
 from src.main.helper.constants_config import ConfigConst
@@ -44,7 +47,8 @@ def print_data(base_data, input_format, output_format, print_input, print_info, 
         output_dic.update({'input_data': base_data})
     if parsed_data:
         print(f'OutPut Data is{output_sep}{parsed_data}')
-        output_dic.update({'output_data': parsed_data})
+        output_dic.update(
+            {'output_data': pss(parsed_data) if output_format in FormatsGroup.TXT_FORMATS else parsed_data})
     if re_parse_output:
         print(f'Re-parsed Data is{input_sep}{re_parsed_data}')
         output_dic.update({'re_parsed_data': re_parsed_data})
@@ -72,17 +76,19 @@ def validate_config_data(config_data):
     for k, v in config_data.items():
         if v is not None and v in ['None']:
             config_data[k] = None
+        if k in [Keys.ASN1_ELEMENT]:
+            temp = str(v).split('.')
+            value = temp[-1]
+            if temp[0] == 'SGP_22':
+                config_data[k] = getattr(SGP_22.RSPDefinitions, value)
+            if temp[0] == 'eUICC_Profile_Package':
+                config_data[k] = getattr(eUICC_Profile_Package.PEDefinitions, value)
         if k in [Keys.INPUT_FORMAT, Keys.OUTPUT_FORMAT]:
             temp = str(v).split('.')
+            value = temp[-1]
             if temp[0] == 'Formats':
-                config_data[k] = getattr(Formats, temp[1])
+                config_data[k] = getattr(Formats, value)
     return config_data
-
-
-def config_as_per_files_ext(input_file):
-    file_dic = yaml.safe_load(input_file)
-    config_data = validate_config_data(copy.deepcopy(file_dic))
-    return file_dic, Data(**config_data)
 
 
 def input_output_format_as_per_files_ext(input_file, input_format, output_format):
@@ -109,6 +115,27 @@ def set_defaults(input_format, output_format, print_input, print_info, re_parse_
     if print_info is None: print_info = Defaults.PRINT_INFO
     if re_parse_output is None: re_parse_output = Defaults.RE_PARSE_OUTPUT
     return input_format, output_format, print_input, print_info, re_parse_output
+
+
+def read_yaml(input_file):
+    yaml_object = YAML()
+    file_dic = yaml_object.load(input_file)
+    config_data = validate_config_data(copy.deepcopy(file_dic))
+    return file_dic, Data(**config_data)
+
+
+def write_yml(base_data_org, file_dic, output_dic, output_versions_dic):
+    output_file = file_dic.get(Keys.INPUT).get(Keys.OUTPUT_FILE, None)
+    file_name = util.append_in_file_name(str_file_path=base_data_org,
+                                         str_append=output_file) if output_file else base_data_org
+    with open(file_name, 'w') as file:
+        file_dic[Keys.OUTPUT] = output_dic
+        file_dic[Keys.OUTPUT_VERSION] = output_versions_dic
+        file_dic[Keys.TIME_STAMP] = util.get_time_stamp(files_format=False, default_format=True)
+        yaml_object = YAML()
+        yaml_object.width = 1000
+        yaml_object.indent(mapping=4)
+        yaml_object.dump(file_dic, file)
 
 
 def parse_or_update_any_data(base_data, input_format=None, output_format=None, print_input=None, print_info=None,
@@ -163,7 +190,7 @@ def parse_or_update_any_data(base_data, input_format=None, output_format=None, p
         file_ext = util.get_file_name_and_extn(file_path=base_data, only_extn=True)
         if file_ext in FormatsGroup.INPUT_FILE_FORMATS_YML:
             mode_key = Modes.YML
-            file_dic, data = config_as_per_files_ext(resp)
+            file_dic, data = read_yaml(resp)
             #
             base_data = data.raw_data
             input_format = data.input_format
@@ -206,12 +233,5 @@ def parse_or_update_any_data(base_data, input_format=None, output_format=None, p
                             mode_key=mode_key, mode_key_additional_data=mode_key_additional_data,
                             mode_value=base_data_org)
     if mode_key == Modes.YML:
-        output_file = file_dic.get(Keys.INPUT).get(Keys.OUTPUT_FILE, None)
-        file_name = util.append_in_file_name(str_file_path=base_data_org,
-                                             str_append=output_file) if output_file else base_data_org
-        with open(file_name, 'w') as file:
-            file_dic['output'] = output_dic
-            file_dic['output_version'] = output_versions_dic
-            file_dic['time_stamp'] = util.get_time_stamp(files_format=False, default_format=True)
-            yaml.dump(file_dic, file)
+        write_yml(base_data_org, file_dic, output_dic, output_versions_dic)
     return parsed_data
