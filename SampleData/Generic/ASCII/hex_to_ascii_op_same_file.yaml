@@ -4,14 +4,14 @@ input:
     output_format: Formats.ASCII
     raw_data: 57656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c617920212121
 output:
-    info: 'Conversion Mode; Input Format is: hex; Output Format is: ascii'
-    info_additional: 'Input Yml is: D:\Other\Github_Self\asn1Play\SampleData\Generic\ASCII\hex_to_ascii_op_same_file.yaml'
+    info: 'Conversion Mode; Input Format: hex; Output Format: ascii'
+    info_additional: 'Input Yml: ..\..\SampleData\Generic\ASCII\hex_to_ascii_op_same_file.yaml'
     input_data: 57656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c617920212121
     output_data: Welcome To AsnPlay !!!Welcome To AsnPlay !!!Welcome To AsnPlay !!!Welcome To AsnPlay !!!
 output_version:
     Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
     pythonHelpers: v1.7.3
-    asn1play: v4.0.0
+    asn1play: v4.0.1
     SGP22: v3_0_0
     eUICC_Profile_Package: v3_2
-time_stamp: 2023-04-03 16:25:38.754785
+time_stamp: 2023-04-04 01:24:24.209155

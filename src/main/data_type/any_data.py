@@ -24,28 +24,33 @@ class AnyData(ConvertData):
         pass
 
     def set_data_pool(self):
-        data_pool_experiment = [
-        ]
         data_pool = [
             # Der to ASCII via YAML
-            Data(raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\Generic\ASCII\hex_to_ascii.yaml"),
+            Data(raw_data=r"..\..\SampleData\Generic\ASCII\hex_to_ascii.yaml"),
             # Der to ASCII via YAML, same file
-            Data(raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\Generic\ASCII\hex_to_ascii_op_same_file.yaml"),
+            Data(raw_data=r"..\..\SampleData\Generic\ASCII\hex_to_ascii_op_same_file.yaml"),
             # Der to Base64 via YAML
-            Data(raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\Generic\Base64\der_to_base64.yaml"),
+            Data(raw_data=r"..\..\SampleData\Generic\Base64\der_to_base64.yaml"),
             # Base64 to Der via YAML
-            Data(raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\Generic\Base64\base64_to_der.yaml"),
+            Data(raw_data=r"..\..\SampleData\Generic\Base64\base64_to_der.yaml"),
             # StoreMetadataRequest; Der to ASN via YAML
             Data(
-                raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.hex.yaml"
+                raw_data=r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.hex.yaml" if version == Version.v3_0_0
+                else r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.hex.yaml",
             ),
             # StoreMetadataRequest; ASN to Der via YAML
             Data(
-                raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.asn1.yaml"
+                raw_data=r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.asn1.yaml" if version == Version.v3_0_0
+                else r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.asn1.yaml",
+            ),
+            # StoreMetadataRequest Mandatory; re_parse_output ASN to Der via YAML
+            Data(
+                raw_data=r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yaml" if version == Version.v3_0_0
+                else r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yaml",
             ),
             # PROFILE_OPERATIONAL1; Der to Der via YAML
             Data(
-                raw_data=r"D:\Other\Github_Self\asn1Play\SampleData\TCA\eUICC_Profile_Package\v3_2\PROFILE_OPERATIONAL1.hex.yaml"
+                raw_data=r"..\..\SampleData\TCA\eUICC_Profile_Package\v3_2\PROFILE_OPERATIONAL1.hex.yaml"
             ),
             # Der to ASCII
             Data(
@@ -193,4 +198,3 @@ class AnyData(ConvertData):
             ),
         ]
         super().set_data_pool(data_pool)
-        # super().set_data_pool(data_pool_experiment)

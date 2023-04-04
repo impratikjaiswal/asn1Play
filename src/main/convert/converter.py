@@ -21,10 +21,21 @@ from src.main.helper.keys import Keys
 from src.main.helper.modes import Modes
 
 
+def get_dic_data_and_print(key, sep, value, get_only=False):
+    if '\n' in value:
+        value = pss(value)
+    str_data = f'{util.get_user_friendly_name(key)}{sep}{value}'
+    if get_only:
+        return str_data
+    print(str_data)
+    return {key: value}
+
+
 def print_data(base_data, input_format, output_format, print_input, print_info, re_parse_output,
                asn1_element, parsed_data, re_parsed_data, mode_key, mode_key_additional_data, mode_value):
     output_dic = {}
     one_line_sep = ': '
+    info_sep = ' => '
     multi_line_sep = ':\n'
     multi_obj_sep = '; '
     mode_key = ' '.join(filter(None, [mode_key, mode_key_additional_data]))
@@ -32,27 +43,22 @@ def print_data(base_data, input_format, output_format, print_input, print_info, 
     output_sep = multi_line_sep if output_format in FormatsGroup.TXT_FORMATS else one_line_sep
     if print_info:
         info = multi_obj_sep.join(filter(None, [
-            f'Asn1 Element is{one_line_sep}{asn1_element.fullname()}' if asn1_element else 'Conversion Mode',
-            f'Input Format is{one_line_sep}{input_format}',
-            f'Output Format is{one_line_sep}{output_format}',
+            get_dic_data_and_print(Keys.ASN1_ELEMENT, one_line_sep, asn1_element.fullname(),
+                                   get_only=True) if asn1_element else 'Conversion Mode',
+            get_dic_data_and_print(Keys.INPUT_FORMAT, one_line_sep, input_format, get_only=True),
+            get_dic_data_and_print(Keys.OUTPUT_FORMAT, one_line_sep, output_format, get_only=True),
         ]))
-        info_additional = f'Input {mode_key} is{one_line_sep}{mode_value}' if mode_key else None
-        print(info)
-        output_dic.update({'info': info})
-        if info_additional:
-            print(info_additional)
-            output_dic.update({'info_additional': info_additional})
+        output_dic.update(get_dic_data_and_print(Keys.INFO, info_sep, info))
+        if mode_key:
+            additional_info = get_dic_data_and_print(f'{Keys.INPUT} {mode_key}', one_line_sep, mode_value,
+                                                     get_only=True)
+            output_dic.update(get_dic_data_and_print(Keys.INFO_ADDITIONAL, info_sep, additional_info))
     if print_input:
-        print(f'Input Data is{input_sep}{base_data}')
-        output_dic.update({'input_data': base_data})
+        output_dic.update(get_dic_data_and_print(Keys.INPUT_DATA, input_sep, base_data))
     if parsed_data:
-        print(f'OutPut Data is{output_sep}{parsed_data}')
-        output_dic.update(
-            {'output_data': pss(parsed_data) if output_format in FormatsGroup.TXT_FORMATS else parsed_data})
+        output_dic.update(get_dic_data_and_print(Keys.OUTPUT_DATA, output_sep, parsed_data))
     if re_parse_output:
-        print(f'Re-parsed Data is{input_sep}{re_parsed_data}')
-        output_dic.update(
-            {'re_parsed_data': pss(re_parsed_data) if input_format in FormatsGroup.TXT_FORMATS else re_parsed_data})
+        output_dic.update(get_dic_data_and_print(Keys.RE_PARSED_DATA, input_sep, re_parsed_data))
     util.print_separator()
     return output_dic
 
@@ -217,8 +223,8 @@ def parse_or_update_any_data(base_data, input_format=None, output_format=None, p
         get_tool_name_w_version(util_ConfigConst.TOOL_NAME, util_ConfigConst.TOOL_VERSION, dic_format=True))
     output_versions_dic.update(
         get_tool_name_w_version(ConfigConst.TOOL_NAME, ConfigConst.TOOL_VERSION, dic_format=True))
-    output_versions_dic.update(get_tool_name_w_version(ConfigConst.ASN_SGP_22_NAME, sgp_22_version, dic_format=True))
-    output_versions_dic.update(get_tool_name_w_version(ConfigConst.ASN_EPP_NAME, epp_version, dic_format=True))
+    output_versions_dic.update(get_tool_name_w_version(Keys.SGP22, sgp_22_version, dic_format=True))
+    output_versions_dic.update(get_tool_name_w_version(Keys.EUICC_PROFILE_PACKAGE, epp_version, dic_format=True))
     re_parsed_data = None
     # parse Data
     parsed_data = decode_encode_asn(input_data=base_data, parse_only=True,

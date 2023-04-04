@@ -2,6 +2,7 @@ class Keys:
     INPUT = 'input'
     INPUT_FORMAT = 'input_format'
     OUTPUT_FORMAT = 'output_format'
+    RE_PARSED_DATA = 're_parsed_data'
     OUTPUT_FILE = 'output_file'
     ASN1_ELEMENT = 'asn1_element'
     RAW_DATA = 'raw_data'

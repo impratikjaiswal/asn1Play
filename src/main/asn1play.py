@@ -4,6 +4,7 @@ from util_helpers import util
 from src.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
 from src.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
 from src.main.data_type.any_data import AnyData
+from src.main.data_type.dev import Dev
 from src.main.data_type.profile_element import ProfileElement
 from src.main.data_type.store_metadata_request import StoreMetaData
 from src.main.data_type.unit_testing import UnitTesting
@@ -11,35 +12,46 @@ from src.main.data_type.update_metadata_request import UpdateMetadataRequest
 from src.main.data_type.user_data import UserData
 from src.main.helper.constants_config import ConfigConst
 from src.main.helper.convert_data import ConvertData
+from src.main.helper.keys import Keys
+
+_dev_mode = False
 
 
 def process_data():
-    data_types = [
-        # #####
-        # # Sample Store Meta Data Request
-        # #####
-        # StoreMetaData(),
-        # #####
-        # # Sample Update Meta Data Request
-        # #####
-        # UpdateMetadataRequest(),
-        # #####
-        # # Sample Profile Elements
-        # #####
-        # ProfileElement(),
-        # #####
-        # # Sample With Unit Testing
-        # #####
-        # UnitTesting(),
-        # #####
-        # # Sample With Plenty vivid Examples
-        # #####
-        # AnyData(),
+    data_types_all = [
+        #####
+        # Sample Store Meta Data Request
+        #####
+        StoreMetaData(),
+        #####
+        # Sample Update Meta Data Request
+        #####
+        UpdateMetadataRequest(),
+        #####
+        # Sample Profile Elements
+        #####
+        ProfileElement(),
+        #####
+        # Sample With Unit Testing
+        #####
+        UnitTesting(),
+        #####
+        # Sample With Plenty vivid Examples
+        #####
+        AnyData(),
         #####
         # Empty class for user usage
         #####
         UserData(),
     ]
+    data_type_dev = [
+        #####
+        # class for dev
+        #####
+        Dev(),
+    ]
+
+    data_types = data_type_dev if _dev_mode else data_types_all
     for data_type in data_types:
         util.print_heading(str_heading=str(data_type.__class__.__name__))
         data_type.set_data_pool()
@@ -62,12 +74,13 @@ def main():
 
     :return:
     """
+    # _dev_mode = True
     util.print_version(ConfigConst.TOOL_NAME, ConfigConst.TOOL_VERSION, with_libs=True)
     """
     Set Target Version of SGP22, eUICC Profile Package 
     """
-    util.print_version(ConfigConst.ASN_SGP_22_NAME, sgp_22_version)
-    util.print_version(ConfigConst.ASN_EPP_NAME, epp_version)
+    util.print_version(Keys.SGP22, sgp_22_version)
+    util.print_version(Keys.EUICC_PROFILE_PACKAGE, epp_version)
     process_data()
     util.print_done()
 
