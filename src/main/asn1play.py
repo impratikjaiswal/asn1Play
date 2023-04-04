@@ -74,13 +74,17 @@ def main():
 
     :return:
     """
+    global _dev_mode
+    # Uncomment to enable Dev Mode
     # _dev_mode = True
+    # Print Versions
     util.print_version(ConfigConst.TOOL_NAME, ConfigConst.TOOL_VERSION, with_libs=True)
     """
     Set Target Version of SGP22, eUICC Profile Package 
     """
     util.print_version(Keys.SGP22, sgp_22_version)
     util.print_version(Keys.EUICC_PROFILE_PACKAGE, epp_version)
+    # Process Data
     process_data()
     util.print_done()
 

@@ -17,3 +17,4 @@ class Formats:
     UPER = 'uper'
     ASCII = 'ascii'
     HEX = 'hex'
+    YML = 'yml'

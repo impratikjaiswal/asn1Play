@@ -25,7 +25,8 @@ However, same can be modified as per user choice.
 <li>Auto Trimming of HEX Data (White Spaces Deletion).
 <li>Auto Detection of Base64 & Hex data.
 <li>Conversion Mode for HEX, ASCII & Base64.
-<li>Support of Individual Mode; Raw/Target Data can be configured Directly or file path (Binary as well as Text File; any extension) can be passed.
-<li>Support of Bulk Mode; Raw/Target Data can be configured Directly in List/Array format or Directory Path can be passed (Files with Known extensions will be picked based on Input Format).
+<li>Support of "Individual Mode"; Raw/Target Data can be configured Directly or file path (Binary as well as Text File; any extension) can be passed.
+<li>Support of "Bulk Mode"; Raw/Target Data can be configured Directly in List/Array format or Directory Path can be passed (Files with Known extensions will be picked based on Input Format).
+<li>Support of "Config Mode"; Raw/Target Data (along with all needed config) can be configured Directly in Yaml Files (".yaml" or ".yml" extensions), and same cane be passed in "Individual Mode" or "Bulk Mode".
 <li>For Known File Extensions (".asn1", ".asn", ".base64", ".hex"), Input/Output Format may be modified automatically as per Default Values.
 </ul>

@@ -12,7 +12,8 @@ input:
         }
 output:
     info: 'Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der'
-    info_additional: 'Input Yml: ..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yaml'
+    info_additional: 'Input Yml: D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yaml'
+    output_file: D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1_output.yaml
     input_data: |-
         {
           iccid '989209012143658709F5'H,
@@ -29,7 +30,7 @@ output:
 output_version:
     Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
     pythonHelpers: v1.7.3
-    asn1play: v4.0.1
+    asn1play: v4.1.0
     SGP22: v3_0_0
     eUICC_Profile_Package: v3_2
-time_stamp: 2023-04-04 01:24:24.346727
+time_stamp: 2023-04-04 10:41:31.234288

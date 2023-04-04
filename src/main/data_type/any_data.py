@@ -123,7 +123,6 @@ class AnyData(ConvertData):
                 else r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest",
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format='',
-                output_format=None
             ),
             # Input Data From Directory (Only ASN1 Files)
             Data(
@@ -148,6 +147,13 @@ class AnyData(ConvertData):
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER,
                 output_format=Formats.ASN1
+            ),
+            # Input Data From Directory (Only Yaml Files)
+            Data(
+                raw_data=r"..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest" if version == Version.v3_0_0
+                else r"..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest",
+                input_format=Formats.YML,
+                output_format=''
             ),
             # Input Data with List
             Data(
