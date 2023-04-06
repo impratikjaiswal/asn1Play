@@ -1,4 +1,4 @@
-class Modes:
+class InputModes:
     FILE = 'File'
     LIST = 'List'
     DIRECTORY = 'Directory'

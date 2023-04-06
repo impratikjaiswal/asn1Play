@@ -6,7 +6,7 @@ from binascii import unhexlify
 from util_helpers.util import is_hex, print_iter, trim_and_kill_all_white_spaces
 
 from src.main.helper.defaults import Defaults
-from src.main.helper.formatsGroup import FormatsGroup
+from src.main.helper.formats_group import FormatsGroup
 from src.main.mapping.asn1_elements import all_mapping
 from src.main.mapping.general import parsing_format_mapping
 

@@ -16,9 +16,9 @@ from src.main.helper.constants_config import ConfigConst
 from src.main.helper.data import Data
 from src.main.helper.defaults import Defaults
 from src.main.helper.formats import Formats
-from src.main.helper.formatsGroup import FormatsGroup
+from src.main.helper.formats_group import FormatsGroup
 from src.main.helper.keys import Keys
-from src.main.helper.modes import Modes
+from src.main.helper.modes_input import InputModes
 
 
 def get_dic_data_and_print(key, sep, value, get_only=False):
@@ -170,7 +170,7 @@ def parse_or_update_any_data(base_data, input_format=None, output_format=None, p
                                                                                          print_info=print_info,
                                                                                          re_parse_output=re_parse_output)
     if isinstance(base_data, list):
-        input_mode_key = Modes.LIST
+        input_mode_key = InputModes.LIST
         input_mode_key_additional_data = f'({len(base_data)} Elements)'
         print_data(base_data=base_data, input_format=input_format, output_format=output_format, print_input=print_input,
                    print_info=print_info, re_parse_output=re_parse_output, asn1_element=asn1_element, parsed_data=None,
@@ -187,7 +187,7 @@ def parse_or_update_any_data(base_data, input_format=None, output_format=None, p
         return parsed_data_list
     if base_data and os.path.isdir(os.path.abspath(base_data)):
         # directory is provided
-        input_mode_key = Modes.DIRECTORY
+        input_mode_key = InputModes.DIRECTORY
         print_data(base_data=base_data, input_format=input_format, output_format=output_format, print_input=print_input,
                    print_info=print_info, re_parse_output=re_parse_output, asn1_element=asn1_element, parsed_data=None,
                    re_parsed_data=None, input_mode_key=input_mode_key,
@@ -213,7 +213,7 @@ def parse_or_update_any_data(base_data, input_format=None, output_format=None, p
                 resp = the_file.read()
         file_ext = util.get_file_name_and_extn(file_path=base_data, only_extn=True)
         if file_ext in FormatsGroup.INPUT_FILE_FORMATS_YML:
-            input_mode_key = Modes.YML
+            input_mode_key = InputModes.YML
             file_dic, data = read_yaml(resp)
             #
             base_data = data.raw_data
@@ -230,7 +230,7 @@ def parse_or_update_any_data(base_data, input_format=None, output_format=None, p
                 print_info=print_info,
                 re_parse_output=re_parse_output)
         else:
-            input_mode_key = Modes.FILE
+            input_mode_key = InputModes.FILE
             input_format, output_format = input_output_format_as_per_files_ext(base_data, input_format, output_format)
             base_data = resp
 
@@ -251,13 +251,13 @@ def parse_or_update_any_data(base_data, input_format=None, output_format=None, p
         re_parsed_data = decode_encode_asn(input_data=parsed_data, parse_only=True,
                                            input_format=output_format, output_format=input_format,
                                            asn1_element=asn1_element)
-    if input_mode_key == Modes.YML:
+    if input_mode_key == InputModes.YML:
         output_file_name = get_yml_file_name_for_writing(file_dic, base_data_org)
     output_dic = print_data(base_data=base_data, input_format=input_format, output_format=output_format,
                             print_input=print_input, print_info=print_info, re_parse_output=re_parse_output,
                             asn1_element=asn1_element, parsed_data=parsed_data, re_parsed_data=re_parsed_data,
                             input_mode_key=input_mode_key, input_mode_key_additional_data=input_mode_key_additional_data,
                             input_mode_value=base_data_org, output_file_name=output_file_name)
-    if input_mode_key == Modes.YML:
+    if input_mode_key == InputModes.YML:
         write_yml(output_file_name, file_dic, output_dic, output_versions_dic)
     return parsed_data

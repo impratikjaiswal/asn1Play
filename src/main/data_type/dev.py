@@ -3,7 +3,7 @@ from src.generated_code.asn1.GSMA.SGP_22 import version, Version
 from src.main.helper.convert_data import ConvertData
 from src.main.helper.data import Data
 from src.main.helper.formats import Formats
-from src.main.helper.formatsGroup import FormatsGroup
+from src.main.helper.formats_group import FormatsGroup
 
 
 class Dev(ConvertData):
