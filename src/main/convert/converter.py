@@ -157,7 +157,7 @@ def set_defaults(data, meta_data):
         Formats.JSON: FileExtensions.JSON,
         Formats.YML: FileExtensions.YML,
     }
-    meta_data.default_output_file_name = default_output_file_mapping.get(data.output_format, FileExtensions.TXT)
+    meta_data.default_output_file_ext = default_output_file_mapping.get(data.output_format, FileExtensions.TXT)
 
 
 def read_yaml(input_file):
@@ -208,14 +208,16 @@ def set_output_file_name(data, meta_data):
         initial_name = util.get_python_friendly_name(initial_name)
         meta_data.output_file_name = os.sep.join([Constants_local.DEFAULT_OUTPUT_FOLDER,
                                                   util.append_in_file_name(
-                                                      str_file_path=meta_data.default_output_file_name,
+                                                      str_file_path=meta_data.default_output_file_ext,
                                                       str_append=initial_name)])
     if not data.output_file_name_keyword:
         # output_file_name_keyword is not there, so need to prepare
         pass
     if data.output_file_name_keyword:
         meta_data.output_file_name = util.append_in_file_name(str_file_path=meta_data.output_file_name,
-                                                              str_append=data.output_file_name_keyword)
+                                                              str_append=data.output_file_name_keyword,
+                                                              new_ext=None if meta_data.input_mode_key == Keys.INPUT_YML else meta_data.default_output_file_ext)
+
     if meta_data.input_mode_key == Keys.INPUT_DIR:
         # Nothing to Do, One file at a time will be provided
         return

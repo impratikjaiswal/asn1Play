@@ -3,6 +3,7 @@ from src.generated_code.asn1.GSMA.SGP_22 import version, Version
 from src.generated_code.asn1.TCA import eUICC_Profile_Package
 from src.main.helper.convert_data import ConvertData
 from src.main.helper.data import Data
+from src.main.helper.defaults import Defaults
 from src.main.helper.formats import Formats
 
 
@@ -134,13 +135,35 @@ class AnyData(ConvertData):
             ),
             #
             Data(
-                remarks_list='Input Data From File',
+                remarks_list='Input Data From File, Output to Console',
                 raw_data=
                 r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64' if version == Version.v3_0_0
                 else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64',
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1
+            ),
+            #
+            Data(
+                remarks_list='Input Data (Base 64) From File, Output to File',
+                raw_data=
+                r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64' if version == Version.v3_0_0
+                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER_64,
+                output_format=Formats.ASN1,
+                output_file_name_keyword=Defaults.OUTPUT_FILE_NAME_KEYWORD
+            ),
+            #
+            Data(
+                remarks_list='Input Data (Der) From File, Output to File',
+                raw_data=
+                r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.hex' if version == Version.v3_0_0
+                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.hex',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+                output_file_name_keyword=Defaults.OUTPUT_FILE_NAME_KEYWORD
             ),
             #
             Data(
