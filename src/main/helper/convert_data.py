@@ -3,6 +3,7 @@ import traceback
 from src.main.convert.converter import parse_or_update_any_data
 from src.main.helper.data import Data
 from src.main.helper.defaults import Defaults
+from src.main.helper.modes_error_handling import ErrorHandlingModes
 
 
 class ConvertData(object):
@@ -28,27 +29,25 @@ class ConvertData(object):
     def set_re_parse_output(self, re_parse_output):
         self.re_parse_output = Defaults.RE_PARSE_OUTPUT if re_parse_output is None else re_parse_output
 
-    def parse(self):
+    def parse(self, error_handling_mode):
+        """
+
+        :param error_handling_mode:
+        :return:
+        """
         for data in self.data_pool:
             try:
                 if isinstance(data, Data):
-                    parse_or_update_any_data(
-                        data.raw_data,
-                        print_input=data.print_input,
-                        print_info=data.print_info,
-                        re_parse_output=data.re_parse_output,
-                        asn1_element=data.asn1_element if data.asn1_element else self.asn1_element,
-                        input_format=data.input_format,
-                        output_format=data.output_format
-                    )
+                    data.asn1_element = data.asn1_element if data.asn1_element else self.asn1_element
+                    data.print_input = data.print_input if data.print_input else self.print_input
+                    data.print_info = data.print_info if data.print_info else self.print_info
+                    data.re_parse_output = data.re_parse_output if data.re_parse_output else self.re_parse_output
                 else:
-                    parse_or_update_any_data(
-                        data,
-                        print_input=self.print_input,
-                        print_info=self.print_info,
-                        re_parse_output=self.re_parse_output,
-                        asn1_element=self.asn1_element
-                    )
+                    data = Data(raw_data=data, asn1_element=self.asn1_element, print_input=self.print_input,
+                                print_info=self.print_info, re_parse_output=self.re_parse_output)
+                parse_or_update_any_data(data)
             except Exception as e:
                 traceback.print_exc()
                 print(f'Exception Occurred {e}')
+                if error_handling_mode == ErrorHandlingModes.STOP_ON_ERROR:
+                    raise

@@ -4,4 +4,4 @@ input:
     input_format: Formats.DER_64
     output_format: Formats.DER
     raw_data: "vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAxmQIGQA=="
-    output_file: output
+    output_file_name_keyword: output

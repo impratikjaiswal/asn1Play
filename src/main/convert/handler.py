@@ -202,7 +202,7 @@ def parse_data(parsing_format, record_count):
         # Whole data parsing is returned in first iteration
         return None
     if _debug:
-        print("profile_element_record_count:", record_count)
+        print('profile_element_record_count:', record_count)
     if isinstance(parsing_data_current, bytes):
         parsing_data_current = parsing_data_current.hex()
     # Few Function returns tuple, list, dict

@@ -4,3 +4,4 @@ class ExecutionModes:
     UNIT_TESTING = 3
     SAMPLE_SPECIFIC = 4
     SAMPLE_GENERIC = 5
+    ALL = 6

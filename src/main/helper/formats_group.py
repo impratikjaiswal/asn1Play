@@ -1,3 +1,4 @@
+from src.main.helper.file_extensions import FileExtensions
 from src.main.helper.formats import Formats
 
 
@@ -26,13 +27,13 @@ class FormatsGroup:
 
     INPUT_FORMATS = INPUT_FORMATS_HEX + INPUT_FORMATS_ASN + INPUT_FORMATS_ASCII
 
-    INPUT_FILE_FORMATS_HEX = ['.hex']
+    INPUT_FILE_FORMATS_HEX = [FileExtensions.HEX]
 
-    INPUT_FILE_FORMATS_BASE_64 = ['.base64']
+    INPUT_FILE_FORMATS_BASE_64 = [FileExtensions.BASE_64]
 
-    INPUT_FILE_FORMATS_ASN = ['.asn1', '.asn']
+    INPUT_FILE_FORMATS_ASN = [FileExtensions.ASN1, FileExtensions.ASN]
 
-    INPUT_FILE_FORMATS_YML = ['.yaml', '.yml']
+    INPUT_FILE_FORMATS_YML = [FileExtensions.YAML, FileExtensions.YML]
 
     INPUT_FILE_FORMATS = INPUT_FILE_FORMATS_HEX + INPUT_FILE_FORMATS_BASE_64 + INPUT_FILE_FORMATS_ASN + INPUT_FILE_FORMATS_YML
 

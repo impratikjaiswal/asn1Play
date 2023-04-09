@@ -1,4 +1,3 @@
-import time
 from util_helpers import util
 
 from src.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
@@ -14,21 +13,34 @@ from src.main.helper.constants_config import ConfigConst
 from src.main.helper.convert_data import ConvertData
 from src.main.helper.defaults import Defaults
 from src.main.helper.keys import Keys
+from src.main.helper.modes_error_handling import ErrorHandlingModes
 from src.main.helper.modes_execution import ExecutionModes
 
 
-def process_data(execution_mode):
+def process_data(execution_mode, error_handling_mode):
+    """
+
+    :param error_handling_mode:
+    :param execution_mode:
+    :return:
+    """
     data_type_user = [
         #####
         # Empty class for user usage
         ####
         UserData(),
     ]
+    data_type_dev = [
+        #####
+        # class for dev
+        #####
+        Dev(),
+    ]
     data_types_sample_generic = [
+        #####
         # Sample With Plenty vivid Examples
         #####
         AnyData(),
-        ####
     ]
     data_types_sample_specific = [
         #####
@@ -46,15 +58,9 @@ def process_data(execution_mode):
     ]
     data_type_unit_testing = [
         #####
-        # Sample With Unit Testing
+        # Unit Testing
         #####
         UnitTesting(),
-    ]
-    data_type_dev = [
-        #####
-        # class for dev
-        #####
-        Dev(),
     ]
     data_types_pool = {
         ExecutionModes.USER: data_type_user,
@@ -62,6 +68,7 @@ def process_data(execution_mode):
         ExecutionModes.SAMPLE_GENERIC: data_types_sample_generic,
         ExecutionModes.SAMPLE_SPECIFIC: data_types_sample_specific,
         ExecutionModes.UNIT_TESTING: data_type_unit_testing,
+        ExecutionModes.ALL: data_types_sample_generic + data_types_sample_specific + data_type_unit_testing,
     }
     data_types = data_types_pool.get(execution_mode, Defaults.EXECUTION_MODE)
     for data_type in data_types:
@@ -71,11 +78,8 @@ def process_data(execution_mode):
         data_type.set_print_input()
         data_type.set_print_info()
         data_type.set_re_parse_output()
-        try:
-            ConvertData.parse(data_type)
-            time.sleep(0.25)
-        except:
-            pass
+        ConvertData.parse(data_type, ErrorHandlingModes.CONTINUE_ON_ERROR if isinstance(data_type,
+                                                                                        UnitTesting) else error_handling_mode)
 
 
 def main():
@@ -87,6 +91,7 @@ def main():
     Set Execution Mode, If you are a first time user then try #ExecutionModes.SAMPLE_GENERIC
     """
     execution_mode = ExecutionModes.USER
+    error_handling_mode = ErrorHandlingModes.STOP_ON_ERROR
     # Print Versions
     util.print_version(ConfigConst.TOOL_NAME, ConfigConst.TOOL_VERSION, with_libs=True)
     """
@@ -95,7 +100,7 @@ def main():
     util.print_version(Keys.SGP22, sgp_22_version)
     util.print_version(Keys.EUICC_PROFILE_PACKAGE, epp_version)
     # Process Data
-    process_data(execution_mode)
+    process_data(execution_mode, error_handling_mode)
     util.print_done()
 
 

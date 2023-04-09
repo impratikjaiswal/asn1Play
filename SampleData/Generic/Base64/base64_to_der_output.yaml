@@ -4,17 +4,17 @@ input:
     input_format: Formats.DER_64
     output_format: Formats.DER
     raw_data: vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAxmQIGQA==
-    output_file: output
+    output_file_name_keyword: output
 output:
     info: 'Conversion Mode; Input Format: der_with_base64; Output Format: der'
-    info_additional: 'Input Yml: ..\..\SampleData\Generic\Base64\base64_to_der.yaml'
+    input_yml: ..\..\SampleData\Generic\Base64\base64_to_der.yaml
     output_file: ..\..\SampleData\Generic\Base64\base64_to_der_output.yaml
     input_data: vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAxmQIGQA==
     output_data: bf25375a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d65203199020640
 output_version:
     Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
-    pythonHelpers: v1.7.3
-    asn1play: v4.1.0
+    pythonHelpers: v1.7.5
+    asn1play: v4.1.1
     SGP22: v3_0_0
     eUICC_Profile_Package: v3_2
-time_stamp: 2023-04-04 10:41:31.034549
+time_stamp: 2023-04-09 22:15:24.366707
