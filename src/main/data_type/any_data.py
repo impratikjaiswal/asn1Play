@@ -1,6 +1,7 @@
 from src.generated_code.asn1.GSMA import SGP_22
 from src.generated_code.asn1.GSMA.SGP_22 import version, Version
 from src.generated_code.asn1.TCA import eUICC_Profile_Package
+from src.main.helper.constants import Constants
 from src.main.helper.convert_data import ConvertData
 from src.main.helper.data import Data
 from src.main.helper.defaults import Defaults
@@ -152,7 +153,7 @@ class AnyData(ConvertData):
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1,
-                output_file_name_keyword=Defaults.OUTPUT_FILE_NAME_KEYWORD
+                output_file_name_keyword=Constants.DEFAULT_OUTPUT_FILE_NAME_KEYWORD
             ),
             #
             Data(
@@ -163,7 +164,7 @@ class AnyData(ConvertData):
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
-                output_file_name_keyword=Defaults.OUTPUT_FILE_NAME_KEYWORD
+                output_file_name_keyword=Constants.DEFAULT_OUTPUT_FILE_NAME_KEYWORD
             ),
             #
             Data(

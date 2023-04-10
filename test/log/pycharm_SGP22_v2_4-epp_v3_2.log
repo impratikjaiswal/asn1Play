@@ -1090,12 +1090,12 @@ traverseMode:  Regex
 top:  D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest
 include_files:  (?s:.*\.asn1)\Z|(?s:.*\.asn)\Z
 include_dirs:  
-excludes:  $.
-+++++++++++++++++++++ Input Data From Directory (Only ASN1 Files); (7 Elements) ++++++++++++++++++++
+excludes:  (?s:(?=(?P<g2>.*?_output\.))(?P=g2).*)\Z
++++++++++++++++++++++ Input Data From Directory (Only ASN1 Files); (5 Elements) ++++++++++++++++++++
 Info => Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_with_base64
-Input List: ['D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_Mandatory.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_output.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_ppr.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_wo_icon.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_wo_icon_output.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1']
+Input List: ['D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_Mandatory.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_ppr.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_wo_icon.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1']
 Input Data:
-['D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_Mandatory.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_output.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_ppr.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_wo_icon.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_wo_icon_output.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1']
+['D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_Mandatory.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_ppr.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_wo_icon.asn1', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1']
 --------------------------------------------------------------------------------
 ************************ Input Data From Directory (Only ASN1 Files); Item 1 ***********************
 SEQ._encode_ber_cont: StoreMetadataRequest.profileClass, removing value equal to the default one
@@ -1185,41 +1185,6 @@ Output Data: vyUzWgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmF
 --------------------------------------------------------------------------------
 ************************ Input Data From Directory (Only ASN1 Files); Item 3 ***********************
 Info => Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_with_base64
-Input File: D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_output.asn1
-Input Data:
-{
-  iccid '989209012143658709F5'H,
-  serviceProviderName "SP Name 1",
-  profileName "Operational Profile Name 1",
-  iconType 1 -- png --,
-  icon '89504E470D0A1A0A0000000D49484452000000400000004008040000000060B9550000000774494D4507E00B091007364C956F97000000097048597300000B1200000B1201D2DD7EFC0000000467414D410000B18F0BFC61050000021F4944415478DAED99CD1583200C803D32000B3004ABB00ECBB0822338578AF559223F49B0A8175F2EC023E1238410DB09A667E5E1E55F80BF00F686060B1E66B80420C02A32550D0E966E8CC6F0128D193460635FA66A3B7D511DB48DD94788B655D7815071BA26E61B9000ACC711841085EB398D84C0CD94F921EBE2DDAB18DB6B5005B055C3BC752B4038745C5339449CD4950248100E1D4528FAC207B228E3101A4BD4AE52BA96A603808B05D44C27ADAB2AF8807A00A6184B228014807566ECA13538E5008AC890BF06BE809E4DBEBE0B808A842A009FFD7B010436AF06B04F034C8D47EA46004703E034E4D95B90A98A447300DC353C9F07A843404D9B2D904BCA84F62480A7013C39351431225B722DE9F6AD591A0047C194E5AE19BD865AFC1A26976F088603C0A7AC9117FCE131F64200BCDFED8E290EE058906C46F2FAD09DAC885AB1550C68D2A8B426DCF69B8E71F76D195B15CD368207463513FD2DEA6648476B2500EB999B6250FA5DC0499E0B88B921F2BBAF782E877588930370724E4D3F0DD01D49DBE7E92CB940423172008F3ED3C6011C03B1396BCE6EC24800C703B862682480A20142250B8C05C081385186CD65009607D059DD772B80AE3CB963010205B054436414808ABB0FF237752480A996FB3702D8334FDA0BF002BC002FC0488053B5F5380005DC0A1703F03FFDFDC433A6FA010CF1EF4165C831E602B40134844C66E67FA4C1000618E5AB8F6008C03FAAB7028C9117E0036BAF44917035AF0E0000000049454E44AE426082'H,
-  notificationConfigurationInfo {
-    {
-      profileManagementOperation 'F'H -- notificationInstall | notificationEnable | notificationDisable | notificationDelete --,
-      notificationAddress "testsmdpplus1.example.com"
-    }
-  },
-  profileOwner {
-    mccMnc '92F918'H
-  },
-  profilePolicyRules '01'B -- ppr1 --,
-  serviceSpecificDataStoredInEuicc {
-    {
-      vendorOid {2 999 16},
-      vendorSpecificData 'C1020304'H
-    }
-  },
-  serviceSpecificDataNotStoredInEuicc {
-    {
-      vendorOid {2 999 17},
-      vendorSpecificData '02020202'H
-    }
-  }
-}
-Output Data: vyWCAxxaCpiSCQEhQ2WHCfWRCVNQIE5hbWUgMZIaT3BlcmF0aW9uYWwgUHJvZmlsZSBOYW1lIDGTAQGUggKQiVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAAB3RJTUUH4AsJEAc2TJVvlwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAARnQU1BAACxjwv8YQUAAAIfSURBVHja7ZnNFYMgDIA9MgALMASrsA7LsIIjOFeK9VkiP0mwqBdfLsAj4SOEENsJpmfl4eVfgL8A9oYGCx5muAQgwCoyVQ0Olm6MxvASjRk0YGNfpmo7fVEdtI3ZR4i2VdeBUHG6JuYbkACsxxGEEIXrOY2EwM2U+SHr4t2rGNtrUAWwVcO8dStAOHRcUzlEnNSVAkgQDh1FKPrCB7Io4xAaS9SuUrqWpgOAiwXUTCetqyr4gHoAphhLIoAUgHVm7KE1OOUAisiQvwa+gJ5Nvr4LgIqEKgCf/XsBBDavBrBPA0yNR+pGAEcD4DTk2VuQqYpEcwDcNTyfB6hDQE2bLZBLyoT2JICnATw5NRQxIltyLen2rVkaAEfBlOWuGb2GWvwaJpdvCIYDwKeskRf84TH2QgC83+2OKQ7gWJBsRvL60J2siFqxVQxo0qi0Jtz2m45x920ZWxXNNoIHRjUT/S3qZkhHayUA65mbYlD6XcBJnguIuSHyu694Lod1iJMDcHJOTT8N0B1J2+fpLLlAQjFyAI8+08YBHAOxOWvObsJIAMcDuGJoJICiAUIlC4wFwIE4UYbNZQCWB9BZ3XcrgK48uWMBAgWwVENkFICKuw/yN3UkgKmW+zcC2DNP2gvwArwAL8BIgFO19TgABdwKFwPwP/39xDOm+gEM8e9BZcgx5gK0ATSETGbmf6TBAAYY5auPYAjAP6q3AoyRF+ADa69EkXA1rw4AAAAASUVORK5CYIK2ITAfgAIE8IEZdGVzdHNtZHBwbHVzMS5leGFtcGxlLmNvbbcFgAOS+RiZAgZAvyIPMA2AA4g3EKEGBATBAgMEvyMPMA2AA4g3EaEGBAQCAgIC
---------------------------------------------------------------------------------
-************************ Input Data From Directory (Only ASN1 Files); Item 4 ***********************
-Info => Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_with_base64
 Input File: D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_ppr.asn1
 Input Data:
 {
@@ -1231,7 +1196,7 @@ Input Data:
 
 Output Data: vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAxmQIGQA==
 --------------------------------------------------------------------------------
-************************ Input Data From Directory (Only ASN1 Files); Item 5 ***********************
+************************ Input Data From Directory (Only ASN1 Files); Item 4 ***********************
 SEQ._encode_ber_cont: StoreMetadataRequest.profileClass, removing value equal to the default one
 Info => Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_with_base64
 Input File: D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_wo_icon.asn1
@@ -1303,41 +1268,7 @@ serviceSpecificDataNotStoredInEuicc {
 }
 Output Data: vyWBiFoKmJIJASFDZYcJ9ZEJU1AgTmFtZSAxkhpPcGVyYXRpb25hbCBQcm9maWxlIE5hbWUgMZMBAbYhMB+AAgTwgRl0ZXN0c21kcHBsdXMxLmV4YW1wbGUuY29ttwWAA5L5GJkCBkC/Ig8wDYADiDcQoQYEBMECAwS/Iw8wDYADiDcRoQYEBAICAgI=
 --------------------------------------------------------------------------------
-************************ Input Data From Directory (Only ASN1 Files); Item 6 ***********************
-Info => Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_with_base64
-Input File: D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_wo_icon_output.asn1
-Input Data:
-{
-  iccid '989209012143658709F5'H,
-  serviceProviderName "SP Name 1",
-  profileName "Operational Profile Name 1",
-  iconType 1 -- png --,
-  notificationConfigurationInfo {
-    {
-      profileManagementOperation 'F'H -- notificationInstall | notificationEnable | notificationDisable | notificationDelete --,
-      notificationAddress "testsmdpplus1.example.com"
-    }
-  },
-  profileOwner {
-    mccMnc '92F918'H
-  },
-  profilePolicyRules '01'B -- ppr1 --,
-  serviceSpecificDataStoredInEuicc {
-    {
-      vendorOid {2 999 16},
-      vendorSpecificData 'C1020304'H
-    }
-  },
-  serviceSpecificDataNotStoredInEuicc {
-    {
-      vendorOid {2 999 17},
-      vendorSpecificData '02020202'H
-    }
-  }
-}
-Output Data: vyWBiFoKmJIJASFDZYcJ9ZEJU1AgTmFtZSAxkhpPcGVyYXRpb25hbCBQcm9maWxlIE5hbWUgMZMBAbYhMB+AAgTwgRl0ZXN0c21kcHBsdXMxLmV4YW1wbGUuY29ttwWAA5L5GJkCBkC/Ig8wDYADiDcQoQYEBMECAwS/Iw8wDYADiDcRoQYEBAICAgI=
---------------------------------------------------------------------------------
-************************ Input Data From Directory (Only ASN1 Files); Item 7 ***********************
+************************ Input Data From Directory (Only ASN1 Files); Item 5 ***********************
 Info => Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_with_base64
 Input File: D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1
 Input Data:
@@ -1369,7 +1300,7 @@ traverseMode:  Regex
 top:  D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest
 include_files:  (?s:.*\.base64)\Z
 include_dirs:  
-excludes:  $.
+excludes:  (?s:(?=(?P<g3>.*?_output\.))(?P=g3).*)\Z
 ++++++++++++++++++++ Input Data From Directory (Only Base64 Files); (2 Elements) +++++++++++++++++++
 Info => Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
 Input List: ['D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest.base64', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_wo_icon.base64']
@@ -1454,7 +1385,7 @@ traverseMode:  Regex
 top:  D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest
 include_files:  (?s:.*\.hex)\Z
 include_dirs:  
-excludes:  $.
+excludes:  (?s:(?=(?P<g4>.*?_output\.))(?P=g4).*)\Z
 +++++++++++++++++++++ Input Data From Directory (Only Hex Files); (4 Elements) +++++++++++++++++++++
 Info => Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1
 Input List: ['D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest.hex', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_Mandatory.hex', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_ppr.hex', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_wo_icon.hex']
@@ -1561,7 +1492,7 @@ traverseMode:  Regex
 top:  D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest
 include_files:  (?s:.*\.yaml)\Z|(?s:.*\.yml)\Z
 include_dirs:  
-excludes:  (?s:(?=(?P<g2>.*?_output\.))(?P=g2).*)\Z
+excludes:  (?s:(?=(?P<g5>.*?_output\.))(?P=g5).*)\Z
 +++++++++++++++++++++ Input Data From Directory (Only Yaml Files); (3 Elements) ++++++++++++++++++++
 Info => Conversion Mode; Input Format: yml; Output Format: 
 Input List: ['D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest.asn1.yaml', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest.hex.yaml', 'D:\\Other\\Github_Self\\asn1Play\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_Mandatory.asn1.yaml']
@@ -4838,7 +4769,7 @@ Output Data: 546869732069732061206c6f6e67206461746161616120666f72207468652074657
 Traceback (most recent call last):
   File "D:\Other\Github_Self\asn1Play\src\main\helper\convert_data.py", line 48, in parse
     parse_or_update_any_data(data)
-  File "D:\Other\Github_Self\asn1Play\src\main\convert\converter.py", line 312, in parse_or_update_any_data
+  File "D:\Other\Github_Self\asn1Play\src\main\convert\converter.py", line 311, in parse_or_update_any_data
     meta_data.parsed_data = decode_encode_asn(input_data=data.raw_data, parse_only=True, input_format=data.input_format,
   File "D:\Other\Github_Self\asn1Play\src\main\convert\handler.py", line 43, in decode_encode_asn
     raise ValueError(f'Mandatory input_data is missing.')
@@ -4846,7 +4777,7 @@ ValueError: Mandatory input_data is missing.
 Traceback (most recent call last):
   File "D:\Other\Github_Self\asn1Play\src\main\helper\convert_data.py", line 48, in parse
     parse_or_update_any_data(data)
-  File "D:\Other\Github_Self\asn1Play\src\main\convert\converter.py", line 312, in parse_or_update_any_data
+  File "D:\Other\Github_Self\asn1Play\src\main\convert\converter.py", line 311, in parse_or_update_any_data
     meta_data.parsed_data = decode_encode_asn(input_data=data.raw_data, parse_only=True, input_format=data.input_format,
   File "D:\Other\Github_Self\asn1Play\src\main\convert\handler.py", line 43, in decode_encode_asn
     raise ValueError(f'Mandatory input_data is missing.')

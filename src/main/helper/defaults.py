@@ -13,4 +13,3 @@ class Defaults:
     EXECUTION_MODE = ExecutionModes.USER
     ERROR_HANDLING_MODE = ErrorHandlingModes.CONTINUE_ON_ERROR
     OUTPUT_FILE_EXTENSION = FileExtensions.TXT
-    OUTPUT_FILE_NAME_KEYWORD = 'output'

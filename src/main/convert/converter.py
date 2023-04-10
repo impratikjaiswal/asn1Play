@@ -71,7 +71,8 @@ def set_includes_excludes_files(data, meta_data):
     :param data:
     :param meta_data:
     """
-    # include_files is mandatory, but excludes is optional
+    # Always exclude output files
+    meta_data.excludes = ['*_' + Constants_local.DEFAULT_OUTPUT_FILE_NAME_KEYWORD + '.*']
     if data.input_format in FormatsGroup.INPUT_FORMATS_DER:
         meta_data.include_files = FormatsGroup.INPUT_FILE_FORMATS_HEX
     elif data.input_format in FormatsGroup.INPUT_FORMATS_DER_BASE_64:
@@ -80,10 +81,8 @@ def set_includes_excludes_files(data, meta_data):
         meta_data.include_files = FormatsGroup.INPUT_FILE_FORMATS_ASN
     elif data.input_format in FormatsGroup.INPUT_FORMATS_YML:
         meta_data.include_files = FormatsGroup.INPUT_FILE_FORMATS_YML
-        meta_data.excludes = ['*_output.*']
     else:  # input_format is None or unknown
         meta_data.include_files = FormatsGroup.INPUT_FILE_FORMATS
-        meta_data.excludes = ['*_output.*']
     meta_data.include_files = [('*' + x) for x in meta_data.include_files]
 
 
