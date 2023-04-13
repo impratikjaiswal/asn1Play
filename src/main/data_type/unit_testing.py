@@ -10,6 +10,10 @@ class UnitTesting(ConvertData):
         print_input = None
         super().set_print_input(print_input)
 
+    def set_print_output(self):
+        print_output = None
+        super().set_print_output(print_output)
+
     def set_print_info(self):
         print_info = None
         super().set_print_info(print_info)
@@ -131,10 +135,49 @@ class UnitTesting(ConvertData):
                 output_format=Formats.HEX,
             ),
             Data(
-                raw_data=['This is a long dataaaa for the testing of Trimming of remarks of individual item of the pool in asn play.'] * 100,
+                raw_data=[
+                             'This is a long dataaaa for the testing of Trimming of remarks of individual item of the pool in asn play.'] * 100,
                 input_format=Formats.ASCII,
                 output_format=Formats.HEX,
             ),
+        ]
+        data_pool_output_file = [
+            Data(
+                raw_data=['Test1', 'Test2', 'Test3'],
+                asn1_element=None,
+                input_format=Formats.ASCII,
+                output_format=Formats.HEX,
+                output_file=r'..\\..\\UserData\\Temp\\Pj.txt',
+            ),
+            #
+            Data(
+                raw_data=['Test4', 'Test5', 'Test6'],
+                asn1_element=None,
+                input_format=Formats.ASCII,
+                output_format=Formats.HEX,
+                output_file=r'..\\..\\UserData\\Temp\\',
+            ),
+            #
+            Data(
+                raw_data=['Test7', 'Test8', 'Test9'],
+                asn1_element=None,
+                input_format=Formats.ASCII,
+                output_format=Formats.HEX,
+                output_file=r'..\\..\\UserData\\Temp',
+            ),
+            #
+            Data(
+                raw_data=['Test7', 'Test8', 'Test9'],
+                asn1_element=None,
+                input_format=Formats.ASCII,
+                output_format=Formats.HEX,
+                output_file=r'..\\..\\UserData\\Temp',
+            ),
+            Data(
+                raw_data=r'D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest',
+                asn1_element=SGP_22.RSPDefinitions.UpdateMetadataRequest,
+                output_file_name_keyword='output'
+            )
         ]
         data_pool_negative = [
             #
@@ -153,5 +196,12 @@ class UnitTesting(ConvertData):
                 input_format=Formats.DER,
                 output_format=Formats.ASN1
             ),
+            #
+            Data(
+                remarks_list='Invalid File Path',
+                raw_data=r'D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest\t',
+                asn1_element=SGP_22.RSPDefinitions.UpdateMetadataRequest,
+                output_file_name_keyword='output'
+            ),
         ]
-        super().set_data_pool(data_pool_positive + data_pool_remarks + data_pool_negative)
+        super().set_data_pool(data_pool_positive + data_pool_remarks + data_pool_output_file + data_pool_negative)

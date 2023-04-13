@@ -1,9 +1,8 @@
 import base64
 import re
 
-import util_helpers
 from binascii import unhexlify
-from util_helpers.util import is_hex, print_iter, trim_and_kill_all_white_spaces
+from python_helpers.ph_util import PhUtil
 
 from src.main.helper.defaults import Defaults
 from src.main.helper.formats_group import FormatsGroup
@@ -50,13 +49,13 @@ def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORM
     if isinstance(input_data, bytes):
         input_data = input_data.hex()
     if input_format in FormatsGroup.INPUT_FORMATS_ASCII:
-        input_data = util_helpers.util.ascii_to_hex_str(input_data)
+        input_data = PhUtil.ascii_to_hex_str(input_data)
         print_debug('base_profile hex conversion done, data is {0}'.format(input_data))
     if input_format in FormatsGroup.INPUT_FORMATS_HEX:
         # Trim Hex Data
-        input_data = trim_and_kill_all_white_spaces(input_data)
+        input_data = PhUtil.trim_and_kill_all_white_spaces(input_data)
         print_debug('base_profile Trimming done, data is {0}'.format(input_data))
-        if not is_hex(input_data):
+        if not PhUtil.is_hex(input_data):
             input_data = base64.b64decode(input_data).hex()
             print_debug('base_profile hex conversion done, data is {0}'.format(input_data))
     if not asn1_element:
@@ -66,7 +65,7 @@ def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORM
             if output_format in FormatsGroup.INPUT_FORMATS_DER_BASE_64:
                 return base64.b64encode(unhexlify(input_data)).decode()
             if output_format in FormatsGroup.ASCII_FORMATS:
-                return util_helpers.util.hex_str_to_ascii(input_data)
+                return PhUtil.hex_str_to_ascii(input_data)
             if output_format in FormatsGroup.INPUT_FORMATS_DER:
                 return input_data
         raise ValueError('asn1_element is not provided')
@@ -207,7 +206,7 @@ def parse_data(parsing_format, record_count):
         parsing_data_current = parsing_data_current.hex()
     # Few Function returns tuple, list, dict
     if _debug:
-        print_iter(parsing_data_current)
+        PhUtil.print_iter(parsing_data_current)
     return str(parsing_data_current)
 
 

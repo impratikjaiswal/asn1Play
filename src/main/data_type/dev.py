@@ -1,7 +1,6 @@
 from src.generated_code.asn1.GSMA import SGP_22
 from src.main.helper.convert_data import ConvertData
 from src.main.helper.data import Data
-from src.main.helper.formats import Formats
 
 
 class Dev(ConvertData):
@@ -9,6 +8,10 @@ class Dev(ConvertData):
     def set_print_input(self):
         print_input = None
         super().set_print_input(print_input)
+
+    def set_print_output(self):
+        print_output = None
+        super().set_print_output(print_output)
 
     def set_print_info(self):
         print_info = None
@@ -22,6 +25,7 @@ class Dev(ConvertData):
         pass
 
     def set_data_pool(self):
-        data_pool_experiment = [
+        data_pool = [
+            #
         ]
-        super().set_data_pool(data_pool_experiment)
+        super().set_data_pool(data_pool)

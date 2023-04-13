@@ -10,6 +10,10 @@ class ProfileElement(ConvertData):
         print_input = None
         super().set_print_input(print_input)
 
+    def set_print_output(self):
+        print_output = None
+        super().set_print_output(print_output)
+
     def set_print_info(self):
         print_info = None
         super().set_print_info(print_info)
@@ -36,6 +40,5 @@ class ProfileElement(ConvertData):
                 raw_data=r'..\..\SampleData\TCA\eUICC_Profile_Package\v3_2\PROFILE_OPERATIONAL1.hex',
                 output_format=Formats.DER_64
             ),
-            #
         ]
         super().set_data_pool(data_pool)

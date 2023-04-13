@@ -1,4 +1,4 @@
-from util_helpers import util
+from python_helpers.ph_util import PhUtil
 
 from src.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
 from src.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
@@ -72,7 +72,7 @@ def process_data(execution_mode, error_handling_mode):
     }
     data_types = data_types_pool.get(execution_mode, Defaults.EXECUTION_MODE)
     for data_type in data_types:
-        util.print_heading(str_heading=str(data_type.__class__.__name__))
+        PhUtil.print_heading(str_heading=str(data_type.__class__.__name__))
         data_type.set_data_pool()
         data_type.set_asn_element()
         data_type.set_print_input()
@@ -90,18 +90,18 @@ def main():
     """
     Set Execution Mode, If you are a first time user then try #ExecutionModes.SAMPLE_GENERIC
     """
-    execution_mode = ExecutionModes.USER
+    execution_mode = ExecutionModes.ALL
     error_handling_mode = ErrorHandlingModes.STOP_ON_ERROR
     # Print Versions
-    util.print_version(ConfigConst.TOOL_NAME, ConfigConst.TOOL_VERSION, with_libs=True)
+    PhUtil.print_version(ConfigConst.TOOL_NAME, ConfigConst.TOOL_VERSION, with_libs=True, with_user_info=True)
     """
     Set Target Version of SGP22, eUICC Profile Package 
     """
-    util.print_version(Keys.SGP22, sgp_22_version)
-    util.print_version(Keys.EUICC_PROFILE_PACKAGE, epp_version)
+    PhUtil.print_version(Keys.SGP22, sgp_22_version)
+    PhUtil.print_version(Keys.EUICC_PROFILE_PACKAGE, epp_version)
     # Process Data
     process_data(execution_mode, error_handling_mode)
-    util.print_done()
+    PhUtil.print_done()
 
 
 if __name__ == '__main__':

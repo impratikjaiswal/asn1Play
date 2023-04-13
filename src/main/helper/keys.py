@@ -6,6 +6,7 @@ class Keys:
     INPUT_LIST = 'input_list'
     INPUT_DIR = 'input_dir'
     INPUT_YML = 'input_yml'
+    INPUT_MODES_HIERARCHY = 'input_modes_hierarchy'
 
     OUTPUT = 'output'
     OUTPUT_FORMAT = 'output_format'

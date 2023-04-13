@@ -9,6 +9,10 @@ class UserData(ConvertData):
         print_input = None
         super().set_print_input(print_input)
 
+    def set_print_output(self):
+        print_output = None
+        super().set_print_output(print_output)
+
     def set_print_info(self):
         print_info = None
         super().set_print_info(print_info)
@@ -23,12 +27,18 @@ class UserData(ConvertData):
     def set_data_pool(self):
         data_pool = [
             # Hex to ASCII
+            # Data(
+            #     raw_data='48444643',
+            #     asn1_element=None,
+            #     input_format=Formats.HEX,
+            #     output_format=Formats.ASCII
+            # ),
+            # ASCII to Hex
             Data(
-                raw_data="57656c636f6d6520546f2041736e506c617920212121",
+                raw_data='SBI',
                 asn1_element=None,
-                input_format=Formats.HEX,
-                output_format=Formats.ASCII
+                input_format=Formats.ASCII,
+                output_format=Formats.HEX
             ),
         ]
-
         super().set_data_pool(data_pool)

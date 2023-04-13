@@ -4,7 +4,6 @@ from src.generated_code.asn1.TCA import eUICC_Profile_Package
 from src.main.helper.constants import Constants
 from src.main.helper.convert_data import ConvertData
 from src.main.helper.data import Data
-from src.main.helper.defaults import Defaults
 from src.main.helper.formats import Formats
 
 
@@ -13,6 +12,10 @@ class AnyData(ConvertData):
     def set_print_input(self):
         print_input = None
         super().set_print_input(print_input)
+
+    def set_print_output(self):
+        print_output = None
+        super().set_print_output(print_output)
 
     def set_print_info(self):
         print_info = None
