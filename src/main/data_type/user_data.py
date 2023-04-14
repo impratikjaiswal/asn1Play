@@ -47,6 +47,17 @@ class UserData(ConvertData):
 
     def set_data_pool(self):
         data_pool = [
-            #
+            # ASCII to Hex
+            Data(
+                raw_data='Welcome To AsnPlay !!!',
+                input_format=Formats.ASCII,
+                output_format=Formats.HEX
+            ),
+            # Hex to ASCII
+            Data(
+                raw_data='57656c636f6d6520546f2041736e506c617920212121',
+                input_format=Formats.HEX,
+                output_format=Formats.ASCII
+            ),
         ]
         super().set_data_pool(data_pool)

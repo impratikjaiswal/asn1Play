@@ -96,7 +96,7 @@ def main():
     """
     Set Execution Mode, If you are a first time user then try #ExecutionModes.SAMPLE_GENERIC
     """
-    execution_mode = ExecutionModes.ALL
+    execution_mode = ExecutionModes.USER
     error_handling_mode = ErrorHandlingModes.CONTINUE_ON_ERROR
     # Print Versions
     PhUtil.print_version(ConfigConst.TOOL_NAME, ConfigConst.TOOL_VERSION, with_libs=True, with_user_info=True)
