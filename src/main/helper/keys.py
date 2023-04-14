@@ -12,7 +12,9 @@ class Keys:
     OUTPUT_FORMAT = 'output_format'
     OUTPUT_DATA = 'output_data'
     OUTPUT_FILE = 'output_file'
+    EXPORT_FILE = 'export_file'
     RE_OUTPUT_FILE = 're_output_file'
+    OUTPUT_FILE_NAME_KEYWORD = 'output_file_name_keyword'
 
     RAW_DATA = 'raw_data'
     RE_PARSED_DATA = 're_parsed_data'

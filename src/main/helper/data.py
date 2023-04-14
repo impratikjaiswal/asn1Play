@@ -32,12 +32,9 @@ class Data:
                  output_file=None,
                  output_file_name_keyword=None,
                  remarks_list=[],
-                 input_modes_hierarchy=None,
                  ):
         self.raw_data = raw_data
         self.asn1_element = asn1_element
-        self.asn1_element_name = None
-        self.set_asn1_element_name()
         self.input_format = input_format
         self.output_format = output_format
         self.print_input = print_input
@@ -47,18 +44,23 @@ class Data:
         self.output_file = output_file
         self.output_file_name_keyword = output_file_name_keyword
         self.remarks_list = None
+        #
+        self.__asn1_element_name = None
+        self.__internal_remarks = None
+        self.__input_modes_hierarchy = []
+        #
         self.set_remarks(remarks_list)
-        self.internal_remarks = None
-        self.input_modes_hierarchy = [input_modes_hierarchy] if input_modes_hierarchy else []
+        self.set_asn1_element_name()
 
     def set_remarks(self, remarks_list):
-        self.remarks_list = remarks_list if isinstance(remarks_list, list) else [remarks_list]
+        if remarks_list is not None:
+            self.remarks_list = remarks_list if isinstance(remarks_list, list) else [remarks_list]
 
     def __get_default_remarks(self):
         self.set_asn1_element_name()
         str_raw_data = str(self.raw_data)
         return PhConstants.SEPERATOR_MULTI_OBJ.join(
-            [self.asn1_element_name, str_raw_data]) if self.asn1_element_name else str_raw_data
+            [self.__asn1_element_name, str_raw_data]) if self.__asn1_element_name else str_raw_data
 
     def set_default_remarks_if_not_set(self):
         if not self.remarks_list:
@@ -67,24 +69,33 @@ class Data:
 
     def set_default_internal_remarks_if_not_set(self, internal_remarks):
         if self.remarks_list:
-            self.internal_remarks = internal_remarks
+            self.__internal_remarks = internal_remarks
         else:
-            self.internal_remarks = append_remarks(self.__get_default_remarks(), internal_remarks)
+            self.__internal_remarks = append_remarks(self.__get_default_remarks(), internal_remarks)
 
     def get_remarks_as_str(self):
         user_remarks = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, self.remarks_list))
         if user_remarks:
             user_remarks = trim_remarks(user_remarks, Constants.DEFAULT_REMARKS_MAX_LENGTH)
-        return append_remarks(user_remarks, self.internal_remarks)
+        return append_remarks(user_remarks, self.__internal_remarks)
+
+    def set_internal_remarks(self, internal_remarks):
+        self.__internal_remarks = internal_remarks
 
     def set_asn1_element_name(self):
-        self.asn1_element_name = self.asn1_element.fullname() if self.asn1_element else None
+        self.__asn1_element_name = self.asn1_element.fullname() if self.asn1_element else None
+
+    def get_asn1_element_name(self):
+        return self.__asn1_element_name
 
     def append_input_modes_hierarchy(self, input_mode_hierarchy):
-        self.input_modes_hierarchy.append(input_mode_hierarchy)
+        self.__input_modes_hierarchy.append(input_mode_hierarchy)
+
+    def get_input_modes_hierarchy_as_str(self):
+        return PhConstants.SEPERATOR_MULTI_OBJ.join(self.__input_modes_hierarchy)
 
     def get_input_modes_hierarchy(self):
-        return PhConstants.SEPERATOR_MULTI_OBJ.join(self.input_modes_hierarchy)
+        return self.__input_modes_hierarchy
 
     def validate_if_input_modes_hierarchy(self, input_mode_hierarchy):
-        return True if input_mode_hierarchy in self.input_modes_hierarchy else False
+        return True if input_mode_hierarchy in self.__input_modes_hierarchy else False

@@ -30,3 +30,9 @@ However, same can be modified as per user choice.
 <li>Support of "Config Mode"; Raw/Target Data (along with all needed config) can be configured Directly in Yaml Files (".yaml" or ".yml" extensions), and same cane be passed in "Individual Mode" or "Bulk Mode".
 <li>For Known File Extensions (".asn1", ".asn", ".base64", ".hex"), Input/Output Format may be modified automatically as per Default Values.
 </ul>
+
+# Sampledata Folder (\asn1Play\SampleData)
+<ul>
+<li>Sample Data folder contains version specific files.
+<li>"$VERSION" keyword can be used to generate file path on run time. (Refer: "\asn1Play\src\main\data_type\store_metadata_request.py")
+</ul>

@@ -1,10 +1,10 @@
 from src.generated_code.asn1.GSMA import SGP_22
 from src.generated_code.asn1.GSMA.SGP_22 import version, Version
 from src.generated_code.asn1.TCA import eUICC_Profile_Package
-from src.main.helper.constants import Constants
 from src.main.helper.convert_data import ConvertData
 from src.main.helper.data import Data
 from src.main.helper.formats import Formats
+from src.main.helper.keywords import KeyWords
 
 
 class AnyData(ConvertData):
@@ -25,53 +25,91 @@ class AnyData(ConvertData):
         re_parse_output = None
         super().set_re_parse_output(re_parse_output)
 
-    def set_asn_element(self):
-        pass
+    def set_output_file(self):
+        output_file = None
+        super().set_output_file(output_file)
+
+    def set_output_file_name_keyword(self):
+        output_file_name_keyword = None
+        super().set_output_file_name_keyword(output_file_name_keyword)
+
+    def set_remarks_list(self):
+        remarks_list = None
+        super().set_remarks_list(remarks_list)
+
+    def set_output_format(self):
+        output_format = None
+        super().set_output_format(output_format)
+
+    def set_input_format(self):
+        input_format = None
+        super().set_input_format(input_format)
+
+    def set_asn1_element(self):
+        asn1_element = None
+        super().set_asn1_element(asn1_element)
 
     def set_data_pool(self):
         data_pool = [
             #
             Data(
-                remarks_list='Der to ASCII via YAML',
-                raw_data=r'..\..\SampleData\Generic\ASCII\hex_to_ascii.yaml'
+                remarks_list='Hex to ASCII Export (input via YML)',
+                raw_data=r'..\..\SampleData\Generic\ASCII\hex_to_ascii_exp.yml'
             ),
             #
             Data(
-                remarks_list='Der to ASCII via YAML, same file',
-                raw_data=r'..\..\SampleData\Generic\ASCII\hex_to_ascii_op_same_file.yaml'
+                remarks_list='Hex to ASCII Export (Direct input)',
+                raw_data='57656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c617920212121',
+                input_format=Formats.HEX,
+                output_format=Formats.ASCII,
+                output_file_name_keyword=KeyWords.EXPORT_FILE_NAME_KEYWORD
             ),
             #
             Data(
-                remarks_list='Der to Base64 via YAML',
-                raw_data=r'..\..\SampleData\Generic\Base64\der_to_base64.yaml'
+                remarks_list='Output Processing via exported YML',
+                raw_data=r'..\..\UserData\hex_to_ascii_export_(direct_input)_export.yml',
+            ),
+            Data(
+                remarks_list='Der to ASCII via YML',
+                raw_data=r'..\..\SampleData\Generic\ASCII\hex_to_ascii_op.yml'
             ),
             #
             Data(
-                remarks_list='Base64 to Der via YAML',
-                raw_data=r'..\..\SampleData\Generic\Base64\base64_to_der.yaml'
+                remarks_list='Der to ASCII via YML, same file',
+                raw_data=r'..\..\SampleData\Generic\ASCII\hex_to_ascii_op_same_file.yml'
             ),
             #
             Data(
-                remarks_list='StoreMetadataRequest; Der to ASN via YAML',
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.hex.yaml' if version == Version.v3_0_0
-                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.hex.yaml',
+                remarks_list='Der to Base64 via YML',
+                raw_data=r'..\..\SampleData\Generic\Base64\der_to_base64.yml'
             ),
             #
             Data(
-                remarks_list='StoreMetadataRequest; ASN to Der via YAML',
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.asn1.yaml' if version == Version.v3_0_0
-                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.asn1.yaml',
+                remarks_list='Base64 to Der via YML',
+                raw_data=r'..\..\SampleData\Generic\Base64\base64_to_der.yml'
             ),
             #
             Data(
-                remarks_list='StoreMetadataRequest Mandatory; re_parse_output ASN to Der via YAML',
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yaml' if version == Version.v3_0_0
-                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yaml',
+                remarks_list='StoreMetadataRequest; Der to ASN via YML',
+                raw_data=r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.hex.yml' if version == Version.v3_0_0
+                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.hex.yml',
             ),
             #
             Data(
-                remarks_list='PROFILE_OPERATIONAL1; Der to Der via YAML',
-                raw_data=r'..\..\SampleData\TCA\eUICC_Profile_Package\v3_2\PROFILE_OPERATIONAL1.hex.yaml'
+                remarks_list='StoreMetadataRequest; ASN to Der via YML',
+                raw_data=r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.asn1.yml' if version == Version.v3_0_0
+                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.asn1.yml',
+            ),
+            #
+            Data(
+                remarks_list='StoreMetadataRequest Mandatory; re_parse_output ASN to Der via YML',
+                raw_data=r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yml' if version == Version.v3_0_0
+                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yml',
+            ),
+            #
+            Data(
+                remarks_list='PROFILE_OPERATIONAL1; Der to Der via YML',
+                raw_data=r'..\..\SampleData\TCA\eUICC_Profile_Package\v3_2\PROFILE_OPERATIONAL1.hex.yml'
             ),
             #
             Data(
@@ -156,7 +194,7 @@ class AnyData(ConvertData):
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1,
-                output_file_name_keyword=Constants.DEFAULT_OUTPUT_FILE_NAME_KEYWORD
+                output_file_name_keyword=KeyWords.OUTPUT_FILE_NAME_KEYWORD
             ),
             #
             Data(
@@ -167,7 +205,7 @@ class AnyData(ConvertData):
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
-                output_file_name_keyword=Constants.DEFAULT_OUTPUT_FILE_NAME_KEYWORD
+                output_file_name_keyword=KeyWords.OUTPUT_FILE_NAME_KEYWORD
             ),
             #
             Data(

@@ -73,11 +73,17 @@ def process_data(execution_mode, error_handling_mode):
     data_types = data_types_pool.get(execution_mode, Defaults.EXECUTION_MODE)
     for data_type in data_types:
         PhUtil.print_heading(str_heading=str(data_type.__class__.__name__))
-        data_type.set_data_pool()
-        data_type.set_asn_element()
         data_type.set_print_input()
+        data_type.set_print_output()
         data_type.set_print_info()
         data_type.set_re_parse_output()
+        data_type.set_output_file()
+        data_type.set_output_file_name_keyword()
+        data_type.set_remarks_list()
+        data_type.set_output_format()
+        data_type.set_input_format()
+        data_type.set_asn1_element()
+        data_type.set_data_pool()
         ConvertData.parse(data_type, ErrorHandlingModes.CONTINUE_ON_ERROR if isinstance(data_type,
                                                                                         UnitTesting) else error_handling_mode)
 
@@ -91,7 +97,7 @@ def main():
     Set Execution Mode, If you are a first time user then try #ExecutionModes.SAMPLE_GENERIC
     """
     execution_mode = ExecutionModes.ALL
-    error_handling_mode = ErrorHandlingModes.STOP_ON_ERROR
+    error_handling_mode = ErrorHandlingModes.CONTINUE_ON_ERROR
     # Print Versions
     PhUtil.print_version(ConfigConst.TOOL_NAME, ConfigConst.TOOL_VERSION, with_libs=True, with_user_info=True)
     """
