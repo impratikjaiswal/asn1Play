@@ -48,19 +48,5 @@ class UserData(ConvertData):
     def set_data_pool(self):
         data_pool = [
             #
-            # Hex to ASCII
-            # Data(
-            #     raw_data='48444643',
-            #     asn1_element=None,
-            #     input_format=Formats.HEX,
-            #     output_format=Formats.ASCII
-            # ),
-            # ASCII to Hex
-            Data(
-                raw_data='SBI',
-                asn1_element=None,
-                input_format=Formats.ASCII,
-                output_format=Formats.HEX
-            ),
         ]
         super().set_data_pool(data_pool)
