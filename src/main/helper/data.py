@@ -29,8 +29,9 @@ class Data:
         self.remarks_list = None
         #
         self.__asn1_element_name = None
-        self.__internal_remarks = None
+        self.__auto_generated_remarks = None
         self.__input_modes_hierarchy = []
+        self.__remarks_list_user = None
         #
         self.set_remarks(remarks_list)
         self.set_asn1_element_name()
@@ -46,24 +47,29 @@ class Data:
             [self.__asn1_element_name, str_raw_data]) if self.__asn1_element_name else str_raw_data
 
     def set_default_remarks_if_not_set(self):
+        self.__remarks_list_user = self.remarks_list
         if not self.remarks_list:
             # Remarks is not already provided
             self.set_remarks(self.__get_default_remarks())
 
-    def set_default_internal_remarks_if_not_set(self, internal_remarks):
+    def set_default_auto_generated_remarks_if_not_set(self, internal_remarks):
         if self.remarks_list:
-            self.__internal_remarks = internal_remarks
+            self.__auto_generated_remarks = internal_remarks
         else:
-            self.__internal_remarks = PhUtil.append_remarks(self.__get_default_remarks(), internal_remarks)
+            self.__auto_generated_remarks = PhUtil.append_remarks(self.__get_default_remarks(), internal_remarks)
 
-    def get_remarks_as_str(self):
+    def get_remarks_as_str(self, user_original_remarks=False):
         user_remarks = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, self.remarks_list))
+        if user_original_remarks:
+            if self.__remarks_list_user:
+                return PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, self.__remarks_list_user)).replace('\n', ' ')
+            return ''
         if user_remarks:
             user_remarks = PhUtil.trim_remarks(user_remarks)
-        return PhUtil.append_remarks(user_remarks, self.__internal_remarks)
+        return PhUtil.append_remarks(user_remarks, self.__auto_generated_remarks).replace('\n', ' ')
 
     def set_internal_remarks(self, internal_remarks):
-        self.__internal_remarks = internal_remarks
+        self.__auto_generated_remarks = internal_remarks
 
     def set_asn1_element_name(self):
         self.__asn1_element_name = self.asn1_element.fullname() if self.asn1_element else None

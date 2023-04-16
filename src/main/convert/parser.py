@@ -47,7 +47,7 @@ def parse_or_update_any_data(data, meta_data=None):
         # List is provided
         meta_data.input_mode_key = Keys.INPUT_LIST
         data.append_input_modes_hierarchy(meta_data.input_mode_key)
-        data.set_default_internal_remarks_if_not_set(f'({len(data.raw_data)} Elements)')
+        data.set_default_auto_generated_remarks_if_not_set(f'({len(data.raw_data)} Elements)')
         PhUtil.print_heading(data.get_remarks_as_str(), heading_level=3)
         converter.print_data(data, meta_data)
         parsed_data_list = []

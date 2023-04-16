@@ -21,6 +21,13 @@ class Keys:
     ASN1_ELEMENT = 'asn1_element'
     INFO = 'info'
 
+    PRINT_INPUT = 'print_input'
+    PRINT_OUTPUT = 'print_output'
+    PRINT_INFO = 'print_info'
+    RE_PARSE_OUTPUT = 're_parse_output'
+    REMARKS_LIST = 'remarks_list'
+    REMARKS_LIST_GENERATED = 'remarks_list_generated'
+
     OUTPUT_VERSION = 'output_version'
     #
     PYTHON = 'Python'

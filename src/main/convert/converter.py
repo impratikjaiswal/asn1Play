@@ -29,6 +29,16 @@ def print_data(data, meta_data):
     input_sep = PhConstants.SEPERATOR_MULTI_LINE if data.input_format in FormatsGroup.TXT_FORMATS else PhConstants.SEPERATOR_ONE_LINE
     output_sep = PhConstants.SEPERATOR_MULTI_LINE if data.output_format in FormatsGroup.TXT_FORMATS else PhConstants.SEPERATOR_ONE_LINE
     if data.print_info:
+        remarks_original = data.get_remarks_as_str(user_original_remarks=True)
+        remarks_generated = data.get_remarks_as_str()
+        if remarks_original and remarks_original in remarks_generated:
+            remarks_generated = ''
+        if remarks_original:
+            meta_data.output_dic.update(
+                get_dic_data_and_print(Keys.REMARKS_LIST, PhConstants.SEPERATOR_ONE_LINE, remarks_original))
+        if remarks_generated:
+            meta_data.output_dic.update(
+                get_dic_data_and_print(Keys.REMARKS_LIST_GENERATED, PhConstants.SEPERATOR_ONE_LINE, remarks_generated))
         info = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, [
             get_dic_data_and_print(Keys.ASN1_ELEMENT, PhConstants.SEPERATOR_ONE_LINE, data.get_asn1_element_name(),
                                    dic_format=False,
@@ -90,6 +100,9 @@ def prepare_config_data(data, existing_file_dic):
     else:
         config_data = data.__dict__
     for k, v in config_data.items():
+        if str(k).startswith('_'):
+            # Private variable
+            continue
         if not v:
             continue
         if k in [Keys.OUTPUT_FILE_NAME_KEYWORD]:
