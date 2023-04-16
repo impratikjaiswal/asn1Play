@@ -1,8 +1,8 @@
 from src.generated_code.asn1.GSMA import SGP_22
-from src.main.helper.convert_data import ConvertData
+from src.main.data_type.data_type_master import DataTypeMaster
 
 
-class StoreMetaData(ConvertData):
+class StoreMetaData(DataTypeMaster):
 
     def set_print_input(self):
         print_input = None

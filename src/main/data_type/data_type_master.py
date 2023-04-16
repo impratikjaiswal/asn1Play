@@ -4,7 +4,7 @@ from src.main.helper.data import Data
 from src.main.helper.keywords import KeyWords
 
 
-class ConvertData(object):
+class DataTypeMaster(object):
     def __init__(self):
         self.print_input = None
         self.print_output = None

@@ -5,18 +5,17 @@ from collections import OrderedDict
 
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
+from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from python_helpers.ph_util import PhUtil
 
 from src.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
 from src.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
 from src.main.convert import converter
 from src.main.convert.handler import decode_encode_asn
-from src.main.helper.constants import Constants as Constants_local
 from src.main.helper.constants_config import ConfigConst as ConfigConst_local
 from src.main.helper.formats_group import FormatsGroup
 from src.main.helper.keys import Keys
 from src.main.helper.metadata import MetaData
-from src.main.helper.modes_error_handling import ErrorHandlingModes
 
 
 def parse_or_update_any_data_safe(data, error_handling_mode):
@@ -27,7 +26,7 @@ def parse_or_update_any_data_safe(data, error_handling_mode):
         print(f'Exception Occurred {e}')
         converter.print_data(data, meta_data)
         traceback.print_exc()
-        if error_handling_mode == ErrorHandlingModes.STOP_ON_ERROR:
+        if error_handling_mode == PhErrorHandlingModes.STOP_ON_ERROR:
             raise
 
 
@@ -49,7 +48,7 @@ def parse_or_update_any_data(data, meta_data=None):
         meta_data.input_mode_key = Keys.INPUT_LIST
         data.append_input_modes_hierarchy(meta_data.input_mode_key)
         data.set_default_internal_remarks_if_not_set(f'({len(data.raw_data)} Elements)')
-        PhUtil.print_heading(data.get_remarks_as_str(), heading_level=3, count=Constants_local.MAX_HEADING_LENGTH)
+        PhUtil.print_heading(data.get_remarks_as_str(), heading_level=3)
         converter.print_data(data, meta_data)
         parsed_data_list = []
         for index, raw_data_item in enumerate(data.raw_data, start=1):
@@ -63,7 +62,7 @@ def parse_or_update_any_data(data, meta_data=None):
         return parsed_data_list
     if data.raw_data and os.path.isdir(os.path.abspath(data.raw_data)):
         # directory is provided
-        PhUtil.print_heading(data.get_remarks_as_str(), heading_level=3, count=Constants_local.MAX_HEADING_LENGTH)
+        PhUtil.print_heading(data.get_remarks_as_str(), heading_level=3)
         meta_data.input_mode_key = Keys.INPUT_DIR
         data.append_input_modes_hierarchy(meta_data.input_mode_key)
         converter.print_data(data, meta_data)
@@ -79,7 +78,7 @@ def parse_or_update_any_data(data, meta_data=None):
     """
     file_dic = {}
     data.set_default_remarks_if_not_set()
-    PhUtil.print_heading(data.get_remarks_as_str(), heading_level=2, count=Constants_local.MAX_HEADING_LENGTH)
+    PhUtil.print_heading(data.get_remarks_as_str(), heading_level=2)
     if data.raw_data and os.path.isfile(data.raw_data):
         # file is provided
         try:

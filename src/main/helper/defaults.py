@@ -1,7 +1,8 @@
+from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
+from python_helpers.ph_modes_execution import PhExecutionModes
+
 from src.main.helper.file_extensions import FileExtensions
 from src.main.helper.formats import Formats
-from src.main.helper.modes_error_handling import ErrorHandlingModes
-from src.main.helper.modes_execution import ExecutionModes
 
 
 class Defaults:
@@ -11,6 +12,6 @@ class Defaults:
     PRINT_OUTPUT = True
     FORMAT_INPUT = Formats.DER
     FORMAT_OUTPUT = Formats.ASN1
-    EXECUTION_MODE = ExecutionModes.USER
-    ERROR_HANDLING_MODE = ErrorHandlingModes.CONTINUE_ON_ERROR
+    EXECUTION_MODE = PhExecutionModes.USER
+    ERROR_HANDLING_MODE = PhErrorHandlingModes.CONTINUE_ON_ERROR
     OUTPUT_FILE_EXTENSION = FileExtensions.TXT

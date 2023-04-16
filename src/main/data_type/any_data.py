@@ -1,13 +1,12 @@
 from src.generated_code.asn1.GSMA import SGP_22
-from src.generated_code.asn1.GSMA.SGP_22 import version, Version
 from src.generated_code.asn1.TCA import eUICC_Profile_Package
-from src.main.helper.convert_data import ConvertData
+from src.main.data_type.data_type_master import DataTypeMaster
 from src.main.helper.data import Data
 from src.main.helper.formats import Formats
 from src.main.helper.keywords import KeyWords
 
 
-class AnyData(ConvertData):
+class AnyData(DataTypeMaster):
 
     def set_print_input(self):
         print_input = None
@@ -91,20 +90,17 @@ class AnyData(ConvertData):
             #
             Data(
                 remarks_list='StoreMetadataRequest; Der to ASN via YML',
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.hex.yml' if version == Version.v3_0_0
-                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.hex.yml',
+                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex.yml',
             ),
             #
             Data(
                 remarks_list='StoreMetadataRequest; ASN to Der via YML',
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.asn1.yml' if version == Version.v3_0_0
-                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.asn1.yml',
+                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.asn1.yml',
             ),
             #
             Data(
                 remarks_list='StoreMetadataRequest Mandatory; re_parse_output ASN to Der via YML',
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yml' if version == Version.v3_0_0
-                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yml',
+                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yml',
             ),
             #
             Data(
@@ -178,9 +174,7 @@ class AnyData(ConvertData):
             #
             Data(
                 remarks_list='Input Data From File, Output to Console',
-                raw_data=
-                r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64' if version == Version.v3_0_0
-                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64',
+                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64',
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1
@@ -188,9 +182,7 @@ class AnyData(ConvertData):
             #
             Data(
                 remarks_list='Input Data (Base 64) From File, Output to File',
-                raw_data=
-                r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64' if version == Version.v3_0_0
-                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64',
+                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64',
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1,
@@ -199,9 +191,7 @@ class AnyData(ConvertData):
             #
             Data(
                 remarks_list='Input Data (Der) From File, Output to File',
-                raw_data=
-                r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.hex' if version == Version.v3_0_0
-                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.hex',
+                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
@@ -210,16 +200,14 @@ class AnyData(ConvertData):
             #
             Data(
                 remarks_list='Input Data From Directory (All Known File Extensions)',
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest' if version == Version.v3_0_0
-                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest',
+                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format='',
             ),
             #
             Data(
                 remarks_list='Input Data From Directory (Only ASN1 Files)',
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest' if version == Version.v3_0_0
-                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest',
+                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.ASN1,
                 output_format=Formats.DER_64
@@ -227,8 +215,7 @@ class AnyData(ConvertData):
             #
             Data(
                 remarks_list='Input Data From Directory (Only Base64 Files)',
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest' if version == Version.v3_0_0
-                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest',
+                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1
@@ -236,8 +223,7 @@ class AnyData(ConvertData):
             #
             Data(
                 remarks_list='Input Data From Directory (Only Hex Files)',
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest' if version == Version.v3_0_0
-                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest',
+                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER,
                 output_format=Formats.ASN1
@@ -245,8 +231,7 @@ class AnyData(ConvertData):
             #
             Data(
                 remarks_list='Input Data From Directory (Only Yaml Files)',
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest' if version == Version.v3_0_0
-                else r'..\..\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest',
+                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
                 input_format=Formats.YML,
                 output_format=''
             ),

@@ -8,7 +8,7 @@ from ruamel.yaml.scalarstring import PreservedScalarString
 
 from src.generated_code.asn1.GSMA import SGP_22
 from src.generated_code.asn1.TCA import eUICC_Profile_Package
-from src.main.helper.constants import Constants as Constants_local
+from src.main.helper.constants import Constants
 from src.main.helper.data import Data
 from src.main.helper.defaults import Defaults
 from src.main.helper.file_extensions import FileExtensions
@@ -32,7 +32,7 @@ def print_data(data, meta_data):
         info = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, [
             get_dic_data_and_print(Keys.ASN1_ELEMENT, PhConstants.SEPERATOR_ONE_LINE, data.get_asn1_element_name(),
                                    dic_format=False,
-                                   print_also=False) if data.get_asn1_element_name() else Constants_local.STR_CONVERSION_MODE,
+                                   print_also=False) if data.get_asn1_element_name() else Constants.STR_CONVERSION_MODE,
             get_dic_data_and_print(Keys.INPUT_FORMAT, PhConstants.SEPERATOR_ONE_LINE, data.input_format,
                                    dic_format=False, print_also=False),
             get_dic_data_and_print(Keys.OUTPUT_FORMAT, PhConstants.SEPERATOR_ONE_LINE, data.output_format,
@@ -46,7 +46,7 @@ def print_data(data, meta_data):
                 meta_data.output_dic.update(
                     get_dic_data_and_print(Keys.INPUT_MODES_HIERARCHY, PhConstants.SEPERATOR_ONE_LINE,
                                            data.get_input_modes_hierarchy_as_str()))
-        if meta_data.export_mode or (meta_data.parsed_data and meta_data.output_file_name) :
+        if meta_data.export_mode or (meta_data.parsed_data and meta_data.output_file_name):
             meta_data.output_dic.update(
                 get_dic_data_and_print(Keys.EXPORT_FILE if meta_data.export_mode else Keys.OUTPUT_FILE,
                                        PhConstants.SEPERATOR_ONE_LINE, meta_data.output_file_name))
@@ -151,9 +151,12 @@ def set_input_output_format(data):
 
 
 def set_defaults_for_printing(data):
-    if data.print_input is None: data.print_input = Defaults.PRINT_INPUT
-    if data.print_output is None: data.print_output = Defaults.PRINT_OUTPUT
-    if data.print_info is None: data.print_info = Defaults.PRINT_INFO
+    if data.print_input is None:
+        data.print_input = Defaults.PRINT_INPUT
+    if data.print_output is None:
+        data.print_output = Defaults.PRINT_OUTPUT
+    if data.print_info is None:
+        data.print_info = Defaults.PRINT_INFO
 
 
 def set_defaults(data, meta_data):
@@ -163,9 +166,12 @@ def set_defaults(data, meta_data):
     :param meta_data:
     :return:
     """
-    if data.input_format is None: data.input_format = Defaults.FORMAT_INPUT
-    if data.output_format is None: data.output_format = Defaults.FORMAT_OUTPUT
-    if data.re_parse_output is None: data.re_parse_output = Defaults.RE_PARSE_OUTPUT
+    if data.input_format is None:
+        data.input_format = Defaults.FORMAT_INPUT
+    if data.output_format is None:
+        data.output_format = Defaults.FORMAT_OUTPUT
+    if data.re_parse_output is None:
+        data.re_parse_output = Defaults.RE_PARSE_OUTPUT
     data.set_asn1_element_name()
     if data.asn1_element:
         meta_data.operation_mode = OperationModes.ENCODE_DECODE
@@ -222,11 +228,11 @@ def set_output_file_name(data, meta_data):
         if not meta_data.output_file_name:
             meta_data.output_file_name = meta_data.raw_data_org
     name_as_per_remarks = data.get_remarks_as_str().replace(PhConstants.SEPERATOR_MULTI_OBJ, '_').replace(
-        Constants_local.DEFAULT_TRIM_STRING, '')
+        PhConstants.DEFAULT_TRIM_STRING, '')
     name_as_per_remarks = PhUtil.get_python_friendly_name(name_as_per_remarks)
     if not meta_data.output_file_name or (data.validate_if_input_modes_hierarchy(Keys.INPUT_LIST) and not file_mode):
         # output_file_name is not decided yet, so need to prepare
-        output_folder = Constants_local.DEFAULT_OUTPUT_FOLDER
+        output_folder = Constants.DEFAULT_OUTPUT_FOLDER
         sample_file_name = meta_data.default_output_file_ext
         if meta_data.output_file_name:
             sample_file_ext = PhUtil.get_file_name_and_extn(meta_data.output_file_name, only_extn=True)

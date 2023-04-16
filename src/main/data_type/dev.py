@@ -1,10 +1,7 @@
-from src.main.helper.convert_data import ConvertData
-from src.main.helper.data import Data
-from src.main.helper.formats import Formats
-from src.main.helper.keywords import KeyWords
+from src.main.data_type.data_type_master import DataTypeMaster
 
 
-class Dev(ConvertData):
+class Dev(DataTypeMaster):
 
     def set_print_input(self):
         print_input = None

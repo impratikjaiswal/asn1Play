@@ -1,22 +1,5 @@
 from python_helpers.ph_constants import PhConstants
-
-from src.main.helper.constants import Constants
-
-
-def append_remarks(remarks1, remarks2):
-    if remarks2 is not None:
-        sep = PhConstants.SEPERATOR_MULTI_OBJ
-        remarks1 = trim_remarks(remarks1, Constants.DEFAULT_REMARKS_MAX_LENGTH - (len(remarks2) + len(sep)))
-        remarks1 = sep.join(filter(None, [remarks1, remarks2]))
-    return remarks1
-
-
-def trim_remarks(user_remarks, max_length):
-    if len(user_remarks) > max_length > 0:
-        # Trimming is needed
-        user_remarks = user_remarks[
-                       :max_length - Constants.DEFAULT_TRIM_STRING_LENGTH] + Constants.DEFAULT_TRIM_STRING
-    return user_remarks
+from python_helpers.ph_util import PhUtil
 
 
 class Data:
@@ -71,13 +54,13 @@ class Data:
         if self.remarks_list:
             self.__internal_remarks = internal_remarks
         else:
-            self.__internal_remarks = append_remarks(self.__get_default_remarks(), internal_remarks)
+            self.__internal_remarks = PhUtil.append_remarks(self.__get_default_remarks(), internal_remarks)
 
     def get_remarks_as_str(self):
         user_remarks = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, self.remarks_list))
         if user_remarks:
-            user_remarks = trim_remarks(user_remarks, Constants.DEFAULT_REMARKS_MAX_LENGTH)
-        return append_remarks(user_remarks, self.__internal_remarks)
+            user_remarks = PhUtil.trim_remarks(user_remarks)
+        return PhUtil.append_remarks(user_remarks, self.__internal_remarks)
 
     def set_internal_remarks(self, internal_remarks):
         self.__internal_remarks = internal_remarks
