@@ -1,20 +1,21 @@
-# Der to Base 64
 input:
+    remarks_list: DerInput; Base64Output; YmlInput; OutputKeyword;
     asn1_element: None
     input_format: Formats.DER
     output_format: Formats.DER_64
     raw_data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
     output_file_name_keyword: output
 output:
-    info: 'Conversion Mode; Input Format: der; Output Format: der_with_base64'
-    input_yml: ..\..\SampleData\Generic\Base64\der_to_base64.yml
-    output_file: ..\..\SampleData\Generic\Base64\der_to_base64_output.yml
+    remarks_list: DerInput; Base64Output; YmlInput; OutputKeyword;
+    info: 'Conversion Mode; Input Format: der; Output Format: der_with_base64; Output File Name Keyword: output'
+    input_yml: ..\..\Data\SampleData\Generic\Base64\der_to_base64.yml
+    output_file: ../../Data/SampleData/Generic/Base64/\der_to_base64_output.yml
     input_data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
     output_data: vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAxmQIGQA==
 output_version:
     Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
-    pythonHelpers: v2.2.3
-    asn1play: v4.1.4
+    pythonHelpers: v2.2.5
+    asn1play: v4.1.5
     SGP22: v3_0_0
     eUICC_Profile_Package: v3_2
-time_stamp: 2023-04-17 00:20:37.745272
+    time_stamp: Monday, Apr 04 2023, 21:33:44:559859, IST (GMT+0530)

@@ -1,0 +1,25 @@
+input:
+    raw_data: 57656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c617920212121
+    input_format: hex
+    output_format: ascii
+    print_input: true
+    print_output: true
+    print_info: true
+    output_file: ..\..\Data\SampleData\Generic\ASCII
+    output_file_name_keyword: output
+    remarks_list:
+    - HexInput; AsciiOutput; DirectInput; ExportKeyword; OutputFile;
+output:
+    remarks_list: HexInput; AsciiOutput; DirectInput; ExportKeyword; OutputFile;
+    info: 'Conversion Mode; Input Format: hex; Output Format: ascii; Output File: ..\..\Data\SampleData\Generic\ASCII; Output File Name Keyword: output'
+    input_yml: ..\..\Data\SampleData\Generic\ASCII\HexInput_AsciiOutput_DirectInput_ExportKeyword_OutputFile_export.yml
+    output_file: ../../Data/SampleData/Generic/\ASCII\HexInput_AsciiOutput_DirectInput_ExportKeyword_OutputFile_output.yml
+    input_data: 57656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c617920212121
+    output_data: Welcome To AsnPlay !!!Welcome To AsnPlay !!!Welcome To AsnPlay !!!Welcome To AsnPlay !!!
+output_version:
+    Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
+    pythonHelpers: v2.2.5
+    asn1play: v4.1.5
+    SGP22: v3_0_0
+    eUICC_Profile_Package: v3_2
+    time_stamp: Monday, Apr 04 2023, 21:33:44:551923, IST (GMT+0530)

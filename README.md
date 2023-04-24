@@ -36,3 +36,29 @@ However, same can be modified as per user choice.
 <li>Sample Data folder contains version specific files.
 <li>"$VERSION" keyword can be used to generate file path on run time. (Refer: "\asn1Play\src\main\data_type\store_metadata_request.py")
 </ul>
+
+# Important Points
+<ul>
+<li>For output_file, Both "directory path" and "file path" (identified based on any extension) are supported, Hence a path without extension will be considered as directory. 
+<li>For input/output via files/directory, always enclosed path with r''. Here "r" denotes raw string and avoid escape sequences.
+</ul>
+
+# Reserve Keywords
+<ul>
+<li>$VERSION
+<ul>
+<li>Used for input_path, when version of asn specification needs to be considered in path.
+</ul>
+<li>$REMARKS
+<ul>
+<li>Used for output_path, when Remarks needs to be considered in output path.
+</ul>
+<li>output
+<ul>
+<li>Used for output in file.
+</ul>
+<li>export
+<ul>
+<li>Used for export mode. Export of configuration in .yml file.
+</ul>
+</ul>

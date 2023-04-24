@@ -1,5 +1,5 @@
-# Base 64 to Der
 input:
+    remarks_list: Base64Input; DerOutput; YmlInput; OutputKeyword;
     asn1_element: None
     input_format: Formats.DER_64
     output_format: Formats.DER
