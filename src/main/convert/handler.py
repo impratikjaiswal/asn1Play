@@ -21,53 +21,53 @@ Enable Flags for Debugging
 # _debug = True
 
 
-def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORMAT_INPUT,
+def decode_encode_asn(raw_data='', parse_only=True, input_format=Defaults.FORMAT_INPUT,
                       output_format=Defaults.FORMAT_OUTPUT, asn1_element=None):
     """
     Ref: https://github.com/P1sec/pycrate/wiki/Using-the-pycrate-asn1-runtime
-    :param input_data:
+    :param raw_data:
     :param parse_only:
     :param input_format:
     :param output_format:
     :param asn1_element:
     :return:
     """
-    print_debug_var('input_data', input_data)
+    print_debug_var('raw_data', raw_data)
     print_debug_var('parse_only', parse_only)
     print_debug_var('input_format', input_format)
     print_debug_var('output_format', output_format)
     print_debug_var('asn1_element', asn1_element)
     offset = 0
-    if not input_data:
-        raise ValueError(f'Mandatory input_data is missing.')
+    if not raw_data:
+        raise ValueError(f'Mandatory raw_data is missing.')
     if input_format not in FormatsGroup.INPUT_FORMATS:
         raise ValueError(f'Unknown input format {input_format}')
     if isinstance(asn1_element, str):  # Str is provided, check the mapping
         asn1_element = all_mapping.get(asn1_element, asn1_element)
         print_debug('main_element mapping conversion is needed ' +
                     ('but not available' if isinstance(asn1_element, str) else 'and done'))
-    if isinstance(input_data, bytes):
-        input_data = input_data.hex()
+    if isinstance(raw_data, bytes):
+        raw_data = raw_data.hex()
     if input_format in FormatsGroup.INPUT_FORMATS_ASCII:
-        input_data = PhUtil.ascii_to_hex_str(input_data)
-        print_debug('base_profile hex conversion done, data is {0}'.format(input_data))
+        raw_data = PhUtil.ascii_to_hex_str(raw_data)
+        print_debug('base_profile hex conversion done, data is {0}'.format(raw_data))
     if input_format in FormatsGroup.INPUT_FORMATS_HEX:
         # Trim Hex Data
-        input_data = PhUtil.trim_and_kill_all_white_spaces(input_data)
-        print_debug('base_profile Trimming done, data is {0}'.format(input_data))
-        if not PhUtil.is_hex(input_data):
-            input_data = base64.b64decode(input_data).hex()
-            print_debug('base_profile hex conversion done, data is {0}'.format(input_data))
+        raw_data = PhUtil.trim_and_kill_all_white_spaces(raw_data)
+        print_debug('base_profile Trimming done, data is {0}'.format(raw_data))
+        if not PhUtil.is_hex(raw_data):
+            raw_data = base64.b64decode(raw_data).hex()
+            print_debug('base_profile hex conversion done, data is {0}'.format(raw_data))
     if not asn1_element:
         print_debug('asn1_element is not provided; Only Conversion will be performed')
         if input_format in FormatsGroup.INPUT_FORMATS_NON_TXT:
             # Data is converted to Hex
             if output_format in FormatsGroup.INPUT_FORMATS_DER_BASE_64:
-                return base64.b64encode(unhexlify(input_data)).decode()
+                return base64.b64encode(unhexlify(raw_data)).decode()
             if output_format in FormatsGroup.ASCII_FORMATS:
-                return PhUtil.hex_str_to_ascii(input_data)
+                return PhUtil.hex_str_to_ascii(raw_data)
             if output_format in FormatsGroup.INPUT_FORMATS_DER:
-                return input_data
+                return raw_data
         raise ValueError('asn1_element is not provided')
 
     parsing_data_current = ''
@@ -79,7 +79,7 @@ def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORM
     # print(help(M))
     record_count = 0
     print_debug('Elements Processing')
-    while offset < len(input_data):
+    while offset < len(raw_data):
         initial_offset = offset
         exception_msg = None
         known_data = True
@@ -88,7 +88,7 @@ def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORM
         print_debug_var('len', len)
         temp = ''
         if input_format in FormatsGroup.INPUT_FORMATS_HEX:
-            temp = bytes.fromhex(input_data[offset:])
+            temp = bytes.fromhex(raw_data[offset:])
             try:  # Needed For Unknown data / TLV
                 M.from_der(temp)
                 temp = M.to_der()
@@ -97,7 +97,7 @@ def decode_encode_asn(input_data='', parse_only=True, input_format=Defaults.FORM
                 known_data = False
             offset += (len(temp) * 2)
         if input_format in FormatsGroup.INPUT_FORMATS_ASN:
-            temp = input_data[offset:]
+            temp = raw_data[offset:]
             next_offset = find_offset_of_section(temp, '{', '}') + 1
             print_debug_var('next_offset', next_offset)
             # There could be n white spaces (\n, \r , or both)

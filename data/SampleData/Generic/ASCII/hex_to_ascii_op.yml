@@ -1,5 +1,5 @@
 input:
-    remarks_list: Hex to ASCII Output (via YML)
+    remarks_list: HexInput; AsciiOutput; YmlInput; OutputKeyword;
     asn1_element: None
     input_format: Formats.HEX
     output_format: Formats.ASCII

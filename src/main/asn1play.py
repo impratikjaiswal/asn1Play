@@ -5,14 +5,16 @@ from python_helpers.ph_util import PhUtil
 from src.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
 from src.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
 from src.main.data_type.any_data import AnyData
+from src.main.data_type.any_data_bulk import AnyDataBulk
+from src.main.data_type.data_type_master import DataTypeMaster
 from src.main.data_type.dev import Dev
 from src.main.data_type.profile_element import ProfileElement
 from src.main.data_type.store_metadata_request import StoreMetaData
+from src.main.data_type.store_metadata_request_bulk import StoreMetaDataBulk
 from src.main.data_type.unit_testing import UnitTesting
 from src.main.data_type.update_metadata_request import UpdateMetadataRequest
 from src.main.data_type.user_data import UserData
 from src.main.helper.constants_config import ConfigConst
-from src.main.data_type.data_type_master import DataTypeMaster
 from src.main.helper.defaults import Defaults
 from src.main.helper.keys import Keys
 
@@ -41,8 +43,16 @@ def process_data(execution_mode, error_handling_mode):
         # Sample With Plenty vivid Examples
         #####
         AnyData(),
+        #####
+        # Sample With Plenty vivid Examples, Bulk
+        #####
+        AnyDataBulk(),
     ]
     data_types_sample_specific = [
+        #####
+        # Sample Store Meta Data Request; Bulk Mode
+        #####
+        StoreMetaDataBulk(),
         #####
         # Sample Store Meta Data Request
         #####
@@ -106,8 +116,8 @@ def main():
     """
     Set Target Version of SGP22, eUICC Profile Package 
     """
-    PhUtil.print_version(Keys.SGP22, sgp_22_version, with_libs=False, with_user_info=False)
-    PhUtil.print_version(Keys.EUICC_PROFILE_PACKAGE, epp_version, with_libs=False, with_user_info=False)
+    PhUtil.print_version(Keys.SGP22, sgp_22_version, no_additional_info=True)
+    PhUtil.print_version(Keys.EUICC_PROFILE_PACKAGE, epp_version, no_additional_info=True)
     # Process Data
     process_data(execution_mode, error_handling_mode)
     PhUtil.print_done()

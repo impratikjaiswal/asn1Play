@@ -62,27 +62,27 @@ class UpdateMetadataRequest(DataTypeMaster):
             ),
             #
             Data(
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest.asn1'
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest.asn1'
             ),
             #
             Data(
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr0_no_ppr.asn1'
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr0_no_ppr.asn1'
             ),
             #
             Data(
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr1_pp2.asn1'
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr1_pp2.asn1'
             ),
             #
             Data(
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr2_ppr1.asn1'
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr2_ppr1.asn1'
             ),
             #
             Data(
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr3_ppr1_ppr2.asn1'
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr3_ppr1_ppr2.asn1'
             ),
             #
             Data(
-                raw_data=r'..\..\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest.hex'
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest.hex'
             ),
         ]
         super().set_data_pool(data_pool)

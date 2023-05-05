@@ -3,10 +3,12 @@ import os
 import traceback
 from collections import OrderedDict
 
+import binascii
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from python_helpers.ph_util import PhUtil
+from ruamel.yaml.representer import RepresenterError
 
 from src.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
 from src.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
@@ -23,9 +25,27 @@ def parse_or_update_any_data_safe(data, error_handling_mode):
         meta_data = MetaData(raw_data_org=data.raw_data)
         parse_or_update_any_data(data, meta_data)
     except Exception as e:
-        print(f'Exception Occurred {e}')
+        known = False
+        additional_msg = None
+        if isinstance(e, binascii.Error):
+            known = True
+            additional_msg = 'raw_data is invalid'
+        elif isinstance(e, ValueError):
+            known = True
+        elif isinstance(e, RepresenterError):
+            known = True
+            additional_msg = 'export error'
+        elif isinstance(e, PermissionError):
+            known = True
+            additional_msg = 'input/output path reading/writing error'
+        elif isinstance(e, FileExistsError):
+            known = True
+            additional_msg = 'Output path writing error'
         converter.print_data(data, meta_data)
-        traceback.print_exc()
+        print(PhUtil.get_key_value_pair(PhConstants.EXCEPTION_KNOWN if known else PhConstants.EXCEPTION_UNKNOWN,
+                                        PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, [additional_msg, str(e)]))))
+        if not known:
+            traceback.print_exc()
         if error_handling_mode == PhErrorHandlingModes.STOP_ON_ERROR:
             raise
 
@@ -51,9 +71,13 @@ def parse_or_update_any_data(data, meta_data=None):
         PhUtil.print_heading(data.get_remarks_as_str(), heading_level=3)
         converter.print_data(data, meta_data)
         parsed_data_list = []
+        actual_remarks_length = len(data.remarks_list)
+        current_remarks_list = PhUtil.extend_list(data.remarks_list, expected_length=len(data.raw_data))
         for index, raw_data_item in enumerate(data.raw_data, start=1):
             sub_data = copy.deepcopy(data)
             sub_data.raw_data = raw_data_item
+            sub_data.set_extended_remarks(False if index <= actual_remarks_length else True)
+            sub_data.set_remarks(current_remarks_list[index - 1])
             sub_data.set_default_remarks_if_not_set()
             sub_data.set_internal_remarks(PhUtil.get_key_value_pair(key='item', value=index,
                                                                     sep=PhConstants.SEPERATOR_TWO_WORDS,
@@ -76,7 +100,7 @@ def parse_or_update_any_data(data, meta_data=None):
     """
     Individual
     """
-    file_dic = {}
+    file_dic_all_str = {}
     data.set_default_remarks_if_not_set()
     PhUtil.print_heading(data.get_remarks_as_str(), heading_level=2)
     if data.raw_data and os.path.isfile(data.raw_data):
@@ -91,7 +115,7 @@ def parse_or_update_any_data(data, meta_data=None):
         file_ext = PhUtil.get_file_name_and_extn(file_path=data.raw_data, only_extn=True)
         if file_ext in FormatsGroup.INPUT_FILE_FORMATS_YML:
             meta_data.input_mode_key = Keys.INPUT_YML
-            file_dic, data = converter.read_yaml(resp)
+            file_dic_all_str, data = converter.read_yaml(resp)
             converter.set_defaults_for_printing(data)
         else:
             meta_data.input_mode_key = Keys.INPUT_FILE
@@ -99,13 +123,14 @@ def parse_or_update_any_data(data, meta_data=None):
             data.raw_data = resp
         data.append_input_modes_hierarchy(meta_data.input_mode_key)
     # print_data(data, meta_data)
+    # Needed for scenario when remarks will be fetched from YML
+    data.set_default_remarks_if_not_set()
     converter.set_defaults(data, meta_data)
-    converter.set_output_file_name(data, meta_data)
+    converter.set_output_file_path(data, meta_data)
     converter.set_re_output_file_name(data, meta_data)
     if meta_data.export_mode:
         converter.print_data(data, meta_data)
-        converter.write_yml_file(meta_data.output_file_name, converter.prepare_config_data(data, file_dic),
-                                 time_stamp=False)
+        converter.write_yml_file(meta_data.output_file_path, converter.prepare_config_data(data))
         return None
     output_versions_dic = OrderedDict()
     output_versions_dic.update(PhUtil.get_tool_name_w_version(dic_format=True))
@@ -115,19 +140,22 @@ def parse_or_update_any_data(data, meta_data=None):
         PhUtil.get_tool_name_w_version(ConfigConst_local.TOOL_NAME, ConfigConst_local.TOOL_VERSION, dic_format=True))
     output_versions_dic.update(PhUtil.get_tool_name_w_version(Keys.SGP22, sgp_22_version, dic_format=True))
     output_versions_dic.update(PhUtil.get_tool_name_w_version(Keys.EUICC_PROFILE_PACKAGE, epp_version, dic_format=True))
+    output_versions_dic.update(
+        PhUtil.get_key_value_pair(Keys.TIME_STAMP, PhUtil.get_time_stamp(files_format=False), dic_format=True))
     # parse Data
-    meta_data.parsed_data = decode_encode_asn(input_data=data.raw_data, parse_only=True, input_format=data.input_format,
+    meta_data.parsed_data = decode_encode_asn(raw_data=data.raw_data, parse_only=True, input_format=data.input_format,
                                               output_format=data.output_format, asn1_element=data.asn1_element)
     if data.re_parse_output:
-        meta_data.re_parsed_data = decode_encode_asn(input_data=meta_data.parsed_data, parse_only=True,
+        meta_data.re_parsed_data = decode_encode_asn(raw_data=meta_data.parsed_data, parse_only=True,
                                                      input_format=data.output_format,
                                                      output_format=data.input_format, asn1_element=data.asn1_element)
     converter.print_data(data, meta_data)
     if meta_data.input_mode_key == Keys.INPUT_YML:
-        converter.write_yml_file(meta_data.output_file_name, file_dic, meta_data.output_dic, output_versions_dic)
-    elif meta_data.output_file_name:
-        PhUtil.makedirs(PhUtil.get_file_name_and_extn(file_path=meta_data.output_file_name, only_path=True))
-        converter.write_output_file(meta_data.output_file_name, meta_data.parsed_data)
+        converter.write_yml_file(meta_data.output_file_path, file_dic_all_str, meta_data.output_dic,
+                                 output_versions_dic)
+    elif meta_data.output_file_path:
+        PhUtil.makedirs(PhUtil.get_file_name_and_extn(file_path=meta_data.output_file_path, only_path=True))
+        converter.write_output_file(meta_data.output_file_path, meta_data.parsed_data)
         if meta_data.re_parsed_data:
-            converter.write_output_file(meta_data.re_output_file_name, meta_data.re_parsed_data)
+            converter.write_output_file(meta_data.re_output_file_path, meta_data.re_parsed_data)
     return meta_data.parsed_data

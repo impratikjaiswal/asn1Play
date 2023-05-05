@@ -7,7 +7,9 @@ from ruamel.yaml import YAML
 from ruamel.yaml.scalarstring import PreservedScalarString
 
 from src.generated_code.asn1.GSMA import SGP_22
+from src.generated_code.asn1.GSMA.SGP_22 import version as sgp22_version
 from src.generated_code.asn1.TCA import eUICC_Profile_Package
+from src.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
 from src.main.helper.constants import Constants
 from src.main.helper.data import Data
 from src.main.helper.defaults import Defaults
@@ -17,6 +19,7 @@ from src.main.helper.formats_group import FormatsGroup
 from src.main.helper.keys import Keys
 from src.main.helper.keywords import KeyWords
 from src.main.helper.mode_operation import OperationModes
+from src.main.helper.variables import Variables
 
 
 def get_dic_data_and_print(key, sep, value, dic_format=True, print_also=True):
@@ -31,9 +34,15 @@ def print_data(data, meta_data):
     if data.print_info:
         remarks_original = data.get_remarks_as_str(user_original_remarks=True)
         remarks_generated = data.get_remarks_as_str()
-        if remarks_original and remarks_original in remarks_generated:
-            remarks_generated = ''
+        remarks_generated_stripping_needed = True if remarks_generated.endswith(
+            PhConstants.DEFAULT_TRIM_STRING) else False
         if remarks_original:
+            if remarks_generated_stripping_needed:
+                if remarks_generated.strip(PhConstants.DEFAULT_TRIM_STRING) in remarks_original:
+                    remarks_generated = ''
+            else:
+                if remarks_original in remarks_generated:
+                    remarks_generated = ''
             meta_data.output_dic.update(
                 get_dic_data_and_print(Keys.REMARKS_LIST, PhConstants.SEPERATOR_ONE_LINE, remarks_original))
         if remarks_generated:
@@ -47,6 +56,11 @@ def print_data(data, meta_data):
                                    dic_format=False, print_also=False),
             get_dic_data_and_print(Keys.OUTPUT_FORMAT, PhConstants.SEPERATOR_ONE_LINE, data.output_format,
                                    dic_format=False, print_also=False),
+            get_dic_data_and_print(Keys.OUTPUT_FILE, PhConstants.SEPERATOR_ONE_LINE, data.output_file,
+                                   dic_format=False, print_also=False) if data.output_file else None,
+            get_dic_data_and_print(Keys.OUTPUT_FILE_NAME_KEYWORD, PhConstants.SEPERATOR_ONE_LINE,
+                                   data.output_file_name_keyword,
+                                   dic_format=False, print_also=False) if data.output_file_name_keyword else None,
         ]))
         meta_data.output_dic.update(get_dic_data_and_print(Keys.INFO, PhConstants.SEPERATOR_INFO, info))
         if meta_data.input_mode_key:
@@ -56,18 +70,24 @@ def print_data(data, meta_data):
                 meta_data.output_dic.update(
                     get_dic_data_and_print(Keys.INPUT_MODES_HIERARCHY, PhConstants.SEPERATOR_ONE_LINE,
                                            data.get_input_modes_hierarchy_as_str()))
-        if meta_data.export_mode or (meta_data.parsed_data and meta_data.output_file_name):
+        if meta_data.export_mode or (meta_data.parsed_data and meta_data.output_file_path):
             meta_data.output_dic.update(
                 get_dic_data_and_print(Keys.EXPORT_FILE if meta_data.export_mode else Keys.OUTPUT_FILE,
-                                       PhConstants.SEPERATOR_ONE_LINE, meta_data.output_file_name))
-        if meta_data.re_parsed_data and meta_data.re_output_file_name:
+                                       PhConstants.SEPERATOR_ONE_LINE, meta_data.output_file_path))
+        if meta_data.re_parsed_data and meta_data.re_output_file_path:
             meta_data.output_dic.update(get_dic_data_and_print(Keys.RE_OUTPUT_FILE, PhConstants.SEPERATOR_ONE_LINE,
-                                                               meta_data.re_output_file_name))
+                                                               meta_data.re_output_file_path))
     if data.print_input:
         meta_data.output_dic.update(get_dic_data_and_print(Keys.INPUT_DATA, input_sep, data.raw_data))
-    if data.print_output and meta_data.parsed_data:
+    bulk_mode = True if len(data.get_input_modes_hierarchy()) >= 1 else False
+    output_present = meta_data.parsed_data
+    print_output = data.print_output
+    if not output_present and (bulk_mode or meta_data.export_mode):
+        # in bulk mode, output will not be available
+        print_output = False
+    if data.print_output and print_output:  # and meta_data.parsed_data:
         meta_data.output_dic.update(get_dic_data_and_print(Keys.OUTPUT_DATA, output_sep, meta_data.parsed_data))
-    if data.print_output and meta_data.re_parsed_data:
+    if data.print_output and print_output and data.re_parse_output:
         meta_data.output_dic.update(get_dic_data_and_print(Keys.RE_PARSED_DATA, input_sep, meta_data.re_parsed_data))
     PhUtil.print_separator()
 
@@ -93,18 +113,29 @@ def set_includes_excludes_files(data, meta_data):
     meta_data.include_files = [('*' + x) for x in meta_data.include_files]
 
 
-def prepare_config_data(data, existing_file_dic):
+def prepare_config_data(data):
     data_dic = dict()
-    if existing_file_dic:
-        config_data = dict(existing_file_dic).get(Keys.INPUT, None)
-    else:
-        config_data = data.__dict__
+    config_data = data.__dict__
     for k, v in config_data.items():
         if str(k).startswith('_'):
             # Private variable
             continue
         if not v:
             continue
+        if k in [Keys.ASN1_ELEMENT]:
+            value = data.get_asn1_element_name()
+            module_name = data.get_asn1_module_name()
+            if module_name == KeyWords.MODULE_SGP22:
+                if isinstance(data.asn1_element, type(getattr(SGP_22.RSPDefinitions, value))):
+                    data_dic[k] = '.'.join([KeyWords.PATH_SGP22, value])
+                    continue
+            if module_name == KeyWords.MODULE_EPP:
+                if isinstance(data.asn1_element, type(getattr(eUICC_Profile_Package.PEDefinitions, value))):
+                    data_dic[k] = '.'.join([KeyWords.PATH_EPP, value])
+                continue
+
+        if k in [Keys.INPUT_FORMAT, Keys.OUTPUT_FORMAT]:
+            pass
         if k in [Keys.OUTPUT_FILE_NAME_KEYWORD]:
             # Here we need to be ready for further usage of exported file
             data_dic[k] = KeyWords.OUTPUT_FILE_NAME_KEYWORD
@@ -198,8 +229,10 @@ def set_defaults(data, meta_data):
         Formats.YML: FileExtensions.YML,
     }
     meta_data.export_mode = True if data.output_file_name_keyword == KeyWords.EXPORT_FILE_NAME_KEYWORD else False
-    meta_data.default_output_file_ext = default_output_file_mapping.get(
-        Formats.YML if meta_data.export_mode else data.output_format, FileExtensions.TXT)
+    meta_data.output_file_ext_default = default_output_file_mapping.get(
+        Formats.YML if (meta_data.export_mode or meta_data.input_mode_key == Keys.INPUT_YML) else data.output_format,
+        FileExtensions.TXT)
+    meta_data.output_file_location_default = Constants.DEFAULT_OUTPUT_FOLDER
 
 
 def read_yaml(input_file):
@@ -209,65 +242,85 @@ def read_yaml(input_file):
     return file_dic, Data(**config_data)
 
 
-def write_yml_file(output_file_name, file_dic, output_dic=None, output_versions_dic=None, time_stamp=True):
-    with open(output_file_name, 'w') as file:
+def write_yml_file(output_file_path, file_dic, output_dic=None, output_versions_dic=None):
+    PhUtil.makedirs(PhUtil.get_file_name_and_extn(file_path=output_file_path, only_path=True))
+    with open(output_file_path, 'w') as file:
         if output_dic:
             file_dic[Keys.OUTPUT] = dict(output_dic)
         if output_versions_dic:
             file_dic[Keys.OUTPUT_VERSION] = dict(output_versions_dic)
-        if time_stamp:
-            file_dic[Keys.TIME_STAMP] = PhUtil.get_time_stamp(files_format=False, default_format=True)
         yaml_object = YAML()
         yaml_object.width = 1000
         yaml_object.indent(mapping=4)
         yaml_object.dump(file_dic, file)
 
 
-def set_output_file_name(data, meta_data):
+def set_output_file_path(data, meta_data):
     """
 
     :param data:
     :param meta_data:
     """
     file_mode = False
+    remarks_needed = False
+    remarks_with_indexes = False
+    sample_file_name = ''
+    name_as_per_remarks = ''
     if not (meta_data.input_mode_key == Keys.INPUT_YML or data.output_file or data.output_file_name_keyword):
         return
-    if data.output_file:
-        meta_data.output_file_name = data.output_file
-    if meta_data.input_mode_key == Keys.INPUT_YML or meta_data.input_mode_key == Keys.INPUT_FILE:
-        # YML File writing is mandatory, But Output File is not Provided, so Dest File will be source File only
-        # File writing is needed, But OutputFile is not Provided,so Dest FileName will be prepared from source file name
+    output_file = data.output_file
+    output_file_location = meta_data.output_file_location_default
+    if not output_file and (
+            meta_data.input_mode_key == Keys.INPUT_YML or meta_data.input_mode_key == Keys.INPUT_FILE):
+        # YML File writing is mandatory, But output_file is not Provided, so Dest File will be source File only
+        # File writing is needed, But output_file is not Provided,so Dest File will be prepared from source File only
         file_mode = True
-        if not meta_data.output_file_name:
-            meta_data.output_file_name = meta_data.raw_data_org
-    name_as_per_remarks = data.get_remarks_as_str().replace(PhConstants.SEPERATOR_MULTI_OBJ, '_').replace(
-        PhConstants.DEFAULT_TRIM_STRING, '')
-    name_as_per_remarks = PhUtil.get_python_friendly_name(name_as_per_remarks)
-    if not meta_data.output_file_name or (data.validate_if_input_modes_hierarchy(Keys.INPUT_LIST) and not file_mode):
-        # output_file_name is not decided yet, so need to prepare
-        output_folder = Constants.DEFAULT_OUTPUT_FOLDER
-        sample_file_name = meta_data.default_output_file_ext
-        if meta_data.output_file_name:
-            sample_file_ext = PhUtil.get_file_name_and_extn(meta_data.output_file_name, only_extn=True)
-            if sample_file_ext:
-                # Target File Provided
-                output_folder = PhUtil.get_file_name_and_extn(meta_data.output_file_name, only_path=True)
-                sample_file_name = PhUtil.get_file_name_and_extn(meta_data.output_file_name)
-            else:
-                # Target Directory File Provided
-                output_folder = meta_data.output_file_name
-        # Direct Data is provided, Name Needs to be set
-        meta_data.output_file_name = os.sep.join(
-            [output_folder, PhUtil.append_in_file_name(str_file_path=sample_file_name, str_append=name_as_per_remarks)])
-    if data.output_file_name_keyword:
-        meta_data.output_file_name = PhUtil.append_in_file_name(str_file_path=meta_data.output_file_name,
-                                                                str_append=data.output_file_name_keyword,
-                                                                new_ext=None if meta_data.input_mode_key == Keys.INPUT_YML else meta_data.default_output_file_ext)
+        output_file = meta_data.raw_data_org
+    if output_file:
+        sample_file_ext = PhUtil.get_file_name_and_extn(output_file, only_extn=True)
+        sample_file_folder = PhUtil.get_file_name_and_extn(output_file, only_path=True)
+        sample_file_name = PhUtil.get_file_name_and_extn(output_file)
+        if Variables.ITEM_INDEX in sample_file_name:
+            remarks_with_indexes = True
+            sample_file_name = sample_file_name.replace(Variables.ITEM_INDEX, '')
+        if sample_file_name == Variables.REMARKS:
+            # Only Target Directory is provided; Remarks usage is explicitly mentioned
+            remarks_needed = True
+            sample_file_name = sample_file_name.replace(Variables.REMARKS, '')
+            output_file_location = sample_file_folder
+            pass
+        elif sample_file_ext:
+            # Target File Provided
+            output_file_name = sample_file_name
+            output_file_location = sample_file_folder
+        else:
+            # Only Target Directory is provided; Remarks usage is implicit
+            remarks_needed = True
+            output_file_location = os.sep.join([sample_file_folder, sample_file_name])
+            sample_file_name = ''
+    if data.validate_if_input_modes_hierarchy(Keys.INPUT_LIST) and not file_mode:
+        # unique name needed
+        remarks_needed = True
+    if not output_file and meta_data.export_mode:
+        remarks_needed = True
+    if data.output_file_name_keyword and not output_file:
+        remarks_needed = True
+    if remarks_needed or data.output_file_name_keyword:
+        if remarks_needed:
+            if data.get_extended_remarks():
+                remarks_with_indexes = True
+            name_as_per_remarks = PhUtil.get_python_friendly_name(data.get_remarks_as_str(not remarks_with_indexes),
+                                                                  case_sensitive=False)
+        output_file_name = PhUtil.append_in_file_name(str_file_path=sample_file_name,
+                                                      str_append=[name_as_per_remarks,
+                                                                  data.output_file_name_keyword],
+                                                      new_ext=meta_data.output_file_ext_default)
+    meta_data.output_file_path = os.sep.join([output_file_location, output_file_name])
 
 
 def set_re_output_file_name(data, meta_data):
-    if meta_data.output_file_name and data.re_parse_output:
-        meta_data.re_output_file_name = PhUtil.append_in_file_name(str_file_path=meta_data.output_file_name,
+    if meta_data.output_file_path and data.re_parse_output:
+        meta_data.re_output_file_path = PhUtil.append_in_file_name(str_file_path=meta_data.output_file_path,
                                                                    str_append='re_parsed')
     return
 
@@ -275,3 +328,31 @@ def set_re_output_file_name(data, meta_data):
 def write_output_file(output_file_name, parsed_data):
     with open(output_file_name, 'w') as file:
         file.writelines(parsed_data)
+
+
+def replace_data(target_data, keyword, new_value):
+    if keyword not in target_data:
+        return target_data
+    return target_data.replace(keyword, new_value)
+
+
+def replace_version(target_data, data):
+    module_version = data.get_asn1_module_version()
+    if not module_version:
+        # Try to set version based on path
+        if KeyWords.CLASS_EPP in target_data:
+            module_version = epp_version
+        else:
+            # default version is of SGP
+            module_version = sgp22_version
+    return replace_data(target_data, Variables.VERSION, module_version)
+
+
+def path_generalisation(data, key):
+    if key == Keys.RAW_DATA:
+        if isinstance(data.raw_data, str):
+            data.raw_data = replace_version(data.raw_data, data)
+
+    if key == Keys.OUTPUT_FILE:
+        if data.output_file:
+            data.output_file = replace_version(data.output_file, data)

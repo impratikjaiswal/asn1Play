@@ -1,7 +1,7 @@
-from src.generated_code.asn1.GSMA.SGP_22 import version
+from src.main.convert import converter
 from src.main.convert.parser import parse_or_update_any_data_safe
 from src.main.helper.data import Data
-from src.main.helper.keywords import KeyWords
+from src.main.helper.keys import Keys
 
 
 class DataTypeMaster(object):
@@ -83,7 +83,7 @@ class DataTypeMaster(object):
                     output_file_name_keyword=self.output_file_name_keyword,
                     remarks_list=self.remarks_list,
                 )
-            # Path Correction as per versions
-            if isinstance(data.raw_data, str) and KeyWords.VERSION in data.raw_data:
-                data.raw_data = data.raw_data.replace(KeyWords.VERSION, version)
+            converter.path_generalisation(data, Keys.RAW_DATA)
+            converter.path_generalisation(data, Keys.OUTPUT_FILE)
+            converter.path_generalisation(data, Keys.REMARKS_LIST)
             parse_or_update_any_data_safe(data, error_handling_mode)

@@ -1,0 +1,12 @@
+input:
+    raw_data: bf2a0499020520
+    asn1_element: SGP_22.RSPDefinitions.UpdateMetadataRequest
+    input_format: der
+    output_format: asn1
+    print_input: true
+    print_output: true
+    print_info: true
+    output_file: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest
+    output_file_name_keyword: output
+    remarks_list:
+    - DerInput; Asn1Output; DirectInput; Asn1Element; UpdateMetadataRequest; ExportKeyword; OutputFile;

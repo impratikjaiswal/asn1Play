@@ -1,0 +1,7 @@
+input:
+    remarks_list: HexInput; AsciiOutput; YmlOutput; ExportKeyword;
+    asn1_element: None
+    input_format: Formats.HEX
+    output_format: Formats.ASCII
+    raw_data: 57656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c617920212121
+    output_file_name_keyword: KeyWords.EXPORT_FILE_NAME_KEYWORD
