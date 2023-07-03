@@ -11,7 +11,7 @@ input:
           profileName "Operational Profile Name 1"
         }
 output:
-    remarks_list_generated: StoreMetadataRequest; {   iccid '989209012143658709F5'H,   serviceProviderName "SP Name 1",   profileName "Op...
+    remarks_list_generated: StoreMetadataRequest; {   iccid '989209012143658709F5'H,   serviceProviderName "SP Name 1",   profileName "Operat...
     info: 'Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der; Output File Name Keyword: output'
     input_yml: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yml
     output_file: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v2_4/StoreMetadataRequest/\StoreMetadataRequest_Mandatory.asn1_output.yml
@@ -31,8 +31,8 @@ output:
         }
 output_version:
     Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
-    pythonHelpers: v2.2.6
+    pythonHelpers: v2.2.7
     asn1play: v4.1.5
     SGP22: v2_4
     eUICC_Profile_Package: v3_2
-    time_stamp: Friday, May 05 2023, 14:45:40:515532, IST (GMT+0530)
+    time_stamp: Tuesday, Jul 04 2023, 00:32:40:331975, IST (GMT+0530)
