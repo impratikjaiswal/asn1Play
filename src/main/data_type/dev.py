@@ -1,4 +1,8 @@
+from src.generated_code.asn1.GSMA import SGP_22
 from src.main.data_type.data_type_master import DataTypeMaster
+from src.main.helper.data import Data
+from src.main.helper.formats import Formats
+from src.main.helper.keywords import KeyWords
 
 
 class Dev(DataTypeMaster):
@@ -45,6 +49,12 @@ class Dev(DataTypeMaster):
 
     def set_data_pool(self):
         data_pool = [
-            #
+            # Can be deleted
+            Data(
+                raw_data='BF2581885A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031930101B621301F800204F0811974657374736D6470706C7573312E6578616D706C652E636F6DB705800392F91899020640BF220F300D8003883710A1060404C1020304BF230F300D8003883711A106040402020202',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
         ]
         super().set_data_pool(data_pool)

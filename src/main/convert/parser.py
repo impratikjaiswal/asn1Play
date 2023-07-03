@@ -67,8 +67,8 @@ def parse_or_update_any_data(data, meta_data=None):
         # List is provided
         meta_data.input_mode_key = Keys.INPUT_LIST
         data.append_input_modes_hierarchy(meta_data.input_mode_key)
-        data.set_default_auto_generated_remarks_if_not_set(f'({len(data.raw_data)} Elements)')
-        PhUtil.print_heading(data.get_remarks_as_str(), heading_level=3)
+        data.set_one_time_remarks(f'({len(data.raw_data)} Elements)')
+        PhUtil.print_heading(data.get_remarks_as_str(force_mode=True), heading_level=3)
         converter.print_data(data, meta_data)
         parsed_data_list = []
         actual_remarks_length = len(data.remarks_list)
@@ -76,12 +76,11 @@ def parse_or_update_any_data(data, meta_data=None):
         for index, raw_data_item in enumerate(data.raw_data, start=1):
             sub_data = copy.deepcopy(data)
             sub_data.raw_data = raw_data_item
-            sub_data.set_extended_remarks(False if index <= actual_remarks_length else True)
-            sub_data.set_remarks(current_remarks_list[index - 1])
-            sub_data.set_default_remarks_if_not_set()
-            sub_data.set_internal_remarks(PhUtil.get_key_value_pair(key='item', value=index,
-                                                                    sep=PhConstants.SEPERATOR_TWO_WORDS,
-                                                                    dic_format=False))
+            sub_data.set_extended_remarks_available(False if index <= actual_remarks_length else True)
+            sub_data.set_user_remarks(current_remarks_list[index - 1])
+            sub_data.set_auto_generated_remarks_if_needed(PhUtil.get_key_value_pair(key='item', value=index,
+                                                                          sep=PhConstants.SEPERATOR_TWO_WORDS,
+                                                                          dic_format=False))
             parsed_data_list.append(parse_or_update_any_data(sub_data))
         return parsed_data_list
     if data.raw_data and os.path.isdir(os.path.abspath(data.raw_data)):
@@ -101,7 +100,7 @@ def parse_or_update_any_data(data, meta_data=None):
     Individual
     """
     file_dic_all_str = {}
-    data.set_default_remarks_if_not_set()
+    data.set_auto_generated_remarks_if_needed()
     PhUtil.print_heading(data.get_remarks_as_str(), heading_level=2)
     if data.raw_data and os.path.isfile(data.raw_data):
         # file is provided
@@ -124,7 +123,7 @@ def parse_or_update_any_data(data, meta_data=None):
         data.append_input_modes_hierarchy(meta_data.input_mode_key)
     # print_data(data, meta_data)
     # Needed for scenario when remarks will be fetched from YML
-    data.set_default_remarks_if_not_set()
+    data.set_auto_generated_remarks_if_needed()
     converter.set_defaults(data, meta_data)
     converter.set_output_file_path(data, meta_data)
     converter.set_re_output_file_name(data, meta_data)

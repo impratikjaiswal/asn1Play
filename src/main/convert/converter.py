@@ -307,10 +307,11 @@ def set_output_file_path(data, meta_data):
         remarks_needed = True
     if remarks_needed or data.output_file_name_keyword:
         if remarks_needed:
-            if data.get_extended_remarks():
+            if data.get_extended_remarks_available():
                 remarks_with_indexes = True
-            name_as_per_remarks = PhUtil.get_python_friendly_name(data.get_remarks_as_str(not remarks_with_indexes),
-                                                                  case_sensitive=False)
+            name_as_per_remarks = PhUtil.get_python_friendly_name(
+                data.get_remarks_as_str(user_original_remarks=not remarks_with_indexes,
+                                        force_mode=True), case_sensitive=False)
         output_file_name = PhUtil.append_in_file_name(str_file_path=sample_file_name,
                                                       str_append=[name_as_per_remarks,
                                                                   data.output_file_name_keyword],

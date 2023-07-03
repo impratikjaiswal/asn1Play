@@ -38,13 +38,13 @@ class Data:
         self.__asn1_module_version = None
         self.__auto_generated_remarks = None
         self.__input_modes_hierarchy = []
-        self.__remarks_list_user = None
-        self.__extended_remarks = None
+        self.__one_time_remarks = None
+        self.__extended_remarks_needed = None
         #
         self.set_asn1_element_name()
-        self.set_remarks(remarks_list)
+        self.set_user_remarks(remarks_list)
 
-    def set_remarks(self, remarks_list):
+    def set_user_remarks(self, remarks_list):
         self.remarks_list = PhUtil.cast_to_list(remarks_list, trim_data=True, all_str=True)
         self.remarks_list = [
             x.replace(Variables.ASN_ELEMENT, self.get_asn1_element_name()) if self.get_asn1_element_name() else x for x
@@ -55,30 +55,32 @@ class Data:
         str_raw_data = str(self.raw_data)
         return PhUtil.append_remarks(self.__asn1_element_name, str_raw_data)
 
-    def set_default_remarks_if_not_set(self):
-        self.__remarks_list_user = self.remarks_list
-        if not self.remarks_list or not self.remarks_list[0]:
-            # Remarks is not already provided
-            self.set_remarks(self.__get_default_remarks())
-
-    def set_default_auto_generated_remarks_if_not_set(self, internal_remarks):
-        if self.remarks_list:
-            self.__auto_generated_remarks = internal_remarks
+    def set_auto_generated_remarks_if_needed(self, internal_remarks=None):
+        internal_remarks = PhUtil.set_if_not_none(internal_remarks)
+        default_remarks = self.__get_default_remarks()
+        if self.remarks_list and self.remarks_list[0]:
+            # User Remarks is already provided, default remarks are not needed
+            default_remarks = None
+        if self.__auto_generated_remarks:
+            # auto generated comments are set
+            self.__auto_generated_remarks = PhUtil.append_remarks(internal_remarks, self.__auto_generated_remarks,
+                                                                  append_mode_post=False)
         else:
-            self.__auto_generated_remarks = PhUtil.append_remarks(self.__get_default_remarks(), internal_remarks)
+            self.__auto_generated_remarks = PhUtil.append_remarks(default_remarks, internal_remarks)
 
-    def get_remarks_as_str(self, user_original_remarks=False):
+    def get_remarks_as_str(self, user_original_remarks=False, force_mode=False):
         user_remarks = PhUtil.combine_list_items(self.remarks_list)
         if user_original_remarks:
-            if self.__remarks_list_user:
-                return PhUtil.combine_list_items(self.__remarks_list_user).replace('\n', ' ')
-            return ''
+            if user_remarks:
+                return user_remarks.replace('\n', ' ')
+            if not force_mode:
+                return ''
         if user_remarks:
             user_remarks = PhUtil.trim_remarks(user_remarks)
-        return PhUtil.append_remarks(user_remarks, self.__auto_generated_remarks).replace('\n', ' ')
-
-    def set_internal_remarks(self, internal_remarks):
-        self.__auto_generated_remarks = internal_remarks
+        one_time_remarks = PhUtil.append_remarks(self.get_one_time_remarks(), self.__auto_generated_remarks)
+        if not user_remarks and not self.__auto_generated_remarks and force_mode:
+            user_remarks = self.__get_default_remarks()
+        return PhUtil.append_remarks(one_time_remarks, user_remarks, append_mode_post=False).replace('\n', ' ')
 
     def set_asn1_element_name(self):
         self.__asn1_element_name = (
@@ -114,8 +116,16 @@ class Data:
     def validate_if_input_modes_hierarchy(self, input_mode_hierarchy):
         return True if input_mode_hierarchy in self.__input_modes_hierarchy else False
 
-    def set_extended_remarks(self, extended_remarks):
-        self.__extended_remarks = extended_remarks
+    def set_extended_remarks_available(self, extended_remarks):
+        self.__extended_remarks_needed = extended_remarks
 
-    def get_extended_remarks(self):
-        return self.__extended_remarks
+    def get_extended_remarks_available(self):
+        return self.__extended_remarks_needed
+
+    def get_one_time_remarks(self):
+        temp = self.__one_time_remarks
+        self.__one_time_remarks = None
+        return temp
+
+    def set_one_time_remarks(self, one_time_remarks):
+        self.__one_time_remarks = one_time_remarks

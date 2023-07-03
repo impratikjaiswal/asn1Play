@@ -190,15 +190,57 @@ class UnitTesting(DataTypeMaster):
                 output_file_name_keyword=r'output',
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest
             ),
+            #
             Data(
                 remarks_list='This is a long remakrs for the testing of Trimming of remarks of individual item of the pool in asn play.',
+                raw_data='test',
+                input_format=Formats.ASCII,
+                output_format=Formats.HEX,
+            ),
+            #
+            Data(
+                remarks_list='This is a long remakrssssssssssssssss for the testing of Trimming of remarks of individual item of the pool in asn play.',
+                raw_data='test',
+                input_format=Formats.ASCII,
+                output_format=Formats.HEX,
+            ),
+            #
+            Data(
+                remarks_list='This is a long remakrssssssssssssssssssssssssssssssssssss for the testing of Trimming of remarks of individual item of the pool in asn play.',
+                raw_data='test',
+                input_format=Formats.ASCII,
+                output_format=Formats.HEX,
+            ),
+            #
+            Data(
+                raw_data='This is a long dataaaa for the testing of Trimming of remarks of individual item of the pool in asn play.',
+                input_format=Formats.ASCII,
+                output_format=Formats.HEX,
+            ),
+            #
+            Data(
+                raw_data='This is a long dataaaaaaaaaaaaaaaaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.',
+                input_format=Formats.ASCII,
+                output_format=Formats.HEX,
+            ),
+            #
+            Data(
+                raw_data='This is a long dataaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.',
+                input_format=Formats.ASCII,
+                output_format=Formats.HEX,
+            ),
+            #
+            Data(
+                remarks_list='This is a long remakrss for the testing of Trimming of remarks of individual item of the pool in asn play.',
                 raw_data=['test'] * 100,
                 input_format=Formats.ASCII,
                 output_format=Formats.HEX,
             ),
+            #
             Data(
                 raw_data=[
-                             'This is a long dataaaa for the testing of Trimming of remarks of individual item of the pool in asn play.'] * 100,
+                             'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.'
+                         ] * 100,
                 input_format=Formats.ASCII,
                 output_format=Formats.HEX,
             ),
