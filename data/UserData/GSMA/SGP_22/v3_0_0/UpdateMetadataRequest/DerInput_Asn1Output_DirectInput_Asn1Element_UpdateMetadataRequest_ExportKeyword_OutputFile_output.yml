@@ -22,8 +22,8 @@ output:
         }
 output_version:
     Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
-    pythonHelpers: v2.2.7
-    asn1play: v4.1.5
+    pythonHelpers: v2.2.8
+    asn1play: v4.1.6
     SGP22: v3_0_0
     eUICC_Profile_Package: v3_2
-    time_stamp: Tuesday, Jul 04 2023, 00:35:05:986939, IST (GMT+0530)
+    time_stamp: Tuesday, Jul 04 2023, 21:45:05:932046, IST (GMT+0530)

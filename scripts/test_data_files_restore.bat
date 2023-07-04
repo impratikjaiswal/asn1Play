@@ -1,6 +1,6 @@
 @ECHO ON
 
-SET FileList=src_files_list.txt
+SET FileList=test_data_files_list.txt
 SET Source=E:\Backup\D\Other\Github_Self\asn1play\data
 SET Destination=D:\Other\Github_Self\asn1play\data
 

@@ -67,8 +67,9 @@ def parse_or_update_any_data(data, meta_data=None):
         # List is provided
         meta_data.input_mode_key = Keys.INPUT_LIST
         data.append_input_modes_hierarchy(meta_data.input_mode_key)
+        data.set_auto_generated_remarks_if_needed()
         data.set_one_time_remarks(f'({len(data.raw_data)} Elements)')
-        PhUtil.print_heading(data.get_remarks_as_str(force_mode=True), heading_level=3)
+        PhUtil.print_heading(data.get_remarks_as_str(), heading_level=3)
         converter.print_data(data, meta_data)
         parsed_data_list = []
         actual_remarks_length = len(data.remarks_list)
@@ -76,11 +77,12 @@ def parse_or_update_any_data(data, meta_data=None):
         for index, raw_data_item in enumerate(data.raw_data, start=1):
             sub_data = copy.deepcopy(data)
             sub_data.raw_data = raw_data_item
+            sub_data.reset_auto_generated_remarks()
             sub_data.set_extended_remarks_available(False if index <= actual_remarks_length else True)
             sub_data.set_user_remarks(current_remarks_list[index - 1])
             sub_data.set_auto_generated_remarks_if_needed(PhUtil.get_key_value_pair(key='item', value=index,
-                                                                          sep=PhConstants.SEPERATOR_TWO_WORDS,
-                                                                          dic_format=False))
+                                                                                    sep=PhConstants.SEPERATOR_TWO_WORDS,
+                                                                                    dic_format=False))
             parsed_data_list.append(parse_or_update_any_data(sub_data))
         return parsed_data_list
     if data.raw_data and os.path.isdir(os.path.abspath(data.raw_data)):

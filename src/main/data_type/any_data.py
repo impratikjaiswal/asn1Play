@@ -311,7 +311,7 @@ class AnyData(DataTypeMaster):
             ),
             #
             Data(  # 'DerInput; Asn1Output; YmlInput; ExportedInput; Asn1Element; PE_End;',
-                raw_data=r'../../Data/UserData/TCA/eUICC_Profile_Package/v3_2/\PE_End\DerInput_Asn1Output_DirectInput_Asn1Element_PE_End_ExportKeyword_export.yml',
+                raw_data=r'../../Data/UserData/TCA/eUICC_Profile_Package/$VERSION/\PE_End\DerInput_Asn1Output_DirectInput_Asn1Element_PE_End_ExportKeyword_export.yml',
             ),
 
             #

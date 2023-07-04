@@ -244,6 +244,9 @@ def find_offset_of_section(data, char_to_find, corresponding_char_to_find):
         else:
             # print('poped', end_char)
             index_end_char += 1
+            if len(slack) == 0:
+                raise ValueError(
+                    f'Corresponding character "{corresponding_char_to_find}" (Total Count {start_char_list_len}) for "{char_to_find}" (Total Count {end_char_list_len}) is not found.\nWhere data is:\n{data}')
             slack.pop()
         if len(slack) == 0:
             # print(corresponding_char_to_find, end_char)

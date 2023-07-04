@@ -382,7 +382,7 @@ class UnitTesting(DataTypeMaster):
                 output_file_name_keyword=KeyWords.OUTPUT_FILE_NAME_KEYWORD
             ),
             Data(
-                raw_data=r'D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest',
+                raw_data=r'D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest',
                 asn1_element=SGP_22.RSPDefinitions.UpdateMetadataRequest,
                 output_file_name_keyword='output'
             )
@@ -407,7 +407,7 @@ class UnitTesting(DataTypeMaster):
             #
             Data(
                 remarks_list='Invalid File Path',
-                raw_data=r'D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest\t',
+                raw_data=r'D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\UpdateMetadataRequest\t',
                 asn1_element=SGP_22.RSPDefinitions.UpdateMetadataRequest,
                 output_file_name_keyword='output'
             ),
@@ -415,6 +415,24 @@ class UnitTesting(DataTypeMaster):
             Data(
                 remarks_list='Invalid raw_data (base 64 conversion failure)',
                 raw_data='D:\e\AC\DeleteProfileRequest.he',
+            ),
+            #
+            Data(
+                remarks_list='Invalid raw_data (Brackets MisMatch)',
+                raw_data="""{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1",
+  iconType 1 -- png --,
+  profileOwner {
+    mccMnc '92F918'H
+  }
+  },
+  profilePolicyRules '01'B -- ppr1 --
+}""",
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.ASN1,
+                output_format=Formats.DER
             ),
             #
             Data(
@@ -426,10 +444,11 @@ class UnitTesting(DataTypeMaster):
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1,
-                output_file=r'..\\..\\Data\\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1\\'
+                output_file=r'..\\..\\Data\\UserData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1\\'
             ),
             #
         ]
+
         super().set_data_pool(
             data_pool_positive +
             data_pool_remarks +

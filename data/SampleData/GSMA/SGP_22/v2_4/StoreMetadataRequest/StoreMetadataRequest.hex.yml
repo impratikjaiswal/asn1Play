@@ -1,4 +1,5 @@
 input:
+    remarks_list: DerInput; Asn1Output; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword;
     asn1_element: SGP_22.RSPDefinitions.StoreMetadataRequest
     input_format: Formats.DER
     output_format: Formats.ASN1

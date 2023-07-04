@@ -7,11 +7,11 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Tuesday, Jul 04 2023, 00:32:39:923907, IST (GMT+0530)
+Time Stamp is Tuesday, Jul 04 2023, 21:42:38:305258, IST (GMT+0530)
 --------------------------------------------------------------------------------
-pythonHelpers version is v2.2.7
+pythonHelpers version is v2.2.8
 --------------------------------------------------------------------------------
-asn1play version is v4.1.5
+asn1play version is v4.1.6
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 SGP22 version is v2_4
@@ -341,7 +341,7 @@ Output Data:
 }
 --------------------------------------------------------------------------------
 *************** ..\..\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.hex.yml ***************
-Remarks List Generated: StoreMetadataRequest; BF2582031C5A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F6...
+Remarks List: DerInput; Asn1Output; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword
 Info => Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1; Output File Name Keyword: output
 Input Yml: ..\..\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.hex.yml
 Output File: ../../Data/SampleData/GSMA/SGP_22/v2_4/StoreMetadataRequest/\StoreMetadataRequest.hex_output.yml
@@ -378,7 +378,7 @@ Output Data:
 }
 --------------------------------------------------------------------------------
 *************** ..\..\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.asn1.yml **************
-Remarks List Generated: StoreMetadataRequest; {   iccid '989209012143658709F5'H,   serviceProviderName "SP Name 1",   profileName "Operat...
+Remarks List: Asn1Input; DerOutput; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword
 Info => Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der; Output File Name Keyword: output
 Input Yml: ..\..\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.asn1.yml
 Output File: ../../Data/SampleData/GSMA/SGP_22/v2_4/StoreMetadataRequest/\StoreMetadataRequest.asn1_output.yml
@@ -415,7 +415,7 @@ Input Data:
 Output Data: bf2582031c5a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d6520319301019482029089504e470d0a1a0a0000000d49484452000000400000004008040000000060b9550000000774494d4507e00b091007364c956f97000000097048597300000b1200000b1201d2dd7efc0000000467414d410000b18f0bfc61050000021f4944415478daed99cd1583200c803d32000b3004abb00ecbb0822338578af559223f49b0a8175f2ec023e1238410db09a667e5e1e55f80bf00f686060b1e66b80420c02a32550d0e966e8cc6f0128d193460635fa66a3b7d511db48dd94788b655d7815071ba26e61b9000acc711841085eb398d84c0cd94f921ebe2ddab18db6b5005b055c3bc752b4038745c5339449cd4950248100e1d4528fac207b228e3101a4bd4ae52ba96a603808b05d44c27adab2af8807a00a6184b228014807566eca13538e5008ac890bf06be809e4dbebe0b808a842a009ffd7b010436af06b04f034c8d47ea46004703e034e4d95b90a98a447300dc353c9f07a843404d9b2d904bca84f62480a7013c39351431225b722de9f6ad591a0047c194e5ae19bd865afc1a26976f088603c0a7ac9117fce131f64200bcdfed8e290ee058906c46f2fad09dac885ab1550c68d2a8b426dcf69b8e71f76d195b15cd368207463513fd2dea6648476b2500eb999b6250fa5dc0499e0b88b921f2bbaf782e877588930370724e4d3f0dd01d49dbe7e92cb940423172008f3ed3c6011c03b1396bce6ec24800c703b862682480a20142250b8c05c081385186cd65009607d059dd772b80ae3cb963010205b054436414808abb0ff237752480a996fb3702d8334fda0bf002bc002fc0488053b5f5380005dc0a1703f03ffdfdc433a6fa010cf1ef4165c831e602b40134844c66e67fa4c1000618e5ab8f6008c03faab7028c9117e0036baf44917035af0e0000000049454e44ae426082b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640bf220f300d8003883710a1060404c1020304bf230f300d8003883711a106040402020202
 --------------------------------------------------------------------------------
 ********** ..\..\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yml *********
-Remarks List Generated: StoreMetadataRequest; {   iccid '989209012143658709F5'H,   serviceProviderName "SP Name 1",   profileName "Operat...
+Remarks List: Asn1Input; DerOutput; YmlInput; Asn1Element; ReParseOutput; StoreMetadataRequest; VersionVariable; OutputKeyword
 Info => Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der; Output File Name Keyword: output
 Input Yml: ..\..\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yml
 Output File: ../../Data/SampleData/GSMA/SGP_22/v2_4/StoreMetadataRequest/\StoreMetadataRequest_Mandatory.asn1_output.yml
@@ -1524,7 +1524,7 @@ Input Modes Hierarchy: input_dir; input_list
 Input Data: ['D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest.asn1.yml', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest.hex.yml', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v2_4\\StoreMetadataRequest\\StoreMetadataRequest_Mandatory.asn1.yml']
 --------------------------------------------------------------------------------
 ******************************** # BulkMode; DirectoryInput; YmlInput; .YmlFiles; Item 1 *******************************
-Remarks List Generated: StoreMetadataRequest; {   iccid '989209012143658709F5'H,   serviceProviderName "SP Name 1",   profileName "Operat...
+Remarks List: Asn1Input; DerOutput; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword
 Info => Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der; Output File Name Keyword: output
 Input Yml: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.asn1.yml
 Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v2_4/StoreMetadataRequest/\StoreMetadataRequest.asn1_output.yml
@@ -1561,7 +1561,7 @@ Input Data:
 Output Data: bf2582031c5a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d6520319301019482029089504e470d0a1a0a0000000d49484452000000400000004008040000000060b9550000000774494d4507e00b091007364c956f97000000097048597300000b1200000b1201d2dd7efc0000000467414d410000b18f0bfc61050000021f4944415478daed99cd1583200c803d32000b3004abb00ecbb0822338578af559223f49b0a8175f2ec023e1238410db09a667e5e1e55f80bf00f686060b1e66b80420c02a32550d0e966e8cc6f0128d193460635fa66a3b7d511db48dd94788b655d7815071ba26e61b9000acc711841085eb398d84c0cd94f921ebe2ddab18db6b5005b055c3bc752b4038745c5339449cd4950248100e1d4528fac207b228e3101a4bd4ae52ba96a603808b05d44c27adab2af8807a00a6184b228014807566eca13538e5008ac890bf06be809e4dbebe0b808a842a009ffd7b010436af06b04f034c8d47ea46004703e034e4d95b90a98a447300dc353c9f07a843404d9b2d904bca84f62480a7013c39351431225b722de9f6ad591a0047c194e5ae19bd865afc1a26976f088603c0a7ac9117fce131f64200bcdfed8e290ee058906c46f2fad09dac885ab1550c68d2a8b426dcf69b8e71f76d195b15cd368207463513fd2dea6648476b2500eb999b6250fa5dc0499e0b88b921f2bbaf782e877588930370724e4d3f0dd01d49dbe7e92cb940423172008f3ed3c6011c03b1396bce6ec24800c703b862682480a20142250b8c05c081385186cd65009607d059dd772b80ae3cb963010205b054436414808abb0ff237752480a996fb3702d8334fda0bf002bc002fc0488053b5f5380005dc0a1703f03ffdfdc433a6fa010cf1ef4165c831e602b40134844c66e67fa4c1000618e5ab8f6008c03faab7028c9117e0036baf44917035af0e0000000049454e44ae426082b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640bf220f300d8003883710a1060404c1020304bf230f300d8003883711a106040402020202
 --------------------------------------------------------------------------------
 ******************************** # BulkMode; DirectoryInput; YmlInput; .YmlFiles; Item 2 *******************************
-Remarks List Generated: StoreMetadataRequest; BF2582031C5A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F6...
+Remarks List: DerInput; Asn1Output; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword
 Info => Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1; Output File Name Keyword: output
 Input Yml: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.hex.yml
 Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v2_4/StoreMetadataRequest/\StoreMetadataRequest.hex_output.yml
@@ -1598,7 +1598,7 @@ Output Data:
 }
 --------------------------------------------------------------------------------
 ******************************** # BulkMode; DirectoryInput; YmlInput; .YmlFiles; Item 3 *******************************
-Remarks List Generated: StoreMetadataRequest; {   iccid '989209012143658709F5'H,   serviceProviderName "SP Name 1",   profileName "Operat...
+Remarks List: Asn1Input; DerOutput; YmlInput; Asn1Element; ReParseOutput; StoreMetadataRequest; VersionVariable; OutputKeyword
 Info => Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der; Output File Name Keyword: output
 Input Yml: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yml
 Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v2_4/StoreMetadataRequest/\StoreMetadataRequest_Mandatory.asn1_output.yml
@@ -2146,7 +2146,7 @@ serviceSpecificDataNotStoredInEuicc {
 Output Data: bf2582031c5a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d6520319301019482029089504e470d0a1a0a0000000d49484452000000400000004008040000000060b9550000000774494d4507e00b091007364c956f97000000097048597300000b1200000b1201d2dd7efc0000000467414d410000b18f0bfc61050000021f4944415478daed99cd1583200c803d32000b3004abb00ecbb0822338578af559223f49b0a8175f2ec023e1238410db09a667e5e1e55f80bf00f686060b1e66b80420c02a32550d0e966e8cc6f0128d193460635fa66a3b7d511db48dd94788b655d7815071ba26e61b9000acc711841085eb398d84c0cd94f921ebe2ddab18db6b5005b055c3bc752b4038745c5339449cd4950248100e1d4528fac207b228e3101a4bd4ae52ba96a603808b05d44c27adab2af8807a00a6184b228014807566eca13538e5008ac890bf06be809e4dbebe0b808a842a009ffd7b010436af06b04f034c8d47ea46004703e034e4d95b90a98a447300dc353c9f07a843404d9b2d904bca84f62480a7013c39351431225b722de9f6ad591a0047c194e5ae19bd865afc1a26976f088603c0a7ac9117fce131f64200bcdfed8e290ee058906c46f2fad09dac885ab1550c68d2a8b426dcf69b8e71f76d195b15cd368207463513fd2dea6648476b2500eb999b6250fa5dc0499e0b88b921f2bbaf782e877588930370724e4d3f0dd01d49dbe7e92cb940423172008f3ed3c6011c03b1396bce6ec24800c703b862682480a20142250b8c05c081385186cd65009607d059dd772b80ae3cb963010205b054436414808abb0ff237752480a996fb3702d8334fda0bf002bc002fc0488053b5f5380005dc0a1703f03ffdfdc433a6fa010cf1ef4165c831e602b40134844c66e67fa4c1000618e5ab8f6008c03faab7028c9117e0036baf44917035af0e0000000049454e44ae426082b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640bf220f300d8003883710a1060404c1020304bf230f300d8003883711a106040402020202
 --------------------------------------------------------------------------------
 ****************** # BulkMode; DirectoryInput; .YmlFiles; .HexFiles; .Base64Files; .Asn1Files; Item 2 ******************
-Remarks List Generated: StoreMetadataRequest; {   iccid '989209012143658709F5'H,   serviceProviderName "SP Name 1",   profileName "Operat...
+Remarks List: Asn1Input; DerOutput; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword
 Info => Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der; Output File Name Keyword: output
 Input Yml: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.asn1.yml
 Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v2_4/StoreMetadataRequest/\StoreMetadataRequest.asn1_output.yml
@@ -2257,7 +2257,7 @@ Output Data:
 }
 --------------------------------------------------------------------------------
 ****************** # BulkMode; DirectoryInput; .YmlFiles; .HexFiles; .Base64Files; .Asn1Files; Item 5 ******************
-Remarks List Generated: StoreMetadataRequest; BF2582031C5A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F6...
+Remarks List: DerInput; Asn1Output; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword
 Info => Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1; Output File Name Keyword: output
 Input Yml: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.hex.yml
 Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v2_4/StoreMetadataRequest/\StoreMetadataRequest.hex_output.yml
@@ -2308,7 +2308,7 @@ Input Data:
 Output Data: bf25335a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031
 --------------------------------------------------------------------------------
 ****************** # BulkMode; DirectoryInput; .YmlFiles; .HexFiles; .Base64Files; .Asn1Files; Item 7 ******************
-Remarks List Generated: StoreMetadataRequest; {   iccid '989209012143658709F5'H,   serviceProviderName "SP Name 1",   profileName "Operat...
+Remarks List: Asn1Input; DerOutput; YmlInput; Asn1Element; ReParseOutput; StoreMetadataRequest; VersionVariable; OutputKeyword
 Info => Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der; Output File Name Keyword: output
 Input Yml: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yml
 Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v2_4/StoreMetadataRequest/\StoreMetadataRequest_Mandatory.asn1_output.yml
@@ -4457,7 +4457,8 @@ Input Data: Remarks Test Occurred
 Output Data: 52656d61726b732054657374204f63637572726564
 Re Parsed Data: Remarks Test Occurred
 --------------------------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++ ['Remarks TEst', 'Remarks Testing']; (2 Elements) ++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++ Remarks TEst; Remarks Testing; (2 Elements) +++++++++++++++++++++++++++++++++++++
+Remarks List Generated: Remarks TEst; Remarks Testing
 Info => Conversion Mode; Input Format: ascii; Output Format: hex; Output File Name Keyword: output
 Input List: ['Remarks TEst', 'Remarks Testing']
 Input Data: ['Remarks TEst', 'Remarks Testing']
@@ -4679,15 +4680,16 @@ Output Data:
   profilePolicyRules '01'B -- ppr1 --
 }
 --------------------------------------------------------------------------------
-+ StoreMetadataRequest; ['BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E6...; (2 Elements) +
++ StoreMetadataRequest; BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616...; (2 Elements) +
+Remarks List Generated: StoreMetadataRequest; BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696...
 Info => Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1; Output File Name Keyword: output
 Input List: ['BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640']
 Input Data: ['BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640']
 --------------------------------------------------------------------------------
-* StoreMetadataRequest; BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696... *
-Remarks List Generated: StoreMetadataRequest; BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696...
+* StoreMetadataRequest; BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C20507...; Item 1 *
+Remarks List Generated: StoreMetadataRequest; BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C20507...; Item 1
 Info => Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1; Output File Name Keyword: output
-Output File: ..\..\Data\UserData\StoreMetadataRequest_BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696_output.asn1
+Output File: ..\..\Data\UserData\StoreMetadataRequest_BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C20507_Item_1_output.asn1
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Output Data:
 {
@@ -4696,10 +4698,10 @@ Output Data:
   profileName "Operational Profile Name 1"
 }
 --------------------------------------------------------------------------------
-* StoreMetadataRequest; BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696... *
-Remarks List Generated: StoreMetadataRequest; BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696...
+* StoreMetadataRequest; BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C20507...; Item 2 *
+Remarks List Generated: StoreMetadataRequest; BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C20507...; Item 2
 Info => Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1; Output File Name Keyword: output
-Output File: ..\..\Data\UserData\StoreMetadataRequest_BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696_output.asn1
+Output File: ..\..\Data\UserData\StoreMetadataRequest_BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C20507_Item_2_output.asn1
 Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
 Output Data:
 {
@@ -5351,7 +5353,8 @@ Info => Conversion Mode; Input Format: ascii; Output Format: hex
 Input Data: test
 Output Data: 74657374
 --------------------------------------------------------------------------------
-+ ['This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool i...; (100 Elements) +
++ This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in ...; (100 Elements) +
+Remarks List Generated: This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.; This ...
 Info => Conversion Mode; Input Format: ascii; Output Format: hex
 Input List: ['This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.']
 Input Data: ['This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.', 'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.']
@@ -6064,7 +6067,8 @@ Output Data:
   profilePolicyRules '01'B -- ppr1 --
 }
 --------------------------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++ ['Test1', 'Test2', 'Test3']; (3 Elements) ++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++ Test1; Test2; Test3; (3 Elements) ++++++++++++++++++++++++++++++++++++++++++
+Remarks List Generated: Test1; Test2; Test3
 Info => Conversion Mode; Input Format: ascii; Output Format: hex; Output File: ..\..\Data\UserData\Temp\Pj.txt
 Input List: ['Test1', 'Test2', 'Test3']
 Input Data: ['Test1', 'Test2', 'Test3']
@@ -6176,7 +6180,8 @@ Remarks List: test 1
 Info => Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1; Output File: ..\..\Data\UserData\Bulk_export\.txt
 Output File: ../../Data/UserData/Bulk_export/\.txt
 --------------------------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++ ['Test4', 'Test5', 'Test6']; (3 Elements) ++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++ Test4; Test5; Test6; (3 Elements) ++++++++++++++++++++++++++++++++++++++++++
+Remarks List Generated: Test4; Test5; Test6
 Info => Conversion Mode; Input Format: ascii; Output Format: hex; Output File: ..\..\Data\UserData\Temp\\
 Input List: ['Test4', 'Test5', 'Test6']
 Input Data: ['Test4', 'Test5', 'Test6']
@@ -6202,7 +6207,8 @@ Output File: ../../Data/UserData/\Temp\Test6_Item_3.txt
 Input Data: Test6
 Output Data: 5465737436
 --------------------------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++ ['Test4', 'Test5', 'Test6']; (3 Elements) ++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++ Test4; Test5; Test6; (3 Elements) ++++++++++++++++++++++++++++++++++++++++++
+Remarks List Generated: Test4; Test5; Test6
 Info => Conversion Mode; Input Format: ascii; Output Format: hex; Output File: ..\..\Data\UserData\Temp/
 Input List: ['Test4', 'Test5', 'Test6']
 Input Data: ['Test4', 'Test5', 'Test6']
@@ -6228,7 +6234,8 @@ Output File: ../../Data/UserData/\Temp\Test6_Item_3.txt
 Input Data: Test6
 Output Data: 5465737436
 --------------------------------------------------------------------------------
-+++++++++++++++++++++++++++++++++++++++ ['Test7', 'Test8', 'Test9']; (3 Elements) ++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++++++++++++++++++ Test7; Test8; Test9; (3 Elements) ++++++++++++++++++++++++++++++++++++++++++
+Remarks List Generated: Test7; Test8; Test9
 Info => Conversion Mode; Input Format: ascii; Output Format: hex; Output File: ..\..\Data\UserData\Temp
 Input List: ['Test7', 'Test8', 'Test9']
 Input Data: ['Test7', 'Test8', 'Test9']
@@ -6316,28 +6323,27 @@ Output File: ..\..\Data\UserData\test_3_output.asn1
 --------------------------------------------------------------------------------
 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++  +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Info => Asn1 Element: UpdateMetadataRequest; Input Format: ; Output Format: ; Output File Name Keyword: output
-Input Dir: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest
-Input Data: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest
+Input Dir: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataRequest
+Input Data: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataRequest
 --------------------------------------------------------------------------------
 traverseMode:  Regex
-top:  D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest
+top:  D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataRequest
 include_files:  (?s:.*\.hex)\Z|(?s:.*\.base64)\Z|(?s:.*\.asn1)\Z|(?s:.*\.asn)\Z|(?s:.*\.yaml)\Z|(?s:.*\.yml)\Z
 include_dirs:  
 excludes:  (?s:(?=(?P<g6>.*?_output\.))(?P=g6).*)\Z
-++ UpdateMetadataRequest; ['D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0...; (6 Elements) ++
-Remarks List Generated: UpdateMetadataRequest; ['D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0...; (6 Elements)
++ UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadat...; (6 Elements) +
+Remarks List Generated: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataRequest\Updat...
 Info => Asn1 Element: UpdateMetadataRequest; Input Format: ; Output Format: ; Output File Name Keyword: output
-Input List: ['D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\UpdateMetadataRequest\\UpdateMetadataRequest.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\UpdateMetadataRequest\\UpdateMetadataRequest.hex', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\UpdateMetadataRequest\\UpdateMetadataRequest_ppr0_no_ppr.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\UpdateMetadataRequest\\UpdateMetadataRequest_ppr1_pp2.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\UpdateMetadataRequest\\UpdateMetadataRequest_ppr2_ppr1.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\UpdateMetadataRequest\\UpdateMetadataRequest_ppr3_ppr1_ppr2.asn1']
+Input List: ['D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v2_4\\UpdateMetadataRequest\\UpdateMetadataRequest.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v2_4\\UpdateMetadataRequest\\UpdateMetadataRequest.hex', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v2_4\\UpdateMetadataRequest\\UpdateMetadataRequest_ppr0_no_ppr.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v2_4\\UpdateMetadataRequest\\UpdateMetadataRequest_ppr1_pp2.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v2_4\\UpdateMetadataRequest\\UpdateMetadataRequest_ppr2_ppr1.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v2_4\\UpdateMetadataRequest\\UpdateMetadataRequest_ppr3_ppr1_ppr2.asn1']
 Input Modes Hierarchy: input_dir; input_list
-Input Data: ['D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\UpdateMetadataRequest\\UpdateMetadataRequest.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\UpdateMetadataRequest\\UpdateMetadataRequest.hex', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\UpdateMetadataRequest\\UpdateMetadataRequest_ppr0_no_ppr.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\UpdateMetadataRequest\\UpdateMetadataRequest_ppr1_pp2.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\UpdateMetadataRequest\\UpdateMetadataRequest_ppr2_ppr1.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\UpdateMetadataRequest\\UpdateMetadataRequest_ppr3_ppr1_ppr2.asn1']
+Input Data: ['D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v2_4\\UpdateMetadataRequest\\UpdateMetadataRequest.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v2_4\\UpdateMetadataRequest\\UpdateMetadataRequest.hex', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v2_4\\UpdateMetadataRequest\\UpdateMetadataRequest_ppr0_no_ppr.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v2_4\\UpdateMetadataRequest\\UpdateMetadataRequest_ppr1_pp2.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v2_4\\UpdateMetadataRequest\\UpdateMetadataRequest_ppr2_ppr1.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v2_4\\UpdateMetadataRequest\\UpdateMetadataRequest_ppr3_ppr1_ppr2.asn1']
 --------------------------------------------------------------------------------
-** UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataR...; Item 1 **
-Remarks List: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest\UpdateMetadataRequest.asn1
-Remarks List Generated: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataR...; Item 1
+* UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataReque...; Item 1 *
+Remarks List Generated: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataReque...; Item 1
 Info => Asn1 Element: UpdateMetadataRequest; Input Format: asn1; Output Format: der; Output File Name Keyword: output
-Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest\UpdateMetadataRequest.asn1
+Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataRequest\UpdateMetadataRequest.asn1
 Input Modes Hierarchy: input_dir; input_list; input_file
-Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v3_0_0/UpdateMetadataRequest/\UpdateMetadataRequest_output.hex
+Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v2_4/UpdateMetadataRequest/\UpdateMetadataRequest_output.hex
 Input Data:
 {
   profilePolicyRules '001'B -- ppr2 --,
@@ -6350,65 +6356,60 @@ Input Data:
 }
 Output Data: bf2a1699020520bf220f300d8003883710a1060404c1020304
 --------------------------------------------------------------------------------
-** UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataR...; Item 2 **
-Remarks List: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest\UpdateMetadataRequest.hex
-Remarks List Generated: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataR...; Item 2
+* UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataReque...; Item 2 *
+Remarks List Generated: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataReque...; Item 2
 Info => Asn1 Element: UpdateMetadataRequest; Input Format: der; Output Format: asn1; Output File Name Keyword: output
-Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest\UpdateMetadataRequest.hex
+Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataRequest\UpdateMetadataRequest.hex
 Input Modes Hierarchy: input_dir; input_list; input_file
-Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v3_0_0/UpdateMetadataRequest/\UpdateMetadataRequest_output.asn1
+Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v2_4/UpdateMetadataRequest/\UpdateMetadataRequest_output.asn1
 Input Data: bf2a0499020520
 Output Data:
 {
   profilePolicyRules '001'B -- ppr2 --
 }
 --------------------------------------------------------------------------------
-** UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataR...; Item 3 **
-Remarks List: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest\UpdateMetadataRequest_ppr0_no_ppr.asn1
-Remarks List Generated: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataR...; Item 3
+* UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataReque...; Item 3 *
+Remarks List Generated: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataReque...; Item 3
 Info => Asn1 Element: UpdateMetadataRequest; Input Format: asn1; Output Format: der; Output File Name Keyword: output
-Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest\UpdateMetadataRequest_ppr0_no_ppr.asn1
+Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataRequest\UpdateMetadataRequest_ppr0_no_ppr.asn1
 Input Modes Hierarchy: input_dir; input_list; input_file
-Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v3_0_0/UpdateMetadataRequest/\UpdateMetadataRequest_ppr0_no_ppr_output.hex
+Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v2_4/UpdateMetadataRequest/\UpdateMetadataRequest_ppr0_no_ppr_output.hex
 Input Data:
 {
   profilePolicyRules '000'B --  --
 }
 Output Data: bf2a0499020500
 --------------------------------------------------------------------------------
-** UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataR...; Item 4 **
-Remarks List: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest\UpdateMetadataRequest_ppr1_pp2.asn1
-Remarks List Generated: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataR...; Item 4
+* UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataReque...; Item 4 *
+Remarks List Generated: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataReque...; Item 4
 Info => Asn1 Element: UpdateMetadataRequest; Input Format: asn1; Output Format: der; Output File Name Keyword: output
-Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest\UpdateMetadataRequest_ppr1_pp2.asn1
+Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataRequest\UpdateMetadataRequest_ppr1_pp2.asn1
 Input Modes Hierarchy: input_dir; input_list; input_file
-Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v3_0_0/UpdateMetadataRequest/\UpdateMetadataRequest_ppr1_pp2_output.hex
+Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v2_4/UpdateMetadataRequest/\UpdateMetadataRequest_ppr1_pp2_output.hex
 Input Data:
 {
   profilePolicyRules '001'B -- ppr2 --
 }
 Output Data: bf2a0499020520
 --------------------------------------------------------------------------------
-** UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataR...; Item 5 **
-Remarks List: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest\UpdateMetadataRequest_ppr2_ppr1.asn1
-Remarks List Generated: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataR...; Item 5
+* UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataReque...; Item 5 *
+Remarks List Generated: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataReque...; Item 5
 Info => Asn1 Element: UpdateMetadataRequest; Input Format: asn1; Output Format: der; Output File Name Keyword: output
-Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest\UpdateMetadataRequest_ppr2_ppr1.asn1
+Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataRequest\UpdateMetadataRequest_ppr2_ppr1.asn1
 Input Modes Hierarchy: input_dir; input_list; input_file
-Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v3_0_0/UpdateMetadataRequest/\UpdateMetadataRequest_ppr2_ppr1_output.hex
+Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v2_4/UpdateMetadataRequest/\UpdateMetadataRequest_ppr2_ppr1_output.hex
 Input Data:
 {
   profilePolicyRules '010'B -- ppr1 --
 }
 Output Data: bf2a0499020540
 --------------------------------------------------------------------------------
-** UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataR...; Item 6 **
-Remarks List: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest\UpdateMetadataRequest_ppr3_ppr1_ppr2.asn1
-Remarks List Generated: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataR...; Item 6
+* UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataReque...; Item 6 *
+Remarks List Generated: UpdateMetadataRequest; D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataReque...; Item 6
 Info => Asn1 Element: UpdateMetadataRequest; Input Format: asn1; Output Format: der; Output File Name Keyword: output
-Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest\UpdateMetadataRequest_ppr3_ppr1_ppr2.asn1
+Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v2_4\UpdateMetadataRequest\UpdateMetadataRequest_ppr3_ppr1_ppr2.asn1
 Input Modes Hierarchy: input_dir; input_list; input_file
-Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v3_0_0/UpdateMetadataRequest/\UpdateMetadataRequest_ppr3_ppr1_ppr2_output.hex
+Output File: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v2_4/UpdateMetadataRequest/\UpdateMetadataRequest_ppr3_ppr1_ppr2_output.hex
 Input Data:
 {
   profilePolicyRules '011'B -- ppr1 | ppr2 --
@@ -6434,11 +6435,11 @@ Known Exception Occurred: Mandatory raw_data is missing.
 *************************************************** Invalid File Path **************************************************
 Remarks List: Invalid File Path
 Info => Asn1 Element: UpdateMetadataRequest; Input Format: der; Output Format: asn1; Output File Name Keyword: output
-Input Data: D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\v3_0_0\UpdateMetadataRequest\t
+Input Data: D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\UpdateMetadataRequest\t
 Output Data:
 
 --------------------------------------------------------------------------------
-Known Exception Occurred: raw_data is invalid; Invalid base64-encoded string: number of data characters (69) cannot be 1 more than a multiple of 4
+Known Exception Occurred: raw_data is invalid; Invalid base64-encoded string: number of data characters (65) cannot be 1 more than a multiple of 4
 ************************************* Invalid raw_data (base 64 conversion failure) ************************************
 Remarks List: Invalid raw_data (base 64 conversion failure)
 Info => Conversion Mode; Input Format: der; Output Format: asn1
@@ -6447,16 +6448,38 @@ Output Data:
 
 --------------------------------------------------------------------------------
 Known Exception Occurred: raw_data is invalid; Incorrect padding
+***************************************** Invalid raw_data (Brackets MisMatch) *****************************************
+Remarks List: Invalid raw_data (Brackets MisMatch)
+Info => Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1",
+  iconType 1 -- png --,
+  profileOwner {
+    mccMnc '92F918'H
+  }
+  },
+  profilePolicyRules '01'B -- ppr1 --
+}
+Output Data: 
+--------------------------------------------------------------------------------
+Known Exception Occurred: Corresponding character "}" (Total Count 0) for "{" (Total Count 1) is not found.
+Where data is:
+,
+  profilePolicyRules '01'B -- ppr1 --
+}
 +++++++++++++++++++++++++++++++++++++++++ # FileExistsError Error; (2 Elements) ++++++++++++++++++++++++++++++++++++++++
 Remarks List: # FileExistsError Error
-Info => Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\\..\\Data\\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1\\
+Info => Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\\..\\Data\\UserData\GSMA\SGP_22\v2_4\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1\\
 Input List: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031']
 Input Data: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031']
 --------------------------------------------------------------------------------
 ******************************************** # FileExistsError Error; Item 1 *******************************************
 Remarks List: # FileExistsError Error
-Info => Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\\..\\Data\\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1\\
-Output File: ../../Data/UserData/GSMA/SGP_22/v3_0_0/StoreMetadataRequest/\Extend_Remarks_List_Item_3.asn1\FileExistsError_Error.asn1
+Info => Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\\..\\Data\\UserData\GSMA\SGP_22\v2_4\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1\\
+Output File: ../../Data/UserData/GSMA/SGP_22/v2_4/StoreMetadataRequest/\Extend_Remarks_List_Item_3.asn1\FileExistsError_Error.asn1
 Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
 Output Data:
 {
@@ -6467,11 +6490,11 @@ Output Data:
 }
 --------------------------------------------------------------------------------
 Remarks List: # FileExistsError Error
-Info => Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\\..\\Data\\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1\\
+Info => Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\\..\\Data\\UserData\GSMA\SGP_22\v2_4\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1\\
 Input List: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031']
 Input Data: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031']
 --------------------------------------------------------------------------------
-Known Exception Occurred: Output path writing error; [WinError 183] Cannot create a file when that file already exists: '../../Data/UserData/GSMA/SGP_22/v3_0_0/StoreMetadataRequest//Extend_Remarks_List_Item_3.asn1/'
+Known Exception Occurred: Output path writing error; [WinError 183] Cannot create a file when that file already exists: '../../Data/UserData/GSMA/SGP_22/v2_4/StoreMetadataRequest//Extend_Remarks_List_Item_3.asn1/'
 --------------------------------------------------------------------------------
               All Done.              
 --------------------------------------------------------------------------------
