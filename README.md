@@ -25,6 +25,7 @@ However, Tool can be extended to support any ASN1 based conversion.
 <ul>
     <li>Auto Trimming of HEX Data (White Spaces Deletion).
     <li>Auto Detection of Base64 & Hex data.
+    <li>Auto Detection of ByteArraySigned & ByteArrayUnSigned.
     <li>Conversion Mode for HEX, ASCII & Base64.
     <li>Support of "Individual Mode"; Raw/Target Data can be configured Directly or file path (Binary as well as Text File; any extension) can be passed.
     <li>Support of "Bulk Mode"; Raw/Target Data can be configured Directly in List/Array format or Directory Path can be passed (Files with Known extensions will be picked based on Input Format).
@@ -57,6 +58,10 @@ To Refer Sample usages, search for below keywords in source code (\asn1Play\src\
     <li>Base64Input;
     <li>Base64Output;
     <li>BulkMode;
+    <li>ByteArrayInput;
+    <li>ByteArrayOutput;
+    <li>ByteArraySignedInput;
+    <li>ByteArraySignedOutput;
     <li>Der64Input;
     <li>Der64Output;
     <li>DerInput;

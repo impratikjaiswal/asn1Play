@@ -123,6 +123,34 @@ class AnyData(DataTypeMaster):
             ),
             #
             Data(
+                remarks_list='ByteArrayInput; ByteArraySignedInput; DerOutput; DirectInput;',
+                raw_data=[10, -68, -46, 85],
+                input_format=Formats.BYTE_ARRAY,
+                output_format=Formats.DER,
+            ),
+            #
+            Data(
+                remarks_list='ByteArrayInput; DerOutput; DirectInput;',
+                raw_data=[10, 188, 210, 85],
+                input_format=Formats.BYTE_ARRAY,
+                output_format=Formats.DER,
+            ),
+            #
+            Data(
+                remarks_list='DerInput; ByteArrayOutput; DirectInput;',
+                raw_data='0ABCD255',
+                input_format=Formats.DER,
+                output_format=Formats.BYTE_ARRAY,
+            ),
+            #
+            Data(
+                remarks_list='DerInput; ByteArraySignedOutput; DirectInput;',
+                raw_data='CrzSVQ==',
+                input_format=Formats.DER,
+                output_format=Formats.BYTE_ARRAY_SIGNED,
+            ),
+            #
+            Data(
                 remarks_list='DerInput; Base64Output; DirectInput;',
                 raw_data='BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
                 asn1_element=None,

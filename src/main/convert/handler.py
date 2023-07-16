@@ -5,6 +5,7 @@ from binascii import unhexlify
 from python_helpers.ph_util import PhUtil
 
 from src.main.helper.defaults import Defaults
+from src.main.helper.formats import Formats
 from src.main.helper.formats_group import FormatsGroup
 from src.main.mapping.asn1_elements import all_mapping
 from src.main.mapping.general import parsing_format_mapping
@@ -52,6 +53,8 @@ def decode_encode_asn(raw_data='', parse_only=True, input_format=Defaults.FORMAT
         raw_data = PhUtil.ascii_to_hex_str(raw_data)
         print_debug('base_profile hex conversion done, data is {0}'.format(raw_data))
     if input_format in FormatsGroup.INPUT_FORMATS_HEX:
+        if input_format in FormatsGroup.INPUT_FORMATS_BYTE_ARRAY:
+            raw_data = PhUtil.dec_to_hex(raw_data)
         # Trim Hex Data
         raw_data = PhUtil.trim_and_kill_all_white_spaces(raw_data)
         print_debug('base_profile Trimming done, data is {0}'.format(raw_data))
@@ -68,6 +71,10 @@ def decode_encode_asn(raw_data='', parse_only=True, input_format=Defaults.FORMAT
                 return PhUtil.hex_str_to_ascii(raw_data)
             if output_format in FormatsGroup.INPUT_FORMATS_DER:
                 return raw_data
+            if output_format in Formats.BYTE_ARRAY:
+                return PhUtil.hex_str_to_dec_list(raw_data)
+            if output_format in Formats.BYTE_ARRAY_SIGNED:
+                return PhUtil.hex_str_to_dec_list(raw_data, signed_byte_handling=True)
         raise ValueError('asn1_element is not provided')
 
     parsing_data_current = ''

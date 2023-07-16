@@ -15,6 +15,7 @@ from src.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_ver
 from src.main.convert import converter
 from src.main.convert.handler import decode_encode_asn
 from src.main.helper.constants_config import ConfigConst as ConfigConst_local
+from src.main.helper.formats import Formats
 from src.main.helper.formats_group import FormatsGroup
 from src.main.helper.keys import Keys
 from src.main.helper.metadata import MetaData
@@ -61,9 +62,10 @@ def parse_or_update_any_data(data, meta_data=None):
     Bulk Mode
     """
     converter.set_defaults_for_printing(data)
+    byte_array_format = True if data.input_format in FormatsGroup.INPUT_FORMATS_BYTE_ARRAY else False
     if meta_data is None:
         meta_data = MetaData(raw_data_org=data.raw_data)
-    if isinstance(data.raw_data, list):
+    if not byte_array_format and isinstance(data.raw_data, list):
         # List is provided
         meta_data.input_mode_key = Keys.INPUT_LIST
         data.append_input_modes_hierarchy(meta_data.input_mode_key)
@@ -85,7 +87,7 @@ def parse_or_update_any_data(data, meta_data=None):
                                                                                     dic_format=False))
             parsed_data_list.append(parse_or_update_any_data(sub_data))
         return parsed_data_list
-    if data.raw_data and os.path.isdir(os.path.abspath(data.raw_data)):
+    if not byte_array_format and data.raw_data and os.path.isdir(os.path.abspath(data.raw_data)):
         # directory is provided
         PhUtil.print_heading(data.get_remarks_as_str(), heading_level=3)
         meta_data.input_mode_key = Keys.INPUT_DIR
@@ -104,7 +106,7 @@ def parse_or_update_any_data(data, meta_data=None):
     file_dic_all_str = {}
     data.set_auto_generated_remarks_if_needed()
     PhUtil.print_heading(data.get_remarks_as_str(), heading_level=2)
-    if data.raw_data and os.path.isfile(data.raw_data):
+    if not byte_array_format and data.raw_data and os.path.isfile(data.raw_data):
         # file is provided
         try:
             with open(data.raw_data, 'r') as the_file:

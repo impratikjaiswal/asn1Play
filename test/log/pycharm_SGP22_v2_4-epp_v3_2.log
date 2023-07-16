@@ -7,11 +7,11 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Tuesday, Jul 04 2023, 21:42:38:305258, IST (GMT+0530)
+Time Stamp is Sunday, Jul 16 2023, 22:57:20:693977, IST (GMT+0530)
 --------------------------------------------------------------------------------
-pythonHelpers version is v2.2.8
+pythonHelpers version is v2.2.9
 --------------------------------------------------------------------------------
-asn1play version is v4.1.6
+asn1play version is v4.1.7
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 SGP22 version is v2_4
@@ -95,6 +95,30 @@ Info => Conversion Mode; Input Format: hex; Output Format: ascii
 Input File: ..\..\Data\SampleData\Generic\ASCII\hex_to_ascii_welcome.hex
 Input Data: 57656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c617920212121
 Output Data: Welcome To AsnPlay !!!Welcome To AsnPlay !!!Welcome To AsnPlay !!!Welcome To AsnPlay !!!
+--------------------------------------------------------------------------------
+***************************** ByteArrayInput; ByteArraySignedInput; DerOutput; DirectInput *****************************
+Remarks List: ByteArrayInput; ByteArraySignedInput; DerOutput; DirectInput
+Info => Conversion Mode; Input Format: byte_array; Output Format: der
+Input Data: [10, -68, -46, 85]
+Output Data: 0ABCD255
+--------------------------------------------------------------------------------
+**************************************** ByteArrayInput; DerOutput; DirectInput ****************************************
+Remarks List: ByteArrayInput; DerOutput; DirectInput
+Info => Conversion Mode; Input Format: byte_array; Output Format: der
+Input Data: [10, 188, 210, 85]
+Output Data: 0ABCD255
+--------------------------------------------------------------------------------
+**************************************** DerInput; ByteArrayOutput; DirectInput ****************************************
+Remarks List: DerInput; ByteArrayOutput; DirectInput
+Info => Conversion Mode; Input Format: der; Output Format: byte_array
+Input Data: 0ABCD255
+Output Data: [10, 188, 210, 85]
+--------------------------------------------------------------------------------
+************************************* DerInput; ByteArraySignedOutput; DirectInput *************************************
+Remarks List: DerInput; ByteArraySignedOutput; DirectInput
+Info => Conversion Mode; Input Format: der; Output Format: byte_array_signed
+Input Data: CrzSVQ==
+Output Data: [10, -68, -46, 85]
 --------------------------------------------------------------------------------
 ****************************************** DerInput; Base64Output; DirectInput *****************************************
 Remarks List: DerInput; Base64Output; DirectInput
@@ -4447,6 +4471,24 @@ Output Data:
   },
   profilePolicyRules '01'B -- ppr1 --
 }
+--------------------------------------------------------------------------------
+************************************************** [10, -68, -46, 85] **************************************************
+Remarks List Generated: [10, -68, -46, 85]
+Info => Conversion Mode; Input Format: byte_array; Output Format: der
+Input Data: [10, -68, -46, 85]
+Output Data: 0ABCD255
+--------------------------------------------------------------------------------
+************************************************ Byte Array with Remarks ***********************************************
+Remarks List: Byte Array with Remarks
+Info => Conversion Mode; Input Format: byte_array; Output Format: der
+Input Data: [10, -68, -46, 85]
+Output Data: 0ABCD255
+--------------------------------------------------------------------------------
+************************************************** [10, 188, 210, 85] **************************************************
+Remarks List Generated: [10, 188, 210, 85]
+Info => Conversion Mode; Input Format: byte_array; Output Format: der_with_base64
+Input Data: [10, 188, 210, 85]
+Output Data: CrzSVQ==
 --------------------------------------------------------------------------------
 ************************************************* Remarks Test Occurred ************************************************
 Remarks List Generated: Remarks Test Occurred

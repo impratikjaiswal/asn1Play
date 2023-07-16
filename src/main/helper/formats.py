@@ -18,3 +18,5 @@ class Formats:
     ASCII = 'ascii'
     HEX = 'hex'
     YML = 'yml'
+    BYTE_ARRAY = 'byte_array'
+    BYTE_ARRAY_SIGNED = 'byte_array_signed'

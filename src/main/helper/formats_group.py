@@ -11,7 +11,7 @@ class FormatsGroup:
 
     ASCII_FORMATS = [Formats.ASCII]
 
-    INPUT_FORMATS_HEX = [Formats.DER, Formats.DER_64, Formats.HEX]
+    INPUT_FORMATS_HEX = [Formats.DER, Formats.DER_64, Formats.HEX, Formats.BYTE_ARRAY, Formats.BYTE_ARRAY_SIGNED]
 
     INPUT_FORMATS_DER = [Formats.DER, Formats.HEX]
 
@@ -22,6 +22,8 @@ class FormatsGroup:
     INPUT_FORMATS_YML = [Formats.YML]
 
     INPUT_FORMATS_ASCII = [Formats.ASCII]
+
+    INPUT_FORMATS_BYTE_ARRAY = [Formats.BYTE_ARRAY, Formats.BYTE_ARRAY_SIGNED]
 
     INPUT_FORMATS_NON_TXT = INPUT_FORMATS_HEX + INPUT_FORMATS_ASCII
 

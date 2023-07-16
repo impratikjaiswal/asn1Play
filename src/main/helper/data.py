@@ -3,6 +3,7 @@ from python_helpers.ph_util import PhUtil
 
 from src.generated_code.asn1.GSMA.SGP_22 import version as sgp22_version
 from src.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
+from src.main.helper.formats_group import FormatsGroup
 from src.main.helper.keywords import KeyWords
 from src.main.helper.variables import Variables
 
@@ -52,7 +53,9 @@ class Data:
 
     def __get_default_remarks(self):
         self.set_asn1_element_name()
-        str_raw_data = PhUtil.combine_list_items(self.raw_data)
+        str_raw_data = str(
+            self.raw_data) if self.input_format in FormatsGroup.INPUT_FORMATS_BYTE_ARRAY else PhUtil.combine_list_items(
+            self.raw_data)
         return PhUtil.append_remarks(self.__asn1_element_name, str_raw_data)
 
     def reset_auto_generated_remarks(self):

@@ -74,6 +74,27 @@ class UnitTesting(DataTypeMaster):
                 output_format=Formats.ASN1
             ),
         ]
+        data_pool_byte_array = [
+            # Byte Array with our Remarks
+            Data(
+                raw_data=[10, -68, -46, 85],
+                input_format=Formats.BYTE_ARRAY,
+                output_format=Formats.DER,
+            ),
+            # Byte Array with Remarks
+            Data(
+                remarks_list='Byte Array with Remarks',
+                raw_data=[10, -68, -46, 85],
+                input_format=Formats.BYTE_ARRAY,
+                output_format=Formats.DER,
+            ),
+            #
+            Data(
+                raw_data=[10, 188, 210, 85],
+                input_format=Formats.BYTE_ARRAY,
+                output_format=Formats.DER_64,
+            )
+        ]
         data_pool_remarks = [
             Data(
                 raw_data='Remarks Test Occurred',
@@ -451,6 +472,7 @@ class UnitTesting(DataTypeMaster):
 
         super().set_data_pool(
             data_pool_positive +
+            data_pool_byte_array +
             data_pool_remarks +
             data_pool_remarks_extend +
             data_pool_output_file +
