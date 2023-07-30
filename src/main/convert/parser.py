@@ -24,7 +24,7 @@ from src.main.helper.metadata import MetaData
 def parse_or_update_any_data_safe(data, error_handling_mode):
     try:
         meta_data = MetaData(raw_data_org=data.raw_data)
-        parse_or_update_any_data(data, meta_data)
+        return parse_or_update_any_data(data, meta_data)
     except Exception as e:
         known = False
         additional_msg = None
@@ -49,6 +49,7 @@ def parse_or_update_any_data_safe(data, error_handling_mode):
             traceback.print_exc()
         if error_handling_mode == PhErrorHandlingModes.STOP_ON_ERROR:
             raise
+        return None
 
 
 def parse_or_update_any_data(data, meta_data=None):

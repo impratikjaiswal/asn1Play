@@ -50,6 +50,7 @@ class DataTypeMaster(object):
 
     def set_data_pool(self, data_pool):
         self.data_pool = data_pool
+        self.meta_data_pool = []
 
     def parse(self, error_handling_mode):
         """
@@ -86,4 +87,4 @@ class DataTypeMaster(object):
             converter.path_generalisation(data, Keys.RAW_DATA)
             converter.path_generalisation(data, Keys.OUTPUT_FILE)
             converter.path_generalisation(data, Keys.REMARKS_LIST)
-            parse_or_update_any_data_safe(data, error_handling_mode)
+            self.meta_data_pool.append(parse_or_update_any_data_safe(data, error_handling_mode))

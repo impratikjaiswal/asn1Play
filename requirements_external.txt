@@ -3,3 +3,6 @@ pycrate
 
 # YML API
 ruamel.yaml
+
+# Flask
+flask

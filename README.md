@@ -1,12 +1,11 @@
 # asn1play
 
-<BR>ASN1 Encoder &amp; Decoder based on pycrate.
-<BR>Currently supporting all versions of (By Default):
-<ol>
-    <li>GSMA SGP.22
-    <li>TCA eUICC_Profile_Package (SAIP)
-</ol>
-However, Tool can be extended to support any ASN1 based conversion.
+<BR>ASN1 Encoder &amp; Decoder based on [pycrate](https://github.com/P1sec/pycrate).
+<BR>Currently supporting various versions of:
+1. [GSMA SGP.22](https://www.gsma.com/esim/esim-specification/ "GSMA SGP.22" )
+2. [TCA eUICC_Profile_Package (SAIP)](https://trustedconnectivityalliance.org/technology-library-sim-specifications/ "SAIP")
+
+<BR>However, Tool can be extended to support any ASN1 based conversion.
 
 # How To Install
 
@@ -14,13 +13,19 @@ However, Tool can be extended to support any ASN1 based conversion.
     <li>All Required packages are listed in requirements.txt
     <li>Few Basic Scripts are also present under <i>scripts</i> folder.
     <ol>
-        <li>Currently Scripts are targeting virtual environment with folder name as <i>venv</i> (Present in parallel of <i>scripts</i> folder)
+        <li>Currently, Scripts are targeting virtual environment with folder name as <i>venv</i> (Present in parallel of <i>scripts</i> folder)
         However, same can be modified as per user choice.
     </ol>
     <li>Note: installing tool in virtual environment is optional but preferred.
 </ol>
 
-# Few Features
+# How To Use
+<ul>
+<li>Web server can be locally started using <i>scripts/flask_server_start.bat</i>
+<li>or alternatively code can be used directly from <i>asn1Play/src/main/asn1play.py</i>
+</ul>
+
+# Few Major Features
 
 <ul>
     <li>Auto Trimming of HEX Data (White Spaces Deletion).
@@ -30,7 +35,8 @@ However, Tool can be extended to support any ASN1 based conversion.
     <li>Support of "Individual Mode"; Raw/Target Data can be configured Directly or file path (Binary as well as Text File; any extension) can be passed.
     <li>Support of "Bulk Mode"; Raw/Target Data can be configured Directly in List/Array format or Directory Path can be passed (Files with Known extensions will be picked based on Input Format).
     <li>Support of "Yml Mode (Config Mode)"; Raw/Target Data (along with all needed config) can be configured Directly in Yaml Files (".yaml" or ".yml" extensions), and same cane be passed in "Individual Mode" or "Bulk Mode".
-    <li>For Known File Extensions (".asn1", ".asn", ".base64", ".hex"), Input/Output Format may be modified automatically as per Default Values.
+    <li>For Known File Extensions (".asn1", ".asn", ".base64", ".hex"), Input/Output Format may be modified automatically as per sensible out-of-the-box defaults.
+    <li>Support of flask.
 </ul>
 
 # Data Folders
