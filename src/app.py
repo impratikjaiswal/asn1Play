@@ -86,14 +86,14 @@ def testimonials():
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']
-        user = request.form['publisher']
+        publisher = request.form['publisher']
 
         if not title:
             flash('Title is required!')
         else:
             conn = get_db_connection()
             conn.execute('INSERT INTO posts (title, content, publisher) VALUES (?, ?, ?)',
-                         (title, content))
+                         (title, content, publisher))
             conn.commit()
             conn.close()
             return redirect(url_for('index'))
