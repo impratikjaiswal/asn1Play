@@ -27,7 +27,8 @@
 
 # Screen Shots
 
-![Local Web Server](\images\Sample1.png)
+![](\images\Sample1.png)
+![](https://github.com/impratikjaiswal/asn1play/tree/ef13a274e666a577e1c381cfc6cb85054147e5d2/images\Sample1.png)
 
 # Few Major Features
 
