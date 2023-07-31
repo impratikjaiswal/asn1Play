@@ -25,6 +25,10 @@
 <li>or alternatively code can be used directly from <i>asn1Play/src/main/asn1play.py</i>
 </ul>
 
+# Screen Shots
+
+![Local Web Server](\images\Sample1.png)
+
 # Few Major Features
 
 <ul>
