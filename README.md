@@ -27,8 +27,8 @@
 
 # Screen Shots
 
-![](\images\Sample1.png)
-![](https://github.com/impratikjaiswal/asn1play/tree/ef13a274e666a577e1c381cfc6cb85054147e5d2/images\Sample1.png)
+![Sample 1](images\Sample1.png)
+![Sample 2](https://github.com/impratikjaiswal/asn1play/tree/ef13a274e666a577e1c381cfc6cb85054147e5d2/images\Sample1.png)
 
 # Few Major Features
 
