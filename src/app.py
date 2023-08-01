@@ -5,8 +5,9 @@ from flask import Flask, render_template, request, url_for, flash, redirect
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from werkzeug.exceptions import abort
 
+from src.main.convert.converter import read_web_request
 from src.main.data_type.data_type_master import DataTypeMaster
-from src.main.helper.data import Data
+from src.main.helper.constants_config import ConfigConst
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your secret key'
@@ -23,6 +24,7 @@ def index():
 @app.route('/asn1Play', methods=('GET', 'POST'))
 def asn1Play():
     output_data = ''
+    version = f'v{ConfigConst.TOOL_VERSION}'
     if request.method == 'POST':
         raw_data = request.form['raw_data']
         input_format = request.form['input_format']
@@ -39,12 +41,13 @@ def asn1Play():
         # else:
         #     return redirect(url_for('asn1Play'))
         data_type = DataTypeMaster()
-        data_type.set_data_pool(data_pool=[
-            Data(raw_data=raw_data, input_format=input_format, output_format=output_format, asn1_element=asn1_element,
-                 remarks_list=remarks_list)])
+        data_type.set_data_pool(data_pool=[read_web_request(request.form.to_dict())])
         data_type.parse(PhErrorHandlingModes.CONTINUE_ON_ERROR)
         output_data = data_type.meta_data_pool[0]
-    return render_template('asn1Play.html', output_data=output_data)
+        return render_template('asn1Play.html', version=version, output_data=output_data)
+    if request.method == 'GET':
+        return render_template('asn1Play.html', version=version)
+    return render_template('asn1Play.html', version=version)
 
 
 @app.route('/tlvPlay')

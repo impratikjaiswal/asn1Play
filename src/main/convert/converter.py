@@ -146,10 +146,7 @@ def prepare_config_data(data):
     return file_dic
 
 
-def validate_config_data(config_data):
-    config_data = dict(config_data).get(Keys.INPUT, None)
-    if not config_data:
-        raise ValueError(f'Mandatory Config "input" is missing.')
+def parse_config(config_data):
     for k, v in config_data.items():
         if v is not None and v in ['None']:
             config_data[k] = None
@@ -168,6 +165,13 @@ def validate_config_data(config_data):
             if temp[0] == KeyWords.CLASS_KEYWORDS:
                 config_data[k] = getattr(KeyWords, value)
     return config_data
+
+
+def validate_config_data(config_data):
+    config_data = dict(config_data).get(Keys.INPUT, None)
+    if not config_data:
+        raise ValueError(f'Mandatory Config "input" is missing.')
+    return parse_config(config_data)
 
 
 def set_input_output_format(data):
@@ -240,6 +244,11 @@ def read_yaml(input_file):
     file_dic = yaml_object.load(input_file)
     config_data = validate_config_data(copy.deepcopy(file_dic))
     return file_dic, Data(**config_data)
+
+
+def read_web_request(request_form):
+    config_data = parse_config(request_form)
+    return Data(**config_data)
 
 
 def write_yml_file(output_file_path, file_dic, output_dic=None, output_versions_dic=None):
