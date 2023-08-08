@@ -247,8 +247,7 @@ def read_yaml(input_file):
 
 
 def read_web_request(request_form):
-    config_data = parse_config(request_form)
-    return Data(**config_data)
+    return Data(**parse_config(request_form))
 
 
 def write_yml_file(output_file_path, file_dic, output_dic=None, output_versions_dic=None):

@@ -98,7 +98,7 @@ def process_data(execution_mode, error_handling_mode):
             error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
         if isinstance(data_type, Dev):
             error_handling_mode = PhErrorHandlingModes.STOP_ON_ERROR
-        DataTypeMaster.parse(data_type, error_handling_mode)
+        DataTypeMaster.parse_safe(data_type, error_handling_mode)
 
 
 def main():

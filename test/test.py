@@ -9,7 +9,7 @@ output_format = 'hex'
 
 data_type = DataTypeMaster()
 data_type.set_data_pool(data_pool=[Data(raw_data=raw_data, input_format=input_format, output_format=output_format)])
-data_type.parse( PhErrorHandlingModes.CONTINUE_ON_ERROR)
+data_type.parse_safe(PhErrorHandlingModes.CONTINUE_ON_ERROR)
 print(f'raw_data {raw_data}')
 print(f'input_format {input_format}')
 print(f'output_format {output_format}')

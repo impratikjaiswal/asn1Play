@@ -1,55 +1,19 @@
 import copy
 import os
-import traceback
 from collections import OrderedDict
 
-import binascii
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
-from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from python_helpers.ph_util import PhUtil
-from ruamel.yaml.representer import RepresenterError
 
 from src.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
 from src.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
 from src.main.convert import converter
 from src.main.convert.handler import decode_encode_asn
 from src.main.helper.constants_config import ConfigConst as ConfigConst_local
-from src.main.helper.formats import Formats
 from src.main.helper.formats_group import FormatsGroup
 from src.main.helper.keys import Keys
 from src.main.helper.metadata import MetaData
-
-
-def parse_or_update_any_data_safe(data, error_handling_mode):
-    try:
-        meta_data = MetaData(raw_data_org=data.raw_data)
-        return parse_or_update_any_data(data, meta_data)
-    except Exception as e:
-        known = False
-        additional_msg = None
-        if isinstance(e, binascii.Error):
-            known = True
-            additional_msg = 'raw_data is invalid'
-        elif isinstance(e, ValueError):
-            known = True
-        elif isinstance(e, RepresenterError):
-            known = True
-            additional_msg = 'export error'
-        elif isinstance(e, PermissionError):
-            known = True
-            additional_msg = 'input/output path reading/writing error'
-        elif isinstance(e, FileExistsError):
-            known = True
-            additional_msg = 'Output path writing error'
-        converter.print_data(data, meta_data)
-        print(PhUtil.get_key_value_pair(PhConstants.EXCEPTION_KNOWN if known else PhConstants.EXCEPTION_UNKNOWN,
-                                        PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, [additional_msg, str(e)]))))
-        if not known:
-            traceback.print_exc()
-        if error_handling_mode == PhErrorHandlingModes.STOP_ON_ERROR:
-            raise
-        return None
 
 
 def parse_or_update_any_data(data, meta_data=None):

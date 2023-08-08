@@ -7,11 +7,11 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Sunday, Jul 16 2023, 22:57:20:693977, IST (GMT+0530)
+Time Stamp is Tuesday, Aug 08 2023, 09:24:37:475276, IST (GMT+0530)
 --------------------------------------------------------------------------------
 pythonHelpers version is v2.2.9
 --------------------------------------------------------------------------------
-asn1play version is v4.1.7
+asn1play version is v5.0.2
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 SGP22 version is v2_4
@@ -4472,6 +4472,18 @@ Output Data:
   profilePolicyRules '01'B -- ppr1 --
 }
 --------------------------------------------------------------------------------
+*************************************************** Mimic Web Request **************************************************
+Remarks List: Mimic Web Request
+Info => Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1
+Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
+Output Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1",
+  profilePolicyRules '01'B -- ppr1 --
+}
+--------------------------------------------------------------------------------
 ************************************************** [10, -68, -46, 85] **************************************************
 Remarks List Generated: [10, -68, -46, 85]
 Info => Conversion Mode; Input Format: byte_array; Output Format: der
@@ -6474,6 +6486,28 @@ Output Data:
 
 --------------------------------------------------------------------------------
 Known Exception Occurred: Mandatory raw_data is missing.
+*************************************************** InvalidAsnElement **************************************************
+Remarks List: InvalidAsnElement
+Info => Conversion Mode; Input Format: ; Output Format: 
+Input Yml: ..\..\Data\SampleData\GSMA\SGP_22\v2_4\InvalidRequest\StoreMetadataReques.hex.yml
+Input Data: ..\..\Data\SampleData\GSMA\SGP_22\v2_4\InvalidRequest\StoreMetadataReques.hex.yml
+Output Data: 
+--------------------------------------------------------------------------------
+Unknown Exception Occurred: type object 'RSPDefinitions' has no attribute 'StoreMetadataReques'
+Traceback (most recent call last):
+  File "D:\Other\Github_Self\asn1Play\src\main\data_type\data_type_master.py", line 93, in parse_safe
+    self.__parse_safe_individual(data)
+  File "D:\Other\Github_Self\asn1Play\src\main\data_type\data_type_master.py", line 161, in __parse_safe_individual
+    parse_or_update_any_data(data, meta_data)
+  File "D:\Other\Github_Self\asn1Play\src\main\convert\parser.py", line 86, in parse_or_update_any_data
+    file_dic_all_str, data = converter.read_yaml(resp)
+  File "D:\Other\Github_Self\asn1Play\src\main\convert\converter.py", line 245, in read_yaml
+    config_data = validate_config_data(copy.deepcopy(file_dic))
+  File "D:\Other\Github_Self\asn1Play\src\main\convert\converter.py", line 174, in validate_config_data
+    return parse_config(config_data)
+  File "D:\Other\Github_Self\asn1Play\src\main\convert\converter.py", line 157, in parse_config
+    config_data[k] = getattr(SGP_22.RSPDefinitions, value)
+AttributeError: type object 'RSPDefinitions' has no attribute 'StoreMetadataReques'
 *************************************************** Invalid File Path **************************************************
 Remarks List: Invalid File Path
 Info => Asn1 Element: UpdateMetadataRequest; Input Format: der; Output Format: asn1; Output File Name Keyword: output

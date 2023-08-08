@@ -5,7 +5,6 @@ from flask import Flask, render_template, request, url_for, flash, redirect
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from werkzeug.exceptions import abort
 
-from src.main.convert.converter import read_web_request
 from src.main.data_type.data_type_master import DataTypeMaster
 from src.main.helper.constants_config import ConfigConst
 
@@ -41,10 +40,9 @@ def asn1Play():
         # else:
         #     return redirect(url_for('asn1Play'))
         data_type = DataTypeMaster()
-        data_type.set_data_pool(data_pool=[read_web_request(request.form.to_dict())])
-        data_type.parse(PhErrorHandlingModes.CONTINUE_ON_ERROR)
-        output_data = data_type.meta_data_pool[0]
-        return render_template('asn1Play.html', version=version, output_data=output_data)
+        data_type.set_data_pool(data_pool=request.form.to_dict())
+        data_type.parse_safe(PhErrorHandlingModes.CONTINUE_ON_ERROR)
+        return render_template('asn1Play.html', version=version, output_data=data_type.get_output_data())
     if request.method == 'GET':
         return render_template('asn1Play.html', version=version)
     return render_template('asn1Play.html', version=version)

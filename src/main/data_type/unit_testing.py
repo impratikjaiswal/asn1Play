@@ -73,6 +73,14 @@ class UnitTesting(DataTypeMaster):
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1
             ),
+            #
+            {
+                'remarks_list': 'Mimic Web Request',
+                'raw_data': 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
+                'input_format': Formats.DER,
+                'output_format': Formats.ASN1,
+                'asn1_element': SGP_22.RSPDefinitions.StoreMetadataRequest
+            }
         ]
         data_pool_byte_array = [
             # Byte Array with our Remarks
@@ -424,6 +432,11 @@ class UnitTesting(DataTypeMaster):
                 asn1_element=SGP_22.RSPDefinitions.UpdateMetadataRequest,
                 input_format=Formats.DER,
                 output_format=Formats.ASN1
+            ),
+            #
+            Data(  # #YmlInput; InvalidAsnElement;
+                remarks_list='InvalidAsnElement',
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataReques.hex.yml'
             ),
             #
             Data(
