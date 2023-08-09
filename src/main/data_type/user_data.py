@@ -1,3 +1,5 @@
+from src.generated_code.asn1.GSMA import SGP_22
+from src.generated_code.asn1.TCA import eUICC_Profile_Package
 from src.main.data_type.data_type_master import DataTypeMaster
 from src.main.helper.data import Data
 from src.main.helper.formats import Formats
@@ -58,6 +60,20 @@ class UserData(DataTypeMaster):
                 raw_data='57656c636f6d6520546f2041736e506c617920212121',
                 input_format=Formats.HEX,
                 output_format=Formats.ASCII
+            ),
+            # Der to ASN1
+            Data(
+                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+            # ASN1 to Der
+            Data(
+                raw_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
+                asn1_element=eUICC_Profile_Package.PEDefinitions.PE_End,
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
             ),
         ]
         super().set_data_pool(data_pool)

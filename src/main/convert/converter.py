@@ -348,7 +348,7 @@ def replace_data(target_data, keyword, new_value):
 def replace_version(target_data, data):
     module_version = data.get_asn1_module_version()
     if not module_version:
-        # Try to set version based on path
+        # Set version based on path
         if KeyWords.CLASS_EPP in target_data:
             module_version = epp_version
         else:

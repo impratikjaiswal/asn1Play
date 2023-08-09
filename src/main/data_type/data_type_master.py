@@ -2,6 +2,7 @@ import traceback
 
 import binascii
 from python_helpers.ph_constants import PhConstants
+from python_helpers.ph_exceptions import PhExceptions
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from python_helpers.ph_util import PhUtil
 from ruamel.yaml.representer import RepresenterError
@@ -15,6 +16,7 @@ from src.main.helper.metadata import MetaData
 
 ITEM_INDEX_DATA = 0
 ITEM_INDEX_META_DATA = 1
+ITEM_INDEX_ERROR_DATA = 2
 
 
 class DataTypeMaster(object):
@@ -30,7 +32,7 @@ class DataTypeMaster(object):
         self.input_format = None
         self.asn1_element = None
         self.data_pool = []
-        self.__item = (Data(raw_data=None), MetaData(raw_data_org=None))
+        self.__item = (Data(raw_data=None), MetaData(raw_data_org=None), PhExceptions(msg=None))
 
     def set_print_input(self, print_input):
         self.print_input = print_input
@@ -94,7 +96,9 @@ class DataTypeMaster(object):
         except Exception as e:
             known = False
             additional_msg = None
-            exception_msg = str(e)
+            args_0 = e.args[0]
+            self.__item = (self.__item[ITEM_INDEX_DATA], self.__item[ITEM_INDEX_META_DATA], args_0)
+            exception_msg = args_0.get_details() if isinstance(args_0, PhExceptions) else args_0
             if isinstance(e, binascii.Error):
                 known = True
                 additional_msg = 'raw_data is invalid'
@@ -161,6 +165,18 @@ class DataTypeMaster(object):
         parse_or_update_any_data(data, meta_data)
 
     def get_output_data(self):
-        meta_data = self.__item[ITEM_INDEX_META_DATA]
-        output_data = meta_data.parsed_data if isinstance(meta_data, MetaData) else ''
+        """
+
+        :return:
+        """
+        output_data = ''
+        if len(self.__item) > ITEM_INDEX_ERROR_DATA:
+            # Exception Object is Present
+            exception_data = self.__item[ITEM_INDEX_ERROR_DATA]
+            output_data = exception_data.get_details() if isinstance(exception_data, PhExceptions) else exception_data
+            return output_data
+        if len(self.__item) > ITEM_INDEX_META_DATA:
+            # MetaData Object is Present
+            meta_data = self.__item[ITEM_INDEX_META_DATA]
+            output_data = meta_data.parsed_data if isinstance(meta_data, MetaData) else output_data
         return output_data

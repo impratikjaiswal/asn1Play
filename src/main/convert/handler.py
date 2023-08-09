@@ -2,6 +2,7 @@ import base64
 import re
 
 from binascii import unhexlify
+from python_helpers.ph_exceptions import PhExceptions
 from python_helpers.ph_util import PhUtil
 
 from src.main.helper.defaults import Defaults
@@ -40,7 +41,7 @@ def decode_encode_asn(raw_data='', parse_only=True, input_format=Defaults.FORMAT
     print_debug_var('asn1_element', asn1_element)
     offset = 0
     if not raw_data:
-        raise ValueError(f'Mandatory raw_data is missing.')
+        raise ValueError(PhExceptions(msg=f'Mandatory raw_data is missing.', function_name=decode_encode_asn.__name__))
     if input_format not in FormatsGroup.INPUT_FORMATS:
         raise ValueError(f'Unknown input format {input_format}')
     if isinstance(asn1_element, str):  # Str is provided, check the mapping
