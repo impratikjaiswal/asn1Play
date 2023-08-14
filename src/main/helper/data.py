@@ -14,6 +14,7 @@ class Data:
                  asn1_element=None,
                  input_format=None,
                  output_format=None,
+                 tlv_parsing_of_output=None,
                  print_input=None,
                  print_output=None,
                  print_info=None,
@@ -26,6 +27,7 @@ class Data:
         self.asn1_element = asn1_element
         self.input_format = input_format
         self.output_format = output_format
+        self.tlv_parsing_of_output = tlv_parsing_of_output
         self.print_input = print_input
         self.print_output = print_output
         self.print_info = print_info

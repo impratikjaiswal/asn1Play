@@ -9,6 +9,7 @@ class MetaData:
         self.output_file_path = None
         self.re_output_file_path = None
         self.parsed_data = None
+        self.parsed_data_tlv = None
         self.re_parsed_data = None
         self.include_files = None
         self.excludes = None

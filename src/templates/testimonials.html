@@ -1,9 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>{% block title %}Write Testimonial {% endblock %}</h1>
-
-<form method="post">
+    <h1>{% block title %} Testimonials {% endblock %}</h1>
+	<BR>
+    <h3>Read What others feel about us</h3>
+    {% for post in posts %}
+		<!-- <a href="#"> -->
+        <a href="{{ url_for('post', post_id=post['id']) }}">
+            <h2>{{ post['title'] }}</h2>
+        </a>
+        <span class="badge badge-primary">{{ post['created'] }}</span>
+		<span class="badge badge-warning">{{ post['publisher'] }}</span>
+        <hr>
+    {% endfor %}
+	<BR>
+    <h3>Write What you feel about us</h3>
+	<form method="post">
     <div class="form-group">
         <label for="title">Title</label>
         <input type="text" name="title"

@@ -14,10 +14,7 @@ app.config['SECRET_KEY'] = 'your secret key'
 
 @app.route('/')
 def index():
-    conn = get_db_connection()
-    posts = conn.execute('SELECT * FROM posts').fetchall()
-    conn.close()
-    return render_template('index.html', posts=posts)
+    return render_template('index.html')
 
 
 @app.route('/asn1Play', methods=('GET', 'POST'))
@@ -31,12 +28,12 @@ def asn1Play():
         asn1_element = request.form['asn1_element']
         remarks_list = request.form['remarks_list']
 
-        if not raw_data:
-            flash('raw_data is required!')
-        if not input_format:
-            flash('input_format is required!')
-        if not output_format:
-            flash('output_format is required!')
+        # if not raw_data:
+        #     flash('raw_data is required!')
+        # if not input_format:
+        #     flash('input_format is required!')
+        # if not output_format:
+        #     flash('output_format is required!')
         # else:
         #     return redirect(url_for('asn1Play'))
         data_type = DataTypeMaster()
@@ -48,14 +45,24 @@ def asn1Play():
     return render_template('asn1Play.html', version=version)
 
 
-@app.route('/tlvPlay')
+@app.route('/tlvPlay', methods=('GET', 'POST'))
 def tlvPlay():
-    pass
+    return render_template('wip.html', page='tlvPlay', git_end_point='tlvPlay')
 
 
-@app.route('/excelPlay')
+@app.route('/excelPlay', methods=('GET', 'POST'))
 def excelPlay():
-    pass
+    return render_template('wip.html', page='excelPlay', git_end_point='excelPlay')
+
+
+@app.route('/sponsorship', methods=('GET', 'POST'))
+def sponsorship():
+    return render_template('wip.html', page='sponsorship')
+
+
+@app.route('/about', methods=('GET', 'POST'))
+def about():
+    return render_template('aboutus.html')
 
 
 def get_db_connection():
@@ -84,6 +91,11 @@ def post(post_id):
 
 @app.route('/testimonials', methods=('GET', 'POST'))
 def testimonials():
+    if request.method == 'GET':
+        conn = get_db_connection()
+        posts = conn.execute('SELECT * FROM posts').fetchall()
+        conn.close()
+        return render_template('testimonials.html', posts=posts)
     if request.method == 'POST':
         title = request.form['title']
         content = request.form['content']

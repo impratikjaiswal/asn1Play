@@ -2,8 +2,10 @@ import copy
 import os
 from collections import OrderedDict
 
+import tlv_play.main.data_type.data_type_master
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
+from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from python_helpers.ph_util import PhUtil
 
 from src.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
@@ -14,6 +16,7 @@ from src.main.helper.constants_config import ConfigConst as ConfigConst_local
 from src.main.helper.formats_group import FormatsGroup
 from src.main.helper.keys import Keys
 from src.main.helper.metadata import MetaData
+from tlv_play.main.helper.tlv_data import TlvData
 
 
 def parse_or_update_any_data(data, meta_data=None):
@@ -113,6 +116,12 @@ def parse_or_update_any_data(data, meta_data=None):
     # parse Data
     meta_data.parsed_data = decode_encode_asn(raw_data=data.raw_data, parse_only=True, input_format=data.input_format,
                                               output_format=data.output_format, asn1_element=data.asn1_element)
+    if meta_data.parsed_data and data.tlv_parsing_of_output:
+        tlv_data_type = tlv_play.main.data_type.data_type_master.DataTypeMaster()
+        tlv_data_type.set_data_pool([TlvData(raw_data=meta_data.parsed_data)])
+        tlv_data_type.parse(PhErrorHandlingModes.CONTINUE_ON_ERROR)
+        # meta_data.parsed_data_tlv = tlv_output
+        # meta_data.parsed_data = tlv_output
     if data.re_parse_output:
         meta_data.re_parsed_data = decode_encode_asn(raw_data=meta_data.parsed_data, parse_only=True,
                                                      input_format=data.output_format,

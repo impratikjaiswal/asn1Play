@@ -14,6 +14,8 @@ def index():
     posts = conn.execute('SELECT * FROM posts').fetchall()
     conn.close()
     return render_template('index.html', posts=posts)
+
+
 def get_db_connection():
     # conn = sqlite3.connect(r'database.db')
     path = os.sep.join([os.path.dirname(os.path.realpath(__file__)), 'db', 'database.db'])
@@ -46,12 +48,14 @@ def index_static():
     return render_template('index_static.html')
 
 
+@app.route('/span_samples')
+def span_samples():
+    return render_template('span_samples.html')
+
+
 @app.route('/template')
 def index_template():
     return render_template('index_plain_template.html')
-
-
-
 
 
 @app.route('/<int:post_id>')

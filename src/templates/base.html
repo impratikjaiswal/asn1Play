@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>{% block title %} {% endblock %}</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='/images/favicon.ico') }}">
   </head>
   <body>
       <nav class="navbar navbar-expand-md navbar-light bg-light">
@@ -23,13 +24,10 @@
                 <a class="nav-link" href="{{url_for('asn1Play')}}">asn1Play</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">tlvPlay</a>
+                <a class="nav-link" href="{{url_for('tlvPlay')}}">tlvPlay</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">excelPlay</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#"> </a>
+                <a class="nav-link" href="{{url_for('excelPlay')}}">excelPlay</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#"> </a>
@@ -44,16 +42,16 @@
                 <a class="nav-link" href="#"> </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://www.linkedin.com/in/impratikjaiswal">About Me</a>
+                <a class="nav-link" href="#"> </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://github.com/impratikjaiswal">Github</a>
+                <a class="nav-link" href="{{url_for('testimonials')}}">Testimonials</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{url_for('testimonials')}}">Write Testimonials</a>
+                <a class="nav-link" href="{{url_for('about')}}">About Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Sponsorship</a>
+                <a class="nav-link" href="{{url_for('sponsorship')}}">Sponsorship</a>
             </li>
             </ul>
         </div>
@@ -64,7 +62,6 @@
         {% endfor %}
         {% block content %} {% endblock %}
     </div>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

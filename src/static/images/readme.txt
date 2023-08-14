@@ -1,0 +1,1 @@
+https://pixabay.com/vectors/work-under-construction-98936/
