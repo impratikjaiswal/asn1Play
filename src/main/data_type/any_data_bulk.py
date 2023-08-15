@@ -88,6 +88,15 @@ class AnyDataBulk(DataTypeMaster):
             ),
             #
             Data(
+                remarks_list='# BulkMode; DirectoryInput; Asn1Input; Der64Output; DirectoryOutput; .Asn1Files;',
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
+                output_file=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\hex',
+            ),
+            #
+            Data(
                 remarks_list='# BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest;',
                 raw_data=[
                     'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',

@@ -96,9 +96,13 @@ class DataTypeMaster(object):
         except Exception as e:
             known = False
             additional_msg = None
-            args_0 = e.args[0]
-            self.__item = (self.__item[ITEM_INDEX_DATA], self.__item[ITEM_INDEX_META_DATA], args_0)
-            exception_msg = args_0.get_details() if isinstance(args_0, PhExceptions) else args_0
+            if isinstance(e.args[0], PhExceptions):
+                exception_msg = e.args[0].get_details()
+                self.__item = (self.__item[ITEM_INDEX_DATA], self.__item[ITEM_INDEX_META_DATA], e.args[0])
+            else:
+                # for scenarios like FileExistsError where a touple is returned, (17, 'Cannot create a file when that file already exists')
+                exception_msg = str(e)
+                self.__item = (self.__item[ITEM_INDEX_DATA], self.__item[ITEM_INDEX_META_DATA], exception_msg)
             if isinstance(e, binascii.Error):
                 known = True
                 additional_msg = 'raw_data is invalid'

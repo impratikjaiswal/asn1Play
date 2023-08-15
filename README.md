@@ -79,6 +79,7 @@ To Refer Sample usages, search for below keywords in source code (\asn1Play\src\
     <li>DerOutput;
     <li>DirectInput;
     <li>DirectoryInput;
+    <li>DirectoryOutput;
     <li>ExportKeyword;
     <li>ExportedInput;
     <li>ExtendRemarksList;

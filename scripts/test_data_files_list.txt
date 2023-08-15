@@ -28,6 +28,7 @@
 \SampleData\TCA\eUICC_Profile_Package\v3_2\PROFILE_OPERATIONAL1.hex
 \SampleData\TCA\eUICC_Profile_Package\v3_2\PROFILE_OPERATIONAL1.hex.yml
 \UserData\TCA\eUICC_Profile_Package\v3_2\PE_End\DerInput_Asn1Output_DirectInput_Asn1Element_PE_End_ExportKeyword_export.yml
+\SampleData\GSMA\SGP_22\v2_4\InvalidRequest\StoreMetadataReques.hex.yml
 \SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.asn1
 \SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.asn1.yml
 \SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.base64
@@ -51,6 +52,7 @@
 \SampleData\GSMA\SGP_22\v2_4\UpdateMetadataRequest\UpdateMetadataRequest_ppr2_ppr1.asn1
 \SampleData\GSMA\SGP_22\v2_4\UpdateMetadataRequest\UpdateMetadataRequest_ppr3_ppr1_ppr2.asn1
 \UserData\GSMA\SGP_22\v2_4\UpdateMetadataRequest\DerInput_Asn1Output_DirectInput_Asn1Element_UpdateMetadataRequest_ExportKeyword_OutputFile_export.yml
+\SampleData\GSMA\SGP_22\v3_0_0\InvalidRequest\StoreMetadataReques.hex.yml
 \SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.asn1
 \SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.asn1.yml
 \SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.base64

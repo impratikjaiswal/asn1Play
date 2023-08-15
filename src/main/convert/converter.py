@@ -272,18 +272,21 @@ def set_output_file_path(data, meta_data):
     file_mode = False
     remarks_needed = False
     remarks_with_indexes = False
+    sample_file_name_from_input_file = False
     sample_file_name = ''
     name_as_per_remarks = ''
     if not (meta_data.input_mode_key == Keys.INPUT_YML or data.output_file or data.output_file_name_keyword):
         return
     output_file = data.output_file
     output_file_location = meta_data.output_file_location_default
-    if not output_file and (
-            meta_data.input_mode_key == Keys.INPUT_YML or meta_data.input_mode_key == Keys.INPUT_FILE):
+    input_file_name = ''
+    if meta_data.input_mode_key == Keys.INPUT_YML or meta_data.input_mode_key == Keys.INPUT_FILE:
         # YML File writing is mandatory, But output_file is not Provided, so Dest File will be source File only
         # File writing is needed, But output_file is not Provided,so Dest File will be prepared from source File only
+        input_file_name = meta_data.raw_data_org
         file_mode = True
-        output_file = meta_data.raw_data_org
+        if not output_file:
+            output_file = input_file_name
     if output_file:
         sample_file_ext = PhUtil.get_file_name_and_extn(output_file, only_extn=True)
         sample_file_folder = PhUtil.get_file_name_and_extn(output_file, only_path=True)
@@ -302,10 +305,16 @@ def set_output_file_path(data, meta_data):
             output_file_name = sample_file_name
             output_file_location = sample_file_folder
         else:
-            # Only Target Directory is provided; Remarks usage is implicit
-            remarks_needed = True
+            # Only Target Directory is provided
             output_file_location = os.sep.join([sample_file_folder, sample_file_name])
-            sample_file_name = ''
+            if input_file_name and meta_data.input_mode_key != Keys.INPUT_YML:
+                remarks_needed = False
+                sample_file_name = PhUtil.get_file_name_and_extn(input_file_name)
+                sample_file_name_from_input_file = True
+            else:
+                # Remarks usage is implicit
+                remarks_needed = True
+                sample_file_name = ''
     if data.validate_if_input_modes_hierarchy(Keys.INPUT_LIST) and not file_mode:
         # unique name needed
         remarks_needed = True
@@ -313,7 +322,7 @@ def set_output_file_path(data, meta_data):
         remarks_needed = True
     if data.output_file_name_keyword and not output_file:
         remarks_needed = True
-    if remarks_needed or data.output_file_name_keyword:
+    if remarks_needed or data.output_file_name_keyword or sample_file_name_from_input_file:
         if remarks_needed:
             if data.get_extended_remarks_available():
                 remarks_with_indexes = True

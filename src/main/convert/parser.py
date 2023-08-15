@@ -7,6 +7,7 @@ from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from python_helpers.ph_util import PhUtil
+from tlv_play.main.helper.tlv_data import TlvData
 
 from src.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
 from src.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
@@ -16,7 +17,6 @@ from src.main.helper.constants_config import ConfigConst as ConfigConst_local
 from src.main.helper.formats_group import FormatsGroup
 from src.main.helper.keys import Keys
 from src.main.helper.metadata import MetaData
-from tlv_play.main.helper.tlv_data import TlvData
 
 
 def parse_or_update_any_data(data, meta_data=None):
