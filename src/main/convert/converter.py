@@ -2,6 +2,7 @@ import copy
 import os
 
 from python_helpers.ph_constants import PhConstants
+from python_helpers.ph_file_extensions import PhFileExtensions
 from python_helpers.ph_util import PhUtil
 from ruamel.yaml import YAML
 from ruamel.yaml.scalarstring import PreservedScalarString
@@ -13,7 +14,6 @@ from src.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_ver
 from src.main.helper.constants import Constants
 from src.main.helper.data import Data
 from src.main.helper.defaults import Defaults
-from src.main.helper.file_extensions import FileExtensions
 from src.main.helper.formats import Formats
 from src.main.helper.formats_group import FormatsGroup
 from src.main.helper.keys import Keys
@@ -226,16 +226,16 @@ def set_defaults(data, meta_data):
     else:
         meta_data.operation_mode = OperationModes.CONVERSION
     default_output_file_mapping = {
-        Formats.ASN1: FileExtensions.ASN1,
-        Formats.DER: FileExtensions.HEX,
-        Formats.DER_64: FileExtensions.BASE_64,
-        Formats.JSON: FileExtensions.JSON,
-        Formats.YML: FileExtensions.YML,
+        Formats.ASN1: PhFileExtensions.ASN1,
+        Formats.DER: PhFileExtensions.HEX,
+        Formats.DER_64: PhFileExtensions.BASE_64,
+        Formats.JSON: PhFileExtensions.JSON,
+        Formats.YML: PhFileExtensions.YML,
     }
     meta_data.export_mode = True if data.output_file_name_keyword == KeyWords.EXPORT_FILE_NAME_KEYWORD else False
     meta_data.output_file_ext_default = default_output_file_mapping.get(
         Formats.YML if (meta_data.export_mode or meta_data.input_mode_key == Keys.INPUT_YML) else data.output_format,
-        FileExtensions.TXT)
+        PhFileExtensions.TXT)
     meta_data.output_file_location_default = Constants.DEFAULT_OUTPUT_FOLDER
 
 

@@ -21,7 +21,7 @@
 
 # How To Use
 <ul>
-<li>Web server can be locally started using <i>scripts/flask_server_start.bat</i>
+<li>Web server can be locally started using <i>scripts/server_amenity_pj_app_start.bat</i>
 <li>or alternatively code can be used directly from <i>asn1Play/src/main/asn1play.py</i>
 </ul>
 

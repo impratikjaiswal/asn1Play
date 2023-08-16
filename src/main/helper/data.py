@@ -18,10 +18,10 @@ class Data:
                  print_input=None,
                  print_output=None,
                  print_info=None,
-                 re_parse_output=None,
                  output_file=None,
-                 output_file_name_keyword=None,
                  remarks_list=[],
+                 re_parse_output=None,
+                 output_file_name_keyword=None,
                  ):
         self.raw_data = raw_data
         self.asn1_element = asn1_element
@@ -31,20 +31,20 @@ class Data:
         self.print_input = print_input
         self.print_output = print_output
         self.print_info = print_info
-        self.re_parse_output = re_parse_output
         self.output_file = output_file
+        self.re_parse_output = re_parse_output
         self.output_file_name_keyword = output_file_name_keyword
-        self.remarks_list = None
         #
+        self.__input_modes_hierarchy = []
         self.__asn1_element_name = None
         self.__asn1_module_name = None
         self.__asn1_module_version = None
         self.__auto_generated_remarks = None
-        self.__input_modes_hierarchy = []
         self.__one_time_remarks = None
         self.__extended_remarks_needed = None
         #
         self.set_asn1_element_name()
+        self.remarks_list = None
         self.set_user_remarks(remarks_list)
 
     def set_user_remarks(self, remarks_list):
@@ -87,6 +87,20 @@ class Data:
                                                  append_mode_post=False)
         return PhUtil.append_remarks(one_time_remarks, user_remarks, append_mode_post=False).replace('\n', ' ')
 
+    def set_extended_remarks_available(self, extended_remarks):
+        self.__extended_remarks_needed = extended_remarks
+
+    def get_extended_remarks_available(self):
+        return self.__extended_remarks_needed
+
+    def get_one_time_remarks(self):
+        temp = self.__one_time_remarks
+        self.__one_time_remarks = None
+        return temp
+
+    def set_one_time_remarks(self, one_time_remarks):
+        self.__one_time_remarks = one_time_remarks
+
     def set_asn1_element_name(self):
         self.__asn1_element_name = (
             self.asn1_element if isinstance(self.asn1_element,
@@ -120,17 +134,3 @@ class Data:
 
     def validate_if_input_modes_hierarchy(self, input_mode_hierarchy):
         return True if input_mode_hierarchy in self.__input_modes_hierarchy else False
-
-    def set_extended_remarks_available(self, extended_remarks):
-        self.__extended_remarks_needed = extended_remarks
-
-    def get_extended_remarks_available(self):
-        return self.__extended_remarks_needed
-
-    def get_one_time_remarks(self):
-        temp = self.__one_time_remarks
-        self.__one_time_remarks = None
-        return temp
-
-    def set_one_time_remarks(self, one_time_remarks):
-        self.__one_time_remarks = one_time_remarks

@@ -1,4 +1,5 @@
-from src.main.helper.file_extensions import FileExtensions
+from python_helpers.ph_file_extensions import PhFileExtensions
+
 from src.main.helper.formats import Formats
 
 
@@ -29,13 +30,13 @@ class FormatsGroup:
 
     INPUT_FORMATS = INPUT_FORMATS_HEX + INPUT_FORMATS_ASN + INPUT_FORMATS_ASCII
 
-    INPUT_FILE_FORMATS_HEX = [FileExtensions.HEX]
+    INPUT_FILE_FORMATS_HEX = [PhFileExtensions.HEX]
 
-    INPUT_FILE_FORMATS_BASE_64 = [FileExtensions.BASE_64]
+    INPUT_FILE_FORMATS_BASE_64 = [PhFileExtensions.BASE_64]
 
-    INPUT_FILE_FORMATS_ASN = [FileExtensions.ASN1, FileExtensions.ASN]
+    INPUT_FILE_FORMATS_ASN = [PhFileExtensions.ASN1, PhFileExtensions.ASN]
 
-    INPUT_FILE_FORMATS_YML = [FileExtensions.YAML, FileExtensions.YML]
+    INPUT_FILE_FORMATS_YML = [PhFileExtensions.YAML, PhFileExtensions.YML]
 
     INPUT_FILE_FORMATS = INPUT_FILE_FORMATS_HEX + INPUT_FILE_FORMATS_BASE_64 + INPUT_FILE_FORMATS_ASN + INPUT_FILE_FORMATS_YML
 
