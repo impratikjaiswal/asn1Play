@@ -22,7 +22,7 @@
 # How To Use
 <ul>
 <li>Web server can be locally started using <i>scripts/server_amenity_pj_app_start.bat</i>
-<li>or alternatively code can be used directly from <i>asn1Play/src/main/asn1play.py</i>
+<li>or alternatively code can be used directly from <i>asn1Play/asn1_play/main/asn1play.py</i>
 </ul>
 
 # Screen Shots
@@ -53,7 +53,7 @@
 
 # Sample Usage References
 
-To Refer Sample usages, search for below keywords in source code (\asn1Play\src\main\data_type) and/or in data folders.
+To Refer Sample usages, search for below keywords in source code (\asn1Play\asn1_play\main\data_type) and/or in data folders.
 <ul>
     <li>.Asn1Files;
     <li>.Base64Files;
@@ -65,7 +65,7 @@ To Refer Sample usages, search for below keywords in source code (\asn1Play\src\
     <li>Asn1ElementString;
     <li>Asn1ElementVariable;
     <li>Asn1Input;
-    <li>Asn1Output;
+<li>Asn1Output;
     <li>Base64Input;
     <li>Base64Output;
     <li>BulkMode;
