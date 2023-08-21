@@ -2,12 +2,13 @@ import copy
 import os
 from collections import OrderedDict
 
-import tlv_play.main.data_type.data_type_master
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
+from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from python_helpers.ph_util import PhUtil
-from tlv_play.main.helper.tlv_data import TlvData
+from tlv_play.main.data_type.data_type_master import DataTypeMaster
+from tlv_play.main.helper.data import Data
 
 from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
@@ -15,7 +16,6 @@ from asn1_play.main.convert import converter
 from asn1_play.main.convert.handler import decode_encode_asn
 from asn1_play.main.helper.constants_config import ConfigConst as ConfigConst_local
 from asn1_play.main.helper.formats_group import FormatsGroup
-from asn1_play.main.helper.keys import Keys
 from asn1_play.main.helper.metadata import MetaData
 
 
@@ -35,7 +35,7 @@ def parse_or_update_any_data(data, meta_data=None):
         meta_data = MetaData(raw_data_org=data.raw_data)
     if not byte_array_format and isinstance(data.raw_data, list):
         # List is provided
-        meta_data.input_mode_key = Keys.INPUT_LIST
+        meta_data.input_mode_key = PhKeys.INPUT_LIST
         data.append_input_modes_hierarchy(meta_data.input_mode_key)
         data.set_auto_generated_remarks_if_needed()
         data.set_one_time_remarks(f'({len(data.raw_data)} Elements)')
@@ -58,7 +58,7 @@ def parse_or_update_any_data(data, meta_data=None):
     if not byte_array_format and data.raw_data and os.path.isdir(os.path.abspath(data.raw_data)):
         # directory is provided
         PhUtil.print_heading(data.get_remarks_as_str(), heading_level=3)
-        meta_data.input_mode_key = Keys.INPUT_DIR
+        meta_data.input_mode_key = PhKeys.INPUT_DIR
         data.append_input_modes_hierarchy(meta_data.input_mode_key)
         converter.print_data(data, meta_data)
         converter.set_includes_excludes_files(data, meta_data)
@@ -85,15 +85,14 @@ def parse_or_update_any_data(data, meta_data=None):
                 resp = the_file.read()
         file_ext = PhUtil.get_file_name_and_extn(file_path=data.raw_data, only_extn=True)
         if file_ext in FormatsGroup.INPUT_FILE_FORMATS_YML:
-            meta_data.input_mode_key = Keys.INPUT_YML
+            meta_data.input_mode_key = PhKeys.INPUT_YML
             file_dic_all_str, data = converter.read_yaml(resp)
             converter.set_defaults_for_printing(data)
         else:
-            meta_data.input_mode_key = Keys.INPUT_FILE
+            meta_data.input_mode_key = PhKeys.INPUT_FILE
             converter.set_input_output_format(data)
             data.raw_data = resp
         data.append_input_modes_hierarchy(meta_data.input_mode_key)
-    # print_data(data, meta_data)
     # Needed for scenario when remarks will be fetched from YML
     data.set_auto_generated_remarks_if_needed()
     converter.set_defaults(data, meta_data)
@@ -109,25 +108,26 @@ def parse_or_update_any_data(data, meta_data=None):
         PhUtil.get_tool_name_w_version(PhConfigConst.TOOL_NAME, PhConfigConst.TOOL_VERSION, dic_format=True))
     output_versions_dic.update(
         PhUtil.get_tool_name_w_version(ConfigConst_local.TOOL_NAME, ConfigConst_local.TOOL_VERSION, dic_format=True))
-    output_versions_dic.update(PhUtil.get_tool_name_w_version(Keys.SGP22, sgp_22_version, dic_format=True))
-    output_versions_dic.update(PhUtil.get_tool_name_w_version(Keys.EUICC_PROFILE_PACKAGE, epp_version, dic_format=True))
+    output_versions_dic.update(PhUtil.get_tool_name_w_version(PhKeys.SGP22, sgp_22_version, dic_format=True))
     output_versions_dic.update(
-        PhUtil.get_key_value_pair(Keys.TIME_STAMP, PhUtil.get_time_stamp(files_format=False), dic_format=True))
+        PhUtil.get_tool_name_w_version(PhKeys.EUICC_PROFILE_PACKAGE, epp_version, dic_format=True))
+    output_versions_dic.update(
+        PhUtil.get_key_value_pair(PhKeys.TIME_STAMP, PhUtil.get_time_stamp(files_format=False), dic_format=True))
     # parse Data
     meta_data.parsed_data = decode_encode_asn(raw_data=data.raw_data, parse_only=True, input_format=data.input_format,
                                               output_format=data.output_format, asn1_element=data.asn1_element)
     if meta_data.parsed_data and data.tlv_parsing_of_output:
-        tlv_data_type = tlv_play.main.data_type.data_type_master.DataTypeMaster()
-        tlv_data_type.set_data_pool([TlvData(raw_data=meta_data.parsed_data)])
-        tlv_data_type.parse(PhErrorHandlingModes.CONTINUE_ON_ERROR)
-        # meta_data.parsed_data_tlv = tlv_output
-        # meta_data.parsed_data = tlv_output
+        data_type = DataTypeMaster()
+        data_type.set_data_pool(data_pool=Data(raw_data=meta_data.parsed_data, quite_mode=True))
+        data_type.parse_safe(PhErrorHandlingModes.CONTINUE_ON_ERROR)
+        meta_data.parsed_data_tlv = data_type.get_output_data()
+        meta_data.parsed_data = data_type.get_output_data()
     if data.re_parse_output:
         meta_data.re_parsed_data = decode_encode_asn(raw_data=meta_data.parsed_data, parse_only=True,
                                                      input_format=data.output_format,
                                                      output_format=data.input_format, asn1_element=data.asn1_element)
     converter.print_data(data, meta_data)
-    if meta_data.input_mode_key == Keys.INPUT_YML:
+    if meta_data.input_mode_key == PhKeys.INPUT_YML:
         converter.write_yml_file(meta_data.output_file_path, file_dic_all_str, meta_data.output_dic,
                                  output_versions_dic)
     elif meta_data.output_file_path:

@@ -4,6 +4,7 @@ import binascii
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_data_master import PhMasterData
 from python_helpers.ph_exceptions import PhExceptions
+from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from python_helpers.ph_util import PhUtil
 from ruamel.yaml.representer import RepresenterError
@@ -12,7 +13,6 @@ from asn1_play.main.convert import converter
 from asn1_play.main.convert.converter import read_web_request
 from asn1_play.main.convert.parser import parse_or_update_any_data
 from asn1_play.main.helper.data import Data
-from asn1_play.main.helper.keys import Keys
 from asn1_play.main.helper.metadata import MetaData
 
 
@@ -118,6 +118,9 @@ class DataTypeMaster(object):
             elif isinstance(e, FileExistsError):
                 known = True
                 additional_msg = 'Output path writing error'
+            elif isinstance(e, AttributeError):
+                known = True
+                additional_msg = 'Input/OutPut/AsnElement is not correct'
             processed_data = self.__master_data[PhMasterData.INDEX_DATA]
             processed_meta_data = self.__master_data[PhMasterData.INDEX_META_DATA]
             converter.print_data(processed_data, processed_meta_data)
@@ -161,9 +164,9 @@ class DataTypeMaster(object):
                 re_parse_output=self.re_parse_output,
                 output_file_name_keyword=self.output_file_name_keyword,
             )
-        converter.path_generalisation(data, Keys.RAW_DATA)
-        converter.path_generalisation(data, Keys.OUTPUT_FILE)
-        converter.path_generalisation(data, Keys.REMARKS_LIST)
+        converter.path_generalisation(data, PhKeys.RAW_DATA)
+        converter.path_generalisation(data, PhKeys.OUTPUT_FILE)
+        converter.path_generalisation(data, PhKeys.REMARKS_LIST)
         meta_data = MetaData(raw_data_org=data.raw_data)
         self.__master_data = (data, meta_data)
         parse_or_update_any_data(data, meta_data)

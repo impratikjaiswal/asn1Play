@@ -19,21 +19,21 @@ class UnitTesting(DataTypeMaster):
         print_info = None
         super().set_print_info(print_info)
 
-    def set_re_parse_output(self):
-        re_parse_output = None
-        super().set_re_parse_output(re_parse_output)
-
     def set_output_file(self):
         output_file = None
         super().set_output_file(output_file)
 
-    def set_output_file_name_keyword(self):
-        output_file_name_keyword = None
-        super().set_output_file_name_keyword(output_file_name_keyword)
-
     def set_remarks_list(self):
         remarks_list = None
         super().set_remarks_list(remarks_list)
+
+    def set_re_parse_output(self):
+        re_parse_output = None
+        super().set_re_parse_output(re_parse_output)
+
+    def set_output_file_name_keyword(self):
+        output_file_name_keyword = None
+        super().set_output_file_name_keyword(output_file_name_keyword)
 
     def set_output_format(self):
         output_format = None
@@ -434,9 +434,29 @@ class UnitTesting(DataTypeMaster):
                 output_format=Formats.ASN1
             ),
             #
-            Data(  # #YmlInput; InvalidAsnElement;
+            Data(
                 remarks_list='InvalidAsnElement',
-                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataReques.hex.yml'
+                raw_data=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataReques.yml'
+            ),
+            #
+            Data(
+                remarks_list='InvalidInputFormat',
+                raw_data=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataRequest_inp_derr.yml'
+            ),
+            #
+            Data(
+                remarks_list='InvalidInputFormat',
+                raw_data=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataRequest_inp_derr_formats.yml'
+            ),
+            #
+            Data(
+                remarks_list='InvalidOutputFormat',
+                raw_data=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataRequest_op_asn2.yml'
+            ),
+            #
+            Data(
+                remarks_list='InvalidOutputFormat',
+                raw_data=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataRequest_op_asn2_formats.yml'
             ),
             #
             Data(

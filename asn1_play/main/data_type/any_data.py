@@ -20,21 +20,21 @@ class AnyData(DataTypeMaster):
         print_info = None
         super().set_print_info(print_info)
 
-    def set_re_parse_output(self):
-        re_parse_output = None
-        super().set_re_parse_output(re_parse_output)
-
     def set_output_file(self):
         output_file = None
         super().set_output_file(output_file)
 
-    def set_output_file_name_keyword(self):
-        output_file_name_keyword = None
-        super().set_output_file_name_keyword(output_file_name_keyword)
-
     def set_remarks_list(self):
         remarks_list = None
         super().set_remarks_list(remarks_list)
+
+    def set_re_parse_output(self):
+        re_parse_output = None
+        super().set_re_parse_output(re_parse_output)
+
+    def set_output_file_name_keyword(self):
+        output_file_name_keyword = None
+        super().set_output_file_name_keyword(output_file_name_keyword)
 
     def set_output_format(self):
         output_format = None
@@ -229,6 +229,15 @@ class AnyData(DataTypeMaster):
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
                 re_parse_output=True
+            ),
+            #
+            Data(
+                remarks_list='# Asn1Input; DerOutput; FileInput; Asn1Element; TlvParsing; StoreMetadataRequest; ',
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
+                tlv_parsing_of_output=True,
             ),
             #
             Data(

@@ -109,5 +109,5 @@ def testimonials():
                          (title, content, publisher))
             conn.commit()
             conn.close()
-            return redirect(url_for('index'))
+            return redirect(url_for('testimonials'))
     return render_template('testimonials.html')

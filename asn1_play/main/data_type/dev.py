@@ -19,21 +19,21 @@ class Dev(DataTypeMaster):
         print_info = None
         super().set_print_info(print_info)
 
-    def set_re_parse_output(self):
-        re_parse_output = None
-        super().set_re_parse_output(re_parse_output)
-
     def set_output_file(self):
         output_file = None
         super().set_output_file(output_file)
 
-    def set_output_file_name_keyword(self):
-        output_file_name_keyword = None
-        super().set_output_file_name_keyword(output_file_name_keyword)
-
     def set_remarks_list(self):
         remarks_list = None
         super().set_remarks_list(remarks_list)
+
+    def set_re_parse_output(self):
+        re_parse_output = None
+        super().set_re_parse_output(re_parse_output)
+
+    def set_output_file_name_keyword(self):
+        output_file_name_keyword = None
+        super().set_output_file_name_keyword(output_file_name_keyword)
 
     def set_output_format(self):
         output_format = None

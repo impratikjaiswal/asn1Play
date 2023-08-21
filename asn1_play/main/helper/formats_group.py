@@ -4,6 +4,29 @@ from asn1_play.main.helper.formats import Formats
 
 
 class FormatsGroup:
+    ALL_FORMATS = [
+        Formats.ASN1,
+        Formats.DER,
+        Formats.DER_64,
+        Formats.DER_WS,
+        Formats.BER,
+        Formats.BER_64,
+        Formats.BER_WS,
+        Formats.GET_VAL,
+        Formats.GET_VAL_PATHS,
+        Formats.GET_PROTO,
+        Formats.JSON,
+        Formats.APER,
+        Formats.CER,
+        Formats.CER_WS,
+        Formats.JER,
+        Formats.UPER,
+        Formats.ASCII,
+        Formats.HEX,
+        Formats.YML,
+        Formats.BYTE_ARRAY,
+        Formats.BYTE_ARRAY_SIGNED,
+    ]
     TXT_FORMATS = [Formats.ASN1, Formats.GET_VAL, Formats.GET_VAL_PATHS]
 
     BASE64_FORMATS = [Formats.DER_64, Formats.BER_64]

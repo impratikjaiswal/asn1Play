@@ -1,3 +1,4 @@
+from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from python_helpers.ph_modes_execution import PhExecutionModes
 from python_helpers.ph_util import PhUtil
@@ -16,7 +17,6 @@ from asn1_play.main.data_type.update_metadata_request import UpdateMetadataReque
 from asn1_play.main.data_type.user_data import UserData
 from asn1_play.main.helper.constants_config import ConfigConst
 from asn1_play.main.helper.defaults import Defaults
-from asn1_play.main.helper.keys import Keys
 
 
 def process_data(execution_mode, error_handling_mode):
@@ -86,10 +86,10 @@ def process_data(execution_mode, error_handling_mode):
         data_type.set_print_input()
         data_type.set_print_output()
         data_type.set_print_info()
-        data_type.set_re_parse_output()
         data_type.set_output_file()
-        data_type.set_output_file_name_keyword()
         data_type.set_remarks_list()
+        data_type.set_re_parse_output()
+        data_type.set_output_file_name_keyword()
         data_type.set_output_format()
         data_type.set_input_format()
         data_type.set_asn1_element()
@@ -116,8 +116,8 @@ def main():
     """
     Set Target Version of SGP22, eUICC Profile Package 
     """
-    PhUtil.print_version(Keys.SGP22, sgp_22_version, no_additional_info=True)
-    PhUtil.print_version(Keys.EUICC_PROFILE_PACKAGE, epp_version, no_additional_info=True)
+    PhUtil.print_version(PhKeys.SGP22, sgp_22_version, no_additional_info=True)
+    PhUtil.print_version(PhKeys.EUICC_PROFILE_PACKAGE, epp_version, no_additional_info=True)
     # Process Data
     process_data(execution_mode, error_handling_mode)
     PhUtil.print_done()

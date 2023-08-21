@@ -44,6 +44,8 @@ def decode_encode_asn(raw_data='', parse_only=True, input_format=Defaults.FORMAT
         raise ValueError(PhExceptions(msg=f'Mandatory raw_data is missing.', function_name=decode_encode_asn.__name__))
     if input_format not in FormatsGroup.INPUT_FORMATS:
         raise ValueError(f'Unknown input format {input_format}')
+    if output_format not in FormatsGroup.ALL_FORMATS:
+        raise ValueError(f'Unknown output format {output_format}')
     if isinstance(asn1_element, str):  # Str is provided, check the mapping
         asn1_element = all_mapping.get(asn1_element, asn1_element)
         print_debug('main_element mapping conversion is needed ' +
