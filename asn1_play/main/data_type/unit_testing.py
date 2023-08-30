@@ -435,6 +435,14 @@ class UnitTesting(DataTypeMaster):
             ),
             #
             Data(
+                remarks_list='InvalidAsnElement WhiteSpace',
+                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                asn1_element=' ',
+                input_format=Formats.DER,
+                output_format=Formats.ASN1
+            ),
+            #
+            Data(
                 remarks_list='InvalidAsnElement',
                 raw_data=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataReques.yml'
             ),

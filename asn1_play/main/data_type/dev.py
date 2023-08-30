@@ -55,7 +55,6 @@ class Dev(DataTypeMaster):
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
-                tlv_parsing_of_output=True,
             ),
             # Can be deleted
             Data(

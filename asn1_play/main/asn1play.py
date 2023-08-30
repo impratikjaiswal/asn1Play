@@ -2,6 +2,7 @@ from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from python_helpers.ph_modes_execution import PhExecutionModes
 from python_helpers.ph_util import PhUtil
+from tlv_play.main.helper.constants_config import ConfigConst as tlvConfigConst
 
 from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
@@ -78,7 +79,7 @@ def process_data(execution_mode, error_handling_mode):
         PhExecutionModes.SAMPLE_GENERIC: data_types_sample_generic,
         PhExecutionModes.SAMPLE_SPECIFIC: data_types_sample_specific,
         PhExecutionModes.UNIT_TESTING: data_type_unit_testing,
-        PhExecutionModes.ALL: data_types_sample_generic + data_types_sample_specific + data_type_unit_testing,
+        PhExecutionModes.ALL: data_types_sample_generic + data_types_sample_specific + data_type_unit_testing + data_type_user,
     }
     data_types = data_types_pool.get(execution_mode, Defaults.EXECUTION_MODE)
     for data_type in data_types:
@@ -113,6 +114,7 @@ def main():
     error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
     # Print Versions
     PhUtil.print_version(ConfigConst.TOOL_NAME, ConfigConst.TOOL_VERSION)
+    PhUtil.print_version(tlvConfigConst.TOOL_NAME, tlvConfigConst.TOOL_VERSION, no_additional_info=True)
     """
     Set Target Version of SGP22, eUICC Profile Package 
     """

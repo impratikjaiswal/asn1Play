@@ -49,31 +49,67 @@ class UserData(DataTypeMaster):
 
     def set_data_pool(self):
         data_pool = [
-            # ASCII to Hex
+            #
             Data(
-                raw_data='Welcome To AsnPlay !!!',
-                input_format=Formats.ASCII,
-                output_format=Formats.HEX
-            ),
-            # Hex to ASCII
-            Data(
-                raw_data='57656c636f6d6520546f2041736e506c617920212121',
-                input_format=Formats.HEX,
-                output_format=Formats.ASCII
-            ),
-            # Der to ASN1
-            Data(
+                remarks_list='SGP22; Der to Asn1',
                 raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),
-            # ASN1 to Der
+            #
             Data(
-                raw_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
-                asn1_element=eUICC_Profile_Package.PEDefinitions.PE_End,
+                remarks_list='SGP22; Asn1 to Der; Tlv',
+                raw_data="""{
+    iccid '989209012143658709F5'H,
+    serviceProviderName "SP Name 1",
+    profileName "Operational Profile Name 1"
+}""",
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
+                tlv_parsing_of_output=True,
+            ),
+            #
+            Data(
+                remarks_list='TCA; Asn1 to Der',
+                raw_data="""{
+    major-version 2,
+    minor-version 1,
+    profileType "GSMA Profile Package",
+    iccid '8929901012345678905F'H,
+    eUICC-Mandatory-services {
+        usim NULL
+    },
+    eUICC-Mandatory-GFSTEList {
+        {2 23 143 1 2 1}
+    }
+}""",
+                asn1_element=eUICC_Profile_Package.PEDefinitions.ProfileHeader,
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
             ),
+            #
+            Data(
+                remarks_list='Der(Hex) to Base 64',
+                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                input_format=Formats.DER,
+                output_format=Formats.DER_64,
+            ),
+            #
+            Data(
+                remarks_list='Ascii to Hex',
+                raw_data='Welcome To AsnPlay !!!',
+                input_format=Formats.ASCII,
+                output_format=Formats.HEX,
+            ),
+            #
+            Data(
+                remarks_list='Hex to ASCII',
+                raw_data='57656c636f6d6520546f2041736e506c617920212121',
+                input_format=Formats.HEX,
+                output_format=Formats.ASCII
+            ),
+            #
         ]
         super().set_data_pool(data_pool)
