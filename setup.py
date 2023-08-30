@@ -4,7 +4,7 @@ import os
 
 from setuptools import setup, find_packages
 
-from tlv_play.main.helper.constants_config import ConfigConst
+from asn1_play.main.helper.constants_config import ConfigConst
 
 # all packages dependencies
 packages = find_packages()
@@ -19,8 +19,7 @@ print(f'Packages are {packages}')
 # potential dependencies
 install_reqs = [
     'pycrate',
-    'ruamel.yaml',
-    'git+https://github.com/impratikjaiswal/tlvPlay@v2.2.0'
+    'ruamel.yaml'
 ]
 
 # get long description from the README.md
