@@ -18,6 +18,8 @@ if not packages:
 print(f'Packages are {packages}')
 # potential dependencies
 install_reqs = [
+    'pycrate',
+    'ruamel.yaml',
 ]
 
 # get long description from the README.md
