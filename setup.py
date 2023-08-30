@@ -20,6 +20,7 @@ print(f'Packages are {packages}')
 install_reqs = [
     'pycrate',
     'ruamel.yaml',
+    'git+https://github.com/impratikjaiswal/tlvPlay@v2.2.0'
 ]
 
 # get long description from the README.md
