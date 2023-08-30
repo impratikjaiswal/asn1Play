@@ -6,7 +6,7 @@ class Formats:
     BER = 'ber'
     BER_64 = 'ber_with_base64'
     BER_WS = 'ber_ws'
-    GET_VAL = 'get_val',
+    GET_VAL = 'get_val'
     GET_VAL_PATHS = 'get_val_paths'
     GET_PROTO = 'get_proto'
     JSON = 'json'

@@ -22,6 +22,8 @@ class Data:
                  remarks_list=[],
                  re_parse_output=None,
                  output_file_name_keyword=None,
+                 # To Handle unwanted arguments
+                 # **kwargs,
                  ):
         self.raw_data = raw_data
         self.asn1_element = asn1_element
