@@ -1,4 +1,5 @@
 from asn1_play.generated_code.asn1.GSMA.SGP_22 import sgp_22_mapping
+from asn1_play.generated_code.asn1.GSMA.SGP_22.v3_0_0.python_gen.sgp22.sgp22 import PKIX1Explicit88, PKIX1Implicit88
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import epp_mapping
 
 sgp_22_tags = {
@@ -40,6 +41,16 @@ sgp_22_tags = {
     'E3': ['ProfileInfo'],
 }
 
-all_mapping = {**sgp_22_mapping, **epp_mapping}
+pkix_mapping = {
+    'Certificate': PKIX1Explicit88.Certificate,
+    'CertificateList': PKIX1Explicit88.CertificateList,
+    'Time': PKIX1Explicit88.Time,
+    'SubjectKeyIdentifier': PKIX1Implicit88.SubjectKeyIdentifier,
+}
+
+# TODO: SML-332
+all_mapping = {**sgp_22_mapping, **epp_mapping, **pkix_mapping}
 
 all_tags_mapping = {**sgp_22_tags}
+
+all_asn1_elements_list = list(all_mapping.keys())

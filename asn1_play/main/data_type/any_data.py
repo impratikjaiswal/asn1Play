@@ -1,4 +1,5 @@
 from asn1_play.generated_code.asn1.GSMA import SGP_22
+from asn1_play.generated_code.asn1.GSMA.SGP_22.v0_0.python_gen.sgp22.sgp22 import PKIX1Explicit88
 from asn1_play.generated_code.asn1.TCA import eUICC_Profile_Package
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.helper.data import Data
@@ -103,9 +104,22 @@ class AnyData(DataTypeMaster):
             Data(
                 remarks_list='AsciiInput; HexOutput; DirectInput;',
                 raw_data='Pratik Jaiswal',
-                asn1_element=None,
                 input_format=Formats.ASCII,
-                output_format=Formats.DER
+                output_format=Formats.HEX
+            ),
+            #
+            Data(
+                remarks_list='TxtInput; HexOutput; DirectInput;',
+                raw_data='8929901012345678905F',
+                input_format=Formats.TXT,
+                output_format=Formats.HEX
+            ),
+            #
+            Data(
+                remarks_list='TxtOutput; HexInput; DirectInput;',
+                raw_data='3839323939303130313233343536373839303546',
+                input_format=Formats.HEX,
+                output_format=Formats.TXT
             ),
             #
             Data(
@@ -374,6 +388,112 @@ class AnyData(DataTypeMaster):
                 asn1_element=SGP_22.RSPDefinitions.UpdateMetadataRequest,
                 input_format=Formats.DER,
                 output_format=Formats.ASN1
+            ),
+            #
+            Data(
+                remarks_list='# DerInput; Asn1Output; DirectInput; Asn1Element; Certificate;',
+                raw_data='308201ff308201a6a0030201020209020000000000000001300a06082a8648ce3d0403023037310b300906035504061302455331153013060355040a0c0c52535020546573742045554d3111300f06035504030c0845554d20546573743020170d3230303430313039343835385a180f37343936303132343039343835385a3064310b300906035504061302455331153013060355040a0c0c52535020546573742045554d312930270603550405132038393034393033323132333435313233343531323334353637383930313233353113301106035504030c0a54657374206555494343305a301406072a8648ce3d020106092b2403030208010107034200043e590c38a9c256315ecff3291416dd335409a666fd41b3b51e5e5114f343abf0a26774c6c26c48753afe283643227bb6608cd261cc972d374a479124ebf27722a36b3069301f0603551d230418301680146fa1e5217363a822bded988a1a0d0ff5d7620db7301d0603551d0e04160414c8a64f343b85b7b0578dc57f8f13586dc804ed84300e0603551d0f0101ff04040302078030170603551d200101ff040d300b3009060767811201020101300a06082a8648ce3d040302034700304402205673c0fe8ff495ae93ae37a13296b2cb1b1017d7697053ed6920e987928699d70220059c7fec056869f24b548ac64757e4cb14d3a08609752c79a5b872a4980e338b',
+                asn1_element=PKIX1Explicit88.Certificate,
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+            #
+            Data(
+                remarks_list='# BulkMode; DirectoryInput; YmlInput; .YmlFiles;',
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
+                input_format=Formats.YML,
+                output_format=''
+            ),
+            #
+            Data(
+                remarks_list='# BulkMode; DirectoryInput; DerInput; Asn1Output; .HexFiles;',
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER,
+                output_format=Formats.ASN1
+            ),
+            #
+            Data(
+                remarks_list='# BulkMode; DirectoryInput; Base64Input; Asn1Output; .Base64Files;',
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER_64,
+                output_format=Formats.ASN1
+            ),
+            #
+            Data(
+                remarks_list='# BulkMode; DirectoryInput; Asn1Input; Der64Output; .Asn1Files;',
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.ASN1,
+                output_format=Formats.DER_64
+            ),
+            #
+            Data(
+                remarks_list='# BulkMode; DirectoryInput; .YmlFiles; .HexFiles; .Base64Files; .Asn1Files; ',
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format='',
+            ),
+            #
+            Data(
+                remarks_list='# BulkMode; DirectoryInput; Asn1Input; Der64Output; DirectoryOutput; .Asn1Files;',
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
+                output_file=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\hex',
+            ),
+            #
+            Data(
+                remarks_list='# BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest;',
+                raw_data=[
+                    'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
+                    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                    'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640',
+                ],
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER_64,
+                output_format=Formats.ASN1
+            ),
+            #
+            Data(
+                remarks_list='# BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; ItemIndexVariable; ',
+                raw_data=[
+                    'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
+                    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                    'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640',
+                ],
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER_64,
+                output_format=Formats.ASN1,
+                output_file=r'..\..\Data\UserData\Temp\$ITEM_INDEX',
+            ),
+            #
+            Data(
+                # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; ExtendRemarksList;
+                remarks_list=['ExtendRemarksList; Sample', 'ExtendRemarksList;'],
+                raw_data=[
+                    'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
+                    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                    'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640',
+                ],
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER_64,
+                output_format=Formats.ASN1,
+            ),
+            #
+            Data(
+                remarks_list='# BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; RemarksVariable;',
+                raw_data=[
+                    'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
+                    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                    'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640',
+                ],
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER_64,
+                output_format=Formats.ASN1,
+                output_file=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\$REMARKS'
             ),
         ]
         super().set_data_pool(data_pool)

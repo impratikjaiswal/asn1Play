@@ -272,6 +272,28 @@ class UnitTesting(DataTypeMaster):
                          ] * 100,
                 input_format=Formats.ASCII,
                 output_format=Formats.HEX,
+                print_input=False,
+                print_output=False,
+            ),
+            #
+            Data(
+                raw_data=[
+                             'This is a long dataaaaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.'
+                         ] * 10,
+                input_format=Formats.ASCII,
+                output_format=Formats.HEX,
+                print_input=False,
+                print_output=False,
+            ),
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+            ),
+            #
+            Data(
+                raw_data=r'D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
             ),
         ]
         data_pool_remarks_extend = [
@@ -396,6 +418,78 @@ class UnitTesting(DataTypeMaster):
                 output_file=r'..\..\Data\UserData\Bulk_export'
             ),
         ]
+        data_pool_asn1_element = [
+            #
+            Data(
+                remarks_list='SGP_22.RSPDefinitions.StoreMetadataRequest',
+                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+            ),
+            #
+            Data(
+                remarks_list="StoreMetadataRequest",
+                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+                asn1_element='StoreMetadataRequest',
+            ),
+            #
+            Data(
+                remarks_list="asn1_element='SGP_22.RSPDefinitions.StoreMetadataRequest'",
+                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+                asn1_element='SGP_22.RSPDefinitions.StoreMetadataRequest',
+            ),
+            #
+            Data(
+                remarks_list='InvalidAsnElement WhiteSpace',
+                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                asn1_element=' ',
+                input_format=Formats.DER,
+                output_format=Formats.ASN1
+            ),
+            #
+            Data(
+                remarks_list='InvalidAsnElement',
+                raw_data=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataReques.yml'
+            ),
+            #
+            Data(
+                remarks_list='Invalid asn1_element (unknown str)',
+                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+                asn1_element='s1',
+            ),
+            #
+            Data(
+                remarks_list='Invalid asn1_element (unknown str)',
+                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+                asn1_element='StoreMetadataReques',
+            ),
+            #
+            Data(
+                remarks_list='Invalid asn1_element (class name as str)',
+                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203',
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+                asn1_element='SGP_22.RSPDefinitions.StoreMetadataRequest',
+            ),
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex',
+            ),
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1',
+            ),
+            #
+        ]
         data_pool_output_file_keyword = [
             #
             Data(
@@ -435,19 +529,6 @@ class UnitTesting(DataTypeMaster):
             ),
             #
             Data(
-                remarks_list='InvalidAsnElement WhiteSpace',
-                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
-                asn1_element=' ',
-                input_format=Formats.DER,
-                output_format=Formats.ASN1
-            ),
-            #
-            Data(
-                remarks_list='InvalidAsnElement',
-                raw_data=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataReques.yml'
-            ),
-            #
-            Data(
                 remarks_list='InvalidInputFormat',
                 raw_data=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataRequest_inp_derr.yml'
             ),
@@ -472,6 +553,13 @@ class UnitTesting(DataTypeMaster):
                 raw_data=r'D:\Other\Github_Self\asn1Play\SampleData\GSMA\SGP_22\UpdateMetadataRequest\t',
                 asn1_element=SGP_22.RSPDefinitions.UpdateMetadataRequest,
                 output_file_name_keyword='output'
+            ),
+            #
+            Data(
+                remarks_list='Invalid raw_data (base 64 conversion failure)',
+                raw_data='testt',
+                input_format=Formats.DER,
+                output_format=Formats.DER,
             ),
             #
             Data(
@@ -509,6 +597,20 @@ class UnitTesting(DataTypeMaster):
                 output_file=r'..\\..\\Data\\UserData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1\\'
             ),
             #
+            Data(
+                remarks_list='Requested conversion is not possible...',
+                raw_data='8929901012345678905F',
+                input_format=Formats.HEX,
+                output_format=Formats.TXT
+            ),
+            #
+            Data(
+                remarks_list='Unknown Data (bytes buffer not long enough)',
+                raw_data=r'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031990206',
+                asn1_element='StoreMetadataRequest',
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
         ]
 
         super().set_data_pool(
@@ -518,5 +620,6 @@ class UnitTesting(DataTypeMaster):
             data_pool_remarks_extend +
             data_pool_output_file +
             data_pool_output_file_keyword +
+            data_pool_asn1_element +
             data_pool_negative
         )

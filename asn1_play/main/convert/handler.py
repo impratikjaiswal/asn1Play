@@ -2,7 +2,7 @@ import base64
 import re
 
 from binascii import unhexlify
-from python_helpers.ph_exceptions import PhExceptions
+from python_helpers.ph_exception_helper import PhExceptionHelper
 from python_helpers.ph_util import PhUtil
 
 from asn1_play.main.helper.defaults import Defaults
@@ -23,6 +23,21 @@ Enable Flags for Debugging
 # _debug = True
 
 
+def convert_data(raw_data, output_format):
+    # Data is converted to Hex
+    if output_format in FormatsGroup.INPUT_FORMATS_DER_BASE_64:
+        return base64.b64encode(unhexlify(raw_data)).decode()
+    if output_format in FormatsGroup.ASCII_FORMATS:
+        return PhUtil.hex_str_to_ascii(raw_data)
+    if output_format in FormatsGroup.INPUT_FORMATS_DER:
+        return raw_data
+    if output_format in Formats.BYTE_ARRAY:
+        return PhUtil.hex_str_to_dec_list(raw_data)
+    if output_format in Formats.BYTE_ARRAY_SIGNED:
+        return PhUtil.hex_str_to_dec_list(raw_data, signed_byte_handling=True)
+    return None
+
+
 def decode_encode_asn(raw_data='', parse_only=True, input_format=Defaults.FORMAT_INPUT,
                       output_format=Defaults.FORMAT_OUTPUT, asn1_element=None):
     """
@@ -34,6 +49,8 @@ def decode_encode_asn(raw_data='', parse_only=True, input_format=Defaults.FORMAT
     :param asn1_element:
     :return:
     """
+    func_name = decode_encode_asn.__name__
+    exception = None
     print_debug_var('raw_data', raw_data)
     print_debug_var('parse_only', parse_only)
     print_debug_var('input_format', input_format)
@@ -41,14 +58,17 @@ def decode_encode_asn(raw_data='', parse_only=True, input_format=Defaults.FORMAT
     print_debug_var('asn1_element', asn1_element)
     offset = 0
     if not raw_data:
-        raise ValueError(PhExceptions(msg=f'Mandatory raw_data is missing.', function_name=decode_encode_asn.__name__))
+        raise ValueError(PhExceptionHelper(msg=f'Mandatory raw data is missing.', function_name=func_name))
     if input_format not in FormatsGroup.INPUT_FORMATS:
-        raise ValueError(f'Unknown input format {input_format}')
+        raise ValueError(PhExceptionHelper(msg=f'Unknown input format {input_format}', function_name=func_name))
     if output_format not in FormatsGroup.ALL_FORMATS:
-        raise ValueError(f'Unknown output format {output_format}')
-    if isinstance(asn1_element, str):  # Str is provided, check the mapping
+        raise ValueError(PhExceptionHelper(msg=f'Unknown output format {output_format}', function_name=func_name))
+    if isinstance(asn1_element, str):
+        asn1_element_str = asn1_element  # Str is provided, check the mapping
         asn1_element = asn1_element.strip()
-        asn1_element = all_mapping.get(asn1_element, asn1_element)
+        asn1_element = all_mapping.get(asn1_element, None)
+        if asn1_element is None:
+            raise ValueError(PhExceptionHelper(msg=f'Unknown asn1_element {asn1_element_str}', function_name=func_name))
         print_debug('main_element mapping conversion is needed ' +
                     ('but not available' if isinstance(asn1_element, str) else 'and done'))
     if isinstance(raw_data, bytes):
@@ -66,19 +86,12 @@ def decode_encode_asn(raw_data='', parse_only=True, input_format=Defaults.FORMAT
             raw_data = base64.b64decode(raw_data).hex()
             print_debug('base_profile hex conversion done, data is {0}'.format(raw_data))
     if not asn1_element:
-        print_debug('asn1_element is not provided; Only Conversion will be performed')
-        if input_format in FormatsGroup.INPUT_FORMATS_NON_TXT:
-            # Data is converted to Hex
-            if output_format in FormatsGroup.INPUT_FORMATS_DER_BASE_64:
-                return base64.b64encode(unhexlify(raw_data)).decode()
-            if output_format in FormatsGroup.ASCII_FORMATS:
-                return PhUtil.hex_str_to_ascii(raw_data)
-            if output_format in FormatsGroup.INPUT_FORMATS_DER:
-                return raw_data
-            if output_format in Formats.BYTE_ARRAY:
-                return PhUtil.hex_str_to_dec_list(raw_data)
-            if output_format in Formats.BYTE_ARRAY_SIGNED:
-                return PhUtil.hex_str_to_dec_list(raw_data, signed_byte_handling=True)
+        print_debug('asn1_element is not provided; Only Conversion can be performed')
+        if input_format in FormatsGroup.INPUT_FORMATS_NON_TXT and output_format in FormatsGroup.INPUT_FORMATS_NON_TXT:
+            output_data = convert_data(raw_data, output_format)
+            if output_data:
+                return output_data
+            raise ValueError(f'Please check your inputs. Requested conversion is not possible for {raw_data}.')
         raise ValueError('asn1_element is not provided')
 
     parsing_data_current = ''
@@ -92,7 +105,7 @@ def decode_encode_asn(raw_data='', parse_only=True, input_format=Defaults.FORMAT
     print_debug('Elements Processing')
     while offset < len(raw_data):
         initial_offset = offset
-        exception_msg = None
+        # TODO: SML-330
         known_data = True
         record_count += 1
         print_debug_var('offset', offset)
@@ -104,8 +117,8 @@ def decode_encode_asn(raw_data='', parse_only=True, input_format=Defaults.FORMAT
                 M.from_der(temp)
                 temp = M.to_der()
             except Exception as e:
-                exception_msg = str(e)
                 known_data = False
+                exception = e
             offset += (len(temp) * 2)
         if input_format in FormatsGroup.INPUT_FORMATS_ASN:
             temp = raw_data[offset:]
@@ -118,11 +131,9 @@ def decode_encode_asn(raw_data='', parse_only=True, input_format=Defaults.FORMAT
                 M.from_asn1(temp)
                 temp = M.to_asn1()
             except Exception as e:
-                exception_msg = str(e)
                 known_data = False
+                exception = e
             offset += next_offset
-        if exception_msg:
-            exception_msg = f'Exception at function: {decode_encode_asn.__name__}, as: {exception_msg}'
         print_debug_var('temp', temp)
         print_debug_var('record_count', record_count)
         print_debug_var('offset', offset)
@@ -135,16 +146,23 @@ def decode_encode_asn(raw_data='', parse_only=True, input_format=Defaults.FORMAT
                     parsing_data_current = M.from_asn1()
             else:
                 if input_format in FormatsGroup.TXT_FORMATS:
-                    parsing_data_current = 'Unknown Data Found: ' + str(temp)
+                    parsing_data_current = str(temp)
                 else:
-                    parsing_data_current = 'Unknown Data Found: ' + temp.hex()
+                    parsing_data_current = temp.hex()
+                # TODO: SML-329, SML-330
+                raise ValueError(
+                    PhExceptionHelper(msg=f'Unknown raw data {parsing_data_current}', function_name=func_name,
+                                      exception=exception))
             print_debug('parsing_data_current', parsing_data_current)
             if parsing_data_current:
                 # Test cases of asn paring are failing due to 'os.linesep', need to replace same in stored data
                 # parsing_data_concatenated = parsing_data_concatenated + os.linesep + parsing_data_current
                 sep = '\n' if (output_format in FormatsGroup.TXT_FORMATS or not known_data) else ''
                 parsing_data_concatenated = sep.join(
-                    filter(None, [parsing_data_concatenated, exception_msg, parsing_data_current]))
+                    filter(None, [parsing_data_concatenated,
+                                  # TODO: SML-329, SML-330
+                                  str(exception) if exception else None,
+                                  parsing_data_current]))
             if known_data:
                 process_pe(M())
 

@@ -22,6 +22,7 @@ class FormatsGroup:
         Formats.JER,
         Formats.UPER,
         Formats.ASCII,
+        Formats.TXT,
         Formats.HEX,
         Formats.YML,
         Formats.BYTE_ARRAY,
@@ -33,7 +34,7 @@ class FormatsGroup:
 
     HEX_FORMATS = [Formats.DER, Formats.BER]
 
-    ASCII_FORMATS = [Formats.ASCII]
+    ASCII_FORMATS = [Formats.ASCII, Formats.TXT]
 
     INPUT_FORMATS_HEX = [Formats.DER, Formats.DER_64, Formats.HEX, Formats.BYTE_ARRAY, Formats.BYTE_ARRAY_SIGNED]
 
@@ -45,7 +46,7 @@ class FormatsGroup:
 
     INPUT_FORMATS_YML = [Formats.YML]
 
-    INPUT_FORMATS_ASCII = [Formats.ASCII]
+    INPUT_FORMATS_ASCII = [Formats.ASCII, Formats.TXT]
 
     INPUT_FORMATS_BYTE_ARRAY = [Formats.BYTE_ARRAY, Formats.BYTE_ARRAY_SIGNED]
 

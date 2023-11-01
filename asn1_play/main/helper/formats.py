@@ -16,6 +16,7 @@ class Formats:
     JER = 'jer'
     UPER = 'uper'
     ASCII = 'ascii'
+    TXT = 'txt'
     HEX = 'hex'
     YML = 'yml'
     BYTE_ARRAY = 'byte_array'

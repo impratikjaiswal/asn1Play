@@ -7,7 +7,6 @@ from tlv_play.main.helper.constants_config import ConfigConst as tlvConfigConst
 from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
 from asn1_play.main.data_type.any_data import AnyData
-from asn1_play.main.data_type.any_data_bulk import AnyDataBulk
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.data_type.dev import Dev
 from asn1_play.main.data_type.profile_element import ProfileElement
@@ -41,13 +40,9 @@ def process_data(execution_mode, error_handling_mode):
     ]
     data_types_sample_generic = [
         #####
-        # Sample With Plenty vivid Examples
+        # Sample With Plenty vivid Examples; Single as well as Bulk
         #####
         AnyData(),
-        #####
-        # Sample With Plenty vivid Examples, Bulk
-        #####
-        AnyDataBulk(),
     ]
     data_types_sample_specific = [
         #####

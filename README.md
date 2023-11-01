@@ -12,10 +12,10 @@
 <ol>
     <li>All Required packages are listed in requirements.txt
     <li>Few Basic Scripts are also present under <i>scripts</i> folder.
-    <ol>
+    <ul>
         <li>Currently, Scripts are targeting virtual environment with folder name as <i>venv</i> (Present in parallel of <i>scripts</i> folder)
         However, same can be modified as per user choice.
-    </ol>
+    </ul>
     <li>Note: installing tool in virtual environment is optional but preferred.
 </ol>
 
@@ -36,12 +36,11 @@
     <li>Auto Trimming of HEX Data (White Spaces Deletion).
     <li>Auto Detection of Base64 & Hex data.
     <li>Auto Detection of ByteArraySigned & ByteArrayUnSigned.
-    <li>Conversion Mode for HEX, ASCII & Base64.
+    <li>Conversion Mode for HEX, ASCII, TEXT & Base64.
     <li>Support of "Individual Mode"; Raw/Target Data can be configured Directly or file path (Binary as well as Text File; any extension) can be passed.
     <li>Support of "Bulk Mode"; Raw/Target Data can be configured Directly in List/Array format or Directory Path can be passed (Files with Known extensions will be picked based on Input Format).
     <li>Support of "Yml Mode (Config Mode)"; Raw/Target Data (along with all needed config) can be configured Directly in Yaml Files (".yaml" or ".yml" extensions), and same cane be passed in "Individual Mode" or "Bulk Mode".
     <li>For Known File Extensions (".asn1", ".asn", ".base64", ".hex"), Input/Output Format may be modified automatically as per sensible out-of-the-box defaults.
-    <li>Support of flask.
 </ul>
 
 # Data Folders
@@ -61,6 +60,8 @@ To Refer Sample usages, search for below keywords in source code (\asn1Play\asn1
     <li>.YmlFiles;
     <li>AsciiInput;
     <li>AsciiOutput;
+    <li>TxtInput;
+    <li>TxtOutput;
     <li>Asn1Element;
     <li>Asn1ElementString;
     <li>Asn1ElementVariable;
@@ -73,6 +74,7 @@ To Refer Sample usages, search for below keywords in source code (\asn1Play\asn1
     <li>ByteArrayOutput;
     <li>ByteArraySignedInput;
     <li>ByteArraySignedOutput;
+    <li>Certificate;
     <li>Der64Input;
     <li>Der64Output;
     <li>DerInput;
@@ -141,7 +143,7 @@ To Refer Sample usages, search for below keywords in source code (\asn1Play\asn1
 
 <ul>
     <li>For output_file, Both "directory path" and "file path" (identified based on any extension) are supported, Hence a path without extension will be considered as directory. 
-    <li>For input/output via files/directory, always enclosed path with r''. Here "r" denotes raw string and avoid escape sequences.
+    <li>For input/output via files/directory, always enclosed path with r''. Here "r" denotes raw string and avoid escape sequences, otherwise it might be considered as normal input. 
     <li>output keyword always utilize comments
     <li>output file utilize comments in case of directory or if file name is having $REMARKS
 </ul>
