@@ -66,11 +66,13 @@ def decode_encode_asn(raw_data='', parse_only=True, input_format=Defaults.FORMAT
     if isinstance(asn1_element, str):
         asn1_element_str = asn1_element  # Str is provided, check the mapping
         asn1_element = asn1_element.strip()
-        asn1_element = all_mapping.get(asn1_element, None)
-        if asn1_element is None:
-            raise ValueError(PhExceptionHelper(msg=f'Unknown asn1_element {asn1_element_str}', function_name=func_name))
-        print_debug('main_element mapping conversion is needed ' +
-                    ('but not available' if isinstance(asn1_element, str) else 'and done'))
+        if asn1_element:
+            asn1_element = all_mapping.get(asn1_element, None)
+            print_debug('asn1_element mapping conversion is needed ' + (
+                'but not available' if asn1_element is None else 'and done'))
+            if asn1_element is None:
+                raise ValueError(
+                    PhExceptionHelper(msg=f'Unknown asn1_element {asn1_element_str}', function_name=func_name))
     if isinstance(raw_data, bytes):
         raw_data = raw_data.hex()
     if input_format in FormatsGroup.INPUT_FORMATS_ASCII:
@@ -92,7 +94,7 @@ def decode_encode_asn(raw_data='', parse_only=True, input_format=Defaults.FORMAT
             if output_data:
                 return output_data
             raise ValueError(f'Please check your inputs. Requested conversion is not possible for {raw_data}.')
-        raise ValueError('asn1_element is not provided')
+        raise ValueError('asn1_element is either empty or not provided')
 
     parsing_data_current = ''
     parsing_data_concatenated = ''

@@ -7,11 +7,11 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Wednesday, Nov 01 2023, 18:43:35:427296, IST (GMT+0530)
+Time Stamp is Wednesday, Nov 01 2023, 23:32:07:341336, IST (GMT+0530)
 --------------------------------------------------------------------------------
 pythonHelpers version is v2.2.16
 --------------------------------------------------------------------------------
-asn1play version is v5.2.0
+asn1play version is v5.2.1
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 tlvPlay version is v2.2.1
@@ -6768,7 +6768,13 @@ Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174
 Output Data:
 
 --------------------------------------------------------------------------------
-Known Exception Occurred At Function: decode_encode_asn; Detail(S) Are: Unknown asn1_element  
+Known Exception Occurred; Detail(S) Are: asn1_element is either empty or not provided
+************************************** Conversion Needed, AsnElement is whiteSpace *************************************
+Remarks List: Conversion Needed, AsnElement is whiteSpace
+Info => Asn1 Element:  ; Input Format: ascii; Output Format: hex
+Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
+Output Data: 424632353333354130413938393230393031323134333635383730394635393130393533353032303445363136443635323033313932314134463730363537323631373436393646364536313643323035303732364636363639364336353230344536313644363532303331
+--------------------------------------------------------------------------------
 *************************************************** InvalidAsnElement **************************************************
 Remarks List: InvalidAsnElement
 Info => Conversion Mode; Input Format: ; Output Format: 
@@ -6807,7 +6813,7 @@ Info => Conversion Mode; Input Format: der; Output Format: asn1
 Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex
 Input Data: BF2581885A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031930101B621301F800204F0811974657374736D6470706C7573312E6578616D706C652E636F6DB705800392F91899020640BF220F300D8003883710A1060404C1020304BF230F300D8003883711A106040402020202
 --------------------------------------------------------------------------------
-Known Exception Occurred; Detail(S) Are: asn1_element is not provided
+Known Exception Occurred; Detail(S) Are: asn1_element is either empty or not provided
 ** ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1 **
 Remarks List Generated: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1
 Info => Conversion Mode; Input Format: asn1; Output Format: der
@@ -6831,7 +6837,36 @@ Input Data:
 }
 
 --------------------------------------------------------------------------------
-Known Exception Occurred; Detail(S) Are: asn1_element is not provided
+Known Exception Occurred; Detail(S) Are: asn1_element is either empty or not provided
+******************************************** DER; tlv_parsing_of_output=True *******************************************
+***** BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031 *****
+Remarks List: DER; tlv_parsing_of_output=True
+Info => Conversion Mode; Input Format: der; Output Format: der
+Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
+Output Data:
+BF25 33
+  5A 0A 989209012143658709F5
+  91 09 5350204E616D652031
+  92 1A 4F7065726174696F6E616C2050726F66696C65204E616D652031
+--------------------------------------------------------------------------------
+****************************************** DER_64; tlv_parsing_of_output=True ******************************************
+*********************** vyUzWgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAx ***********************
+invalid raw_data error; Known Exception Occurred; Detail(S) Are: Non-hexadecimal digit found
+Remarks List: DER_64; tlv_parsing_of_output=True
+Info => Conversion Mode; Input Format: der; Output Format: der_with_base64
+Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
+Output Data:
+vyUzWgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAx
+--------------------------------------------------------------------------------
+******************************************* Ascii; tlv_parsing_of_output=True ******************************************
+************************************************ Welcome To AsnPlay !!! ************************************************
+invalid raw_data error; Known Exception Occurred; Detail(S) Are: Odd-length string
+Remarks List: Ascii; tlv_parsing_of_output=True
+Info => Conversion Mode; Input Format: hex; Output Format: ascii
+Input Data: 57656c636f6d6520546f2041736e506c617920212121
+Output Data:
+Welcome To AsnPlay !!!
+--------------------------------------------------------------------------------
 *************************************************** raw_data is empty **************************************************
 Remarks List: raw_data is empty
 Info => Asn1 Element: UpdateMetadataRequest; Input Format: der; Output Format: asn1

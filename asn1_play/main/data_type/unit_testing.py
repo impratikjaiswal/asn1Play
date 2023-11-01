@@ -453,6 +453,14 @@ class UnitTesting(DataTypeMaster):
             ),
             #
             Data(
+                remarks_list='Conversion Needed, AsnElement is whiteSpace',
+                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                asn1_element=' ',
+                input_format=Formats.ASCII,
+                output_format=Formats.HEX
+            ),
+            #
+            Data(
                 remarks_list='InvalidAsnElement',
                 raw_data=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataReques.yml'
             ),
@@ -487,6 +495,33 @@ class UnitTesting(DataTypeMaster):
             #
             Data(
                 raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1',
+            ),
+            #
+        ]
+        data_pool_tlv = [
+            #
+            Data(
+                remarks_list='DER; tlv_parsing_of_output=True',
+                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                input_format=Formats.DER,
+                output_format=Formats.DER,
+                tlv_parsing_of_output=True
+            ),
+            #
+            Data(
+                remarks_list='DER_64; tlv_parsing_of_output=True',
+                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                input_format=Formats.DER,
+                output_format=Formats.DER_64,
+                tlv_parsing_of_output=True
+            ),
+            #
+            Data(
+                remarks_list='Ascii; tlv_parsing_of_output=True',
+                raw_data='57656c636f6d6520546f2041736e506c617920212121',
+                input_format=Formats.HEX,
+                output_format=Formats.ASCII,
+                tlv_parsing_of_output=True
             ),
             #
         ]
@@ -621,5 +656,6 @@ class UnitTesting(DataTypeMaster):
             data_pool_output_file +
             data_pool_output_file_keyword +
             data_pool_asn1_element +
+            data_pool_tlv +
             data_pool_negative
         )

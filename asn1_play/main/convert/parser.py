@@ -117,11 +117,12 @@ def parse_or_update_any_data(data, meta_data=None):
     meta_data.parsed_data = decode_encode_asn(raw_data=data.raw_data, parse_only=True, input_format=data.input_format,
                                               output_format=data.output_format, asn1_element=data.asn1_element)
     if meta_data.parsed_data and data.tlv_parsing_of_output:
-        data_type = DataTypeMaster()
-        data_type.set_data_pool(data_pool=Data(raw_data=meta_data.parsed_data, quite_mode=True))
-        data_type.parse_safe(PhErrorHandlingModes.CONTINUE_ON_ERROR)
-        meta_data.parsed_data_tlv = data_type.get_output_data()
-        meta_data.parsed_data = data_type.get_output_data()
+        data_type_tlv = DataTypeMaster()
+        data_type_tlv.set_data_pool(data_pool=Data(raw_data=meta_data.parsed_data, quite_mode=True))
+        data_type_tlv.parse_safe(PhErrorHandlingModes.CONTINUE_ON_ERROR)
+        meta_data.parsed_data_tlv = data_type_tlv.get_output_data()
+        if PhConstants.EXCEPTION_OCCURRED not in meta_data.parsed_data_tlv:
+            meta_data.parsed_data = meta_data.parsed_data_tlv
     if data.re_parse_output:
         meta_data.re_parsed_data = decode_encode_asn(raw_data=meta_data.parsed_data, parse_only=True,
                                                      input_format=data.output_format,
