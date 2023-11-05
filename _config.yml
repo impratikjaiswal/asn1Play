@@ -1,0 +1,23 @@
+# }**************************************************{ inbuilt Them
+# theme: jekyll-theme-minimal
+
+# }**************************************************{ Remote Theme
+plugins:
+- jekyll-remote-theme # add this line to the plugins list if you already have one
+
+# supported Themes: https://pages.github.com/themes/
+remote_theme: pages-themes/architect@v0.2.0
+
+# }**************************************************{ 
+# title: [Excel Play]
+description: Bookmark this to keep an eye on my project updates!
+
+# }**************************************************{ 
+# to preview your site on your computer, add the following to your site's Gemfile:
+# gem "github-pages", group: :jekyll_plugins
+
+# }**************************************************{ 
+show_downloads: true
+
+# }**************************************************{ 
+# google_analytics: [Your Google Analytics tracking ID]
