@@ -38,3 +38,11 @@ if version == Version.v3_1:
 if version == Version.v3_2:
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_2.python_gen.epp.epp import PEDefinitions
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_2.python_gen.epp.epp_mapping import epp_mapping
+
+if version == Version.v3_3:
+    from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_3.python_gen.epp.epp import PEDefinitions
+    from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_3.python_gen.epp.epp_mapping import epp_mapping
+
+if version == Version.v3_3_1:
+    from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_3_1.python_gen.epp.epp import PEDefinitions
+    from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_3_1.python_gen.epp.epp_mapping import epp_mapping
