@@ -1,7 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="asn1play" type="PythonConfigurationType" factoryName="Python" folderName="asn1Play" nameIsGenerated="true">
-    <output_file path="$PROJECT_DIR$/../../Github_Personal/AmenityPj/TempFiles/pycharm.log" is_save="true" />
+    <output_file path="$PROJECT_DIR$/../../Github_Personal/AmenityPjRaw/TempFiles/pycharm.log" is_save="true" />
     <module name="asn1play" />
+    <option name="ENV_FILES" value="" />
     <option name="INTERPRETER_OPTIONS" value="" />
     <option name="PARENT_ENVS" value="true" />
     <envs>

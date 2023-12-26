@@ -352,6 +352,8 @@ def write_output_file(output_file_name, parsed_data):
 def replace_data(target_data, keyword, new_value):
     if keyword not in target_data:
         return target_data
+    if new_value is None:
+        return target_data
     return target_data.replace(keyword, new_value)
 
 
