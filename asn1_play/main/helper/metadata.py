@@ -1,5 +1,8 @@
 from collections import OrderedDict
 
+from python_helpers.ph_constants import PhConstants
+from python_helpers.ph_keys import PhKeys
+
 
 class MetaData:
     def __init__(self, raw_data_org):
@@ -19,3 +22,10 @@ class MetaData:
         #
         self.output_file_ext_default = None
         self.output_file_location_default = None
+
+    def get_info_data(self):
+        if self.output_dic:
+            info = self.output_dic.get(PhKeys.INFO, None)
+            if info is not None:
+                return str(info)
+        return PhConstants.STR_EMPTY

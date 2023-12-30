@@ -16,6 +16,22 @@ from pycrate_asn1rt.init             import init_modules
 
 class SGP32Definitions:
 
-    _name_  = 'SGP32Definitions'
+    _name_ = 'SGP32Definitions'
+    _oid_   = [1, 3, 6, 1, 5, 5, 7, 0, 18]
+    
+    _obj_ = [
+        ]
+    _type_ = [
+        ]
+    _set_ = [
+        ]
+    _val_ = [
+        ]
+    _class_ = [
+        ]
+    _param_ = [
+        ]
+    _all_ = [
+    ]
 
 init_modules(SGP32Definitions)

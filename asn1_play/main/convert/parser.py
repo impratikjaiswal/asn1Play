@@ -11,6 +11,7 @@ from tlv_play.main.data_type.data_type_master import DataTypeMaster
 from tlv_play.main.helper.data import Data
 
 from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
+from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp_32_version
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
 from asn1_play.main.convert import converter
 from asn1_play.main.convert.handler import decode_encode_asn
@@ -109,6 +110,7 @@ def parse_or_update_any_data(data, meta_data=None):
     output_versions_dic.update(
         PhUtil.get_tool_name_w_version(ConfigConst_local.TOOL_NAME, ConfigConst_local.TOOL_VERSION, dic_format=True))
     output_versions_dic.update(PhUtil.get_tool_name_w_version(PhKeys.SGP22, sgp_22_version, dic_format=True))
+    output_versions_dic.update(PhUtil.get_tool_name_w_version(PhKeys.SGP32, sgp_32_version, dic_format=True))
     output_versions_dic.update(
         PhUtil.get_tool_name_w_version(PhKeys.EUICC_PROFILE_PACKAGE, epp_version, dic_format=True))
     output_versions_dic.update(

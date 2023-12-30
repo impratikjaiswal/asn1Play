@@ -1,10 +1,35 @@
 import importlib
 
-# from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0_1.python_gen.sgp32.sgp32 import SGP32Definitions
-# from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0_1.python_gen.sgp32.sgp32_mapping import sgp_32_mapping
+from asn1_play.generated_code.asn1.GSMA.SGP_32.compile_time_version import CompileTimeVersion
 
-OFFSET_CLASSES = 0
-OFFSET_MAPPING_CLASSES = 1
+####################
+# Compile Time Stuff
+####################
+
+# Default version to be used in whole system
+version = CompileTimeVersion.v1_0_1
+
+if version == CompileTimeVersion.v1_0:
+    from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0.python_gen.sgp32.sgp32 import SGP32Definitions
+    from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0.python_gen.sgp32.sgp32_mapping import \
+        sgp_32_mapping as asn1_mapping
+
+elif version == CompileTimeVersion.v1_0_1:
+    from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0_1.python_gen.sgp32.sgp32 import SGP32Definitions
+    from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0_1.python_gen.sgp32.sgp32_mapping import \
+        sgp_32_mapping as asn1_mapping
+
+else:
+    # Default Version
+    from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0_1.python_gen.sgp32.sgp32 import SGP32Definitions
+    from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0_1.python_gen.sgp32.sgp32_mapping import \
+        sgp_32_mapping as asn1_mapping
+
+####################
+# Run Time Stuff
+####################
+asn1_mapping = None
+# SGP32Definitions = None
 
 __module_name = '.sgp32'
 __module_mapping_name = '.sgp32_mapping'
@@ -13,23 +38,33 @@ __class_name_mapping = 'sgp_32_mapping'
 __package_name_pre = 'asn1_play.generated_code.asn1.GSMA.SGP_32'
 __package_name_post = 'python_gen.sgp32'
 
-version = None
-SGP32Definitions = None
-sgp_32_mapping = None
+
+def __set_asn1_classes(param):
+    global SGP32Definitions
+    SGP32Definitions = param
+
+
+def __set_asn1_mapping(param):
+    all_mapping = {
+        **param,
+    }
+    global asn1_mapping
+    asn1_mapping = all_mapping
 
 
 def is_valid_state():
-    global version
     return False if version is None else True
 
 
 def get_version():
-    global version
     return version
 
 
 def set_version(version_user):
-    def __set_version(version_user_local):
+    OFFSET_CLASSES = 0
+    OFFSET_MAPPING_CLASSES = 1
+
+    def __set_version_duck_typing(version_user_local):
         try:
             package_name = '.'.join([__package_name_pre, version_user_local, __package_name_post])
 
@@ -46,11 +81,26 @@ def set_version(version_user):
         # PhUtil.get_classes_list(module_to_explore=module_imported, print_also=True)
         return [class_imported], [class_mapping_imported]
 
-    imported_objects = __set_version(version_user)
+    imported_objects = __set_version_duck_typing(version_user)
     if imported_objects is None:
         return None
+    __set_version(version_user)
+    __set_asn1_classes(imported_objects[OFFSET_CLASSES][0])
+    __set_asn1_mapping(imported_objects[OFFSET_MAPPING_CLASSES][0])
 
-    global version, SGP32Definitions, sgp_32_mapping
-    version = version_user
-    SGP32Definitions = imported_objects[OFFSET_CLASSES][0]
-    sgp_32_mapping = imported_objects[OFFSET_MAPPING_CLASSES][0]
+
+def __set_version(param):
+    global version
+    version = param
+
+
+def get_asn1_mapping():
+    return asn1_mapping
+
+
+def get_asn1_mapping_keys():
+    return list(asn1_mapping.keys())
+
+
+def get_class_name():
+    return __class_name

@@ -5,6 +5,7 @@ from python_helpers.ph_util import PhUtil
 from tlv_play.main.helper.constants_config import ConfigConst as tlvConfigConst
 
 from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
+from asn1_play.generated_code.asn1.GSMA.SGP_32 import version as sgp_32_version
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
 from asn1_play.main.data_type.any_data import AnyData
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
@@ -113,8 +114,10 @@ def main():
     """
     Set Target Version of SGP22, eUICC Profile Package 
     """
-    PhUtil.print_version(PhKeys.SGP22, sgp_22_version, no_additional_info=True)
-    PhUtil.print_version(PhKeys.EUICC_PROFILE_PACKAGE, epp_version, no_additional_info=True)
+    PhUtil.print_version(' '.join([PhKeys.SGP22, PhKeys.COMPILE_TIME]), sgp_22_version, no_additional_info=True)
+    PhUtil.print_version(' '.join([PhKeys.SGP32, PhKeys.COMPILE_TIME]), sgp_32_version, no_additional_info=True)
+    PhUtil.print_version(' '.join([PhKeys.EUICC_PROFILE_PACKAGE, PhKeys.COMPILE_TIME]), epp_version,
+                         no_additional_info=True)
     # Process Data
     process_data(execution_mode, error_handling_mode)
     PhUtil.print_done()

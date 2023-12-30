@@ -2,14 +2,18 @@ import copy
 import os
 
 from python_helpers.ph_constants import PhConstants
+from python_helpers.ph_exception import PhException
+from python_helpers.ph_exception_helper import PhExceptionHelper
 from python_helpers.ph_file_extensions import PhFileExtensions
 from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_util import PhUtil
-from ruamel.yaml import YAML
+from ruamel.yaml.main import YAML
 from ruamel.yaml.scalarstring import PreservedScalarString
 
 from asn1_play.generated_code.asn1.GSMA import SGP_22
+from asn1_play.generated_code.asn1.GSMA import SGP_32
 from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp22_version
+from asn1_play.generated_code.asn1.GSMA.SGP_32 import version as sgp32_version
 from asn1_play.generated_code.asn1.TCA import eUICC_Profile_Package
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
 from asn1_play.main.helper.constants import Constants
@@ -44,9 +48,11 @@ def print_data(data, meta_data):
                 get_dic_data_and_print(PhKeys.REMARKS_LIST_GENERATED, PhConstants.SEPERATOR_ONE_LINE,
                                        remarks_generated))
         info = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, [
+            get_mode(data.input_format, data.output_format, meta_data.input_mode_key,
+                     data.get_input_modes_hierarchy()),
             get_dic_data_and_print(PhKeys.ASN1_ELEMENT, PhConstants.SEPERATOR_ONE_LINE, data.get_asn1_element_name(),
                                    dic_format=False,
-                                   print_also=False) if data.get_asn1_element_name() else Constants.STR_CONVERSION_MODE,
+                                   print_also=False) if data.get_asn1_element_name() else None,
             get_dic_data_and_print(PhKeys.INPUT_FORMAT, PhConstants.SEPERATOR_ONE_LINE, data.input_format,
                                    dic_format=False, print_also=False),
             get_dic_data_and_print(PhKeys.OUTPUT_FORMAT, PhConstants.SEPERATOR_ONE_LINE, data.output_format,
@@ -126,9 +132,14 @@ def prepare_config_data(data):
         if k in [PhKeys.ASN1_ELEMENT]:
             value = data.get_asn1_element_name()
             module_name = data.get_asn1_module_name()
+            # Legacy Code
             if module_name == KeyWords.MODULE_SGP22:
                 if isinstance(data.asn1_element, type(getattr(SGP_22.RSPDefinitions, value))):
                     data_dic[k] = '.'.join([KeyWords.PATH_SGP22, value])
+                    continue
+            if module_name == KeyWords.MODULE_SGP32:
+                if isinstance(data.asn1_element, type(getattr(SGP_32.SGP32Definitions, value))):
+                    data_dic[k] = '.'.join([KeyWords.PATH_SGP32, value])
                     continue
             if module_name == KeyWords.MODULE_EPP:
                 if isinstance(data.asn1_element, type(getattr(eUICC_Profile_Package.PEDefinitions, value))):
@@ -156,6 +167,8 @@ def parse_config(config_data):
             value = temp[-1]
             if temp[0] == KeyWords.CLASS_SGP22:
                 config_data[k] = getattr(SGP_22.RSPDefinitions, value)
+            if temp[0] == KeyWords.CLASS_SGP32:
+                config_data[k] = getattr(SGP_32.SGP32Definitions, value)
             if temp[0] == KeyWords.CLASS_EPP:
                 config_data[k] = getattr(eUICC_Profile_Package.PEDefinitions, value)
         if k in [PhKeys.INPUT_FORMAT, PhKeys.OUTPUT_FORMAT, PhKeys.OUTPUT_FILE_NAME_KEYWORD]:
@@ -171,7 +184,7 @@ def parse_config(config_data):
 def validate_config_data(config_data):
     config_data = dict(config_data).get(PhKeys.INPUT, None)
     if not config_data:
-        raise ValueError(f'Mandatory Config "input" is missing.')
+        raise ValueError(PhExceptionHelper(msg_key=Constants.CONFIG_INPUT_MISSING))
     return parse_config(config_data)
 
 
@@ -360,9 +373,15 @@ def replace_data(target_data, keyword, new_value):
 def replace_version(target_data, data):
     module_version = data.get_asn1_module_version()
     if not module_version:
+        # needed when yml file is being read with $VERSION
+        # Sample: '..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex.yml'
         # Set version based on path
         if KeyWords.CLASS_EPP in target_data:
             module_version = epp_version
+        elif KeyWords.CLASS_SGP32 in target_data:
+            module_version = sgp32_version
+        elif KeyWords.CLASS_SGP22 in target_data:
+            module_version = sgp22_version
         else:
             # default version is of SGP
             module_version = sgp22_version
@@ -377,3 +396,34 @@ def path_generalisation(data, key):
     if key == PhKeys.OUTPUT_FILE:
         if data.output_file:
             data.output_file = replace_version(data.output_file, data)
+
+
+def get_mode(input_format, output_format, meta_data_input_mode_key, data_input_mode_hierarchy):
+    mode = []
+    if input_format and input_format == output_format:
+        mode.append(Constants.STR_FORMATTING)
+    if meta_data_input_mode_key == PhKeys.INPUT_DIR:
+        mode.append(Constants.STR_DIR)
+    if meta_data_input_mode_key == PhKeys.INPUT_LIST:
+        if data_input_mode_hierarchy and PhKeys.INPUT_DIR in data_input_mode_hierarchy:
+            mode.append(Constants.STR_DIR)
+        mode.append(Constants.STR_LIST)
+    if meta_data_input_mode_key == PhKeys.INPUT_YML:  # or input_format in FormatsGroup.INPUT_FORMATS_YML:
+        mode.append(Constants.STR_YML_MODE)
+    else:
+        if not input_format:
+            # Temp assignment to find the mode
+            input_format = Defaults.FORMAT_INPUT
+        if not output_format:
+            # Temp assignment to find the mode
+            output_format = Defaults.FORMAT_OUTPUT
+    if input_format in FormatsGroup.INPUT_FORMATS_YML:
+        mode.append(Constants.STR_YML_MODE)
+    elif output_format in FormatsGroup.INPUT_FORMATS_ASN:
+        mode.append(Constants.STR_ENCODING_MODE)
+    elif input_format in FormatsGroup.INPUT_FORMATS_ASN:
+        mode.append(Constants.STR_DECODING_MODE)
+    elif input_format != output_format:
+        mode.append(Constants.STR_CONVERSION_MODE)
+    mode.append(Constants.STR_MODE)
+    return '_'.join(filter(None, mode))

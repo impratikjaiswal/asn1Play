@@ -6,6 +6,10 @@ class KeyWords:
     MODULE_SGP22 = 'RSPDefinitions'
     PATH_SGP22 = '.'.join([CLASS_SGP22, MODULE_SGP22])
 
+    CLASS_SGP32 = 'SGP_32'
+    MODULE_SGP32 = 'SGP32Definitions'
+    PATH_SGP32 = '.'.join([CLASS_SGP32, MODULE_SGP32])
+
     CLASS_EPP = 'eUICC_Profile_Package'
     MODULE_EPP = 'PEDefinitions'
     PATH_EPP = '.'.join([CLASS_EPP, MODULE_EPP])
