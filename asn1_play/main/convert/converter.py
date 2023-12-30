@@ -2,7 +2,6 @@ import copy
 import os
 
 from python_helpers.ph_constants import PhConstants
-from python_helpers.ph_exception import PhException
 from python_helpers.ph_exception_helper import PhExceptionHelper
 from python_helpers.ph_file_extensions import PhFileExtensions
 from python_helpers.ph_keys import PhKeys

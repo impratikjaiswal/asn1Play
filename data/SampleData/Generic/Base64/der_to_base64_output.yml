@@ -7,15 +7,16 @@ input:
     output_file_name_keyword: output
 output:
     remarks_list: DerInput; Base64Output; YmlInput; OutputKeyword
-    info: 'Conversion Mode; Input Format: der; Output Format: der_with_base64; Output File Name Keyword: output'
+    info: 'Yml_Conversion_Mode; Input Format: der; Output Format: der_with_base64; Output File Name Keyword: output'
     input_yml: ..\..\Data\SampleData\Generic\Base64\der_to_base64.yml
     output_file: ../../Data/SampleData/Generic/Base64/\der_to_base64_output.yml
     input_data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
     output_data: vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAxmQIGQA==
 output_version:
     Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
-    pythonHelpers: v2.2.16
-    asn1play: v5.2.1
+    pythonHelpers: v3.0.0
+    asn1play: v6.0.0
     SGP22: v3_0_0
+    SGP32: v1_0_1
     eUICC_Profile_Package: v3_2
-    time_stamp: Wednesday, Nov 01 2023, 23:32:58:016676, IST (GMT+0530)
+    time_stamp: Saturday, Dec 30 2023, 23:51:53:753208, IST (GMT+0530)

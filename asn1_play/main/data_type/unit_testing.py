@@ -1,4 +1,7 @@
 from asn1_play.generated_code.asn1.GSMA import SGP_22
+from asn1_play.generated_code.asn1.TCA import eUICC_Profile_Package
+from asn1_play.generated_code.asn1.asn1 import Asn1
+from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.helper.data import Data
 from asn1_play.main.helper.formats import Formats
@@ -82,6 +85,7 @@ class UnitTesting(DataTypeMaster):
                 'asn1_element': SGP_22.RSPDefinitions.StoreMetadataRequest
             }
         ]
+
         data_pool_byte_array = [
             # Byte Array with our Remarks
             Data(
@@ -103,6 +107,7 @@ class UnitTesting(DataTypeMaster):
                 output_format=Formats.DER_64,
             )
         ]
+
         data_pool_remarks = [
             Data(
                 raw_data='Remarks Test Occurred',
@@ -296,6 +301,7 @@ class UnitTesting(DataTypeMaster):
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
             ),
         ]
+
         data_pool_remarks_extend = [
             Data(
                 remarks_list=['Extend Remarks List Sample', 'Extend Remarks List'],
@@ -322,6 +328,7 @@ class UnitTesting(DataTypeMaster):
                 output_file=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
             ),
         ]
+
         data_pool_output_file = [
             #
             Data(
@@ -418,6 +425,7 @@ class UnitTesting(DataTypeMaster):
                 output_file=r'..\..\Data\UserData\Bulk_export'
             ),
         ]
+
         data_pool_asn1_element = [
             #
             Data(
@@ -498,6 +506,7 @@ class UnitTesting(DataTypeMaster):
             ),
             #
         ]
+
         data_pool_tlv = [
             #
             Data(
@@ -525,6 +534,7 @@ class UnitTesting(DataTypeMaster):
             ),
             #
         ]
+
         data_pool_output_file_keyword = [
             #
             Data(
@@ -545,6 +555,103 @@ class UnitTesting(DataTypeMaster):
                 output_file_name_keyword='output'
             )
         ]
+
+        data_pool_asn_element_with_schema = [
+            #####
+            # DER to ASN1
+            #####
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                asn1_element=Asn1(Asn1Versions.SGP_22_v3_0_0, 'StoreMetadataRequest'),
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                asn1_element=Asn1(Asn1Versions.SGP_22_v2_4, 'StoreMetadataRequest'),
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                asn1_element='StoreMetadataRequest',
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+            #####
+            # ASN1 to DER
+            #####
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
+                asn1_element=Asn1(Asn1Versions.SGP_22_v3_0_0, 'StoreMetadataRequest'),
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
+            ),
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
+                asn1_element=Asn1(Asn1Versions.SGP_22_v2_4, 'StoreMetadataRequest'),
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
+            ),
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
+                asn1_element='StoreMetadataRequest',
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
+            ),
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
+            ),
+            #####
+            # ASN1 to DER; eUICC_Profile_Package
+            #####
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
+                asn1_element=Asn1(Asn1Versions.TCA_EUICC_PROFILE_PACKAGE_v3_1, 'PE_End'),
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
+            ),
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
+                asn1_element=Asn1(Asn1Versions.TCA_EUICC_PROFILE_PACKAGE_v3_2, 'PE_End'),
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
+            ),
+            # negative scenario
+            Data(
+                raw_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
+                asn1_element='PE_End',
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
+            ),
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
+                asn1_element=eUICC_Profile_Package.PEDefinitions.PE_End,
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
+            ),
+        ]
+
         data_pool_negative = [
             #
             Data(
@@ -599,7 +706,37 @@ class UnitTesting(DataTypeMaster):
             #
             Data(
                 remarks_list='Invalid raw_data (base 64 conversion failure)',
+                raw_data='testt',
+                input_format=Formats.DER,
+                output_format=Formats.DER_64,
+            ),
+            #
+            Data(
+                remarks_list='Invalid raw_data (base 64 conversion failure)',
                 raw_data='D:\e\AC\DeleteProfileRequest.he',
+            ),
+            #
+            Data(
+                remarks_list='Invalid raw_data (base 64 conversion failure)',
+                raw_data='D:\e\AC\DeleteProfileRequest.he',
+                input_format=Formats.DER,
+                output_format=Formats.DER_64
+            ),
+            #
+            Data(
+                remarks_list='Invalid raw_data (base 64 conversion failure)',
+                raw_data='D:\e\AC\DeleteProfileRequest.he',
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+                asn1_element='StoreMetadataRequest',
+            ),
+            #
+            Data(
+                remarks_list='Invalid raw_data (base 64 conversion failure)',
+                raw_data='D:\e\AC\DeleteProfileRequest.he',
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
+                asn1_element='StoreMetadataRequest',
             ),
             #
             Data(
@@ -657,5 +794,6 @@ class UnitTesting(DataTypeMaster):
             data_pool_output_file_keyword +
             data_pool_asn1_element +
             data_pool_tlv +
+            data_pool_asn_element_with_schema +
             data_pool_negative
         )

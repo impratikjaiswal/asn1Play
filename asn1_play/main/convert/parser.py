@@ -11,7 +11,7 @@ from tlv_play.main.data_type.data_type_master import DataTypeMaster
 from tlv_play.main.helper.data import Data
 
 from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
-from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp_32_version
+from asn1_play.generated_code.asn1.GSMA.SGP_32 import version as sgp_32_version
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
 from asn1_play.main.convert import converter
 from asn1_play.main.convert.handler import decode_encode_asn
