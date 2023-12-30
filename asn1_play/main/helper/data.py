@@ -2,7 +2,9 @@ from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_util import PhUtil
 
 from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp22_version
+from asn1_play.generated_code.asn1.GSMA.SGP_32 import version as sgp32_version
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
+from asn1_play.generated_code.asn1.asn1 import Asn1
 from asn1_play.main.helper.formats_group import FormatsGroup
 from asn1_play.main.helper.keywords import KeyWords
 from asn1_play.main.helper.variables import Variables
@@ -104,20 +106,37 @@ class Data:
         self.__one_time_remarks = one_time_remarks
 
     def set_asn1_element_name(self):
-        self.__asn1_element_name = (
-            self.asn1_element if isinstance(self.asn1_element,
-                                            str) else self.asn1_element.fullname()) if self.asn1_element else None
+        if not self.asn1_element or self.asn1_element is None:
+            self.__asn1_element_name = None
+            self.__asn1_module_name = None
+            self.__asn1_module_version = None
+            return
+        if isinstance(self.asn1_element, Asn1):
+            self.__asn1_element_name = self.asn1_element.get_asn1_object()
+            self.__asn1_module_name = self.asn1_element.get_asn1_schema().get_asn1_class_name()
+            self.__asn1_module_version = self.asn1_element.get_asn1_schema().get_asn1_version()
+            return
+        # Below code is to support legacy functionality
+        if isinstance(self.asn1_element, str):
+            self.__asn1_element_name = self.asn1_element
+        else:
+            self.__asn1_element_name = self.asn1_element.fullname()
         if self.__asn1_element_name:
             self.__asn1_element_name = self.__asn1_element_name.replace('-', '_')
             self.__asn1_module_name = None if isinstance(self.asn1_element, str) else self.asn1_element._mod
         if self.__asn1_module_name:
             if self.__asn1_module_name == KeyWords.MODULE_SGP22:
                 self.__asn1_module_version = sgp22_version
+            if self.__asn1_module_name == KeyWords.MODULE_SGP32:
+                self.__asn1_module_version = sgp32_version
             if self.__asn1_module_name == KeyWords.MODULE_EPP:
                 self.__asn1_module_version = epp_version
 
     def get_asn1_element_name(self):
         return self.__asn1_element_name
+
+    def get_asn1_element(self):
+        return self.asn1_element
 
     def get_asn1_module_name(self):
         return self.__asn1_module_name

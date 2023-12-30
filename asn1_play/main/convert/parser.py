@@ -123,7 +123,7 @@ def parse_or_update_any_data(data, meta_data=None):
         data_type_tlv.set_data_pool(data_pool=Data(raw_data=meta_data.parsed_data, quite_mode=True))
         data_type_tlv.parse_safe(PhErrorHandlingModes.CONTINUE_ON_ERROR)
         meta_data.parsed_data_tlv = data_type_tlv.get_output_data()
-        if PhConstants.EXCEPTION_OCCURRED not in meta_data.parsed_data_tlv:
+        if meta_data.parsed_data_tlv and PhConstants.EXCEPTION_OCCURRED not in meta_data.parsed_data_tlv:
             meta_data.parsed_data = meta_data.parsed_data_tlv
     if data.re_parse_output:
         meta_data.re_parsed_data = decode_encode_asn(raw_data=meta_data.parsed_data, parse_only=True,
