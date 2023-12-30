@@ -1,5 +1,7 @@
 import importlib
 
+from asn1_play.generated_code.asn1.GSMA.SGP_22.v3_0_0.python_gen.sgp22.sgp22 import PKIX1Explicit88, PKIX1Implicit88
+
 # from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_4.python_gen.sgp22.sgp22 import RSPDefinitions
 # from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_4.python_gen.sgp22.sgp22_mapping import sgp_22_mapping
 
@@ -14,22 +16,41 @@ __package_name_pre = 'asn1_play.generated_code.asn1.GSMA.SGP_22'
 __package_name_post = 'python_gen.sgp22'
 
 version = None
+asn1_mapping = None
 RSPDefinitions = None
-sgp_22_mapping = None
+
+
+def __set_asn1_classes(param):
+    global RSPDefinitions
+    RSPDefinitions = param
+
+
+def __set_asn1_mapping(param):
+    pkix_mapping = {
+        'Certificate': PKIX1Explicit88.Certificate,
+        'CertificateList': PKIX1Explicit88.CertificateList,
+        'Time': PKIX1Explicit88.Time,
+        'SubjectKeyIdentifier': PKIX1Implicit88.SubjectKeyIdentifier,
+    }
+    # TODO: SML-332
+    all_mapping = {
+        **param,
+        **pkix_mapping
+    }
+    global asn1_mapping
+    asn1_mapping = all_mapping
 
 
 def is_valid_state():
-    global version
     return False if version is None else True
 
 
 def get_version():
-    global version
     return version
 
 
 def set_version(version_user):
-    def __set_version(version_user_local):
+    def __set_version_duck_typing(version_user_local):
         try:
             package_name = '.'.join([__package_name_pre, version_user_local, __package_name_post])
 
@@ -46,11 +67,22 @@ def set_version(version_user):
         # PhUtil.get_classes_list(module_to_explore=module_imported, print_also=True)
         return [class_imported], [class_mapping_imported]
 
-    imported_objects = __set_version(version_user)
+    imported_objects = __set_version_duck_typing(version_user)
     if imported_objects is None:
         return None
+    __set_version(version_user)
+    __set_asn1_classes(imported_objects[OFFSET_CLASSES][0])
+    __set_asn1_mapping(imported_objects[OFFSET_MAPPING_CLASSES][0])
 
-    global version, RSPDefinitions, sgp_22_mapping
-    version = version_user
-    RSPDefinitions = imported_objects[OFFSET_CLASSES][0]
-    sgp_22_mapping = imported_objects[OFFSET_MAPPING_CLASSES][0]
+
+def __set_version(param):
+    global version
+    version = param
+
+
+def get_asn1_mapping():
+    return asn1_mapping
+
+
+def get_asn1_mapping_keys():
+    return list(asn1_mapping.keys())

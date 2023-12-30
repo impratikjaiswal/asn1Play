@@ -14,22 +14,33 @@ __package_name_pre = 'asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package'
 __package_name_post = 'python_gen.epp'
 
 version = None
+asn1_mapping = None
 PEDefinitions = None
-epp_mapping = None
+
+
+def __set_asn1_classes(param):
+    global PEDefinitions
+    PEDefinitions = param
+
+
+def __set_asn1_mapping(param):
+    all_mapping = {
+        **param,
+    }
+    global asn1_mapping
+    asn1_mapping = all_mapping
 
 
 def is_valid_state():
-    global version
     return False if version is None else True
 
 
 def get_version():
-    global version
     return version
 
 
 def set_version(version_user):
-    def __set_version(version_user_local):
+    def __set_version_duck_typing(version_user_local):
         try:
             package_name = '.'.join([__package_name_pre, version_user_local, __package_name_post])
 
@@ -46,11 +57,22 @@ def set_version(version_user):
         # PhUtil.get_classes_list(module_to_explore=module_imported, print_also=True)
         return [class_imported], [class_mapping_imported]
 
-    imported_objects = __set_version(version_user)
+    imported_objects = __set_version_duck_typing(version_user)
     if imported_objects is None:
         return None
+    __set_version(version_user)
+    __set_asn1_classes(imported_objects[OFFSET_CLASSES][0])
+    __set_asn1_mapping(imported_objects[OFFSET_MAPPING_CLASSES][0])
 
-    global version, PEDefinitions, epp_mapping
-    version = version_user
-    PEDefinitions = imported_objects[OFFSET_CLASSES][0]
-    epp_mapping = imported_objects[OFFSET_MAPPING_CLASSES][0]
+
+def __set_version(param):
+    global version
+    version = param
+
+
+def get_asn1_mapping():
+    return asn1_mapping
+
+
+def get_asn1_mapping_keys():
+    return list(asn1_mapping.keys())

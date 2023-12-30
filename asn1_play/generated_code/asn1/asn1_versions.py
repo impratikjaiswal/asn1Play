@@ -7,7 +7,7 @@ class Asn1Family:
     TCA_EPP = 'TCA_EPP'
 
 
-class Versions:
+class Asn1Versions:
     SGP_22_v1_0 = Asn1Schema(asn1_family=Asn1Family.SGP_22, asn1_version='v1_0')
     SGP_22_v1_1 = Asn1Schema(asn1_family=Asn1Family.SGP_22, asn1_version='v1_1')
     SGP_22_v1_2 = Asn1Schema(asn1_family=Asn1Family.SGP_22, asn1_version='v1_2')
