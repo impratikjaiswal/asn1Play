@@ -8,6 +8,7 @@ from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from ruamel.yaml.representer import RepresenterError
 
+from asn1_play.generated_code.asn1.asn1 import Asn1
 from asn1_play.main.convert import converter
 from asn1_play.main.convert.converter import read_web_request
 from asn1_play.main.convert.parser import parse_or_update_any_data
@@ -28,7 +29,7 @@ class DataTypeMaster(object):
         self.input_format = None
         self.asn1_element = None
         self.data_pool = []
-        self.__master_data = (Data(raw_data=None), MetaData(raw_data_org=None), PhExceptionHelper(msg=None))
+        self.__master_data = (Data(raw_data=None), MetaData(raw_data_org=None), PhExceptionHelper(msg_key=None))
 
     def set_print_input(self, print_input):
         self.print_input = print_input
@@ -91,37 +92,38 @@ class DataTypeMaster(object):
             self.__parse_safe_individual(data)
         except Exception as e:
             known = False
-            additional_msg = None
+            summary_msg = None
             exception_object = e.args[0]
             if not isinstance(exception_object, PhExceptionHelper):
                 # for scenarios like FileExistsError where a touple is returned, (17, 'Cannot create a file when that file already exists')
                 exception_object = PhExceptionHelper(exception=e)
+            if isinstance(e, binascii.Error):
+                known = True
+                summary_msg = PhConstants.INVALID_RAW_DATA
+            elif isinstance(e, ValueError):
+                known = True
+                summary_msg = PhConstants.INPUTS_ERROR
+            elif isinstance(e, RepresenterError):
+                known = True
+                summary_msg = PhConstants.EXPORT_ERROR
+            elif isinstance(e, PermissionError):
+                known = True
+                summary_msg = PhConstants.READ_WRITE_ERROR
+            elif isinstance(e, FileExistsError):
+                known = True
+                summary_msg = PhConstants.WRITE_PATH_ERROR
+            elif isinstance(e, AttributeError):
+                known = True
+                summary_msg = PhConstants.INPUTS_ERROR
+            exception_object.set_summary_msg(summary_msg)
             self.__master_data = (
                 self.__master_data[PhMasterData.INDEX_DATA], self.__master_data[PhMasterData.INDEX_META_DATA],
                 exception_object)
-            if isinstance(e, binascii.Error):
-                known = True
-                additional_msg = 'invalid raw_data error'
-            elif isinstance(e, ValueError):
-                known = True
-            elif isinstance(e, RepresenterError):
-                known = True
-                additional_msg = 'export error'
-            elif isinstance(e, PermissionError):
-                known = True
-                additional_msg = 'input/output path reading/writing error'
-            elif isinstance(e, FileExistsError):
-                known = True
-                additional_msg = 'Output path writing error'
-            elif isinstance(e, AttributeError):
-                known = True
-                additional_msg = 'Input/OutPut/AsnElement error'
             processed_data = self.__master_data[PhMasterData.INDEX_DATA]
             processed_meta_data = self.__master_data[PhMasterData.INDEX_META_DATA]
             converter.print_data(processed_data, processed_meta_data)
-            exception_msg = PhConstants.SEPERATOR_TWO_WORDS.join(
+            msg = PhConstants.SEPERATOR_TWO_WORDS.join(
                 [PhConstants.KNOWN if known else PhConstants.UNKNOWN, exception_object.get_details()])
-            msg = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, [additional_msg, exception_msg]))
             print(f'{msg}')
             if not known:
                 traceback.print_exc()
@@ -159,6 +161,11 @@ class DataTypeMaster(object):
                 re_parse_output=self.re_parse_output,
                 output_file_name_keyword=self.output_file_name_keyword,
             )
+        current_asn1_element = data.get_asn1_element()
+        if current_asn1_element is not None and isinstance(current_asn1_element, str):
+            data.asn1_element = Asn1(asn1_object=current_asn1_element)
+            if isinstance(data.asn1_element, Asn1):
+                data.set_asn1_element_name()
         converter.path_generalisation(data, PhKeys.RAW_DATA)
         converter.path_generalisation(data, PhKeys.OUTPUT_FILE)
         converter.path_generalisation(data, PhKeys.REMARKS_LIST)
@@ -166,20 +173,22 @@ class DataTypeMaster(object):
         self.__master_data = (data, meta_data)
         parse_or_update_any_data(data, meta_data)
 
-    def get_output_data(self):
+    def get_output_data(self, only_output=True):
         """
 
         :return:
         """
-        output_data = ''
+        output_data = PhConstants.STR_EMPTY
+        info_data = PhConstants.STR_EMPTY
+        if len(self.__master_data) > PhMasterData.INDEX_META_DATA:
+            # MetaData Object is Present
+            meta_data = self.__master_data[PhMasterData.INDEX_META_DATA]
+            if isinstance(meta_data, MetaData):
+                output_data = meta_data.parsed_data
+                info_data = meta_data.get_info_data()
         if len(self.__master_data) > PhMasterData.INDEX_ERROR_DATA:
             # Exception Object is Present
             exception_data = self.__master_data[PhMasterData.INDEX_ERROR_DATA]
             output_data = exception_data.get_details() if isinstance(exception_data,
                                                                      PhExceptionHelper) else exception_data
-            return output_data
-        if len(self.__master_data) > PhMasterData.INDEX_META_DATA:
-            # MetaData Object is Present
-            meta_data = self.__master_data[PhMasterData.INDEX_META_DATA]
-            output_data = meta_data.parsed_data if isinstance(meta_data, MetaData) else output_data
-        return output_data
+        return output_data if only_output else (output_data, info_data)
