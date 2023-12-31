@@ -45,3 +45,5 @@ class Asn1Versions:
                                                 asn1_class_name='PEDefinitions')
     TCA_EUICC_PROFILE_PACKAGE_v3_3_1 = Asn1Schema(asn1_family=Asn1Family.TCA_EPP, asn1_version='v3_3_1',
                                                   asn1_class_name='PEDefinitions')
+    SGP_32_v1_0 = None
+    SGP_32_v1_0_1 = None

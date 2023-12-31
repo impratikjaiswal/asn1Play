@@ -1,6 +1,7 @@
 import importlib
 
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.compile_time_version import CompileTimeVersion
+from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 
 ####################
 # Compile Time Stuff
@@ -14,61 +15,85 @@ if version == CompileTimeVersion.v1_0:
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v1_0.python_gen.epp.epp_mapping import \
         epp_mapping as asn1_mapping
 
+    default_asn_version_epp = Asn1Versions.TCA_EUICC_PROFILE_PACKAGE_v1_0
+
 elif version == CompileTimeVersion.v2_0:
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v2_0.python_gen.epp.epp import PEDefinitions
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v2_0.python_gen.epp.epp_mapping import \
         epp_mapping as asn1_mapping
+
+    default_asn_version_epp = Asn1Versions.TCA_EUICC_PROFILE_PACKAGE_v2_0
 
 elif version == CompileTimeVersion.v2_1:
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v2_1.python_gen.epp.epp import PEDefinitions
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v2_1.python_gen.epp.epp_mapping import \
         epp_mapping as asn1_mapping
 
+    default_asn_version_epp = Asn1Versions.TCA_EUICC_PROFILE_PACKAGE_v2_1
+
 elif version == CompileTimeVersion.v2_2:
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v2_2.python_gen.epp.epp import PEDefinitions
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v2_2.python_gen.epp.epp_mapping import \
         epp_mapping as asn1_mapping
+
+    default_asn_version_epp = Asn1Versions.TCA_EUICC_PROFILE_PACKAGE_v2_2
 
 elif version == CompileTimeVersion.v2_3:
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v2_3.python_gen.epp.epp import PEDefinitions
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v2_3.python_gen.epp.epp_mapping import \
         epp_mapping as asn1_mapping
 
+    default_asn_version_epp = Asn1Versions.TCA_EUICC_PROFILE_PACKAGE_v2_3
+
 elif version == CompileTimeVersion.v2_3_1:
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v2_3_1.python_gen.epp.epp import PEDefinitions
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v2_3_1.python_gen.epp.epp_mapping import \
         epp_mapping as asn1_mapping
+
+    default_asn_version_epp = Asn1Versions.TCA_EUICC_PROFILE_PACKAGE_v2_3_1
 
 elif version == CompileTimeVersion.v3_0:
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_0.python_gen.epp.epp import PEDefinitions
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_0.python_gen.epp.epp_mapping import \
         epp_mapping as asn1_mapping
 
+    default_asn_version_epp = Asn1Versions.TCA_EUICC_PROFILE_PACKAGE_v3_0
+
 elif version == CompileTimeVersion.v3_1:
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_1.python_gen.epp.epp import PEDefinitions
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_1.python_gen.epp.epp_mapping import \
         epp_mapping as asn1_mapping
+
+    default_asn_version_epp = Asn1Versions.TCA_EUICC_PROFILE_PACKAGE_v3_1
 
 elif version == CompileTimeVersion.v3_2:
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_2.python_gen.epp.epp import PEDefinitions
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_2.python_gen.epp.epp_mapping import \
         epp_mapping as asn1_mapping
 
+    default_asn_version_epp = Asn1Versions.TCA_EUICC_PROFILE_PACKAGE_v3_2
+
 elif version == CompileTimeVersion.v3_3:
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_3.python_gen.epp.epp import PEDefinitions
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_3.python_gen.epp.epp_mapping import \
         epp_mapping as asn1_mapping
+
+    default_asn_version_epp = Asn1Versions.TCA_EUICC_PROFILE_PACKAGE_v3_3
 
 elif version == CompileTimeVersion.v3_3_1:
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_3_1.python_gen.epp.epp import PEDefinitions
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_3_1.python_gen.epp.epp_mapping import \
         epp_mapping as asn1_mapping
 
+    default_asn_version_epp = Asn1Versions.TCA_EUICC_PROFILE_PACKAGE_v3_3_1
+
 else:
     # Default Version
-    from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_2.python_gen.epp.epp import PEDefinitions
-    from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_2.python_gen.epp.epp_mapping import \
+    from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_3_1.python_gen.epp.epp import PEDefinitions
+    from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v3_3_1.python_gen.epp.epp_mapping import \
         epp_mapping as asn1_mapping
+
+    default_asn_version_epp = Asn1Versions.TCA_EUICC_PROFILE_PACKAGE_v3_3_1
 
 ####################
 # Run Time Stuff

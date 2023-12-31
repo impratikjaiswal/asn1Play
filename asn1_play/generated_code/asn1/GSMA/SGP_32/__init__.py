@@ -1,6 +1,7 @@
 import importlib
 
 from asn1_play.generated_code.asn1.GSMA.SGP_32.compile_time_version import CompileTimeVersion
+from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 
 ####################
 # Compile Time Stuff
@@ -14,16 +15,22 @@ if version == CompileTimeVersion.v1_0:
     from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0.python_gen.sgp32.sgp32_mapping import \
         sgp_32_mapping as asn1_mapping
 
+    default_asn_version_sgp32 = Asn1Versions.SGP_32_v1_0
+
 elif version == CompileTimeVersion.v1_0_1:
     from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0_1.python_gen.sgp32.sgp32 import SGP32Definitions
     from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0_1.python_gen.sgp32.sgp32_mapping import \
         sgp_32_mapping as asn1_mapping
+
+    default_asn_version_sgp32 = Asn1Versions.SGP_32_v1_0_1
 
 else:
     # Default Version
     from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0_1.python_gen.sgp32.sgp32 import SGP32Definitions
     from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0_1.python_gen.sgp32.sgp32_mapping import \
         sgp_32_mapping as asn1_mapping
+
+    default_asn_version_sgp32 = Asn1Versions.SGP_32_v1_0_1
 
 ####################
 # Run Time Stuff

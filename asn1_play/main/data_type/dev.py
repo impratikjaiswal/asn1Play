@@ -1,5 +1,7 @@
 from asn1_play.generated_code.asn1.GSMA import SGP_22
 from asn1_play.generated_code.asn1.TCA import eUICC_Profile_Package
+from asn1_play.generated_code.asn1.asn1 import Asn1
+from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.helper.data import Data
 from asn1_play.main.helper.formats import Formats
@@ -62,6 +64,13 @@ class Dev(DataTypeMaster):
                 asn1_element=eUICC_Profile_Package.PEDefinitions.PE_End,
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
+            ),
+            # Can be deleted
+            Data(
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                asn1_element=Asn1(Asn1Versions.SGP_22_v2_4, 'StoreMetadataRequest'),
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
             ),
         ]
         super().set_data_pool(data_pool)
