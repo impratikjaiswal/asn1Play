@@ -1,4 +1,4 @@
-# ASN1 Play
+# asn1Play
 
 <BR>ASN1 Encoder &amp; Decoder based on [pycrate](https://github.com/P1sec/pycrate).
 <BR>Currently supporting various versions of:
