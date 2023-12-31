@@ -98,7 +98,10 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
         if not asn1_object or asn1_object is None:
             raise ValueError(
                 PhExceptionHelper(msg_key=Constants.ASN1_ELEMENT_IS_EMPTY_OR_MISSING, function_name=func_name))
-        asn1_element_fetched = asn1_element.get_asn1_mapping().get(asn1_object, None)
+        mapping_data = asn1_element.get_asn1_mapping()
+        asn1_element_fetched = mapping_data.get(asn1_object, None)
+        if not asn1_element_fetched:
+            asn1_element_fetched = mapping_data.get(asn1_element.get_asn1_object_alternate(), None)
         print_debug_var(Constants.ASN1_ELEMENT_MAPPING_IS_DONE)
         if asn1_element_fetched is None:
             raise ValueError(

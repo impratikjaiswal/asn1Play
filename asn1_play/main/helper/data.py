@@ -41,6 +41,7 @@ class Data:
         #
         self.__input_modes_hierarchy = []
         self.__asn1_element_name = None
+        self.__asn1_element_name_alternate = None
         self.__asn1_module_name = None
         self.__asn1_module_version = None
         self.__auto_generated_remarks = None
@@ -108,11 +109,13 @@ class Data:
     def set_asn1_element_name(self):
         if not self.asn1_element or self.asn1_element is None:
             self.__asn1_element_name = None
+            self.__asn1_element_name_alternate = None
             self.__asn1_module_name = None
             self.__asn1_module_version = None
             return
         if isinstance(self.asn1_element, Asn1):
             self.__asn1_element_name = self.asn1_element.get_asn1_object()
+            self.__asn1_element_name_alternate = self.asn1_element.get_asn1_object_alternate()
             self.__asn1_module_name = self.asn1_element.get_asn1_schema().get_asn1_class_name()
             self.__asn1_module_version = self.asn1_element.get_asn1_schema().get_asn1_version()
             return
@@ -122,7 +125,7 @@ class Data:
         else:
             self.__asn1_element_name = self.asn1_element.fullname()
         if self.__asn1_element_name:
-            self.__asn1_element_name = self.__asn1_element_name.replace('-', '_')
+            self.set_asn1_element_name_alternate()
             self.__asn1_module_name = None if isinstance(self.asn1_element, str) else self.asn1_element._mod
         if self.__asn1_module_name:
             if self.__asn1_module_name == KeyWords.MODULE_SGP22:
@@ -134,6 +137,12 @@ class Data:
 
     def get_asn1_element_name(self):
         return self.__asn1_element_name
+
+    def get_asn1_element_name_alternate(self):
+        return self.__asn1_element_name_alternate
+
+    def set_asn1_element_name_alternate(self):
+        self.__asn1_element_name_alternate = self.__asn1_element_name.replace('-', '_')
 
     def get_asn1_element(self):
         return self.asn1_element

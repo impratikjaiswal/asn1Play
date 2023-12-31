@@ -8,11 +8,15 @@ from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from ruamel.yaml.representer import RepresenterError
 
+from asn1_play.generated_code.asn1.GSMA.SGP_22 import default_asn_version_sgp22
+from asn1_play.generated_code.asn1.GSMA.SGP_32 import default_asn_version_sgp32
+from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import default_asn_version_epp
 from asn1_play.generated_code.asn1.asn1 import Asn1
 from asn1_play.main.convert import converter
 from asn1_play.main.convert.converter import read_web_request
 from asn1_play.main.convert.parser import parse_or_update_any_data
 from asn1_play.main.helper.data import Data
+from asn1_play.main.helper.keywords import KeyWords
 from asn1_play.main.helper.metadata import MetaData
 
 
@@ -162,8 +166,23 @@ class DataTypeMaster(object):
                 output_file_name_keyword=self.output_file_name_keyword,
             )
         current_asn1_element = data.get_asn1_element()
-        if current_asn1_element is not None and isinstance(current_asn1_element, str):
-            data.asn1_element = Asn1(asn1_object=current_asn1_element)
+        if current_asn1_element:
+            if isinstance(current_asn1_element, Asn1):
+                pass
+            elif isinstance(current_asn1_element, str):
+                data.asn1_element = Asn1(asn1_object=current_asn1_element)
+            else:  # Existing Asn Object; Legacy Code
+                name = current_asn1_element.fullname()
+                mod = current_asn1_element._mod
+                asn1_schema = None
+                if mod:
+                    if mod == KeyWords.MODULE_SGP22:
+                        asn1_schema = default_asn_version_sgp22
+                    if mod == KeyWords.MODULE_SGP32:
+                        asn1_schema = default_asn_version_sgp32
+                    if mod == KeyWords.MODULE_EPP:
+                        asn1_schema = default_asn_version_epp
+                data.asn1_element = Asn1(asn1_schema=asn1_schema, asn1_object=name)
             if isinstance(data.asn1_element, Asn1):
                 data.set_asn1_element_name()
         converter.path_generalisation(data, PhKeys.RAW_DATA)

@@ -650,6 +650,37 @@ class UnitTesting(DataTypeMaster):
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
             ),
+            #####
+            # Mix Flow
+            #####
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                asn1_element=Asn1(Asn1Versions.SGP_22_v3_0_0, 'StoreMetadataRequest'),
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                asn1_element=Asn1(Asn1Versions.SGP_22_v2_4, 'StoreMetadataRequest'),
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+            # Can be deleted
+            Data(
+                raw_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
+                asn1_element=eUICC_Profile_Package.PEDefinitions.PE_End,
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
+            ),
         ]
 
         data_pool_negative = [
