@@ -2,7 +2,6 @@ from python_helpers.ph_file_extensions import PhFileExtensions
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from python_helpers.ph_modes_execution import PhExecutionModes
 
-from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 from asn1_play.main.helper.formats import Formats
 
 
@@ -16,4 +15,3 @@ class Defaults:
     EXECUTION_MODE = PhExecutionModes.USER
     ERROR_HANDLING_MODE = PhErrorHandlingModes.CONTINUE_ON_ERROR
     OUTPUT_FILE_EXTENSION = PhFileExtensions.TXT
-    ASN1_SCHEMA = Asn1Versions.SGP_22_v3_0_0

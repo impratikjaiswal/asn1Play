@@ -14,10 +14,10 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Saturday, Dec 30 2023, 23:55:48:549468, IST (GMT+0530)
+Time Stamp is Sunday, Dec 31 2023, 10:01:19:595028, IST (GMT+0530)
 --------------------------------------------------------------------------------
 IPV4 is 49.37.241.88
-IPV6 is 2405:201:d005:d029:643c:75f:329f:48d6
+IPV6 is 2405:201:d005:d029:5d34:c78d:cfa6:c9aa
 --------------------------------------------------------------------------------
 pythonHelpers version is v3.0.0
 --------------------------------------------------------------------------------
@@ -3416,7 +3416,7 @@ Output Data:
   icon '89504E470D0A1A0A0000000D49484452000000400000004008040000000060B9550000000774494D4507E00B091007364C956F97000000097048597300000B1200000B1201D2DD7EFC0000000467414D410000B18F0BFC61050000021F4944415478DAED99CD1583200C803D32000B3004ABB00ECBB0822338578AF559223F49B0A8175F2EC023E1238410DB09A667E5E1E55F80BF00F686060B1E66B80420C02A32550D0E966E8CC6F0128D193460635FA66A3B7D511DB48DD94788B655D7815071BA26E61B9000ACC711841085EB398D84C0CD94F921EBE2DDAB18DB6B5005B055C3BC752B4038745C5339449CD4950248100E1D4528FAC207B228E3101A4BD4AE52BA96A603808B05D44C27ADAB2AF8807A00A6184B228014807566ECA13538E5008AC890BF06BE809E4DBEBE0B808A842A009FFD7B010436AF06B04F034C8D47EA46004703E034E4D95B90A98A447300DC353C9F07A843404D9B2D904BCA84F62480A7013C39351431225B722DE9F6AD591A0047C194E5AE19BD865AFC1A26976F088603C0A7AC9117FCE131F64200BCDFED8E290EE058906C46F2FAD09DAC885AB1550C68D2A8B426DCF69B8E71F76D195B15CD368207463513FD2DEA6648476B2500EB999B6250FA5DC0499E0B88B921F2BBAF782E877588930370724E4D3F0DD01D49DBE7E92CB940423172008F3ED3C6011C03B1396BCE6EC24800C703B862682480A20142250B8C05C081385186CD65009607D059DD772B80AE3CB963010205B054436414808ABB0FF237752480A996FB3702D8334FDA0BF002BC002FC0488053B5F5380005DC0A1703F03FFDFDC433A6FA010CF1EF4165C831E602B40134844C66E67FA4C1000618E5AB8F6008C03FAAB7028C9117E0036BAF44917035AF0E0000000049454E44AE426082'H,
   notificationConfigurationInfo {
     {
-      profileManagementOperation 'F'H -- notificationInstall | notificationLocalEnable | notificationLocalDisable | notificationLocalDelete --,
+      profileManagementOperation 'F'H -- notificationInstall | notificationEnable | notificationDisable | notificationDelete --,
       notificationAddress "testsmdpplus1.example.com"
     }
   },
@@ -3451,7 +3451,7 @@ Output Data:
   iconType 1 -- png --,
   notificationConfigurationInfo {
     {
-      profileManagementOperation 'F'H -- notificationInstall | notificationLocalEnable | notificationLocalDisable | notificationLocalDelete --,
+      profileManagementOperation 'F'H -- notificationInstall | notificationEnable | notificationDisable | notificationDelete --,
       notificationAddress "testsmdpplus1.example.com"
     }
   },
@@ -3487,7 +3487,7 @@ Output Data:
   icon '89504E470D0A1A0A0000000D49484452000000400000004008040000000060B9550000000774494D4507E00B091007364C956F97000000097048597300000B1200000B1201D2DD7EFC0000000467414D410000B18F0BFC61050000021F4944415478DAED99CD1583200C803D32000B3004ABB00ECBB0822338578AF559223F49B0A8175F2EC023E1238410DB09A667E5E1E55F80BF00F686060B1E66B80420C02A32550D0E966E8CC6F0128D193460635FA66A3B7D511DB48DD94788B655D7815071BA26E61B9000ACC711841085EB398D84C0CD94F921EBE2DDAB18DB6B5005B055C3BC752B4038745C5339449CD4950248100E1D4528FAC207B228E3101A4BD4AE52BA96A603808B05D44C27ADAB2AF8807A00A6184B228014807566ECA13538E5008AC890BF06BE809E4DBEBE0B808A842A009FFD7B010436AF06B04F034C8D47EA46004703E034E4D95B90A98A447300DC353C9F07A843404D9B2D904BCA84F62480A7013C39351431225B722DE9F6AD591A0047C194E5AE19BD865AFC1A26976F088603C0A7AC9117FCE131F64200BCDFED8E290EE058906C46F2FAD09DAC885AB1550C68D2A8B426DCF69B8E71F76D195B15CD368207463513FD2DEA6648476B2500EB999B6250FA5DC0499E0B88B921F2BBAF782E877588930370724E4D3F0DD01D49DBE7E92CB940423172008F3ED3C6011C03B1396BCE6EC24800C703B862682480A20142250B8C05C081385186CD65009607D059DD772B80AE3CB963010205B054436414808ABB0FF237752480A996FB3702D8334FDA0BF002BC002FC0488053B5F5380005DC0A1703F03FFDFDC433A6FA010CF1EF4165C831E602B40134844C66E67FA4C1000618E5AB8F6008C03FAAB7028C9117E0036BAF44917035AF0E0000000049454E44AE426082'H,
   notificationConfigurationInfo {
     {
-      profileManagementOperation 'F'H -- notificationInstall | notificationLocalEnable | notificationLocalDisable | notificationLocalDelete --,
+      profileManagementOperation 'F'H -- notificationInstall | notificationEnable | notificationDisable | notificationDelete --,
       notificationAddress "testsmdpplus1.example.com"
     }
   },
@@ -3523,7 +3523,7 @@ Output Data:
   iconType 1 -- png --,
   notificationConfigurationInfo {
     {
-      profileManagementOperation 'F'H -- notificationInstall | notificationLocalEnable | notificationLocalDisable | notificationLocalDelete --,
+      profileManagementOperation 'F'H -- notificationInstall | notificationEnable | notificationDisable | notificationDelete --,
       notificationAddress "testsmdpplus1.example.com"
     }
   },
@@ -4833,7 +4833,7 @@ Output Data:
   iconType 1 -- png --,
   notificationConfigurationInfo {
     {
-      profileManagementOperation 'F'H -- notificationInstall | notificationLocalEnable | notificationLocalDisable | notificationLocalDelete --,
+      profileManagementOperation 'F'H -- notificationInstall | notificationEnable | notificationDisable | notificationDelete --,
       notificationAddress "testsmdpplus1.example.com"
     }
   },
@@ -6773,7 +6773,7 @@ Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174
 Output Data:
 
 --------------------------------------------------------------------------------
-Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: SGP_22.RSPDefinitions.StoreMetadataRequest; Asn1 Schema: SGP_22_v3_0_0_RSPDefinitions
+Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: SGP_22.RSPDefinitions.StoreMetadataRequest; Asn1 Schema: SGP_22_v2_4_RSPDefinitions
 ********************************************* InvalidAsnElement WhiteSpace *********************************************
 Remarks List: InvalidAsnElement WhiteSpace
 Info => Encoding_Mode; Input Format: der; Output Format: asn1
@@ -6803,7 +6803,7 @@ Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174
 Output Data:
 
 --------------------------------------------------------------------------------
-Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: s1; Asn1 Schema: SGP_22_v3_0_0_RSPDefinitions
+Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: s1; Asn1 Schema: SGP_22_v2_4_RSPDefinitions
 ****************************************** Invalid asn1_element (unknown str) ******************************************
 Remarks List: Invalid asn1_element (unknown str)
 Info => Encoding_Mode; Asn1 Element: StoreMetadataReques; Input Format: der; Output Format: asn1
@@ -6811,7 +6811,7 @@ Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174
 Output Data:
 
 --------------------------------------------------------------------------------
-Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: StoreMetadataReques; Asn1 Schema: SGP_22_v3_0_0_RSPDefinitions
+Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: StoreMetadataReques; Asn1 Schema: SGP_22_v2_4_RSPDefinitions
 *************************************** Invalid asn1_element (class name as str) ***************************************
 Remarks List: Invalid asn1_element (class name as str)
 Info => Encoding_Mode; Asn1 Element: SGP_22.RSPDefinitions.StoreMetadataRequest; Input Format: der; Output Format: asn1
@@ -6819,7 +6819,7 @@ Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174
 Output Data:
 
 --------------------------------------------------------------------------------
-Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: SGP_22.RSPDefinitions.StoreMetadataRequest; Asn1 Schema: SGP_22_v3_0_0_RSPDefinitions
+Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: SGP_22.RSPDefinitions.StoreMetadataRequest; Asn1 Schema: SGP_22_v2_4_RSPDefinitions
 ************ ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex ************
 Remarks List Generated: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex
 Info => Encoding_Mode; Input Format: der; Output Format: asn1
@@ -6952,10 +6952,10 @@ Output Data:
   }
 }
 --------------------------------------------------------------------------------
-***** StoreMetadataRequest; ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.hex *****
-Remarks List Generated: StoreMetadataRequest; ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.hex
+****** StoreMetadataRequest; ..\..\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.hex ******
+Remarks List Generated: StoreMetadataRequest; ..\..\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.hex
 Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1
-Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.hex
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest.hex
 Input Data: BF2582031C5A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D6520319301019482029089504E470D0A1A0A0000000D49484452000000400000004008040000000060B9550000000774494D4507E00B091007364C956F97000000097048597300000B1200000B1201D2DD7EFC0000000467414D410000B18F0BFC61050000021F4944415478DAED99CD1583200C803D32000B3004ABB00ECBB0822338578AF559223F49B0A8175F2EC023E1238410DB09A667E5E1E55F80BF00F686060B1E66B80420C02A32550D0E966E8CC6F0128D193460635FA66A3B7D511DB48DD94788B655D7815071BA26E61B9000ACC711841085EB398D84C0CD94F921EBE2DDAB18DB6B5005B055C3BC752B4038745C5339449CD4950248100E1D4528FAC207B228E3101A4BD4AE52BA96A603808B05D44C27ADAB2AF8807A00A6184B228014807566ECA13538E5008AC890BF06BE809E4DBEBE0B808A842A009FFD7B010436AF06B04F034C8D47EA46004703E034E4D95B90A98A447300DC353C9F07A843404D9B2D904BCA84F62480A7013C39351431225B722DE9F6AD591A0047C194E5AE19BD865AFC1A26976F088603C0A7AC9117FCE131F64200BCDFED8E290EE058906C46F2FAD09DAC885AB1550C68D2A8B426DCF69B8E71F76D195B15CD368207463513FD2DEA6648476B2500EB999B6250FA5DC0499E0B88B921F2BBAF782E877588930370724E4D3F0DD01D49DBE7E92CB940423172008F3ED3C6011C03B1396BCE6EC24800C703B862682480A20142250B8C05C081385186CD65009607D059DD772B80AE3CB963010205B054436414808ABB0FF237752480A996FB3702D8334FDA0BF002BC002FC0488053B5F5380005DC0A1703F03FFDFDC433A6FA010CF1EF4165C831E602B40134844C66E67FA4C1000618E5AB8F6008C03FAAB7028C9117E0036BAF44917035AF0E0000000049454E44AE426082B621301F800204F0811974657374736D6470706C7573312E6578616D706C652E636F6DB705800392F91899020640BF220F300D8003883710A1060404C1020304BF230F300D8003883711A106040402020202
 Output Data:
 {
@@ -6966,7 +6966,7 @@ Output Data:
   icon '89504E470D0A1A0A0000000D49484452000000400000004008040000000060B9550000000774494D4507E00B091007364C956F97000000097048597300000B1200000B1201D2DD7EFC0000000467414D410000B18F0BFC61050000021F4944415478DAED99CD1583200C803D32000B3004ABB00ECBB0822338578AF559223F49B0A8175F2EC023E1238410DB09A667E5E1E55F80BF00F686060B1E66B80420C02A32550D0E966E8CC6F0128D193460635FA66A3B7D511DB48DD94788B655D7815071BA26E61B9000ACC711841085EB398D84C0CD94F921EBE2DDAB18DB6B5005B055C3BC752B4038745C5339449CD4950248100E1D4528FAC207B228E3101A4BD4AE52BA96A603808B05D44C27ADAB2AF8807A00A6184B228014807566ECA13538E5008AC890BF06BE809E4DBEBE0B808A842A009FFD7B010436AF06B04F034C8D47EA46004703E034E4D95B90A98A447300DC353C9F07A843404D9B2D904BCA84F62480A7013C39351431225B722DE9F6AD591A0047C194E5AE19BD865AFC1A26976F088603C0A7AC9117FCE131F64200BCDFED8E290EE058906C46F2FAD09DAC885AB1550C68D2A8B426DCF69B8E71F76D195B15CD368207463513FD2DEA6648476B2500EB999B6250FA5DC0499E0B88B921F2BBAF782E877588930370724E4D3F0DD01D49DBE7E92CB940423172008F3ED3C6011C03B1396BCE6EC24800C703B862682480A20142250B8C05C081385186CD65009607D059DD772B80AE3CB963010205B054436414808ABB0FF237752480A996FB3702D8334FDA0BF002BC002FC0488053B5F5380005DC0A1703F03FFDFDC433A6FA010CF1EF4165C831E602B40134844C66E67FA4C1000618E5AB8F6008C03FAAB7028C9117E0036BAF44917035AF0E0000000049454E44AE426082'H,
   notificationConfigurationInfo {
     {
-      profileManagementOperation 'F'H -- notificationInstall | notificationLocalEnable | notificationLocalDisable | notificationLocalDelete --,
+      profileManagementOperation 'F'H -- notificationInstall | notificationEnable | notificationDisable | notificationDelete --,
       notificationAddress "testsmdpplus1.example.com"
     }
   },
@@ -7050,10 +7050,10 @@ Input Data:
 
 Output Data: bf25335a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031
 --------------------------------------------------------------------------------
-* StoreMetadataRequest; ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandator... *
-Remarks List Generated: StoreMetadataRequest; ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandator...
+* StoreMetadataRequest; ..\..\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_Mandatory.... *
+Remarks List Generated: StoreMetadataRequest; ..\..\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_Mandatory....
 Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der
-Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v2_4\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
 Input Data:
 {
   iccid '989209012143658709F5'H,
@@ -7102,14 +7102,14 @@ Input Data:
 }
 Output Data: 3007a0058000810163
 --------------------------------------------------------------------------------
-********************** PE_End; ..\..\Data\SampleData\TCA\eUICC_Profile_Package\v3_0_0\PE_End.asn1 **********************
-Remarks List Generated: PE_End; ..\..\Data\SampleData\TCA\eUICC_Profile_Package\v3_0_0\PE_End.asn1
+*********************** PE_End; ..\..\Data\SampleData\TCA\eUICC_Profile_Package\v2_4\PE_End.asn1 ***********************
+Remarks List Generated: PE_End; ..\..\Data\SampleData\TCA\eUICC_Profile_Package\v2_4\PE_End.asn1
 Info => Decoding_Mode; Asn1 Element: PE_End; Input Format: asn1; Output Format: der
 Input Data:
-..\..\Data\SampleData\TCA\eUICC_Profile_Package\v3_0_0\PE_End.asn1
+..\..\Data\SampleData\TCA\eUICC_Profile_Package\v2_4\PE_End.asn1
 Output Data: 
 --------------------------------------------------------------------------------
-Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: PE_End; Asn1 Schema: SGP_22_v3_0_0_RSPDefinitions
+Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: PE_End; Asn1 Schema: SGP_22_v2_4_RSPDefinitions
 *********************** PE_End; ..\..\Data\SampleData\TCA\eUICC_Profile_Package\v3_2\PE_End.asn1 ***********************
 Remarks List Generated: PE_End; ..\..\Data\SampleData\TCA\eUICC_Profile_Package\v3_2\PE_End.asn1
 Info => Decoding_Mode; Asn1 Element: PE_End; Input Format: asn1; Output Format: der

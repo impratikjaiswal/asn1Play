@@ -5,7 +5,7 @@
   iconType 1 -- png --,
   notificationConfigurationInfo {
     {
-      profileManagementOperation 'F'H -- notificationInstall | notificationLocalEnable | notificationLocalDisable | notificationLocalDelete --,
+      profileManagementOperation 'F'H -- notificationInstall | notificationEnable | notificationDisable | notificationDelete --,
       notificationAddress "testsmdpplus1.example.com"
     }
   },

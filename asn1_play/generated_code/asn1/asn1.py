@@ -1,5 +1,6 @@
 from asn1_play.generated_code.asn1.GSMA import SGP_22 as package_sgp_22
 from asn1_play.generated_code.asn1.GSMA import SGP_32 as package_sgp_32
+from asn1_play.generated_code.asn1.GSMA.SGP_22 import default_asn_schema
 from asn1_play.generated_code.asn1.TCA import eUICC_Profile_Package as package_epp
 from asn1_play.generated_code.asn1.asn1_schema import Asn1Schema
 from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions, Asn1Family
@@ -17,7 +18,7 @@ class Asn1:
     def __set_asn1_schema(self, asn1_schema):
         if asn1_schema is None or not isinstance(asn1_schema, Asn1Schema):
             # set defaults:
-            asn1_schema = Defaults.ASN1_SCHEMA
+            asn1_schema = default_asn_schema
         asn1_family = asn1_schema.asn1_family
         asn1_user_version = asn1_schema.asn1_version
         package = None
