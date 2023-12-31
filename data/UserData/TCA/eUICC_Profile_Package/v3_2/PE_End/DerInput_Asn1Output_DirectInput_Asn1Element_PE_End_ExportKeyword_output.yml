@@ -1,6 +1,6 @@
 input:
     raw_data: 3007a0058000810163
-    asn1_element: eUICC_Profile_Package.PEDefinitions.PE_End
+    asn1_element: eUICC_Profile_Package.PEDefinitions.PE-End
     input_format: der
     output_format: asn1
     print_input: true
@@ -12,7 +12,7 @@ input:
     - DerInput; Asn1Output; DirectInput; Asn1Element; PE_End; ExportKeyword;
 output:
     remarks_list: DerInput; Asn1Output; DirectInput; Asn1Element; PE_End; ExportKeyword
-    info: 'Yml_Encoding_Mode; Asn1 Element: PE_End; Input Format: der; Output Format: asn1; Output File: ..\..\Data\UserData\TCA\eUICC_Profile_Package\v3_2\PE_End; Output File Name Keyword: output'
+    info: 'Yml_Encoding_Mode; Asn1 Element: PE-End; Input Format: der; Output Format: asn1; Output File: ..\..\Data\UserData\TCA\eUICC_Profile_Package\v3_2\PE_End; Output File Name Keyword: output'
     input_yml: ../../Data/UserData/TCA/eUICC_Profile_Package/v3_2/\PE_End\DerInput_Asn1Output_DirectInput_Asn1Element_PE_End_ExportKeyword_export.yml
     output_file: ../../Data/UserData/TCA/eUICC_Profile_Package/v3_2/\PE_End\DerInput_Asn1Output_DirectInput_Asn1Element_PE_End_ExportKeyword_output.yml
     input_data: 3007a0058000810163
@@ -30,4 +30,4 @@ output_version:
     SGP22: v3_0_0
     SGP32: v1_0_1
     eUICC_Profile_Package: v3_2
-    time_stamp: Sunday, Dec 31 2023, 10:03:38:694581, IST (GMT+0530)
+    time_stamp: Sunday, Dec 31 2023, 13:18:24:202915, IST (GMT+0530)

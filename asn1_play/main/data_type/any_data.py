@@ -1,6 +1,8 @@
 from asn1_play.generated_code.asn1.GSMA import SGP_22
 from asn1_play.generated_code.asn1.GSMA.SGP_22.v0_0.python_gen.sgp22.sgp22 import PKIX1Explicit88
 from asn1_play.generated_code.asn1.TCA import eUICC_Profile_Package
+from asn1_play.generated_code.asn1.asn1 import Asn1
+from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.helper.data import Data
 from asn1_play.main.helper.formats import Formats
@@ -51,6 +53,22 @@ class AnyData(DataTypeMaster):
 
     def set_data_pool(self):
         data_pool = [
+            #
+            Data(
+                remarks_list='# DerInput; Asn1Output; FileInput; Asn1Schema; Asn1Element; StoreMetadataRequest; VersionVariable;',
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                asn1_element=Asn1(Asn1Versions.SGP_22_v3_0_0, 'StoreMetadataRequest'),
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+            #
+            Data(
+                remarks_list='# DerInput; Asn1Output; FileInput; Asn1Schema; Asn1Element; StoreMetadataRequest; VersionVariable;',
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                asn1_element=Asn1(Asn1Versions.SGP_22_v2_4, 'StoreMetadataRequest'),
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
             #
             Data(  # HexInput; AsciiOutput; YmlInput;
                 raw_data=r'..\..\Data\SampleData\Generic\ASCII\hex_to_ascii_op_same_file.yml'

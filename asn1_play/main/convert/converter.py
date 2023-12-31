@@ -130,19 +130,27 @@ def prepare_config_data(data):
             continue
         if k in [PhKeys.ASN1_ELEMENT]:
             value = data.get_asn1_element_name()
+            value_alternate = data.get_asn1_element_name_alternate()
             module_name = data.get_asn1_module_name()
+            class_obj = None
+            module_path = None
             # Legacy Code
             if module_name == KeyWords.MODULE_SGP22:
-                if isinstance(data.asn1_element, type(getattr(SGP_22.RSPDefinitions, value))):
-                    data_dic[k] = '.'.join([KeyWords.PATH_SGP22, value])
-                    continue
+                class_obj = SGP_22.RSPDefinitions
+                module_path = KeyWords.PATH_SGP22
             if module_name == KeyWords.MODULE_SGP32:
-                if isinstance(data.asn1_element, type(getattr(SGP_32.SGP32Definitions, value))):
-                    data_dic[k] = '.'.join([KeyWords.PATH_SGP32, value])
-                    continue
+                class_obj = SGP_32.SGP32Definitions
+                module_path = KeyWords.PATH_SGP32
             if module_name == KeyWords.MODULE_EPP:
-                if isinstance(data.asn1_element, type(getattr(eUICC_Profile_Package.PEDefinitions, value))):
-                    data_dic[k] = '.'.join([KeyWords.PATH_EPP, value])
+                class_obj = eUICC_Profile_Package.PEDefinitions
+                module_path = KeyWords.PATH_EPP
+            if class_obj:
+                try:
+                    obj = type(getattr(class_obj, value))
+                except:
+                    obj = type(getattr(class_obj, value_alternate))
+                if obj:
+                    data_dic[k] = '.'.join([module_path, value])
                 continue
 
         if k in [PhKeys.INPUT_FORMAT, PhKeys.OUTPUT_FORMAT]:
@@ -164,12 +172,22 @@ def parse_config(config_data):
         if k in [PhKeys.ASN1_ELEMENT]:
             temp = str(v).split('.')
             value = temp[-1]
+            value_alternate = value.replace('-', '_')
+            # Legacy Code
+            class_obj = None
             if temp[0] == KeyWords.CLASS_SGP22:
-                config_data[k] = getattr(SGP_22.RSPDefinitions, value)
+                class_obj = SGP_22.RSPDefinitions
             if temp[0] == KeyWords.CLASS_SGP32:
-                config_data[k] = getattr(SGP_32.SGP32Definitions, value)
+                class_obj = SGP_32.SGP32Definitions
             if temp[0] == KeyWords.CLASS_EPP:
-                config_data[k] = getattr(eUICC_Profile_Package.PEDefinitions, value)
+                class_obj = eUICC_Profile_Package.PEDefinitions
+            if class_obj:
+                try:
+                    obj = getattr(class_obj, value)
+                except:
+                    obj = getattr(class_obj, value_alternate)
+                if obj:
+                    config_data[k] = obj
         if k in [PhKeys.INPUT_FORMAT, PhKeys.OUTPUT_FORMAT, PhKeys.OUTPUT_FILE_NAME_KEYWORD]:
             temp = str(v).split('.')
             value = temp[-1]

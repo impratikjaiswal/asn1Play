@@ -1,6 +1,6 @@
 input:
     raw_data: 3007a0058000810163
-    asn1_element: eUICC_Profile_Package.PEDefinitions.PE_End
+    asn1_element: eUICC_Profile_Package.PEDefinitions.PE-End
     input_format: der
     output_format: asn1
     print_input: true
