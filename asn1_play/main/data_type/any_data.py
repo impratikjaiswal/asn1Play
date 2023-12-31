@@ -57,7 +57,7 @@ class AnyData(DataTypeMaster):
             Data(
                 remarks_list='# DerInput; Asn1Output; FileInput; Asn1Schema; Asn1Element; StoreMetadataRequest; VersionVariable;',
                 raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
-                asn1_element=Asn1(Asn1Versions.SGP_22_v3_0_0, 'StoreMetadataRequest'),
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v3_0_0, 'StoreMetadataRequest'),
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),
@@ -65,7 +65,7 @@ class AnyData(DataTypeMaster):
             Data(
                 remarks_list='# DerInput; Asn1Output; FileInput; Asn1Schema; Asn1Element; StoreMetadataRequest; VersionVariable;',
                 raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
-                asn1_element=Asn1(Asn1Versions.SGP_22_v2_4, 'StoreMetadataRequest'),
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v2_4, 'StoreMetadataRequest'),
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),

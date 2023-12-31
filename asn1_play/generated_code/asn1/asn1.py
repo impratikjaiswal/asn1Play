@@ -23,9 +23,9 @@ class Asn1:
         asn1_family = asn1_schema.asn1_family
         asn1_user_version = asn1_schema.asn1_version
         package = None
-        if asn1_family == Asn1Family.SGP_22:
+        if asn1_family == Asn1Family.GSMA_SGP_22:
             package = package_sgp_22
-        if asn1_family == Asn1Family.SGP_32:
+        if asn1_family == Asn1Family.GSMA_SGP_32:
             package = package_sgp_32
         if asn1_family == Asn1Family.TCA_EPP:
             package = package_epp

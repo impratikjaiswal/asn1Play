@@ -563,14 +563,14 @@ class UnitTesting(DataTypeMaster):
             #
             Data(
                 raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
-                asn1_element=Asn1(Asn1Versions.SGP_22_v3_0_0, 'StoreMetadataRequest'),
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v3_0_0, 'StoreMetadataRequest'),
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),
             #
             Data(
                 raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
-                asn1_element=Asn1(Asn1Versions.SGP_22_v2_4, 'StoreMetadataRequest'),
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v2_4, 'StoreMetadataRequest'),
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),
@@ -594,14 +594,14 @@ class UnitTesting(DataTypeMaster):
             #
             Data(
                 raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
-                asn1_element=Asn1(Asn1Versions.SGP_22_v3_0_0, 'StoreMetadataRequest'),
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v3_0_0, 'StoreMetadataRequest'),
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
             ),
             #
             Data(
                 raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
-                asn1_element=Asn1(Asn1Versions.SGP_22_v2_4, 'StoreMetadataRequest'),
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v2_4, 'StoreMetadataRequest'),
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
             ),
@@ -625,14 +625,14 @@ class UnitTesting(DataTypeMaster):
             #
             Data(
                 raw_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
-                asn1_element=Asn1(Asn1Versions.TCA_EUICC_PROFILE_PACKAGE_v3_1, 'PE_End'),
+                asn1_element=Asn1(Asn1Versions.TCA_EPP_v3_1, 'PE_End'),
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
             ),
             #
             Data(
                 raw_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
-                asn1_element=Asn1(Asn1Versions.TCA_EUICC_PROFILE_PACKAGE_v3_2, 'PE_End'),
+                asn1_element=Asn1(Asn1Versions.TCA_EPP_v3_2, 'PE_End'),
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
             ),
@@ -656,14 +656,14 @@ class UnitTesting(DataTypeMaster):
             #
             Data(
                 raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
-                asn1_element=Asn1(Asn1Versions.SGP_22_v3_0_0, 'StoreMetadataRequest'),
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v3_0_0, 'StoreMetadataRequest'),
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),
             #
             Data(
                 raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
-                asn1_element=Asn1(Asn1Versions.SGP_22_v2_4, 'StoreMetadataRequest'),
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v2_4, 'StoreMetadataRequest'),
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),

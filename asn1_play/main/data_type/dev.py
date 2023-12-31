@@ -68,7 +68,7 @@ class Dev(DataTypeMaster):
             # Can be deleted
             Data(
                 raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
-                asn1_element=Asn1(Asn1Versions.SGP_22_v2_4, 'StoreMetadataRequest'),
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v2_4, 'StoreMetadataRequest'),
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),

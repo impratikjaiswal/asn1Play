@@ -13,5 +13,8 @@ class Asn1Schema:
     def get_asn1_class_name(self):
         return self.asn1_class_name
 
-    def get_name(self):
-        return '_'.join(filter(None, [self.asn1_family, self.asn1_version, self.asn1_class_name]))
+    def get_name(self, full_name=False):
+        if full_name:
+            return '_'.join(filter(None, [self.asn1_family, self.asn1_version, self.asn1_class_name]))
+        else:
+            return '_'.join(filter(None, [self.asn1_family, self.asn1_version]))
