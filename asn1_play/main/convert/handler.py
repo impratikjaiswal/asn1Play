@@ -260,8 +260,7 @@ def parse_data(parsing_format, record_count):
     if isinstance(parsing_data_current, bytes):
         parsing_data_current = parsing_data_current.hex()
     # Few Function returns tuple, list, dict
-    if _debug:
-        PhUtil.print_iter(parsing_data_current, header='iter_found')
+    print_debug_var('parsing_data_current', parsing_data_current)
     return str(parsing_data_current)
 
 
@@ -325,7 +324,7 @@ def find_offset_of_next_non_white_space_char(temp, current_offset):
 
 def print_debug_var(param_name, param_value=None):
     if _debug:
-        print(PhConstants.SEPERATOR_KEY_VALUE.join(filter(None, [param_name, param_value])))
+        print(PhConstants.SEPERATOR_KEY_VALUE.join(filter(None, [param_name, str(param_value)])))
     pass
 
 

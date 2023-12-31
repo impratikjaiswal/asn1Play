@@ -54,6 +54,7 @@ To Refer Sample usages, search for below keywords in source code (\asn1Play\asn1
   - TxtInput;
   - TxtOutput;
   - Asn1Element;
+  - Asn1Schema;
   - Asn1ElementString;
   - Asn1ElementVariable;
   - Asn1Input;
