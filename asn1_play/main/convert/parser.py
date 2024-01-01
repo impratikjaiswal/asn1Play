@@ -118,7 +118,7 @@ def parse_or_update_any_data(data, meta_data=None):
     # parse Data
     meta_data.parsed_data = decode_encode_asn(raw_data=data.raw_data, parse_only=True, input_format=data.input_format,
                                               output_format=data.output_format, asn1_element=data.asn1_element)
-    if meta_data.parsed_data and data.tlv_parsing_of_output:
+    if meta_data.parsed_data and data.tlv_parsing_of_output is True:
         data_type_tlv = DataTypeMaster()
         data_type_tlv.set_data_pool(data_pool=Data(raw_data=meta_data.parsed_data, quite_mode=True))
         data_type_tlv.parse_safe(PhErrorHandlingModes.CONTINUE_ON_ERROR)

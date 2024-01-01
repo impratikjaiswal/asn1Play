@@ -59,6 +59,9 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
     print_debug_var_v('output_format', output_format)
     print_debug_var_v('asn1_element', asn1_element)
     offset = 0
+    if asn1_element and isinstance(asn1_element, Asn1):
+        if asn1_element.is_fetch_asn1_objects_list():
+            return asn1_element.get_asn1_object_list()
     if not raw_data:
         raise ValueError(PhExceptionHelper(msg_key=Constants.RAW_DATA_MISSING, function_name=func_name))
     if input_format not in FormatsGroup.INPUT_FORMATS:
@@ -95,13 +98,14 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
     if isinstance(asn1_element, Asn1):
         # Run Time Versions
         asn1_object = asn1_element.get_asn1_object()
-        if not asn1_object or asn1_object is None:
+        asn1_object_alternate = asn1_element.get_asn1_object_alternate()
+        if (not asn1_object or asn1_object is None) and (not asn1_object_alternate or asn1_object_alternate is None):
             raise ValueError(
-                PhExceptionHelper(msg_key=Constants.ASN1_ELEMENT_IS_EMPTY_OR_MISSING, function_name=func_name))
+                PhExceptionHelper(msg_key=Constants.ASN1_OBJECT_IS_EMPTY_OR_MISSING, function_name=func_name))
         mapping_data = asn1_element.get_asn1_mapping()
         asn1_element_fetched = mapping_data.get(asn1_object, None)
         if not asn1_element_fetched:
-            asn1_element_fetched = mapping_data.get(asn1_element.get_asn1_object_alternate(), None)
+            asn1_element_fetched = mapping_data.get(asn1_object_alternate, None)
         print_debug_var(Constants.ASN1_ELEMENT_MAPPING_IS_DONE)
         if asn1_element_fetched is None:
             raise ValueError(

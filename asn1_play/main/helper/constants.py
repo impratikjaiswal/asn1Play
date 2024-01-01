@@ -10,6 +10,7 @@ class Constants:
     ASN1_ELEMENT_MAPPING_IS_FAIL = 'asn1_element mapping conversion is fail'
     RAW_DATA_CONVERSION_NOT_POSSIBLE = 'raw data conversion is not possible'
     ASN1_ELEMENT_IS_EMPTY_OR_MISSING = 'asn1_element is either empty or not provided'
+    ASN1_OBJECT_IS_EMPTY_OR_MISSING = 'asn1_object is either empty or not provided'
     RAW_DATA_HEX_CONVERSION_IS_DONE = 'raw data hex conversion is done'
     RAW_DATA_BASE_64_CONVERSION_IS_DONE = 'raw data base64 conversion is done'
     ASN1_ELEMENT_IS_NOT_NEEDED = 'asn1_element is not needed; Conversion can be performed'

@@ -7,14 +7,14 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Sunday, Dec 31 2023, 13:18:23:152831, IST (GMT+0530)
+Time Stamp is Monday, Jan 01 2024, 17:33:32:100060, IST (GMT+0530)
 --------------------------------------------------------------------------------
 IPV4 is 49.37.241.88
-IPV6 is 2405:201:d005:d029:5d34:c78d:cfa6:c9aa
+IPV6 is 2405:201:d005:d029:500e:fdc1:9fe9:1756
 --------------------------------------------------------------------------------
-pythonHelpers version is v3.0.0
+pythonHelpers version is v3.0.1
 --------------------------------------------------------------------------------
-asn1play version is v6.0.0
+asn1play version is v6.1.0
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 tlvPlay version is v3.0.0
@@ -4915,18 +4915,6 @@ Output Data:
   profilePolicyRules '01'B -- ppr1 --
 }
 --------------------------------------------------------------------------------
-*************************************************** Mimic Web Request **************************************************
-Remarks List: Mimic Web Request
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1
-Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
-Output Data:
-{
-  iccid '989209012143658709F5'H,
-  serviceProviderName "SP Name 1",
-  profileName "Operational Profile Name 1",
-  profilePolicyRules '01'B -- ppr1 --
-}
---------------------------------------------------------------------------------
 ************************************************** [10, -68, -46, 85] **************************************************
 Remarks List Generated: [10, -68, -46, 85]
 Info => Conversion_Mode; Input Format: byte_array; Output Format: der
@@ -6845,7 +6833,7 @@ Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174
 Output Data:
 
 --------------------------------------------------------------------------------
-Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: SGP_22.RSPDefinitions.StoreMetadataRequest; Asn1 Schema: SGP_22_v3_0_0_RSPDefinitions
+Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: SGP_22.RSPDefinitions.StoreMetadataRequest; Asn1 Schema: GSMA_SGP_22_v3_0_0
 ********************************************* InvalidAsnElement WhiteSpace *********************************************
 Remarks List: InvalidAsnElement WhiteSpace
 Info => Encoding_Mode; Input Format: der; Output Format: asn1
@@ -6853,7 +6841,7 @@ Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174
 Output Data:
 
 --------------------------------------------------------------------------------
-Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: asn1_element is either empty or not provided
+Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: asn1_object is either empty or not provided
 ************************************** Conversion Needed, AsnElement is whiteSpace *************************************
 Remarks List: Conversion Needed, AsnElement is whiteSpace
 Info => Conversion_Mode; Input Format: ascii; Output Format: hex
@@ -6875,7 +6863,7 @@ Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174
 Output Data:
 
 --------------------------------------------------------------------------------
-Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: s1; Asn1 Schema: SGP_22_v3_0_0_RSPDefinitions
+Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: s1; Asn1 Schema: GSMA_SGP_22_v3_0_0
 ****************************************** Invalid asn1_element (unknown str) ******************************************
 Remarks List: Invalid asn1_element (unknown str)
 Info => Encoding_Mode; Asn1 Element: StoreMetadataReques; Input Format: der; Output Format: asn1
@@ -6883,7 +6871,7 @@ Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174
 Output Data:
 
 --------------------------------------------------------------------------------
-Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: StoreMetadataReques; Asn1 Schema: SGP_22_v3_0_0_RSPDefinitions
+Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: StoreMetadataReques; Asn1 Schema: GSMA_SGP_22_v3_0_0
 *************************************** Invalid asn1_element (class name as str) ***************************************
 Remarks List: Invalid asn1_element (class name as str)
 Info => Encoding_Mode; Asn1 Element: SGP_22.RSPDefinitions.StoreMetadataRequest; Input Format: der; Output Format: asn1
@@ -6891,7 +6879,7 @@ Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174
 Output Data:
 
 --------------------------------------------------------------------------------
-Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: SGP_22.RSPDefinitions.StoreMetadataRequest; Asn1 Schema: SGP_22_v3_0_0_RSPDefinitions
+Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: SGP_22.RSPDefinitions.StoreMetadataRequest; Asn1 Schema: GSMA_SGP_22_v3_0_0
 ************ ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex ************
 Remarks List Generated: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex
 Info => Encoding_Mode; Input Format: der; Output Format: asn1
@@ -7181,7 +7169,7 @@ Input Data:
 ..\..\Data\SampleData\TCA\eUICC_Profile_Package\v3_0_0\PE_End.asn1
 Output Data: 
 --------------------------------------------------------------------------------
-Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: PE_End; Asn1 Schema: SGP_22_v3_0_0_RSPDefinitions
+Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: PE_End; Asn1 Schema: GSMA_SGP_22_v3_0_0
 *********************** PE-End; ..\..\Data\SampleData\TCA\eUICC_Profile_Package\v3_2\PE_End.asn1 ***********************
 Remarks List Generated: PE-End; ..\..\Data\SampleData\TCA\eUICC_Profile_Package\v3_2\PE_End.asn1
 Info => Decoding_Mode; Asn1 Element: PE-End; Input Format: asn1; Output Format: der
@@ -7315,6 +7303,537 @@ Input Data:
   }
 }
 Output Data: 3007a0058000810163
+--------------------------------------------------------------------------------
+*********************************************** Web Request; asn1_element **********************************************
+Remarks List: Web Request; asn1_element
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1
+Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
+Output Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1",
+  profilePolicyRules '01'B -- ppr1 --
+}
+--------------------------------------------------------------------------------
+*********************************************** Web Request; asn1_object ***********************************************
+Remarks List: Web Request; asn1_object
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1
+Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
+Output Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1",
+  profilePolicyRules '01'B -- ppr1 --
+}
+--------------------------------------------------------------------------------
+****************************************** Web Request; asn1_object_alternate ******************************************
+Remarks List: Web Request; asn1_object_alternate
+Info => Encoding_Mode; Input Format: der; Output Format: asn1
+Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
+Output Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1",
+  profilePolicyRules '01'B -- ppr1 --
+}
+--------------------------------------------------------------------------------
+************************************ Web Request; asn1_object; asn1_object_alternate ***********************************
+Remarks List: Web Request; asn1_object; asn1_object_alternate
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1
+Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
+Output Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1",
+  profilePolicyRules '01'B -- ppr1 --
+}
+--------------------------------------------------------------------------------
+***************************************** Web Request; fetch_asn1_objects; True ****************************************
+Remarks List: Web Request; fetch_asn1_objects; True
+Info => Encoding_Mode; Input Format: der; Output Format: asn1
+Input Data: 
+Output Data:
+AlertData
+AuthenticateClientOk
+AuthenticateClientOkDelayedDeviceChange
+AuthenticateClientOkDeviceChange
+AuthenticateClientOkEs11V2
+AuthenticateClientOkEs11V3
+AuthenticateClientOkRpm
+AuthenticateClientRequest
+AuthenticateClientResponseEs11
+AuthenticateClientResponseEs9
+AuthenticateErrorCode
+AuthenticateResponseError
+AuthenticateResponseOk
+AuthenticateServerRequest
+AuthenticateServerResponse
+BoundProfilePackage
+BppCommandId
+CancelSessionOk
+CancelSessionReason
+CancelSessionRequest
+CancelSessionRequestEs9
+CancelSessionResponse
+CancelSessionResponseEs9
+CancelSessionResponseOk
+CatSupportedClasses
+CertificateChain
+CertificationDataObject
+CheckEventOk
+CheckEventRequest
+CheckEventResponse
+CheckProgressOk
+CheckProgressRequest
+CheckProgressResponse
+ConfigureISDPRequest
+ConfirmDeviceChangeOk
+ConfirmDeviceChangeRequest
+ConfirmDeviceChangeResponse
+ContactPcmpResponse
+ControlRefTemplate
+CtxParams1
+CtxParamsForCommonAuthentication
+CtxParamsForDeviceChange
+CtxParamsForProfileRecovery
+CtxParamsForPushServiceRegistration
+DeleteNotificationForDc
+DeleteProfileRequest
+DeleteProfileResponse
+DeviceAdditionalFeatureSupport
+DeviceCapabilities
+DeviceChangeConfiguration
+DeviceChangeData
+DeviceChangeResponse
+DeviceInfo
+DisableProfileRequest
+DisableProfileResponse
+DownloadErrorCode
+DpProprietaryData
+E4ERequest
+E4EResponse
+E4EResultCode
+EUICCInfo1
+EUICCInfo2
+EUICCSigned2
+EUICCSigned3
+EnableProfileRequest
+EnableProfileResponse
+EncryptedDeviceChangeData
+EnterpriseConfiguration
+ErrorReason
+ErrorResult
+EuiccCancelSessionSigned
+EuiccConfiguredDataRequest
+EuiccConfiguredDataResponse
+EuiccFormFactorType
+EuiccMemoryResetRequest
+EuiccMemoryResetResponse
+EuiccRspCapability
+EuiccSign
+EuiccSigned1
+EventRecord
+EventRecordV3
+GetBoundProfilePackageOk
+GetBoundProfilePackageRequest
+GetBoundProfilePackageResponse
+GetEuiccChallengeRequest
+GetEuiccChallengeResponse
+GetEuiccDataRequest
+GetEuiccDataResponse
+GetEuiccInfo1Request
+GetEuiccInfo2Request
+GetRatRequest
+GetRatResponse
+HandleNotification
+ISDRProprietaryApplicationTemplate
+Iccid
+IconType
+InitialiseSecureChannelRequest
+InitiateAuthenticationOkEs9
+InitiateAuthenticationRequest
+InitiateAuthenticationResponse
+IoTSpecificInfo
+ListNotificationRequest
+ListNotificationResponse
+ListProfileInfo
+LoadRpmPackageErrorCodeNotSigned
+LoadRpmPackageErrorCodeSigned
+LoadRpmPackageRequest
+LoadRpmPackageResult
+LoadRpmPackageResultDataSigned
+LoadRpmPackageResultNotSigned
+LoadRpmPackageResultSigned
+LocalisedTextMessage
+LpaMode
+LpaRspCapability
+LpaeActivationRequest
+LpaeActivationResponse
+LprConfiguration
+MatchingIdSource
+MetadataUpdateEnabledProfile
+NotificationConfigurationInformation
+NotificationEvent
+NotificationMetadata
+NotificationSentRequest
+NotificationSentResponse
+OPENTYPE
+Octet1
+Octet16
+Octet32
+Octet4
+Octet8
+OctetTo16
+OperationType
+OperatorId
+OtherSignedNotification
+PendingNotification
+PermittedEins
+PprIds
+PrepareDeviceChangeRequest
+PrepareDeviceChangeResponse
+PrepareDeviceChangeResponseError
+PrepareDeviceChangeResponseOk
+PrepareDownloadRequest
+PrepareDownloadResponse
+PrepareDownloadResponseError
+PrepareDownloadResponseOk
+ProfileClass
+ProfileInfo
+ProfileInfoListError
+ProfileInfoListRequest
+ProfileInfoListResponse
+ProfileInstallationResult
+ProfileInstallationResultData
+ProfilePolicyAuthorisationRule
+ProfileState
+RemoteOpId
+RemoteProfileProvisioningRequest
+RemoteProfileProvisioningResponse
+ReplaceSessionKeysRequest
+RetrieveNotificationsListRequest
+RetrieveNotificationsListResponse
+RpmCommand
+RpmCommandResult
+RpmConfiguration
+RpmPackage
+RpmType
+RulesAuthorisationTable
+ServerRspCapability
+ServerSigned1
+ServerWithPendingOperation
+ServiceDescription
+SessionContext
+SetDefaultDpAddressRequest
+SetDefaultDpAddressResponse
+SetNicknameRequest
+SetNicknameResponse
+SmdpSigned2
+SmdpSigned3
+SmdpSigned4
+SmdpSigned5
+SmdpSigned6
+SmdsSigned2
+StoreMetadataRequest
+SuccessResult
+TransactionId
+UpdateMetadataRequest
+UpdateMetadataResponse
+VendorSpecificExtension
+VerifyDeviceChangeRequest
+VerifyDeviceChangeResponse
+VerifyProfileRecoveryRequest
+VerifyProfileRecoveryResponse
+VerifySmdpResponseRequest
+VerifySmdpResponseResponse
+VerifySmdsResponseRequest
+VerifySmdsResponseResponse
+VersionType
+id_rsp
+id_rspRole
+id_rspRole_ci
+id_rspRole_ciSubCa
+id_rspRole_dpSubCa
+id_rspRole_dp_auth
+id_rspRole_dp_auth_v2
+id_rspRole_dp_pb
+id_rspRole_dp_pb_v2
+id_rspRole_dp_tls
+id_rspRole_dp_tls_v2
+id_rspRole_dsSubCa
+id_rspRole_ds_auth
+id_rspRole_ds_auth_v2
+id_rspRole_ds_tls
+id_rspRole_ds_tls_v2
+id_rspRole_euicc
+id_rspRole_euicc_v2
+id_rspRole_eum
+id_rspRole_eumSubCa
+id_rspRole_eum_v2
+id_rsp_cert_objects
+id_rsp_extension_permitted_eins
+id_rsp_extensions
+Certificate
+CertificateList
+Time
+SubjectKeyIdentifier
+--------------------------------------------------------------------------------
+**************************************** Web Request; fetch_asn1_objects; False ****************************************
+Remarks List: Web Request; fetch_asn1_objects; False
+Info => Encoding_Mode; Input Format: der; Output Format: asn1
+Input Data: 
+Output Data:
+
+--------------------------------------------------------------------------------
+Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Mandatory raw data is missing.
+************************************** Web Request; fetch_asn1_objects; True (str) *************************************
+Remarks List: Web Request; fetch_asn1_objects; True (str)
+Info => Encoding_Mode; Input Format: der; Output Format: asn1
+Input Data: 
+Output Data:
+AlertData
+AuthenticateClientOk
+AuthenticateClientOkDelayedDeviceChange
+AuthenticateClientOkDeviceChange
+AuthenticateClientOkEs11V2
+AuthenticateClientOkEs11V3
+AuthenticateClientOkRpm
+AuthenticateClientRequest
+AuthenticateClientResponseEs11
+AuthenticateClientResponseEs9
+AuthenticateErrorCode
+AuthenticateResponseError
+AuthenticateResponseOk
+AuthenticateServerRequest
+AuthenticateServerResponse
+BoundProfilePackage
+BppCommandId
+CancelSessionOk
+CancelSessionReason
+CancelSessionRequest
+CancelSessionRequestEs9
+CancelSessionResponse
+CancelSessionResponseEs9
+CancelSessionResponseOk
+CatSupportedClasses
+CertificateChain
+CertificationDataObject
+CheckEventOk
+CheckEventRequest
+CheckEventResponse
+CheckProgressOk
+CheckProgressRequest
+CheckProgressResponse
+ConfigureISDPRequest
+ConfirmDeviceChangeOk
+ConfirmDeviceChangeRequest
+ConfirmDeviceChangeResponse
+ContactPcmpResponse
+ControlRefTemplate
+CtxParams1
+CtxParamsForCommonAuthentication
+CtxParamsForDeviceChange
+CtxParamsForProfileRecovery
+CtxParamsForPushServiceRegistration
+DeleteNotificationForDc
+DeleteProfileRequest
+DeleteProfileResponse
+DeviceAdditionalFeatureSupport
+DeviceCapabilities
+DeviceChangeConfiguration
+DeviceChangeData
+DeviceChangeResponse
+DeviceInfo
+DisableProfileRequest
+DisableProfileResponse
+DownloadErrorCode
+DpProprietaryData
+E4ERequest
+E4EResponse
+E4EResultCode
+EUICCInfo1
+EUICCInfo2
+EUICCSigned2
+EUICCSigned3
+EnableProfileRequest
+EnableProfileResponse
+EncryptedDeviceChangeData
+EnterpriseConfiguration
+ErrorReason
+ErrorResult
+EuiccCancelSessionSigned
+EuiccConfiguredDataRequest
+EuiccConfiguredDataResponse
+EuiccFormFactorType
+EuiccMemoryResetRequest
+EuiccMemoryResetResponse
+EuiccRspCapability
+EuiccSign
+EuiccSigned1
+EventRecord
+EventRecordV3
+GetBoundProfilePackageOk
+GetBoundProfilePackageRequest
+GetBoundProfilePackageResponse
+GetEuiccChallengeRequest
+GetEuiccChallengeResponse
+GetEuiccDataRequest
+GetEuiccDataResponse
+GetEuiccInfo1Request
+GetEuiccInfo2Request
+GetRatRequest
+GetRatResponse
+HandleNotification
+ISDRProprietaryApplicationTemplate
+Iccid
+IconType
+InitialiseSecureChannelRequest
+InitiateAuthenticationOkEs9
+InitiateAuthenticationRequest
+InitiateAuthenticationResponse
+IoTSpecificInfo
+ListNotificationRequest
+ListNotificationResponse
+ListProfileInfo
+LoadRpmPackageErrorCodeNotSigned
+LoadRpmPackageErrorCodeSigned
+LoadRpmPackageRequest
+LoadRpmPackageResult
+LoadRpmPackageResultDataSigned
+LoadRpmPackageResultNotSigned
+LoadRpmPackageResultSigned
+LocalisedTextMessage
+LpaMode
+LpaRspCapability
+LpaeActivationRequest
+LpaeActivationResponse
+LprConfiguration
+MatchingIdSource
+MetadataUpdateEnabledProfile
+NotificationConfigurationInformation
+NotificationEvent
+NotificationMetadata
+NotificationSentRequest
+NotificationSentResponse
+OPENTYPE
+Octet1
+Octet16
+Octet32
+Octet4
+Octet8
+OctetTo16
+OperationType
+OperatorId
+OtherSignedNotification
+PendingNotification
+PermittedEins
+PprIds
+PrepareDeviceChangeRequest
+PrepareDeviceChangeResponse
+PrepareDeviceChangeResponseError
+PrepareDeviceChangeResponseOk
+PrepareDownloadRequest
+PrepareDownloadResponse
+PrepareDownloadResponseError
+PrepareDownloadResponseOk
+ProfileClass
+ProfileInfo
+ProfileInfoListError
+ProfileInfoListRequest
+ProfileInfoListResponse
+ProfileInstallationResult
+ProfileInstallationResultData
+ProfilePolicyAuthorisationRule
+ProfileState
+RemoteOpId
+RemoteProfileProvisioningRequest
+RemoteProfileProvisioningResponse
+ReplaceSessionKeysRequest
+RetrieveNotificationsListRequest
+RetrieveNotificationsListResponse
+RpmCommand
+RpmCommandResult
+RpmConfiguration
+RpmPackage
+RpmType
+RulesAuthorisationTable
+ServerRspCapability
+ServerSigned1
+ServerWithPendingOperation
+ServiceDescription
+SessionContext
+SetDefaultDpAddressRequest
+SetDefaultDpAddressResponse
+SetNicknameRequest
+SetNicknameResponse
+SmdpSigned2
+SmdpSigned3
+SmdpSigned4
+SmdpSigned5
+SmdpSigned6
+SmdsSigned2
+StoreMetadataRequest
+SuccessResult
+TransactionId
+UpdateMetadataRequest
+UpdateMetadataResponse
+VendorSpecificExtension
+VerifyDeviceChangeRequest
+VerifyDeviceChangeResponse
+VerifyProfileRecoveryRequest
+VerifyProfileRecoveryResponse
+VerifySmdpResponseRequest
+VerifySmdpResponseResponse
+VerifySmdsResponseRequest
+VerifySmdsResponseResponse
+VersionType
+id_rsp
+id_rspRole
+id_rspRole_ci
+id_rspRole_ciSubCa
+id_rspRole_dpSubCa
+id_rspRole_dp_auth
+id_rspRole_dp_auth_v2
+id_rspRole_dp_pb
+id_rspRole_dp_pb_v2
+id_rspRole_dp_tls
+id_rspRole_dp_tls_v2
+id_rspRole_dsSubCa
+id_rspRole_ds_auth
+id_rspRole_ds_auth_v2
+id_rspRole_ds_tls
+id_rspRole_ds_tls_v2
+id_rspRole_euicc
+id_rspRole_euicc_v2
+id_rspRole_eum
+id_rspRole_eumSubCa
+id_rspRole_eum_v2
+id_rsp_cert_objects
+id_rsp_extension_permitted_eins
+id_rsp_extensions
+Certificate
+CertificateList
+Time
+SubjectKeyIdentifier
+--------------------------------------------------------------------------------
+************************************* Web Request; fetch_asn1_objects; False (str) *************************************
+Remarks List: Web Request; fetch_asn1_objects; False (str)
+Info => Encoding_Mode; Input Format: der; Output Format: asn1
+Input Data: 
+Output Data:
+
+--------------------------------------------------------------------------------
+Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Mandatory raw data is missing.
+************************************* Web Request; fetch_asn1_objects; sgp32; True *************************************
+Remarks List: Web Request; fetch_asn1_objects; sgp32; True
+Info => Encoding_Mode; Input Format: der; Output Format: asn1
+Input Data: 
+Output Data:
+
 --------------------------------------------------------------------------------
 *************************************************** raw_data is empty **************************************************
 Remarks List: raw_data is empty

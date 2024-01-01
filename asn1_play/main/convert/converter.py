@@ -15,6 +15,8 @@ from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp22_version
 from asn1_play.generated_code.asn1.GSMA.SGP_32 import version as sgp32_version
 from asn1_play.generated_code.asn1.TCA import eUICC_Profile_Package
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
+from asn1_play.generated_code.asn1.asn1 import Asn1
+from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 from asn1_play.main.helper.constants import Constants
 from asn1_play.main.helper.data import Data
 from asn1_play.main.helper.defaults import Defaults
@@ -166,9 +168,41 @@ def prepare_config_data(data):
 
 
 def parse_config(config_data):
+    asn1_schema = None
+    asn1_object = None
+    asn1_object_alternate = None
+    fetch_asn1_objects_list = None
+    # PhUtil.print_iter(config_data, 'config_data initial', verbose=True)
     for k, v in config_data.items():
-        if v is not None and v in ['None']:
-            config_data[k] = None
+        if v:
+            # Trim Garbage data
+            v = PhUtil.trim_white_spaces_in_str(v)
+            if v in ['None']:
+                v = None
+                config_data[k] = v
+            if v in [PhConstants.STR_SELECT_OPTION]:
+                v = None
+                config_data[k] = v
+            if v in ['True']:
+                v = True
+                config_data[k] = v
+            if v in ['False']:
+                v = False
+                config_data[k] = v
+        if not v:
+            continue
+        if k in [PhKeys.ASN1_SCHEMA]:
+            asn1_schema = getattr(Asn1Versions, v)
+            continue
+        if k in [PhKeys.ASN1_OBJECT]:
+            asn1_object = v
+            continue
+        if k in [PhKeys.ASN1_OBJECT_ALTERNATE]:
+            asn1_object_alternate = v
+            continue
+        if k in [PhKeys.FETCH_ASN1_OBJECTS_LIST]:
+            fetch_asn1_objects_list = v
+            continue
         if k in [PhKeys.ASN1_ELEMENT]:
             temp = str(v).split('.')
             value = temp[-1]
@@ -188,6 +222,7 @@ def parse_config(config_data):
                     obj = getattr(class_obj, value_alternate)
                 if obj:
                     config_data[k] = obj
+            continue
         if k in [PhKeys.INPUT_FORMAT, PhKeys.OUTPUT_FORMAT, PhKeys.OUTPUT_FILE_NAME_KEYWORD]:
             temp = str(v).split('.')
             value = temp[-1]
@@ -195,6 +230,21 @@ def parse_config(config_data):
                 config_data[k] = getattr(Formats, value)
             if temp[0] == KeyWords.CLASS_KEYWORDS:
                 config_data[k] = getattr(KeyWords, value)
+            continue
+        config_data[k] = v
+    if asn1_schema or asn1_object or asn1_object_alternate or fetch_asn1_objects_list:
+        config_data[PhKeys.ASN1_ELEMENT] = Asn1(asn1_schema, asn1_object, asn1_object_alternate,
+                                                fetch_asn1_objects_list=fetch_asn1_objects_list)
+    # PhUtil.print_iter(config_data, 'config_data before cleaning', verbose=True, depth_level=1)
+    if PhKeys.ASN1_SCHEMA in config_data:
+        config_data.pop(PhKeys.ASN1_SCHEMA)
+    if PhKeys.ASN1_OBJECT in config_data:
+        config_data.pop(PhKeys.ASN1_OBJECT)
+    if PhKeys.ASN1_OBJECT_ALTERNATE in config_data:
+        config_data.pop(PhKeys.ASN1_OBJECT_ALTERNATE)
+    if PhKeys.FETCH_ASN1_OBJECTS_LIST in config_data:
+        config_data.pop(PhKeys.FETCH_ASN1_OBJECTS_LIST)
+    # PhUtil.print_iter(config_data, 'config_data processed', verbose=True, depth_level=1)
     return config_data
 
 

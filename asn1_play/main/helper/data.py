@@ -12,7 +12,7 @@ from asn1_play.main.helper.variables import Variables
 
 class Data:
     def __init__(self,
-                 raw_data,
+                 raw_data=None,
                  asn1_element=None,
                  input_format=None,
                  output_format=None,

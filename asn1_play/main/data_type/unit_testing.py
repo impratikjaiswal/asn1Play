@@ -1,3 +1,5 @@
+from python_helpers.ph_keys import PhKeys
+
 from asn1_play.generated_code.asn1.GSMA import SGP_22
 from asn1_play.generated_code.asn1.TCA import eUICC_Profile_Package
 from asn1_play.generated_code.asn1.asn1 import Asn1
@@ -76,14 +78,6 @@ class UnitTesting(DataTypeMaster):
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1
             ),
-            #
-            {
-                'remarks_list': 'Mimic Web Request',
-                'raw_data': 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
-                'input_format': Formats.DER,
-                'output_format': Formats.ASN1,
-                'asn1_element': SGP_22.RSPDefinitions.StoreMetadataRequest
-            }
         ]
 
         data_pool_byte_array = [
@@ -556,6 +550,67 @@ class UnitTesting(DataTypeMaster):
             )
         ]
 
+        data_pool_web_requests = [
+            #
+            {
+                'remarks_list': 'Web Request; asn1_element;',
+                'raw_data': 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
+                'input_format': Formats.DER,
+                'output_format': Formats.ASN1,
+                'asn1_element': SGP_22.RSPDefinitions.StoreMetadataRequest
+            },
+            {
+                'remarks_list': 'Web Request; asn1_object;',
+                'raw_data': 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
+                'input_format': Formats.DER,
+                'output_format': Formats.ASN1,
+                'asn1_schema': 'GSMA_SGP_22_v3_0_0',
+                'asn1_object': 'StoreMetadataRequest',
+            },
+            {
+                'remarks_list': 'Web Request; asn1_object_alternate;',
+                'raw_data': 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
+                'input_format': Formats.DER,
+                'output_format': Formats.ASN1,
+                'asn1_schema': 'GSMA_SGP_22_v3_0_0',
+                'asn1_object_alternate': 'StoreMetadataRequest'
+            },
+            {
+                'remarks_list': 'Web Request; asn1_object; asn1_object_alternate;',
+                'raw_data': 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
+                'input_format': Formats.DER,
+                'output_format': Formats.ASN1,
+                'asn1_schema': 'GSMA_SGP_22_v3_0_0',
+                'asn1_object': 'StoreMetadataRequest',
+                'asn1_object_alternate': 'StoreMetadataRequest'
+            },
+            {
+                PhKeys.REMARKS_LIST: 'Web Request; fetch_asn1_objects; True',
+                PhKeys.ASN1_SCHEMA: Asn1Versions.GSMA_SGP_22_v3_1.get_name(),
+                PhKeys.FETCH_ASN1_OBJECTS_LIST: True,
+            },
+            {
+                PhKeys.REMARKS_LIST: 'Web Request; fetch_asn1_objects; False',
+                PhKeys.ASN1_SCHEMA: Asn1Versions.GSMA_SGP_22_v3_1.get_name(),
+                PhKeys.FETCH_ASN1_OBJECTS_LIST: False,
+            },
+            {
+                PhKeys.REMARKS_LIST: 'Web Request; fetch_asn1_objects; True (str)',
+                PhKeys.ASN1_SCHEMA: Asn1Versions.GSMA_SGP_22_v3_1.get_name(),
+                PhKeys.FETCH_ASN1_OBJECTS_LIST: 'True',
+            },
+            {
+                PhKeys.REMARKS_LIST: 'Web Request; fetch_asn1_objects; False (str)',
+                PhKeys.ASN1_SCHEMA: Asn1Versions.GSMA_SGP_22_v3_1.get_name(),
+                PhKeys.FETCH_ASN1_OBJECTS_LIST: 'False',
+            },
+            {
+                PhKeys.REMARKS_LIST: 'Web Request; fetch_asn1_objects; sgp32; True',
+                PhKeys.ASN1_SCHEMA: Asn1Versions.GSMA_SGP_32_v1_0.get_name(),
+                PhKeys.FETCH_ASN1_OBJECTS_LIST: True,
+            },
+        ]
+
         data_pool_asn_element_with_schema = [
             #####
             # DER to ASN1
@@ -826,5 +881,6 @@ class UnitTesting(DataTypeMaster):
             data_pool_asn1_element +
             data_pool_tlv +
             data_pool_asn_element_with_schema +
+            data_pool_web_requests +
             data_pool_negative
         )
