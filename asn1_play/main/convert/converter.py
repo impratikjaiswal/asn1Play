@@ -192,7 +192,7 @@ def parse_config(config_data):
         if not v:
             continue
         if k in [PhKeys.ASN1_SCHEMA]:
-            asn1_schema = getattr(Asn1Versions, v)
+            asn1_schema = Asn1Versions._get_asn1_version(v)
             continue
         if k in [PhKeys.ASN1_OBJECT]:
             asn1_object = v

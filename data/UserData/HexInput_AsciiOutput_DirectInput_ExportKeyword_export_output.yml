@@ -17,9 +17,9 @@ output:
     output_data: Welcome To AsnPlay !!!Welcome To AsnPlay !!!Welcome To AsnPlay !!!Welcome To AsnPlay !!!
 output_version:
     Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
-    pythonHelpers: v3.0.1
-    asn1play: v6.1.0
+    pythonHelpers: v3.0.2
+    asn1play: v6.1.2
     SGP22: v3_0_0
     SGP32: v1_0_1
     eUICC_Profile_Package: v3_2
-    time_stamp: Monday, Jan 01 2024, 18:13:23:795048, IST (GMT+0530)
+    time_stamp: Monday, Jan 08 2024, 10:45:14:570020, IST (GMT+0530)

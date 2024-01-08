@@ -61,7 +61,7 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
     offset = 0
     if asn1_element and isinstance(asn1_element, Asn1):
         if asn1_element.is_fetch_asn1_objects_list():
-            return asn1_element.get_asn1_object_list()
+            return asn1_element.get_asn1_object_list(str_format=True)
     if not raw_data:
         raise ValueError(PhExceptionHelper(msg_key=Constants.RAW_DATA_MISSING, function_name=func_name))
     if input_format not in FormatsGroup.INPUT_FORMATS:

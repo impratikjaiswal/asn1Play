@@ -18,6 +18,7 @@ from asn1_play.main.data_type.update_metadata_request import UpdateMetadataReque
 from asn1_play.main.data_type.user_data import UserData
 from asn1_play.main.helper.constants_config import ConfigConst
 from asn1_play.main.helper.defaults import Defaults
+from asn1_play.test.test import Test
 
 
 def process_data(execution_mode, error_handling_mode):
@@ -69,17 +70,30 @@ def process_data(execution_mode, error_handling_mode):
         #####
         UnitTesting(),
     ]
+    test_generic = [
+        #####
+        # Unit Testing Generic
+        #####
+        Test(),
+    ]
     data_types_pool = {
         PhExecutionModes.USER: data_type_user,
         PhExecutionModes.DEV: data_type_dev,
         PhExecutionModes.SAMPLE_GENERIC: data_types_sample_generic,
         PhExecutionModes.SAMPLE_SPECIFIC: data_types_sample_specific,
-        PhExecutionModes.UNIT_TESTING: data_type_unit_testing,
-        PhExecutionModes.ALL: data_types_sample_generic + data_types_sample_specific + data_type_unit_testing + data_type_user,
+        PhExecutionModes.UNIT_TESTING: test_generic + data_type_unit_testing,
+        PhExecutionModes.ALL: data_types_sample_generic + data_types_sample_specific + test_generic + data_type_unit_testing + data_type_user,
     }
     data_types = data_types_pool.get(execution_mode, Defaults.EXECUTION_MODE)
     for data_type in data_types:
         PhUtil.print_heading(str_heading=str(data_type.__class__.__name__))
+        if isinstance(data_type, UnitTesting):
+            error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
+        if isinstance(data_type, Dev):
+            error_handling_mode = PhErrorHandlingModes.STOP_ON_ERROR
+        if isinstance(data_type, Test):
+            Test.test_data()
+            continue
         data_type.set_print_input()
         data_type.set_print_output()
         data_type.set_print_info()
@@ -91,10 +105,6 @@ def process_data(execution_mode, error_handling_mode):
         data_type.set_input_format()
         data_type.set_asn1_element()
         data_type.set_data_pool()
-        if isinstance(data_type, UnitTesting):
-            error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
-        if isinstance(data_type, Dev):
-            error_handling_mode = PhErrorHandlingModes.STOP_ON_ERROR
         DataTypeMaster.parse_safe(data_type, error_handling_mode)
 
 

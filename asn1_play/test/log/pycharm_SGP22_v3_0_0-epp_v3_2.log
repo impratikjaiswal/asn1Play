@@ -7,14 +7,14 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Monday, Jan 01 2024, 18:13:23:089717, IST (GMT+0530)
+Time Stamp is Monday, Jan 08 2024, 10:45:13:713594, IST (GMT+0530)
 --------------------------------------------------------------------------------
-IPV4 is 49.37.241.88
-IPV6 is 2405:201:d005:d029:500e:fdc1:9fe9:1756
+IPV4 is 152.58.194.72
+IPV6 is 2409:40f2:104b:e0da:68f4:f398:f058:6938
 --------------------------------------------------------------------------------
-pythonHelpers version is v3.0.1
+pythonHelpers version is v3.0.2
 --------------------------------------------------------------------------------
-asn1play version is v6.1.0
+asn1play version is v6.1.2
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 tlvPlay version is v3.1.0
@@ -4847,6 +4847,46 @@ Input Data:
 }
 Output Data: 3007a0058000810163
 --------------------------------------------------------------------------------
+--------------------------------------------------------- Test ---------------------------------------------------------
+************************************************ Welcome To AsnPlay !!! ************************************************
+Remarks List Generated: Welcome To AsnPlay !!!
+Info => Conversion_Mode; Input Format: ascii; Output Format: hex
+Input Data: Welcome To AsnPlay !!!
+Output Data: 57656c636f6d6520546f2041736e506c617920212121
+--------------------------------------------------------------------------------
+raw_data Welcome To AsnPlay !!!
+input_format ascii
+output_format hex
+output_data 57656c636f6d6520546f2041736e506c617920212121
+--------------------------------------------------------------------------------
+All Supported Versions:
+GSMA_SGP_22_v1_0
+GSMA_SGP_22_v1_1
+GSMA_SGP_22_v1_2
+GSMA_SGP_22_v2_0
+GSMA_SGP_22_v2_1
+GSMA_SGP_22_v2_2
+GSMA_SGP_22_v2_2_1
+GSMA_SGP_22_v2_2_2
+GSMA_SGP_22_v2_3
+GSMA_SGP_22_v2_4
+GSMA_SGP_22_v2_4_sgp23_1_11
+GSMA_SGP_22_v2_5
+GSMA_SGP_22_v3_0_0
+GSMA_SGP_22_v3_1
+GSMA_SGP_32_v1_0
+GSMA_SGP_32_v1_0_1
+TCA_EPP_v1_0
+TCA_EPP_v2_0
+TCA_EPP_v2_1
+TCA_EPP_v2_2
+TCA_EPP_v2_3
+TCA_EPP_v2_3_1
+TCA_EPP_v3_0
+TCA_EPP_v3_1
+TCA_EPP_v3_2
+TCA_EPP_v3_3
+TCA_EPP_v3_3_1
 ------------------------------------------------------ UnitTesting -----------------------------------------------------
 ******************************** ..\..\Data\UserData\Generic\ASCII\hex_to_ascii_exp.yml ********************************
 Remarks List: HexInput; AsciiOutput; YmlOutput; ExportKeyword

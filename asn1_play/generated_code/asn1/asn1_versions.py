@@ -1,10 +1,7 @@
+from python_helpers.ph_util import PhUtil
+
+from asn1_play.generated_code.asn1.asn1_families import Asn1Family
 from asn1_play.generated_code.asn1.asn1_schema import Asn1Schema
-
-
-class Asn1Family:
-    GSMA_SGP_22 = 'GSMA_SGP_22'
-    GSMA_SGP_32 = 'GSMA_SGP_32'
-    TCA_EPP = 'TCA_EPP'
 
 
 class Asn1Versions:
@@ -54,3 +51,16 @@ class Asn1Versions:
     TCA_EPP_v3_2 = Asn1Schema(asn1_family=Asn1Family.TCA_EPP, asn1_version='v3_2', asn1_class_name='PEDefinitions')
     TCA_EPP_v3_3 = Asn1Schema(asn1_family=Asn1Family.TCA_EPP, asn1_version='v3_3', asn1_class_name='PEDefinitions')
     TCA_EPP_v3_3_1 = Asn1Schema(asn1_family=Asn1Family.TCA_EPP, asn1_version='v3_3_1', asn1_class_name='PEDefinitions')
+
+    @classmethod
+    def _get_asn1_version(cls, version_string, error_handling=False):
+        if error_handling:
+            try:
+                return getattr(Asn1Versions, version_string)
+            except AttributeError:
+                return None
+        return getattr(Asn1Versions, version_string)
+
+    @classmethod
+    def _get_list_of_supported_versions(cls):
+        return PhUtil.get_obj_list(Asn1Versions, clean_name=True)

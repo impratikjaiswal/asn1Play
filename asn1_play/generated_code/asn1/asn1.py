@@ -18,8 +18,8 @@ class Asn1:
         self.asn1_object_alternate = None
         self.__set_asn1_object_alternate(asn1_object_alternate)
         self.fetch_asn1_objects_list = True if fetch_asn1_objects_list is True else False
-        self.asn1_object_list = None
-        self.__set_asn1_object_list()
+        self.asn1_objects_list = None
+        self.__set_asn1_objects_list()
 
     def __set_asn1_schema(self, asn1_schema):
         if asn1_schema is None or not isinstance(asn1_schema, Asn1Schema):
@@ -67,11 +67,8 @@ class Asn1:
     def is_fetch_asn1_objects_list(self):
         return self.fetch_asn1_objects_list
 
-    def get_asn1_object_list(self):
-        return self.asn1_object_list
+    def get_asn1_object_list(self, str_format=False):
+        return PhConstants.SEPERATOR_TWO_LINES.join(self.asn1_objects_list) if str_format else self.asn1_objects_list
 
-    def __set_asn1_object_list(self, str_decorated=True):
-        if self.fetch_asn1_objects_list is True:
-            self.asn1_object_list = [k for k in self.get_asn1_mapping().keys()]
-            if str_decorated:
-                self.asn1_object_list = PhConstants.SEPERATOR_TWO_LINES.join(self.asn1_object_list)
+    def __set_asn1_objects_list(self):
+        self.asn1_objects_list = list(self.get_asn1_mapping().keys())
