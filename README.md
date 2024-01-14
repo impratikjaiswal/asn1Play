@@ -1,31 +1,38 @@
 # asn1Play
-
-<BR>ASN1 Encoder &amp; Decoder based on [pycrate](https://github.com/P1sec/pycrate).
-<BR>Currently supporting various versions of:
+ASN1 Encoder &amp; Decoder based on [pycrate](https://github.com/P1sec/pycrate).
+<BR>Currently supporting ASN1(s) of various versions of below specifications:
 1. [GSMA SGP.22](https://www.gsma.com/esim/esim-specification/ "GSMA SGP.22" )
-2. [TCA eUICC_Profile_Package (SAIP)](https://trustedconnectivityalliance.org/technology-library-sim-specifications/ "SAIP")
-
+1. [TCA eUICC_Profile_Package (SAIP)](https://trustedconnectivityalliance.org/technology-library-sim-specifications/ "SAIP")
+1. [GSMA SGP.32](https://www.gsma.com/esim/esim-specification/ "GSMA SGP.32" )
 <BR>However, Tool can be extended to support any ASN1 based conversion.
 
-# How To Install
+[![GitHub License](https://img.shields.io/github/license/impratikjaiswal/asn1Play)](LICENSE)
+[![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
 
-1. All Required packages are listed in requirements.txt
-1. Few Basic Scripts are also present under <i>scripts</i> folder.
-   - Currently, Scripts are targeting virtual environment with folder name as <i>venv</i> (Present in parallel of <i>scripts</i> folder)
-   - However, same can be modified as per user choice.
-   
-    **Note:** installing tool in virtual environment is optional but preferred.
+[![GitHub Release](https://img.shields.io/github/v/release/impratikjaiswal/asn1Play)](https://github.com/impratikjaiswal/asn1Play/releases/latest)
+[![GitHub commits since latest release](https://img.shields.io/github/commits-since/impratikjaiswal/asn1Play/latest)](https://github.com/impratikjaiswal/asn1Play/commits/main/)
+
+[![Static Badge](https://img.shields.io/badge/amenitypj.in/asn1Play-a?label=website%20url)](https://amenitypj.in/asn1Play)
+[![Website](https://img.shields.io/website?url=https://amenitypj.in/asn1Play&label=website%20status)](https://amenitypj.in/asn1Play)
+[![Static Badge](https://img.shields.io/badge/impratikjaiswal.github.io/asn1Play-a?label=gihub%20website%20url)](https://impratikjaiswal.github.io/asn1Play)
+[![Website](https://img.shields.io/website?url=https://amenitypj.in/asn1Play&label=website%20status)](https://impratikjaiswal.github.io/asn1Play)
+
+# Screen Shot(s) of Web App [![Static Badge](https://img.shields.io/badge/amenitypj.in-a)](https://amenitypj.in/) 
+![sample_web_1](https://github.com/impratikjaiswal/asn1Play/blob/main/static/images/sample_web_1.gif?raw=true)
+
+# Installation/Setup
+Steps can be found [here](https://github.com/impratikjaiswal/pythonHelpers/blob/main/HOW_TO_INSTALL_PYTHON_APPS.md).
 
 # How To Use
-  - Code can be directly run from <i>asn1Play/asn1_play/main/asn1play.py</i>
-<BR>    or alternatively 
-  - UI via Local Web server [AmenityPjApp](https://github.com/impratikjaiswal/AmenityPjApp) can alos be used by running <i>/scripts/server_amenity_pj_app_start_debug.bat</i>
- 
-# Screen Shots
+There are various ways to Get Started:
 
-![Sample 1](images\Sample1.png)
-![Sample 2](https://github.com/impratikjaiswal/asn1play/tree/ef13a274e666a577e1c381cfc6cb85054147e5d2/images\Sample1.png)
+  - Online Mode
+    - Website [![Static Badge](https://img.shields.io/badge/amenitypj.in-a)](https://amenitypj.in/) can be used
+  - Offline Mode (Requires Download / Cloning of the Repo)
+    - Code can be directly run from ```asn1Play/asn1_play/main/asn1play.py``` using any IDE
+    - Local Web Server [AmenityPj](https://github.com/impratikjaiswal/amenitypj) can be used
 
+  
 # Few Major Features
 
   - Auto Trimming of HEX Data (White Spaces Deletion).
