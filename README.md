@@ -32,7 +32,6 @@ There are various ways to Get Started:
     - Code can be directly run from ```asn1Play/asn1_play/main/asn1play.py``` using any IDE
     - Local Web Server App [amenitypj](https://github.com/impratikjaiswal/amenitypj) can be used
 
-  
 # Few Major Features
 
   - Auto Trimming of HEX Data (White Spaces Deletion).
