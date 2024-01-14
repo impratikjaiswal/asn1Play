@@ -14,6 +14,7 @@ ASN1 Encoder &amp; Decoder based on [pycrate](https://github.com/P1sec/pycrate).
 
 [![Static Badge](https://img.shields.io/badge/amenitypj.in/asn1Play-a?label=website%20url)](https://amenitypj.in/asn1Play)
 [![Website](https://img.shields.io/website?url=https://amenitypj.in/asn1Play&label=website%20status)](https://amenitypj.in/asn1Play)
+
 [![Static Badge](https://img.shields.io/badge/impratikjaiswal.github.io/asn1Play-a?label=gihub%20website%20url)](https://impratikjaiswal.github.io/asn1Play)
 [![Website](https://img.shields.io/website?url=https://amenitypj.in/asn1Play&label=website%20status)](https://impratikjaiswal.github.io/asn1Play)
 
