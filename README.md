@@ -30,7 +30,7 @@ There are various ways to Get Started:
     - Website [![Static Badge](https://img.shields.io/badge/amenitypj.in-a)](https://amenitypj.in/) can be used
   - Offline Mode (Requires Download / Cloning of the Repo)
     - Code can be directly run from ```asn1Play/asn1_play/main/asn1play.py``` using any IDE
-    - Local Web Server [AmenityPj](https://github.com/impratikjaiswal/amenitypj) can be used
+    - Local Web Server App [amenitypj](https://github.com/impratikjaiswal/amenitypj) can be used
 
   
 # Few Major Features
