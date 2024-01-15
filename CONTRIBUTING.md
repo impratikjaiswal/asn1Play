@@ -6,11 +6,11 @@ the contribution process easy and effective for everyone involved.
 Following these guidelines helps to communicate that you respect the time of the developers managing and developing this
 open source project. In return, they should reciprocate that respect in addressing your issue or assessing patches and features.
 
-## Using the issue tracker
+## Issue tracker
 
-The issue tracker is the preferred channel for [bug reports](#bug-reports),
-[features requests](#feature-requests) and submitting [pull requests](#pull-requests), but please
-respect the following restrictions:
+The issue tracker is the preferred channel for [discussions](#discussions), [features requests](#feature-requests), 
+[bug reports](#bug-reports) &amp; [pull requests](#pull-requests), but please respect the following 
+restrictions:
 
 * Please **do not** use the issue tracker for personal support requests (use
   [Stack Overflow](https://stackoverflow.com)).
@@ -18,8 +18,21 @@ respect the following restrictions:
 * Please **do not** derail or troll issues. Keep the discussion on topic and
   respect the opinions of others.
 
+## Discussions
+
 For any questions, support, or ideas, etc. 
 [please create a GitHub discussion](https://github.com/impratikjaiswal/asn1Play/discussions/new/choose).
+
+## Feature requests
+
+Feature requests are welcome. But take a moment to find out whether your idea
+fits with the scope and aims of the project. It's up to *you* to make a strong
+case to convince the project's developers of the merits of this feature. Please
+provide as much detail and context as possible.
+
+If you've an idea in mind, [please submit a feature request](https://github.com/impratikjaiswal/asn1Play/discussions/new?category=ideas).
+
+Your ideas and suggestions are always welcome!
 
 ## Bug reports
 
@@ -63,21 +76,13 @@ Example:
 > causing the bug, and potential solutions (and your opinions on their
 > merits).
 
-## Feature requests
-
-Feature requests are welcome. But take a moment to find out whether your idea
-fits with the scope and aims of the project. It's up to *you* to make a strong
-case to convince the project's developers of the merits of this feature. Please
-provide as much detail and context as possible.
-
 ## Pull requests
 
 **Please ask first before starting work on any significant new features.**
 
 It's never a fun experience to have your pull request declined after investing a lot of time and effort into a new
-feature. To avoid this from happening, we request that contributors create
-[a feature request](https://github.com/impratikjaiswal/asn1Play/discussions/new?category=ideas) to first discuss any 
-new ideas. Your ideas and suggestions are welcome!
+feature. To avoid this from happening, we request that contributors create a [features requests](#feature-requests) to 
+first discuss any new ideas.
 
 Please ensure that the tests are passing when submitting a pull request. 
 If you're adding new features to this project, please include tests.
