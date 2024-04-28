@@ -88,6 +88,7 @@ To Refer Sample usages, search for below keywords in source code (\asn1Play\asn1
   - DirectInput;
   - DirectoryInput;
   - DirectoryOutput;
+  - EimConfigurationData;
   - ExportKeyword;
   - ExportedInput;
   - ExtendRemarksList;

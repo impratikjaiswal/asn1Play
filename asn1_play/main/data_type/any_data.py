@@ -70,6 +70,22 @@ class AnyData(DataTypeMaster):
                 output_format=Formats.ASN1,
             ),
             #
+            Data(
+                remarks_list='# DerInput; Asn1Output; FileInput; Asn1Schema; Asn1Element; EimConfigurationData; VersionVariable;',
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_32\$VERSION\EimConfigurationData\EimConfigurationData.asn1',
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'EimConfigurationData'),
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
+            ),
+            #
+            Data(
+                remarks_list='# DerInput; Asn1Output; Asn1Schema; Asn1Element; EimConfigurationData;',
+                raw_data='301180087465737465696d3182010387020780',
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'EimConfigurationData'),
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+            #
             Data(  # HexInput; AsciiOutput; YmlInput;
                 raw_data=r'..\..\Data\SampleData\Generic\ASCII\hex_to_ascii_op_same_file.yml'
             ),

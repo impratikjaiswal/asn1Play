@@ -1,3 +1,10 @@
+init_modules: different OID objects (id-rspRole-euicc, id-rspRole-euicc-v2) with same OID value (2, 23, 146, 1, 2, 1, 1)
+init_modules: different OID objects (id-rspRole-eum, id-rspRole-eum-v2) with same OID value (2, 23, 146, 1, 2, 1, 2)
+init_modules: different OID objects (id-rspRole-dp-tls, id-rspRole-dp-tls-v2) with same OID value (2, 23, 146, 1, 2, 1, 3)
+init_modules: different OID objects (id-rspRole-dp-auth, id-rspRole-dp-auth-v2) with same OID value (2, 23, 146, 1, 2, 1, 4)
+init_modules: different OID objects (id-rspRole-dp-pb, id-rspRole-dp-pb-v2) with same OID value (2, 23, 146, 1, 2, 1, 5)
+init_modules: different OID objects (id-rspRole-ds-tls, id-rspRole-ds-tls-v2) with same OID value (2, 23, 146, 1, 2, 1, 6)
+init_modules: different OID objects (id-rspRole-ds-auth, id-rspRole-ds-auth-v2) with same OID value (2, 23, 146, 1, 2, 1, 7)
 --------------------------------------------------------------------------------
 Python version is v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
 --------------------------------------------------------------------------------
@@ -7,14 +14,14 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Monday, Jan 08 2024, 10:45:13:713594, IST (GMT+0530)
+Time Stamp is Sunday, Apr 28 2024, 17:02:12:878938, IST (GMT+0530)
 --------------------------------------------------------------------------------
-IPV4 is 152.58.194.72
-IPV6 is 2409:40f2:104b:e0da:68f4:f398:f058:6938
+IPV4 is 49.37.243.198
+IPV6 is 2405:201:d005:d121:4856:ae86:82fd:da95
 --------------------------------------------------------------------------------
 pythonHelpers version is v3.0.2
 --------------------------------------------------------------------------------
-asn1play version is v6.1.2
+asn1play version is v6.1.3
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 tlvPlay version is v3.1.0
@@ -106,6 +113,29 @@ Output Data:
       vendorSpecificData '02020202'H
     }
   }
+}
+--------------------------------------------------------------------------------
+*********** # DerInput; Asn1Output; FileInput; Asn1Schema; Asn1Element; EimConfigurationData; VersionVariable **********
+Remarks List: # DerInput; Asn1Output; FileInput; Asn1Schema; Asn1Element; EimConfigurationData; VersionVariable
+Info => Decoding_Mode; Asn1 Element: EimConfigurationData; Input Format: asn1; Output Format: der
+Input File: ..\..\Data\SampleData\GSMA\SGP_32\v1_0_1\EimConfigurationData\EimConfigurationData.asn1
+Input Data:
+{
+  eimId "testeim1",
+  eimIdType 3 -- eimIdTypeProprietary --,
+  eimSupportedProtocol '1'B -- eimRetrieveHttps --
+}
+Output Data: 301180087465737465696d3182010387020780
+--------------------------------------------------------------------------------
+************************* # DerInput; Asn1Output; Asn1Schema; Asn1Element; EimConfigurationData ************************
+Remarks List: # DerInput; Asn1Output; Asn1Schema; Asn1Element; EimConfigurationData
+Info => Encoding_Mode; Asn1 Element: EimConfigurationData; Input Format: der; Output Format: asn1
+Input Data: 301180087465737465696d3182010387020780
+Output Data:
+{
+  eimId "testeim1",
+  eimIdType 3 -- eimIdTypeProprietary --,
+  eimSupportedProtocol '1'B -- eimRetrieveHttps --
 }
 --------------------------------------------------------------------------------
 *************************** ..\..\Data\SampleData\Generic\ASCII\hex_to_ascii_op_same_file.yml **************************
@@ -7868,12 +7898,108 @@ Output Data:
 
 --------------------------------------------------------------------------------
 Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Mandatory raw data is missing.
+init_modules: different OID objects (id-rspRole-euicc, id-rspRole-euicc-v2) with same OID value (2, 23, 146, 1, 2, 1, 1)
+init_modules: different OID objects (id-rspRole-eum, id-rspRole-eum-v2) with same OID value (2, 23, 146, 1, 2, 1, 2)
+init_modules: different OID objects (id-rspRole-dp-tls, id-rspRole-dp-tls-v2) with same OID value (2, 23, 146, 1, 2, 1, 3)
+init_modules: different OID objects (id-rspRole-dp-auth, id-rspRole-dp-auth-v2) with same OID value (2, 23, 146, 1, 2, 1, 4)
+init_modules: different OID objects (id-rspRole-dp-pb, id-rspRole-dp-pb-v2) with same OID value (2, 23, 146, 1, 2, 1, 5)
+init_modules: different OID objects (id-rspRole-ds-tls, id-rspRole-ds-tls-v2) with same OID value (2, 23, 146, 1, 2, 1, 6)
+init_modules: different OID objects (id-rspRole-ds-auth, id-rspRole-ds-auth-v2) with same OID value (2, 23, 146, 1, 2, 1, 7)
 ************************************* Web Request; fetch_asn1_objects; sgp32; True *************************************
 Remarks List: Web Request; fetch_asn1_objects; sgp32; True
 Info => Encoding_Mode; Input Format: der; Output Format: asn1
 Input Data: 
 Output Data:
-
+AddEimResult
+AddInitialEimRequest
+AddInitialEimResponse
+AuthenticateClientOkDPEsipa
+AuthenticateClientOkDSEsipa
+AuthenticateClientRequestEsipa
+AuthenticateClientResponseEsipa
+AuthenticateServerResponse
+CancelSessionOk
+CancelSessionRequestEsipa
+CancelSessionResponse
+CancelSessionResponseEsipa
+CompactAuthenticateResponseOk
+CompactCancelSessionResponseOk
+CompactEuiccCancelSessionSigned
+CompactEuiccSigned1
+CompactEuiccSigned2
+CompactOtherSignedNotification
+CompactPrepareDownloadResponseOk
+CompactProfileInstallationResult
+CompactProfileInstallationResultData
+CompactSuccessResult
+ConfigureAutoEnableResult
+ConfigureAutoProfileEnablingRequest
+ConfigureAutoProfileEnablingResponse
+DeleteEimResult
+DeleteProfileResult
+DisableProfileResult
+EUICCInfo2
+Eco
+EimAcknowledgements
+EimConfigurationData
+EimIdInfo
+EimIdType
+EimSupportedProtocol
+EnableProfileResult
+EnableUsingDDRequest
+EnableUsingDDResponse
+EsipaMessageFromEimToIpa
+EsipaMessageFromIpaToEim
+EuiccPackage
+EuiccPackageErrorCode
+EuiccPackageErrorDataSigned
+EuiccPackageErrorSigned
+EuiccPackageErrorUnsigned
+EuiccPackageRequest
+EuiccPackageResult
+EuiccPackageResultDataSigned
+EuiccPackageResultSigned
+EuiccPackageSigned
+EuiccResultData
+GetBoundProfilePackageOkEsipa
+GetBoundProfilePackageRequestEsipa
+GetBoundProfilePackageResponseEsipa
+GetCertsRequest
+GetCertsResponse
+GetEimConfigurationDataRequest
+GetEimConfigurationDataResponse
+GetEimPackageRequest
+GetEimPackageResponse
+HandleNotificationEsipa
+InitiateAuthenticationOkEsipa
+InitiateAuthenticationRequestEsipa
+InitiateAuthenticationResponseEsipa
+IoTSpecificInfo
+IpaCapabilities
+IpaEuiccData
+IpaEuiccDataRequest
+IpaEuiccDataResponse
+IpaMode
+ListEimResult
+PendingNotification
+PrepareDownloadResponse
+ProfileDownloadData
+ProfileDownloadTriggerRequest
+ProfileDownloadTriggerResult
+ProfileInfoListError
+ProfileInfoListResponse
+ProfileInstallationResult
+ProfileRollbackRequest
+ProfileRollbackResponse
+ProvideEimPackageResult
+ProvideEimPackageResultResponse
+Psmo
+RetrieveNotificationsListResponse
+RollbackProfileResult
+SequenceNumber
+TransferEimPackageRequest
+TransferEimPackageResponse
+UpdateEimResult
 --------------------------------------------------------------------------------
 *************************************************** raw_data is empty **************************************************
 Remarks List: raw_data is empty
