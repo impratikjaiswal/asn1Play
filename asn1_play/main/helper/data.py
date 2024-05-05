@@ -53,7 +53,7 @@ class Data:
         self.set_user_remarks(remarks_list)
 
     def set_user_remarks(self, remarks_list):
-        self.remarks_list = PhUtil.cast_to_list(remarks_list, trim_data=True, all_str=True)
+        self.remarks_list = PhUtil.to_list(remarks_list, trim_data=True, all_str=True)
         self.remarks_list = [
             x.replace(Variables.ASN_ELEMENT, self.get_asn1_element_name()) if self.get_asn1_element_name() else x for x
             in self.remarks_list]

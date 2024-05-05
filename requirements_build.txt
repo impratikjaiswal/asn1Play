@@ -7,3 +7,12 @@ wheel
 
 # Required Build Tool
 cmake
+
+# Required Versioning Tool
+incremental
+
+# Required by incremental CLI
+click
+
+# Required by incremental CLI
+twisted
