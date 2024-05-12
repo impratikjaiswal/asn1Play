@@ -61,7 +61,7 @@ class Data:
     def __get_default_remarks(self):
         self.set_asn1_element_name()
         str_raw_data = str(
-            self.raw_data) if self.input_format in FormatsGroup.INPUT_FORMATS_BYTE_ARRAY else PhUtil.combine_list_items(
+            self.raw_data) if self.input_format in FormatsGroup.BYTE_ARRAY_FORMATS else PhUtil.combine_list_items(
             self.raw_data)
         return PhUtil.append_remarks(self.__asn1_element_name, str_raw_data)
 

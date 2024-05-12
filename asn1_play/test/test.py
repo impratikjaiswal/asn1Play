@@ -4,6 +4,7 @@ from python_helpers.ph_util import PhUtil
 from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.helper.data import Data
+from asn1_play.main.helper.formats import Formats
 
 
 class Test():
@@ -11,8 +12,8 @@ class Test():
     @classmethod
     def test_data(self):
         raw_data = 'Welcome To AsnPlay !!!'
-        input_format = 'ascii'
-        output_format = 'hex'
+        input_format = Formats.ASCII
+        output_format = Formats.HEX
 
         data_type = DataTypeMaster()
         data_type.set_data_pool(

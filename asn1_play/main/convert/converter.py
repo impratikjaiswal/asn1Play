@@ -110,7 +110,7 @@ def set_includes_excludes_files(data, meta_data):
     meta_data.excludes = ['*_' + KeyWords.OUTPUT_FILE_NAME_KEYWORD + '.*']
     if data.input_format in FormatsGroup.INPUT_FORMATS_DER:
         meta_data.include_files = FormatsGroup.INPUT_FILE_FORMATS_HEX
-    elif data.input_format in FormatsGroup.INPUT_FORMATS_DER_BASE_64:
+    elif data.input_format in FormatsGroup.BASE64_FORMATS:
         meta_data.include_files = FormatsGroup.INPUT_FILE_FORMATS_BASE_64
     elif data.input_format in FormatsGroup.INPUT_FORMATS_ASN:
         meta_data.include_files = FormatsGroup.INPUT_FILE_FORMATS_ASN

@@ -12,7 +12,7 @@ from asn1_play.main.helper.constants import Constants
 from asn1_play.main.helper.defaults import Defaults
 from asn1_play.main.helper.formats import Formats
 from asn1_play.main.helper.formats_group import FormatsGroup
-from asn1_play.main.mapping.general import parsing_format_mapping
+from asn1_play.main.helper.methods import Methods
 
 M = None
 _debug = False
@@ -27,15 +27,15 @@ Enable Flags for Debugging
 
 def convert_data(raw_data, output_format):
     # Data is converted to Hex
-    if output_format in FormatsGroup.INPUT_FORMATS_DER_BASE_64:
+    if output_format in FormatsGroup.BASE64_FORMATS:
         return base64.b64encode(unhexlify(raw_data)).decode()
     if output_format in FormatsGroup.ASCII_FORMATS:
         return PhUtil.hex_str_to_ascii(raw_data)
     if output_format in FormatsGroup.INPUT_FORMATS_DER:
         return raw_data
-    if output_format in Formats.BYTE_ARRAY:
+    if output_format in Formats.DER_BYTE_ARRAY:
         return PhUtil.hex_str_to_dec_list(raw_data)
-    if output_format in Formats.BYTE_ARRAY_SIGNED:
+    if output_format in Formats.DER_BYTE_ARRAY_SIGNED:
         return PhUtil.hex_str_to_dec_list(raw_data, signed_byte_handling=True)
     return None
 
@@ -64,10 +64,10 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
             return asn1_element.get_asn1_object_list(str_format=True)
     if not raw_data:
         raise ValueError(PhExceptionHelper(msg_key=Constants.RAW_DATA_MISSING, function_name=func_name))
-    if input_format not in FormatsGroup.INPUT_FORMATS:
+    if input_format not in FormatsGroup.INPUT_FORMATS_ALL:
         raise ValueError(
             PhExceptionHelper(msg_key=Constants.UNKNOWN_INPUT_FORMAT, msg_value=input_format, function_name=func_name))
-    if output_format not in FormatsGroup.ALL_FORMATS:
+    if output_format not in FormatsGroup.OUTPUT_FORMATS_ALL:
         raise ValueError(
             PhExceptionHelper(msg_key=Constants.UNKNOWN_OUTPUT_FORMAT, msg_value=output_format,
                               function_name=func_name))
@@ -77,7 +77,7 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
         raw_data = PhUtil.ascii_to_hex_str(raw_data)
         print_debug_var(Constants.RAW_DATA_HEX_CONVERSION_IS_DONE, raw_data)
     if input_format in FormatsGroup.INPUT_FORMATS_HEX:
-        if input_format in FormatsGroup.INPUT_FORMATS_BYTE_ARRAY:
+        if input_format in FormatsGroup.BYTE_ARRAY_FORMATS:
             raw_data = PhUtil.dec_to_hex(raw_data)
         # Trim Hex Data
         raw_data = PhUtil.trim_and_kill_all_white_spaces(raw_data)
@@ -198,9 +198,10 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
 
         if not known_data:
             continue
-
-    if parse_only and output_format in FormatsGroup.BASE64_FORMATS:
-        parsing_data_concatenated = base64.b64encode(unhexlify(parsing_data_concatenated)).decode()
+    if parse_only and output_format in FormatsGroup.INPUT_FORMATS_NON_TXT:
+        result = convert_data(parsing_data_concatenated, output_format)
+        if result:
+            parsing_data_concatenated = result
     if parse_only:
         return parsing_data_concatenated
     return new_profile
@@ -253,8 +254,12 @@ def process_pe(profile_element, level=1, data_to_update=PhConstants.STR_EMPTY):
 
 
 def parse_data(parsing_format, record_count):
-    print_debug_var('parsing_format_mapping', parsing_format_mapping)
-    parsing_data_current = getattr(M, parsing_format_mapping.get(parsing_format))()
+    print_debug_var('all_mapping', Methods.ALL_MAPPING)
+    mapping = Methods.ALL_MAPPING.get(parsing_format)
+    if not mapping:
+        raise ValueError(f'Method Mapping not found for {parsing_format}')
+    method = mapping[Methods.INDEX_TO] if isinstance(mapping, tuple) else mapping
+    parsing_data_current = getattr(M, method)()
     print_debug_var('parsing_data_current', parsing_data_current)
     if parsing_format == Formats.GET_PROTO and record_count > 1:
         # Whole data parsing is returned in first iteration

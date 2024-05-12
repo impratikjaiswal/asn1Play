@@ -31,7 +31,7 @@ def parse_or_update_any_data(data, meta_data=None):
     Bulk Mode
     """
     converter.set_defaults_for_printing(data)
-    byte_array_format = True if data.input_format in FormatsGroup.INPUT_FORMATS_BYTE_ARRAY else False
+    byte_array_format = True if data.input_format in FormatsGroup.BYTE_ARRAY_FORMATS else False
     if meta_data is None:
         meta_data = MetaData(raw_data_org=data.raw_data)
     if not byte_array_format and isinstance(data.raw_data, list):

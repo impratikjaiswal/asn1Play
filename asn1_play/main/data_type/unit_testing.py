@@ -7,6 +7,7 @@ from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.helper.data import Data
 from asn1_play.main.helper.formats import Formats
+from asn1_play.main.helper.formats_group import FormatsGroup
 from asn1_play.main.helper.keywords import KeyWords
 
 
@@ -84,20 +85,20 @@ class UnitTesting(DataTypeMaster):
             # Byte Array with our Remarks
             Data(
                 raw_data=[10, -68, -46, 85],
-                input_format=Formats.BYTE_ARRAY,
+                input_format=Formats.DER_BYTE_ARRAY,
                 output_format=Formats.DER,
             ),
             # Byte Array with Remarks
             Data(
                 remarks_list='Byte Array with Remarks',
                 raw_data=[10, -68, -46, 85],
-                input_format=Formats.BYTE_ARRAY,
+                input_format=Formats.DER_BYTE_ARRAY,
                 output_format=Formats.DER,
             ),
             #
             Data(
                 raw_data=[10, 188, 210, 85],
-                input_format=Formats.BYTE_ARRAY,
+                input_format=Formats.DER_BYTE_ARRAY,
                 output_format=Formats.DER_64,
             )
         ]
@@ -871,6 +872,18 @@ class UnitTesting(DataTypeMaster):
             ),
         ]
 
+        data_pool_asn1_to_all_formats = []
+        for output_format in FormatsGroup.OUTPUT_FORMATS_ALL:
+            data_pool_asn1_to_all_formats.append(
+                Data(
+                    remarks_list=f"Output Format is {output_format}",
+                    raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
+                    asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                    input_format=Formats.ASN1,
+                    output_format=output_format,
+                )
+            )
+
         super().set_data_pool(
             data_pool_positive +
             data_pool_byte_array +
@@ -882,5 +895,6 @@ class UnitTesting(DataTypeMaster):
             data_pool_tlv +
             data_pool_asn_element_with_schema +
             data_pool_web_requests +
-            data_pool_negative
+            data_pool_negative +
+            data_pool_asn1_to_all_formats
         )

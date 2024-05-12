@@ -173,14 +173,14 @@ class AnyData(DataTypeMaster):
             Data(
                 remarks_list='ByteArrayInput; ByteArraySignedInput; DerOutput; DirectInput;',
                 raw_data=[10, -68, -46, 85],
-                input_format=Formats.BYTE_ARRAY,
+                input_format=Formats.DER_BYTE_ARRAY,
                 output_format=Formats.DER,
             ),
             #
             Data(
                 remarks_list='ByteArrayInput; DerOutput; DirectInput;',
                 raw_data=[10, 188, 210, 85],
-                input_format=Formats.BYTE_ARRAY,
+                input_format=Formats.DER_BYTE_ARRAY,
                 output_format=Formats.DER,
             ),
             #
@@ -188,14 +188,14 @@ class AnyData(DataTypeMaster):
                 remarks_list='DerInput; ByteArrayOutput; DirectInput;',
                 raw_data='0ABCD255',
                 input_format=Formats.DER,
-                output_format=Formats.BYTE_ARRAY,
+                output_format=Formats.DER_BYTE_ARRAY,
             ),
             #
             Data(
                 remarks_list='DerInput; ByteArraySignedOutput; DirectInput;',
                 raw_data='CrzSVQ==',
                 input_format=Formats.DER,
-                output_format=Formats.BYTE_ARRAY_SIGNED,
+                output_format=Formats.DER_BYTE_ARRAY_SIGNED,
             ),
             #
             Data(

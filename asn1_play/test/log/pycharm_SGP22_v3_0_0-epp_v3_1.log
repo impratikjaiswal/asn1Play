@@ -14,17 +14,16 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Sunday, Apr 28 2024, 17:01:08:608347, IST (GMT+0530)
+Time Stamp is Sunday, May 12 2024, 15:02:19:039691, IST (GMT+0530)
 --------------------------------------------------------------------------------
-IPV4 is 49.37.243.198
-IPV6 is 2405:201:d005:d121:4856:ae86:82fd:da95
+Git Summary is b902928;  (HEAD -> main, origin/main, origin/HEAD); 2024-05-11 20:51:57 +0530; imPratik <impratikjaiswal@gmail.com>; Urls Updated
 --------------------------------------------------------------------------------
-pythonHelpers version is v3.0.2
+pythonHelpers version is v3.0.7
 --------------------------------------------------------------------------------
-asn1play version is v6.1.3
+asn1Play version is v7.0.0
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
-tlvPlay version is v3.1.0
+tlvPlay version is v3.2.0
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 SGP22 compile_time version is v3_0_0
@@ -228,37 +227,37 @@ Output Data: Welcome To AsnPlay !!!Welcome To AsnPlay !!!Welcome To AsnPlay !!!W
 --------------------------------------------------------------------------------
 ***************************** ByteArrayInput; ByteArraySignedInput; DerOutput; DirectInput *****************************
 Remarks List: ByteArrayInput; ByteArraySignedInput; DerOutput; DirectInput
-Info => Conversion_Mode; Input Format: byte_array; Output Format: der
+Info => Conversion_Mode; Input Format: der_as_byte_array; Output Format: der
 Input Data: [10, -68, -46, 85]
 Output Data: 0ABCD255
 --------------------------------------------------------------------------------
 **************************************** ByteArrayInput; DerOutput; DirectInput ****************************************
 Remarks List: ByteArrayInput; DerOutput; DirectInput
-Info => Conversion_Mode; Input Format: byte_array; Output Format: der
+Info => Conversion_Mode; Input Format: der_as_byte_array; Output Format: der
 Input Data: [10, 188, 210, 85]
 Output Data: 0ABCD255
 --------------------------------------------------------------------------------
 **************************************** DerInput; ByteArrayOutput; DirectInput ****************************************
 Remarks List: DerInput; ByteArrayOutput; DirectInput
-Info => Conversion_Mode; Input Format: der; Output Format: byte_array
+Info => Conversion_Mode; Input Format: der; Output Format: der_as_byte_array
 Input Data: 0ABCD255
 Output Data: [10, 188, 210, 85]
 --------------------------------------------------------------------------------
 ************************************* DerInput; ByteArraySignedOutput; DirectInput *************************************
 Remarks List: DerInput; ByteArraySignedOutput; DirectInput
-Info => Conversion_Mode; Input Format: der; Output Format: byte_array_signed
+Info => Conversion_Mode; Input Format: der; Output Format: der_as_byte_array_signed
 Input Data: CrzSVQ==
 Output Data: [10, -68, -46, 85]
 --------------------------------------------------------------------------------
 ****************************************** DerInput; Base64Output; DirectInput *****************************************
 Remarks List: DerInput; Base64Output; DirectInput
-Info => Conversion_Mode; Input Format: der; Output Format: der_with_base64
+Info => Conversion_Mode; Input Format: der; Output Format: der_as_base64
 Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
 Output Data: vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAxmQIGQA==
 --------------------------------------------------------------------------------
 ******************************** ..\..\Data\SampleData\Generic\Base64\der_to_base64.yml ********************************
 Remarks List: DerInput; Base64Output; YmlInput; OutputKeyword
-Info => Yml_Conversion_Mode; Input Format: der; Output Format: der_with_base64; Output File Name Keyword: output
+Info => Yml_Conversion_Mode; Input Format: der; Output Format: der_as_base64; Output File Name Keyword: output
 Input Yml: ..\..\Data\SampleData\Generic\Base64\der_to_base64.yml
 Output File: ../../Data/SampleData/Generic/Base64/\der_to_base64_output.yml
 Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
@@ -266,13 +265,13 @@ Output Data: vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmF
 --------------------------------------------------------------------------------
 ***************************************** # Base64Input; DerOutput; DirectInput ****************************************
 Remarks List: # Base64Input; DerOutput; DirectInput
-Info => Conversion_Mode; Input Format: der_with_base64; Output Format: der
+Info => Conversion_Mode; Input Format: der_as_base64; Output Format: der
 Input Data: vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAxmQIGQA==
 Output Data: bf25375a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d65203199020640
 --------------------------------------------------------------------------------
 ******************************** ..\..\Data\SampleData\Generic\Base64\base64_to_der.yml ********************************
 Remarks List: Base64Input; DerOutput; YmlInput; OutputKeyword
-Info => Yml_Conversion_Mode; Input Format: der_with_base64; Output Format: der; Output File Name Keyword: output
+Info => Yml_Conversion_Mode; Input Format: der_as_base64; Output Format: der; Output File Name Keyword: output
 Input Yml: ..\..\Data\SampleData\Generic\Base64\base64_to_der.yml
 Output File: ../../Data/SampleData/Generic/Base64/\base64_to_der_output.yml
 Input Data: vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAxmQIGQA==
@@ -280,13 +279,13 @@ Output Data: bf25375a0a989209012143658709f591095350204e616d652031921a4f706572617
 --------------------------------------------------------------------------------
 **************************************** # AsciiInput; Der64Output; DirectInput ****************************************
 Remarks List: # AsciiInput; Der64Output; DirectInput
-Info => Conversion_Mode; Input Format: ascii; Output Format: der_with_base64
+Info => Conversion_Mode; Input Format: ascii; Output Format: der_as_base64
 Input Data: Pratik Jaiswal
 Output Data: UHJhdGlrIEphaXN3YWw=
 --------------------------------------------------------------------------------
 **************************************** # Der64Input; AsciiOutput; DirectInput ****************************************
 Remarks List: # Der64Input; AsciiOutput; DirectInput
-Info => Conversion_Mode; Input Format: der_with_base64; Output Format: ascii
+Info => Conversion_Mode; Input Format: der_as_base64; Output Format: ascii
 Input Data: UHJhdGlrIEphaXN3YWw=
 Output Data: Pratik Jaiswal
 --------------------------------------------------------------------------------
@@ -404,7 +403,7 @@ Output Data:
 --------------------------------------------------------------------------------
 **************** # Der64Input; Asn1Output; FileInput; Asn1Element; StoreMetadataRequest; VersionVariable ***************
 Remarks List: # Der64Input; Asn1Output; FileInput; Asn1Element; StoreMetadataRequest; VersionVariable
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64
 Input Data: vyWBiFoKmJIJASFDZYcJ9ZEJU1AgTmFtZSAxkhpPcGVyYXRpb25hbCBQcm9maWxlIE5hbWUgMZMBAbYhMB+AAgTwgRl0ZXN0c21kcHBsdXMxLmV4YW1wbGUuY29ttwWAA5L5GJkCBkC/Ig8wDYADiDcQoQYEBMECAwS/Iw8wDYADiDcRoQYEBAICAgI=
 
@@ -440,7 +439,7 @@ Output Data:
 --------------------------------------------------------------------------------
 ******** # Der64Input; Asn1Output; FileInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword ********
 Remarks List: # Der64Input; Asn1Output; FileInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File Name Keyword: output
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File Name Keyword: output
 Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64
 Output File: ../../Data/SampleData/GSMA/SGP_22/v3_0_0/StoreMetadataRequest/\StoreMetadataRequest_wo_icon_output.asn1
 Input Data: vyWBiFoKmJIJASFDZYcJ9ZEJU1AgTmFtZSAxkhpPcGVyYXRpb25hbCBQcm9maWxlIE5hbWUgMZMBAbYhMB+AAgTwgRl0ZXN0c21kcHBsdXMxLmV4YW1wbGUuY29ttwWAA5L5GJkCBkC/Ig8wDYADiDcQoQYEBMECAwS/Iw8wDYADiDcRoQYEBAICAgI=
@@ -2005,7 +2004,7 @@ Output Data:
 --------------------------------------------------------------------------------
 +++++++++++++++++++++++++++ # BulkMode; DirectoryInput; Base64Input; Asn1Output; .Base64Files ++++++++++++++++++++++++++
 Remarks List: # BulkMode; DirectoryInput; Base64Input; Asn1Output; .Base64Files
-Info => Dir_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Dir_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input Dir: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest
 Input Data: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest
 --------------------------------------------------------------------------------
@@ -2016,14 +2015,14 @@ include_dirs:
 excludes:  (?s:(?=(?P<g3>.*?_output\.))(?P=g3).*)\Z
 ++++++++++++++++++++ # BulkMode; DirectoryInput; Base64Input; Asn1Output; .Base64Files; (2 Elements) +++++++++++++++++++
 Remarks List: # BulkMode; DirectoryInput; Base64Input; Asn1Output; .Base64Files
-Info => Dir_List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Dir_List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input List: ['D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\StoreMetadataRequest\\StoreMetadataRequest.base64', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\StoreMetadataRequest\\StoreMetadataRequest_wo_icon.base64']
 Input Modes Hierarchy: input_dir; input_list
 Input Data: ['D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\StoreMetadataRequest\\StoreMetadataRequest.base64', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\StoreMetadataRequest\\StoreMetadataRequest_wo_icon.base64']
 --------------------------------------------------------------------------------
 *********************** # BulkMode; DirectoryInput; Base64Input; Asn1Output; .Base64Files; Item 1 **********************
 Remarks List: # BulkMode; DirectoryInput; Base64Input; Asn1Output; .Base64Files
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.base64
 Input Modes Hierarchy: input_dir; input_list; input_file
 Input Data: vyWCAxxaCpiSCQEhQ2WHCfWRCVNQIE5hbWUgMZIaT3BlcmF0aW9uYWwgUHJvZmlsZSBOYW1lIDGTAQGUggKQiVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAAB3RJTUUH4AsJEAc2TJVvlwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAARnQU1BAACxjwv8YQUAAAIfSURBVHja7ZnNFYMgDIA9MgALMASrsA7LsIIjOFeK9VkiP0mwqBdfLsAj4SOEENsJpmfl4eVfgL8A9oYGCx5muAQgwCoyVQ0Olm6MxvASjRk0YGNfpmo7fVEdtI3ZR4i2VdeBUHG6JuYbkACsxxGEEIXrOY2EwM2U+SHr4t2rGNtrUAWwVcO8dStAOHRcUzlEnNSVAkgQDh1FKPrCB7Io4xAaS9SuUrqWpgOAiwXUTCetqyr4gHoAphhLIoAUgHVm7KE1OOUAisiQvwa+gJ5Nvr4LgIqEKgCf/XsBBDavBrBPA0yNR+pGAEcD4DTk2VuQqYpEcwDcNTyfB6hDQE2bLZBLyoT2JICnATw5NRQxIltyLen2rVkaAEfBlOWuGb2GWvwaJpdvCIYDwKeskRf84TH2QgC83+2OKQ7gWJBsRvL60J2siFqxVQxo0qi0Jtz2m45x920ZWxXNNoIHRjUT/S3qZkhHayUA65mbYlD6XcBJnguIuSHyu694Lod1iJMDcHJOTT8N0B1J2+fpLLlAQjFyAI8+08YBHAOxOWvObsJIAMcDuGJoJICiAUIlC4wFwIE4UYbNZQCWB9BZ3XcrgK48uWMBAgWwVENkFICKuw/yN3UkgKmW+zcC2DNP2gvwArwAL8BIgFO19TgABdwKFwPwP/39xDOm+gEM8e9BZcgx5gK0ATSETGbmf6TBAAYY5auPYAjAP6q3AoyRF+ADa69EkXA1rw4AAAAASUVORK5CYIK2ITAfgAIE8IEZdGVzdHNtZHBwbHVzMS5leGFtcGxlLmNvbbcFgAOS+RiZAgZAvyIPMA2AA4g3EKEGBATBAgMEvyMPMA2AA4g3EaEGBAQCAgIC
@@ -2060,7 +2059,7 @@ Output Data:
 --------------------------------------------------------------------------------
 *********************** # BulkMode; DirectoryInput; Base64Input; Asn1Output; .Base64Files; Item 2 **********************
 Remarks List: # BulkMode; DirectoryInput; Base64Input; Asn1Output; .Base64Files
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64
 Input Modes Hierarchy: input_dir; input_list; input_file
 Input Data: vyWBiFoKmJIJASFDZYcJ9ZEJU1AgTmFtZSAxkhpPcGVyYXRpb25hbCBQcm9maWxlIE5hbWUgMZMBAbYhMB+AAgTwgRl0ZXN0c21kcHBsdXMxLmV4YW1wbGUuY29ttwWAA5L5GJkCBkC/Ig8wDYADiDcQoQYEBMECAwS/Iw8wDYADiDcRoQYEBAICAgI=
@@ -2097,7 +2096,7 @@ Output Data:
 --------------------------------------------------------------------------------
 ++++++++++++++++++++++++++++ # BulkMode; DirectoryInput; Asn1Input; Der64Output; .Asn1Files ++++++++++++++++++++++++++++
 Remarks List: # BulkMode; DirectoryInput; Asn1Input; Der64Output; .Asn1Files
-Info => Dir_Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_with_base64
+Info => Dir_Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_as_base64
 Input Dir: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest
 Input Data:
 ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest
@@ -2109,7 +2108,7 @@ include_dirs:
 excludes:  (?s:(?=(?P<g4>.*?_output\.))(?P=g4).*)\Z
 +++++++++++++++++++++ # BulkMode; DirectoryInput; Asn1Input; Der64Output; .Asn1Files; (5 Elements) +++++++++++++++++++++
 Remarks List: # BulkMode; DirectoryInput; Asn1Input; Der64Output; .Asn1Files
-Info => Dir_List_Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_with_base64
+Info => Dir_List_Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_as_base64
 Input List: ['D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\StoreMetadataRequest\\StoreMetadataRequest.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\StoreMetadataRequest\\StoreMetadataRequest_Mandatory.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\StoreMetadataRequest\\StoreMetadataRequest_ppr.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\StoreMetadataRequest\\StoreMetadataRequest_wo_icon.asn1', 'D:\\Other\\Github_Self\\asn1Play\\Data\\SampleData\\GSMA\\SGP_22\\v3_0_0\\StoreMetadataRequest\\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1']
 Input Modes Hierarchy: input_dir; input_list
 Input Data:
@@ -2118,7 +2117,7 @@ Input Data:
 ************************ # BulkMode; DirectoryInput; Asn1Input; Der64Output; .Asn1Files; Item 1 ************************
 SEQ._encode_ber_cont: StoreMetadataRequest.profileClass, removing value equal to the default one
 Remarks List: # BulkMode; DirectoryInput; Asn1Input; Der64Output; .Asn1Files
-Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_with_base64
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_as_base64
 Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.asn1
 Input Modes Hierarchy: input_dir; input_list; input_file
 Input Data:
@@ -2193,7 +2192,7 @@ Output Data: vyWCAxxaCpiSCQEhQ2WHCfWRCVNQIE5hbWUgMZIaT3BlcmF0aW9uYWwgUHJvZmlsZSB
 --------------------------------------------------------------------------------
 ************************ # BulkMode; DirectoryInput; Asn1Input; Der64Output; .Asn1Files; Item 2 ************************
 Remarks List: # BulkMode; DirectoryInput; Asn1Input; Der64Output; .Asn1Files
-Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_with_base64
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_as_base64
 Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
 Input Modes Hierarchy: input_dir; input_list; input_file
 Input Data:
@@ -2207,7 +2206,7 @@ Output Data: vyUzWgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmF
 --------------------------------------------------------------------------------
 ************************ # BulkMode; DirectoryInput; Asn1Input; Der64Output; .Asn1Files; Item 3 ************************
 Remarks List: # BulkMode; DirectoryInput; Asn1Input; Der64Output; .Asn1Files
-Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_with_base64
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_as_base64
 Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_ppr.asn1
 Input Modes Hierarchy: input_dir; input_list; input_file
 Input Data:
@@ -2223,7 +2222,7 @@ Output Data: vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmF
 ************************ # BulkMode; DirectoryInput; Asn1Input; Der64Output; .Asn1Files; Item 4 ************************
 SEQ._encode_ber_cont: StoreMetadataRequest.profileClass, removing value equal to the default one
 Remarks List: # BulkMode; DirectoryInput; Asn1Input; Der64Output; .Asn1Files
-Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_with_base64
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_as_base64
 Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.asn1
 Input Modes Hierarchy: input_dir; input_list; input_file
 Input Data:
@@ -2296,7 +2295,7 @@ Output Data: vyWBiFoKmJIJASFDZYcJ9ZEJU1AgTmFtZSAxkhpPcGVyYXRpb25hbCBQcm9maWxlIE5
 --------------------------------------------------------------------------------
 ************************ # BulkMode; DirectoryInput; Asn1Input; Der64Output; .Asn1Files; Item 5 ************************
 Remarks List: # BulkMode; DirectoryInput; Asn1Input; Der64Output; .Asn1Files
-Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_with_base64
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_as_base64
 Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1
 Input Modes Hierarchy: input_dir; input_list; input_file
 Input Data:
@@ -2452,7 +2451,7 @@ Output Data: bf2582031c5a0a989209012143658709f591095350204e616d652031921a4f70657
 --------------------------------------------------------------------------------
 ****************** # BulkMode; DirectoryInput; .YmlFiles; .HexFiles; .Base64Files; .Asn1Files; Item 3 ******************
 Remarks List: # BulkMode; DirectoryInput; .YmlFiles; .HexFiles; .Base64Files; .Asn1Files
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.base64
 Input Modes Hierarchy: input_dir; input_list; input_file
 Input Data: vyWCAxxaCpiSCQEhQ2WHCfWRCVNQIE5hbWUgMZIaT3BlcmF0aW9uYWwgUHJvZmlsZSBOYW1lIDGTAQGUggKQiVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAAB3RJTUUH4AsJEAc2TJVvlwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAARnQU1BAACxjwv8YQUAAAIfSURBVHja7ZnNFYMgDIA9MgALMASrsA7LsIIjOFeK9VkiP0mwqBdfLsAj4SOEENsJpmfl4eVfgL8A9oYGCx5muAQgwCoyVQ0Olm6MxvASjRk0YGNfpmo7fVEdtI3ZR4i2VdeBUHG6JuYbkACsxxGEEIXrOY2EwM2U+SHr4t2rGNtrUAWwVcO8dStAOHRcUzlEnNSVAkgQDh1FKPrCB7Io4xAaS9SuUrqWpgOAiwXUTCetqyr4gHoAphhLIoAUgHVm7KE1OOUAisiQvwa+gJ5Nvr4LgIqEKgCf/XsBBDavBrBPA0yNR+pGAEcD4DTk2VuQqYpEcwDcNTyfB6hDQE2bLZBLyoT2JICnATw5NRQxIltyLen2rVkaAEfBlOWuGb2GWvwaJpdvCIYDwKeskRf84TH2QgC83+2OKQ7gWJBsRvL60J2siFqxVQxo0qi0Jtz2m45x920ZWxXNNoIHRjUT/S3qZkhHayUA65mbYlD6XcBJnguIuSHyu694Lod1iJMDcHJOTT8N0B1J2+fpLLlAQjFyAI8+08YBHAOxOWvObsJIAMcDuGJoJICiAUIlC4wFwIE4UYbNZQCWB9BZ3XcrgK48uWMBAgWwVENkFICKuw/yN3UkgKmW+zcC2DNP2gvwArwAL8BIgFO19TgABdwKFwPwP/39xDOm+gEM8e9BZcgx5gK0ATSETGbmf6TBAAYY5auPYAjAP6q3AoyRF+ADa69EkXA1rw4AAAAASUVORK5CYIK2ITAfgAIE8IEZdGVzdHNtZHBwbHVzMS5leGFtcGxlLmNvbbcFgAOS+RiZAgZAvyIPMA2AA4g3EKEGBATBAgMEvyMPMA2AA4g3EaEGBAQCAgIC
@@ -2713,7 +2712,7 @@ Output Data: bf2581885a0a989209012143658709f591095350204e616d652031921a4f7065726
 --------------------------------------------------------------------------------
 ****************** # BulkMode; DirectoryInput; .YmlFiles; .HexFiles; .Base64Files; .Asn1Files; Item 12 *****************
 Remarks List: # BulkMode; DirectoryInput; .YmlFiles; .HexFiles; .Base64Files; .Asn1Files
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input File: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64
 Input Modes Hierarchy: input_dir; input_list; input_file
 Input Data: vyWBiFoKmJIJASFDZYcJ9ZEJU1AgTmFtZSAxkhpPcGVyYXRpb25hbCBQcm9maWxlIE5hbWUgMZMBAbYhMB+AAgTwgRl0ZXN0c21kcHBsdXMxLmV4YW1wbGUuY29ttwWAA5L5GJkCBkC/Ig8wDYADiDcQoQYEBMECAwS/Iw8wDYADiDcRoQYEBAICAgI=
@@ -3040,13 +3039,13 @@ Output Data: bf25645a0a989209012143658709f591095350204e616d652031921a4f706572617
 --------------------------------------------------------------------------------
 ++++++++++++ # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; (3 Elements) ++++++++++++
 Remarks List: # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest
-Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input List: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', 'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640']
 Input Data: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', 'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640']
 --------------------------------------------------------------------------------
 *************** # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; Item 1 ***************
 Remarks List: # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
 Output Data:
 {
@@ -3058,7 +3057,7 @@ Output Data:
 --------------------------------------------------------------------------------
 *************** # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; Item 2 ***************
 Remarks List: # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Output Data:
 {
@@ -3069,7 +3068,7 @@ Output Data:
 --------------------------------------------------------------------------------
 *************** # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; Item 3 ***************
 Remarks List: # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input Data: bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640
 Output Data:
 {
@@ -3091,13 +3090,13 @@ Output Data:
 --------------------------------------------------------------------------------
 +++ # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; ItemIndexVariable; (3 Elements) ++
 Remarks List: # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; ItemIndexVariable
-Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\..\Data\UserData\Temp\$ITEM_INDEX
+Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\..\Data\UserData\Temp\$ITEM_INDEX
 Input List: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', 'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640']
 Input Data: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', 'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640']
 --------------------------------------------------------------------------------
 ****** # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; ItemIndexVariable; Item 1 *****
 Remarks List: # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; ItemIndexVariable
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\..\Data\UserData\Temp\$ITEM_INDEX
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\..\Data\UserData\Temp\$ITEM_INDEX
 Output File: ../../Data/UserData/Temp/\\BulkMode_ListInput_Der64Input_Asn1Output_Asn1Element_StoreMetadataRequest_ItemIndexVariable_Item_1.asn1
 Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
 Output Data:
@@ -3110,7 +3109,7 @@ Output Data:
 --------------------------------------------------------------------------------
 ****** # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; ItemIndexVariable; Item 2 *****
 Remarks List: # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; ItemIndexVariable
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\..\Data\UserData\Temp\$ITEM_INDEX
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\..\Data\UserData\Temp\$ITEM_INDEX
 Output File: ../../Data/UserData/Temp/\\BulkMode_ListInput_Der64Input_Asn1Output_Asn1Element_StoreMetadataRequest_ItemIndexVariable_Item_2.asn1
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Output Data:
@@ -3122,7 +3121,7 @@ Output Data:
 --------------------------------------------------------------------------------
 ****** # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; ItemIndexVariable; Item 3 *****
 Remarks List: # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; ItemIndexVariable
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\..\Data\UserData\Temp\$ITEM_INDEX
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\..\Data\UserData\Temp\$ITEM_INDEX
 Output File: ../../Data/UserData/Temp/\\BulkMode_ListInput_Der64Input_Asn1Output_Asn1Element_StoreMetadataRequest_ItemIndexVariable_Item_3.asn1
 Input Data: bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640
 Output Data:
@@ -3145,13 +3144,13 @@ Output Data:
 --------------------------------------------------------------------------------
 ++++++++++++++++++++++++++++++ ExtendRemarksList; Sample; ExtendRemarksList; (3 Elements) ++++++++++++++++++++++++++++++
 Remarks List: ExtendRemarksList; Sample; ExtendRemarksList
-Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input List: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', 'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640']
 Input Data: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', 'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640']
 --------------------------------------------------------------------------------
 ******************************************* ExtendRemarksList; Sample; Item 1 ******************************************
 Remarks List: ExtendRemarksList; Sample
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
 Output Data:
 {
@@ -3163,7 +3162,7 @@ Output Data:
 --------------------------------------------------------------------------------
 *********************************************** ExtendRemarksList; Item 2 **********************************************
 Remarks List: ExtendRemarksList
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Output Data:
 {
@@ -3174,7 +3173,7 @@ Output Data:
 --------------------------------------------------------------------------------
 *********************************************** ExtendRemarksList; Item 3 **********************************************
 Remarks List: ExtendRemarksList
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input Data: bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640
 Output Data:
 {
@@ -3196,13 +3195,13 @@ Output Data:
 --------------------------------------------------------------------------------
 ++++ # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; RemarksVariable; (3 Elements) +++
 Remarks List: # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; RemarksVariable
-Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\$REMARKS
+Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\$REMARKS
 Input List: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', 'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640']
 Input Data: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', 'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640']
 --------------------------------------------------------------------------------
 ******* # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; RemarksVariable; Item 1 ******
 Remarks List: # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; RemarksVariable
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\$REMARKS
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\$REMARKS
 Output File: ../../Data/UserData/GSMA/SGP_22/v3_0_0/StoreMetadataRequest/\BulkMode_ListInput_Der64Input_Asn1Output_Asn1Element_StoreMetadataRequest_RemarksVariable.asn1
 Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
 Output Data:
@@ -3215,7 +3214,7 @@ Output Data:
 --------------------------------------------------------------------------------
 ******* # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; RemarksVariable; Item 2 ******
 Remarks List: # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; RemarksVariable
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\$REMARKS
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\$REMARKS
 Output File: ../../Data/UserData/GSMA/SGP_22/v3_0_0/StoreMetadataRequest/\BulkMode_ListInput_Der64Input_Asn1Output_Asn1Element_StoreMetadataRequest_RemarksVariable_Item_2.asn1
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Output Data:
@@ -3227,7 +3226,7 @@ Output Data:
 --------------------------------------------------------------------------------
 ******* # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; RemarksVariable; Item 3 ******
 Remarks List: # BulkMode; ListInput; Der64Input; Asn1Output; Asn1Element; StoreMetadataRequest; RemarksVariable
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\$REMARKS
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\$REMARKS
 Output File: ../../Data/UserData/GSMA/SGP_22/v3_0_0/StoreMetadataRequest/\BulkMode_ListInput_Der64Input_Asn1Output_Asn1Element_StoreMetadataRequest_RemarksVariable_Item_3.asn1
 Input Data: bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640
 Output Data:
@@ -3577,7 +3576,7 @@ Output Data:
 --------------------------------------------------------------------------------
 **** StoreMetadataRequest; ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.base64 ***
 Remarks List Generated: StoreMetadataRequest; ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.base64
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest.base64
 Input Data: vyWCAxxaCpiSCQEhQ2WHCfWRCVNQIE5hbWUgMZIaT3BlcmF0aW9uYWwgUHJvZmlsZSBOYW1lIDGTAQGUggKQiVBORw0KGgoAAAANSUhEUgAAAEAAAABACAQAAAAAYLlVAAAAB3RJTUUH4AsJEAc2TJVvlwAAAAlwSFlzAAALEgAACxIB0t1+/AAAAARnQU1BAACxjwv8YQUAAAIfSURBVHja7ZnNFYMgDIA9MgALMASrsA7LsIIjOFeK9VkiP0mwqBdfLsAj4SOEENsJpmfl4eVfgL8A9oYGCx5muAQgwCoyVQ0Olm6MxvASjRk0YGNfpmo7fVEdtI3ZR4i2VdeBUHG6JuYbkACsxxGEEIXrOY2EwM2U+SHr4t2rGNtrUAWwVcO8dStAOHRcUzlEnNSVAkgQDh1FKPrCB7Io4xAaS9SuUrqWpgOAiwXUTCetqyr4gHoAphhLIoAUgHVm7KE1OOUAisiQvwa+gJ5Nvr4LgIqEKgCf/XsBBDavBrBPA0yNR+pGAEcD4DTk2VuQqYpEcwDcNTyfB6hDQE2bLZBLyoT2JICnATw5NRQxIltyLen2rVkaAEfBlOWuGb2GWvwaJpdvCIYDwKeskRf84TH2QgC83+2OKQ7gWJBsRvL60J2siFqxVQxo0qi0Jtz2m45x920ZWxXNNoIHRjUT/S3qZkhHayUA65mbYlD6XcBJnguIuSHyu694Lod1iJMDcHJOTT8N0B1J2+fpLLlAQjFyAI8+08YBHAOxOWvObsJIAMcDuGJoJICiAUIlC4wFwIE4UYbNZQCWB9BZ3XcrgK48uWMBAgWwVENkFICKuw/yN3UkgKmW+zcC2DNP2gvwArwAL8BIgFO19TgABdwKFwPwP/39xDOm+gEM8e9BZcgx5gK0ATSETGbmf6TBAAYY5auPYAjAP6q3AoyRF+ADa69EkXA1rw4AAAAASUVORK5CYIK2ITAfgAIE8IEZdGVzdHNtZHBwbHVzMS5leGFtcGxlLmNvbbcFgAOS+RiZAgZAvyIPMA2AA4g3EKEGBATBAgMEvyMPMA2AA4g3EaEGBAQCAgIC
 Output Data:
@@ -3613,7 +3612,7 @@ Output Data:
 --------------------------------------------------------------------------------
 * StoreMetadataRequest; ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.... *
 Remarks List Generated: StoreMetadataRequest; ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon....
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64
 Input Data: vyWBiFoKmJIJASFDZYcJ9ZEJU1AgTmFtZSAxkhpPcGVyYXRpb25hbCBQcm9maWxlIE5hbWUgMZMBAbYhMB+AAgTwgRl0ZXN0c21kcHBsdXMxLmV4YW1wbGUuY29ttwWAA5L5GJkCBkC/Ig8wDYADiDcQoQYEBMECAwS/Iw8wDYADiDcRoQYEBAICAgI=
 
@@ -4859,7 +4858,7 @@ end : {
 --------------------------------------------------------------------------------
 ****************************************** PROFILE_OPERATIONAL1.hex to Base64 ******************************************
 Remarks List: PROFILE_OPERATIONAL1.hex to Base64
-Info => Conversion_Mode; Asn1 Element: ProfileElement; Input Format: der; Output Format: der_with_base64
+Info => Conversion_Mode; Asn1 Element: ProfileElement; Input Format: der; Output Format: der_as_base64
 Input File: ..\..\Data\SampleData\TCA\eUICC_Profile_Package\v3_1\PROFILE_OPERATIONAL1.hex
 Input Data: A042800102810101821447534D412050726F66696C65205061636B616765830A8929901012345678905FA506810084008B00A610060667810F010201060667810F010204B08201F8A0058000810101810667810F010201A207A105C60301020AA305A1038B010FA40C830A989209012143658709F5A527A109820442210026800198831A61184F10A0000000871002FF33FF01890000010050045553494DA682019EA10A8204422100258002022B831B8001019000800102A406830101950108800158A40683010A95010882010A8316800101A40683010195010880015AA40683010A95010882010F830B80015BA40683010A95010882011A830A800101900080015A970082011B8316800103A406830101950108800158A40683010A95010882010F8316800111A40683010195010880014AA40683010A95010882010F8321800103A406830101950108800158A40683010A950108840132A4068301019501088201048321800101A406830101950108800102A406830181950108800158A40683010A950108820104831B800101900080011AA406830101950108800140A40683010A95010882010A8310800101900080015AA40683010A95010882011583158001019000800118A40683010A95010880014297008201108310800101A40683010195010880015A97008201158316800113A406830101950108800148A40683010A95010882010F830B80015EA40683010A95010882011A83258001019000800102A010A406830101950108A406830102950108800158A40683010A950108A33FA0058000810102A13630118001018108303030303030303082020099300D800102810831323334353637383012800200818108393239343536373882020088A244A0058000810103A13BA0393013800101810831323334FFFFFFFF8201018301063010800102810830303030FFFFFFFF820102301080010A810835363738FFFFFFFF830101B37CA0058000810104810667810F010204A21DA11B83027FF18410A0000000871002FF33FF018900000100C60301810AA30B8309082999181132547698A406A104C7022F06A80F830D0A2E148CE73204000000000000AD1383110247534D41206555494343FFFFFFFFFFFFAE03830100B20483020040B606830419F1FF01A225A0058000810105A11CA01A301880020081810839323338FFFFFFFF82020081830101840122A43AA0058000810106A131A12F8001018101018210000102030405060708090A0B0C0D0E0F83100102030405060708090A0B0C0D0E0F008603010203A681BBA0058000810107A1444F07A00000015153504F08A0000001515350414F08A000000151000000820382DC0083010FC90A810280008201F08701F0EA11800F0100000100000002011203B2010000A26C302295013882010183010130173015800180861066778899AABBCCDD1122334455EEFF103022950134820102830101301730158001808610112233445566778899AABBCCDDEEFF1030229501C882010383010130173015800180861099AABBCCDDEEFF101122334455667788A681C0A0058000810108A1494F07A00000015153504F08A0000001515350414F10A00000055910100102736456616C7565820380800083010FC907810280008201F0EA11800F01000001000000020112036C756500A26C30229501388201018301013017301580018086101122334455667788112233445566778830229501348201028301013017301580018086101122334455667788112233445566778830229501C882010383010130173015800180861011223344556677881122334455667788A720A00381010B4F09A00000055910100001A0050403B00000810112040100040100A740A00381010C4F09A00000055910100002A0050403B00020810112040100040100301E8010A0000000871002FF33FF018900000100810402000100820402000100AA07A0058000810163
 Output Data: oEKAAQKBAQGCFEdTTUEgUHJvZmlsZSBQYWNrYWdlgwqJKZAQEjRWeJBfpQaBAIQAiwCmEAYGZ4EPAQIBBgZngQ8BAgSwggH4oAWAAIEBAYEGZ4EPAQIBogehBcYDAQIKowWhA4sBD6QMgwqYkgkBIUNlhwn1pSehCYIEQiEAJoABmIMaYRhPEKAAAACHEAL/M/8BiQAAAQBQBFVTSU2mggGeoQqCBEIhACWAAgIrgxuAAQGQAIABAqQGgwEBlQEIgAFYpAaDAQqVAQiCAQqDFoABAaQGgwEBlQEIgAFapAaDAQqVAQiCAQ+DC4ABW6QGgwEKlQEIggEagwqAAQGQAIABWpcAggEbgxaAAQOkBoMBAZUBCIABWKQGgwEKlQEIggEPgxaAARGkBoMBAZUBCIABSqQGgwEKlQEIggEPgyGAAQOkBoMBAZUBCIABWKQGgwEKlQEIhAEypAaDAQGVAQiCAQSDIYABAaQGgwEBlQEIgAECpAaDAYGVAQiAAVikBoMBCpUBCIIBBIMbgAEBkACAARqkBoMBAZUBCIABQKQGgwEKlQEIggEKgxCAAQGQAIABWqQGgwEKlQEIggEVgxWAAQGQAIABGKQGgwEKlQEIgAFClwCCARCDEIABAaQGgwEBlQEIgAFalwCCARWDFoABE6QGgwEBlQEIgAFIpAaDAQqVAQiCAQ+DC4ABXqQGgwEKlQEIggEagyWAAQGQAIABAqAQpAaDAQGVAQikBoMBApUBCIABWKQGgwEKlQEIoz+gBYAAgQECoTYwEYABAYEIMDAwMDAwMDCCAgCZMA2AAQKBCDEyMzQ1Njc4MBKAAgCBgQg5Mjk0NTY3OIICAIiiRKAFgACBAQOhO6A5MBOAAQGBCDEyMzT/////ggEBgwEGMBCAAQKBCDAwMDD/////ggECMBCAAQqBCDU2Nzj/////gwEBs3ygBYAAgQEEgQZngQ8BAgSiHaEbgwJ/8YQQoAAAAIcQAv8z/wGJAAABAMYDAYEKowuDCQgpmRgRMlR2mKQGoQTHAi8GqA+DDQouFIznMgQAAAAAAACtE4MRAkdTTUEgZVVJQ0P///////+uA4MBALIEgwIAQLYGgwQZ8f8BoiWgBYAAgQEFoRygGjAYgAIAgYEIOTIzOP////+CAgCBgwEBhAEipDqgBYAAgQEGoTGhL4ABAYEBAYIQAAECAwQFBgcICQoLDA0OD4MQAQIDBAUGBwgJCgsMDQ4PAIYDAQIDpoG7oAWAAIEBB6FETwegAAABUVNQTwigAAABUVNQQU8IoAAAAVEAAACCA4LcAIMBD8kKgQKAAIIB8IcB8OoRgA8BAAABAAAAAgESA7IBAACibDAilQE4ggEBgwEBMBcwFYABgIYQZneImaq7zN0RIjNEVe7/EDAilQE0ggECgwEBMBcwFYABgIYQESIzRFVmd4iZqrvM3e7/EDAilQHIggEDgwEBMBcwFYABgIYQmaq7zN3u/xARIjNEVWZ3iKaBwKAFgACBAQihSU8HoAAAAVFTUE8IoAAAAVFTUEFPEKAAAAVZEBABAnNkVmFsdWWCA4CAAIMBD8kHgQKAAIIB8OoRgA8BAAABAAAAAgESA2x1ZQCibDAilQE4ggEBgwEBMBcwFYABgIYQESIzRFVmd4gRIjNEVWZ3iDAilQE0ggECgwEBMBcwFYABgIYQESIzRFVmd4gRIjNEVWZ3iDAilQHIggEDgwEBMBcwFYABgIYQESIzRFVmd4gRIjNEVWZ3iKcgoAOBAQtPCaAAAAVZEBAAAaAFBAOwAACBARIEAQAEAQCnQKADgQEMTwmgAAAFWRAQAAKgBQQDsAAggQESBAEABAEAMB6AEKAAAACHEAL/M/8BiQAAAQCBBAIAAQCCBAIAAQCqB6AFgACBAWM=
@@ -4936,13 +4935,13 @@ Output Data:
 --------------------------------------------------------------------------------
 ++++++++++++++++++++++++++++++++++++++++++ Input Data with List; (3 Elements) ++++++++++++++++++++++++++++++++++++++++++
 Remarks List: Input Data with List
-Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input List: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', 'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640']
 Input Data: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', 'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640']
 --------------------------------------------------------------------------------
 ********************************************* Input Data with List; Item 1 *********************************************
 Remarks List: Input Data with List
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
 Output Data:
 {
@@ -4954,7 +4953,7 @@ Output Data:
 --------------------------------------------------------------------------------
 ********************************************* Input Data with List; Item 2 *********************************************
 Remarks List: Input Data with List
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Output Data:
 {
@@ -4965,7 +4964,7 @@ Output Data:
 --------------------------------------------------------------------------------
 ********************************************* Input Data with List; Item 3 *********************************************
 Remarks List: Input Data with List
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1
 Input Data: bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640
 Output Data:
 {
@@ -4987,19 +4986,19 @@ Output Data:
 --------------------------------------------------------------------------------
 ************************************************** [10, -68, -46, 85] **************************************************
 Remarks List Generated: [10, -68, -46, 85]
-Info => Conversion_Mode; Input Format: byte_array; Output Format: der
+Info => Conversion_Mode; Input Format: der_as_byte_array; Output Format: der
 Input Data: [10, -68, -46, 85]
 Output Data: 0ABCD255
 --------------------------------------------------------------------------------
 ************************************************ Byte Array with Remarks ***********************************************
 Remarks List: Byte Array with Remarks
-Info => Conversion_Mode; Input Format: byte_array; Output Format: der
+Info => Conversion_Mode; Input Format: der_as_byte_array; Output Format: der
 Input Data: [10, -68, -46, 85]
 Output Data: 0ABCD255
 --------------------------------------------------------------------------------
 ************************************************** [10, 188, 210, 85] **************************************************
 Remarks List Generated: [10, 188, 210, 85]
-Info => Conversion_Mode; Input Format: byte_array; Output Format: der_with_base64
+Info => Conversion_Mode; Input Format: der_as_byte_array; Output Format: der_as_base64
 Input Data: [10, 188, 210, 85]
 Output Data: CrzSVQ==
 --------------------------------------------------------------------------------
@@ -6419,13 +6418,13 @@ Output Data: bf25645a0a989209012143658709f591095350204e616d652031921a4f706572617
 --------------------------------------------------------------------------------
 +++++++++++++++++++++++++++++ Extend Remarks List Sample; Extend Remarks List; (3 Elements) ++++++++++++++++++++++++++++
 Remarks List: Extend Remarks List Sample; Extend Remarks List
-Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64
+Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64
 Input List: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', 'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640']
 Input Data: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', 'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640']
 --------------------------------------------------------------------------------
 ****************************************** Extend Remarks List Sample; Item 1 ******************************************
 Remarks List: Extend Remarks List Sample
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64
 Output File: ../../Data/UserData/GSMA/SGP_22/v3_0_0/StoreMetadataRequest/\StoreMetadataRequest_wo_icon_Extend_Remarks_List_Sample.asn1
 Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
 Output Data:
@@ -6438,7 +6437,7 @@ Output Data:
 --------------------------------------------------------------------------------
 ********************************************** Extend Remarks List; Item 2 *********************************************
 Remarks List: Extend Remarks List
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64
 Output File: ../../Data/UserData/GSMA/SGP_22/v3_0_0/StoreMetadataRequest/\StoreMetadataRequest_wo_icon_Extend_Remarks_List.asn1
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Output Data:
@@ -6450,7 +6449,7 @@ Output Data:
 --------------------------------------------------------------------------------
 ********************************************** Extend Remarks List; Item 3 *********************************************
 Remarks List: Extend Remarks List
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64
 Output File: ../../Data/UserData/GSMA/SGP_22/v3_0_0/StoreMetadataRequest/\StoreMetadataRequest_wo_icon_Extend_Remarks_List_Item_3.asn1
 Input Data: bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640
 Output Data:
@@ -6473,13 +6472,13 @@ Output Data:
 --------------------------------------------------------------------------------
 +++++++++++++++++++++++++++++ Extend Remarks List Sample; Extend Remarks List; (3 Elements) ++++++++++++++++++++++++++++
 Remarks List: Extend Remarks List Sample; Extend Remarks List
-Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest
+Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest
 Input List: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', 'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640']
 Input Data: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', 'bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640']
 --------------------------------------------------------------------------------
 ****************************************** Extend Remarks List Sample; Item 1 ******************************************
 Remarks List: Extend Remarks List Sample
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest
 Output File: ../../Data/UserData/GSMA/SGP_22/v3_0_0/\StoreMetadataRequest\Extend_Remarks_List_Sample.asn1
 Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
 Output Data:
@@ -6492,7 +6491,7 @@ Output Data:
 --------------------------------------------------------------------------------
 ********************************************** Extend Remarks List; Item 2 *********************************************
 Remarks List: Extend Remarks List
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest
 Output File: ../../Data/UserData/GSMA/SGP_22/v3_0_0/\StoreMetadataRequest\Extend_Remarks_List.asn1
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Output Data:
@@ -6504,7 +6503,7 @@ Output Data:
 --------------------------------------------------------------------------------
 ********************************************** Extend Remarks List; Item 3 *********************************************
 Remarks List: Extend Remarks List
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest
 Output File: ../../Data/UserData/GSMA/SGP_22/v3_0_0/\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1
 Input Data: bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640
 Output Data:
@@ -6996,7 +6995,7 @@ BF25 33
 *********************** vyUzWgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAx ***********************
 Known Exception Occurred; Summary: check your raw data; Details: Non-hexadecimal digit found
 Remarks List: DER_64; tlv_parsing_of_output=True
-Info => Conversion_Mode; Input Format: der; Output Format: der_with_base64
+Info => Conversion_Mode; Input Format: der; Output Format: der_as_base64
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Output Data:
 vyUzWgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAx
@@ -8065,7 +8064,7 @@ Output Data: testt
 --------------------------------------------------------------------------------
 ************************************* Invalid raw_data (base 64 conversion failure) ************************************
 Remarks List: Invalid raw_data (base 64 conversion failure)
-Info => Conversion_Mode; Input Format: der; Output Format: der_with_base64
+Info => Conversion_Mode; Input Format: der; Output Format: der_as_base64
 Input Data: testt
 Output Data: 
 --------------------------------------------------------------------------------
@@ -8080,7 +8079,7 @@ Output Data:
 Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: asn1_element is either empty or not provided
 ************************************* Invalid raw_data (base 64 conversion failure) ************************************
 Remarks List: Invalid raw_data (base 64 conversion failure)
-Info => Conversion_Mode; Input Format: der; Output Format: der_with_base64
+Info => Conversion_Mode; Input Format: der; Output Format: der_as_base64
 Input Data: D:\e\AC\DeleteProfileRequest.he
 Output Data: 
 --------------------------------------------------------------------------------
@@ -8123,13 +8122,13 @@ Known Exception Occurred At Function: find_offset_of_section; Summary: check all
 }
 +++++++++++++++++++++++++++++++++++++++++ # FileExistsError Error; (2 Elements) ++++++++++++++++++++++++++++++++++++++++
 Remarks List: # FileExistsError Error
-Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\\..\\Data\\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1\\
+Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\\..\\Data\\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1\\
 Input List: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031']
 Input Data: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031']
 --------------------------------------------------------------------------------
 ******************************************** # FileExistsError Error; Item 1 *******************************************
 Remarks List: # FileExistsError Error
-Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\\..\\Data\\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1\\
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\\..\\Data\\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1\\
 Output File: ../../Data/UserData/GSMA/SGP_22/v3_0_0/StoreMetadataRequest/\Extend_Remarks_List_Item_3.asn1\FileExistsError_Error.asn1
 Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
 Output Data:
@@ -8141,7 +8140,7 @@ Output Data:
 }
 --------------------------------------------------------------------------------
 Remarks List: # FileExistsError Error
-Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_with_base64; Output Format: asn1; Output File: ..\\..\\Data\\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1\\
+Info => List_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der_as_base64; Output Format: asn1; Output File: ..\\..\\Data\\UserData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1\\
 Input List: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031']
 Input Data: ['BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640', 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031']
 --------------------------------------------------------------------------------
@@ -8161,6 +8160,563 @@ Output Data:
 
 --------------------------------------------------------------------------------
 Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: bytes buffer not long enough; Unknown raw data: bf25375a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031990206
+******************************************** Output Format is get_internals ********************************************
+Remarks List: Output Format is get_internals
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: get_internals
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: {'name': 'StoreMetadataRequest', 'mode': 'TYPE', 'tag': (37, 'CONTEXT-SPECIFIC', 'IMPLICIT'), 'typeref': None, 'tr': None, 'param': False, 'parent': None, 'opt': False, 'def': None, 'uniq': False, 'group': None, 'cont': {
+iccid: <iccid ([Iccid] OCTET STRING)>,
+serviceProviderName: <serviceProviderName (UTF8String)>,
+profileName: <profileName (UTF8String)>,
+iconType: <iconType ([IconType] INTEGER)>,
+icon: <icon (OCTET STRING)>,
+profileClass: <profileClass ([ProfileClass] INTEGER)>,
+notificationConfigurationInfo: <notificationConfigurationInfo (SEQUENCE OF)>,
+profileOwner: <profileOwner ([OperatorId] SEQUENCE)>,
+profilePolicyRules: <profilePolicyRules ([PprIds] BIT STRING)>,
+serviceSpecificDataStoredInEuicc: <serviceSpecificDataStoredInEuicc ([VendorSpecificExtension] SEQUENCE OF)>,
+serviceSpecificDataNotStoredInEuicc: <serviceSpecificDataNotStoredInEuicc ([VendorSpecificExtension] SEQUENCE OF)>,
+rpmConfiguration: <rpmConfiguration ([RpmConfiguration] SEQUENCE)>,
+hriServerAddress: <hriServerAddress (UTF8String)>,
+serviceProviderMessage: <serviceProviderMessage ([LocalisedTextMessage] SEQUENCE)>,
+lprConfiguration: <lprConfiguration ([LprConfiguration] SEQUENCE)>,
+enterpriseConfiguration: <enterpriseConfiguration ([EnterpriseConfiguration] SEQUENCE)>,
+serviceDescription: <serviceDescription ([ServiceDescription] BIT STRING)>,
+deviceChangeConfiguration: <deviceChangeConfiguration ([DeviceChangeConfiguration] CHOICE)>,
+estimatedProfileSize: <estimatedProfileSize (INTEGER)>
+}, 'root': ['iccid', 'serviceProviderName', 'profileName', 'iconType', 'icon', 'profileClass', 'notificationConfigurationInfo', 'profileOwner', 'profilePolicyRules', 'serviceSpecificDataStoredInEuicc', 'serviceSpecificDataNotStoredInEuicc', 'rpmConfiguration', 'hriServerAddress', 'serviceProviderMessage', 'lprConfiguration', 'enterpriseConfiguration', 'serviceDescription', 'deviceChangeConfiguration', 'estimatedProfileSize'], 'ext': [], 'val': {'iccid': b'\x98\x92\t\x01!Ce\x87\t\xf5', 'serviceProviderName': 'SP Name 1', 'profileName': 'Operational Profile Name 1'}, 'const_val': None, 'const_tab': None, 'root_mand': ['iccid', 'serviceProviderName', 'profileName'], 'ext_group': {}, 'ext_group_obj': {}, 'ext_ident': {}}
+--------------------------------------------------------------------------------
+********************************************* Output Format is get_typeref *********************************************
+Remarks List: Output Format is get_typeref
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: get_typeref
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: None
+--------------------------------------------------------------------------------
+******************************************* Output Format is get_typeref_list ******************************************
+Remarks List: Output Format is get_typeref_list
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: get_typeref_list
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: []
+--------------------------------------------------------------------------------
+******************************************** Output Format is get_type_list ********************************************
+Remarks List: Output Format is get_type_list
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: get_type_list
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: ['SEQUENCE']
+--------------------------------------------------------------------------------
+********************************************** Output Format is get_const **********************************************
+Remarks List: Output Format is get_const
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: get_const
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: {}
+--------------------------------------------------------------------------------
+********************************************** Output Format is get_proto **********************************************
+Remarks List: Output Format is get_proto
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: get_proto
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: ('SEQUENCE', {
+iccid: 'OCTET STRING',
+serviceProviderName: 'UTF8String',
+profileName: 'UTF8String',
+iconType: 'INTEGER',
+icon: 'OCTET STRING',
+profileClass: 'INTEGER',
+notificationConfigurationInfo: ('SEQUENCE OF', ('SEQUENCE', {
+ profileManagementOperation: 'BIT STRING',
+ notificationAddress: 'UTF8String'
+ })),
+profileOwner: ('SEQUENCE', {
+ mccMnc: 'OCTET STRING',
+ gid1: 'OCTET STRING',
+ gid2: 'OCTET STRING'
+ }),
+profilePolicyRules: 'BIT STRING',
+serviceSpecificDataStoredInEuicc: ('SEQUENCE OF', ('SEQUENCE', {
+ vendorOid: 'OBJECT IDENTIFIER',
+ vendorSpecificData: ('OPEN_TYPE', {})
+ })),
+serviceSpecificDataNotStoredInEuicc: ('SEQUENCE OF', ('SEQUENCE', {
+ vendorOid: 'OBJECT IDENTIFIER',
+ vendorSpecificData: ('OPEN_TYPE', {})
+ })),
+rpmConfiguration: ('SEQUENCE', {
+ managingDpList: ('SEQUENCE OF', ('SEQUENCE', {
+  managingDpOid: 'OBJECT IDENTIFIER',
+  rpmType: 'BIT STRING',
+  tagList: 'OCTET STRING'
+  })),
+ pollingAddress: 'UTF8String',
+ allowedCiPKId: 'OCTET STRING',
+ profileOwnerOid: 'OBJECT IDENTIFIER'
+ }),
+hriServerAddress: 'UTF8String',
+serviceProviderMessage: ('SEQUENCE', {
+ languageTag: 'UTF8String',
+ message: 'UTF8String'
+ }),
+lprConfiguration: ('SEQUENCE', {
+ pcmpAddress: 'UTF8String',
+ dpiEnable: 'UTF8String',
+ triggerLprOnEnableProfile: 'NULL'
+ }),
+enterpriseConfiguration: ('SEQUENCE', {
+ enterpriseOid: 'OBJECT IDENTIFIER',
+ enterpriseName: 'UTF8String',
+ enterpriseRules: ('SEQUENCE', {
+  enterpriseRuleBits: 'BIT STRING',
+  numberOfNonEnterpriseProfiles: 'INTEGER'
+  })
+ }),
+serviceDescription: 'BIT STRING',
+deviceChangeConfiguration: ('CHOICE', {
+ requestToDp: ('SEQUENCE', {
+  smdpAddressForDc: 'UTF8String',
+  allowedCiPKId: 'OCTET STRING',
+  eidRequired: 'NULL',
+  tacRequired: 'NULL'
+  }),
+ usingStoredAc: ('SEQUENCE', {
+  activationCodeForDc: 'UTF8String',
+  deleteOldProfile: 'NULL'
+  })
+ }),
+estimatedProfileSize: 'INTEGER'
+})
+--------------------------------------------------------------------------------
+******************************************** Output Format is get_complexity *******************************************
+Remarks List: Output Format is get_complexity
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: get_complexity
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: (38, 4, [])
+--------------------------------------------------------------------------------
+*********************************************** Output Format is get_root **********************************************
+Remarks List: Output Format is get_root
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: get_root
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: <StoreMetadataRequest (SEQUENCE)>
+--------------------------------------------------------------------------------
+******************************************** Output Format is get_root_path ********************************************
+Remarks List: Output Format is get_root_path
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: get_root_path
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: ['StoreMetadataRequest']
+--------------------------------------------------------------------------------
+*********************************************** Output Format is get_val ***********************************************
+Remarks List: Output Format is get_val
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: get_val
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data:
+{'iccid': b'\x98\x92\t\x01!Ce\x87\t\xf5', 'serviceProviderName': 'SP Name 1', 'profileName': 'Operational Profile Name 1'}
+--------------------------------------------------------------------------------
+******************************************** Output Format is get_val_paths ********************************************
+Remarks List: Output Format is get_val_paths
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: get_val_paths
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data:
+[(['iccid'], b'\x98\x92\t\x01!Ce\x87\t\xf5'), (['serviceProviderName'], 'SP Name 1'), (['profileName'], 'Operational Profile Name 1')]
+--------------------------------------------------------------------------------
+****************************************** Output Format is get_val_jet_paths ******************************************
+Remarks List: Output Format is get_val_jet_paths
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: get_val_jet_paths
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: [(['iccid'], ['iccid'], b'\x98\x92\t\x01!Ce\x87\t\xf5'), (['serviceProviderName'], ['serviceProviderName'], 'SP Name 1'), (['profileName'], ['profileName'], 'Operational Profile Name 1')]
+--------------------------------------------------------------------------------
+************************************************* Output Format is asn1 ************************************************
+Remarks List: Output Format is asn1
+Info => Formatting_Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: asn1
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+--------------------------------------------------------------------------------
+************************************************* Output Format is uper ************************************************
+Remarks List: Output Format is uper
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: uper
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: 00004c49048090a1b2c384fa92a6a0409cc2daca4062693dc195c985d1a5bdb985b08141c9bd99a5b194813985b59480c4
+--------------------------------------------------------------------------------
+*********************************************** Output Format is uper_ws ***********************************************
+Remarks List: Output Format is uper_ws
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: uper_ws
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: 00004c49048090a1b2c384fa92a6a0409cc2daca4062693dc195c985d1a5bdb985b08141c9bd99a5b194813985b59480c4
+--------------------------------------------------------------------------------
+************************************************* Output Format is aper ************************************************
+Remarks List: Output Format is aper
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: aper
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: 000000989209012143658709f5245350204e616d652031344f7065726174696f6e616c2050726f66696c65204e616d652031
+--------------------------------------------------------------------------------
+*********************************************** Output Format is aper_ws ***********************************************
+Remarks List: Output Format is aper_ws
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: aper_ws
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: 000000989209012143658709f5245350204e616d652031344f7065726174696f6e616c2050726f66696c65204e616d652031
+--------------------------------------------------------------------------------
+************************************************* Output Format is ber *************************************************
+Remarks List: Output Format is ber
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: ber
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: bf25335a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031
+--------------------------------------------------------------------------------
+************************************************ Output Format is ber_ws ***********************************************
+Remarks List: Output Format is ber_ws
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: ber_ws
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: bf25335a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031
+--------------------------------------------------------------------------------
+************************************************* Output Format is cer *************************************************
+Remarks List: Output Format is cer
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: cer
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: bf25805a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d6520310000
+--------------------------------------------------------------------------------
+************************************************ Output Format is cer_ws ***********************************************
+Remarks List: Output Format is cer_ws
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: cer_ws
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: bf25805a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d6520310000
+--------------------------------------------------------------------------------
+************************************************* Output Format is der *************************************************
+Remarks List: Output Format is der
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: bf25335a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031
+--------------------------------------------------------------------------------
+************************************************ Output Format is der_ws ***********************************************
+Remarks List: Output Format is der_ws
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_ws
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: bf25335a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031
+--------------------------------------------------------------------------------
+************************************************* Output Format is jer *************************************************
+Remarks List: Output Format is jer
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: jer
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: {
+ "iccid": "989209012143658709f5",
+ "profileName": "Operational Profile Name 1",
+ "serviceProviderName": "SP Name 1"
+}
+--------------------------------------------------------------------------------
+************************************************* Output Format is json ************************************************
+Remarks List: Output Format is json
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: json
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: {
+ "iccid": "989209012143658709f5",
+ "profileName": "Operational Profile Name 1",
+ "serviceProviderName": "SP Name 1"
+}
+--------------------------------------------------------------------------------
+************************************************* Output Format is oer *************************************************
+Remarks List: Output Format is oer
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: oer
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: 000000989209012143658709f5095350204e616d6520311a4f7065726174696f6e616c2050726f66696c65204e616d652031
+--------------------------------------------------------------------------------
+************************************************ Output Format is oer_ws ***********************************************
+Remarks List: Output Format is oer_ws
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: oer_ws
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: 000000989209012143658709f5095350204e616d6520311a4f7065726174696f6e616c2050726f66696c65204e616d652031
+--------------------------------------------------------------------------------
+************************************************* Output Format is coer ************************************************
+Remarks List: Output Format is coer
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: coer
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: 000000989209012143658709f5095350204e616d6520311a4f7065726174696f6e616c2050726f66696c65204e616d652031
+--------------------------------------------------------------------------------
+*********************************************** Output Format is coer_ws ***********************************************
+Remarks List: Output Format is coer_ws
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: coer_ws
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: 000000989209012143658709f5095350204e616d6520311a4f7065726174696f6e616c2050726f66696c65204e616d652031
+--------------------------------------------------------------------------------
+******************************************** Output Format is der_as_base64 ********************************************
+Remarks List: Output Format is der_as_base64
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_as_base64
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: vyUzWgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAx
+--------------------------------------------------------------------------------
+****************************************** Output Format is der_as_byte_array ******************************************
+Remarks List: Output Format is der_as_byte_array
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_as_byte_array
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: [191, 37, 51, 90, 10, 152, 146, 9, 1, 33, 67, 101, 135, 9, 245, 145, 9, 83, 80, 32, 78, 97, 109, 101, 32, 49, 146, 26, 79, 112, 101, 114, 97, 116, 105, 111, 110, 97, 108, 32, 80, 114, 111, 102, 105, 108, 101, 32, 78, 97, 109, 101, 32, 49]
+--------------------------------------------------------------------------------
+*************************************** Output Format is der_as_byte_array_signed **************************************
+Remarks List: Output Format is der_as_byte_array_signed
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der_as_byte_array_signed
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: [-65, 37, 51, 90, 10, -104, -110, 9, 1, 33, 67, 101, -121, 9, -11, -111, 9, 83, 80, 32, 78, 97, 109, 101, 32, 49, -110, 26, 79, 112, 101, 114, 97, 116, 105, 111, 110, 97, 108, 32, 80, 114, 111, 102, 105, 108, 101, 32, 78, 97, 109, 101, 32, 49]
+--------------------------------------------------------------------------------
+************************************************* Output Format is hex *************************************************
+Remarks List: Output Format is hex
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: hex
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: bf25335a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031
+--------------------------------------------------------------------------------
+************************************************* Output Format is txt *************************************************
+Remarks List: Output Format is txt
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: txt
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: bf25335a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031
+--------------------------------------------------------------------------------
+************************************************ Output Format is ascii ************************************************
+Remarks List: Output Format is ascii
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: ascii
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: bf25335a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031
+--------------------------------------------------------------------------------
 ------------------------------------------------------- UserData -------------------------------------------------------
 ************************************************** SGP22; Der to Asn1 **************************************************
 Remarks List: SGP22; Der to Asn1
@@ -8209,7 +8765,7 @@ Output Data: 3036800102810101821447534d412050726f66696c65205061636b616765830a892
 --------------------------------------------------------------------------------
 ************************************************** Der(Hex) to Base 64 *************************************************
 Remarks List: Der(Hex) to Base 64
-Info => Conversion_Mode; Input Format: der; Output Format: der_with_base64
+Info => Conversion_Mode; Input Format: der; Output Format: der_as_base64
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Output Data: vyUzWgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAx
 --------------------------------------------------------------------------------
