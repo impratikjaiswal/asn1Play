@@ -64,10 +64,10 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
             return asn1_element.get_asn1_object_list(str_format=True)
     if not raw_data:
         raise ValueError(PhExceptionHelper(msg_key=Constants.RAW_DATA_MISSING, function_name=func_name))
-    if input_format not in FormatsGroup.INPUT_FORMATS_ALL:
+    if input_format not in FormatsGroup.INPUT_FORMATS_SUPPORTED:
         raise ValueError(
             PhExceptionHelper(msg_key=Constants.UNKNOWN_INPUT_FORMAT, msg_value=input_format, function_name=func_name))
-    if output_format not in FormatsGroup.OUTPUT_FORMATS_ALL:
+    if output_format not in FormatsGroup.OUTPUT_FORMATS_SUPPORTED:
         raise ValueError(
             PhExceptionHelper(msg_key=Constants.UNKNOWN_OUTPUT_FORMAT, msg_value=output_format,
                               function_name=func_name))
@@ -147,7 +147,7 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
                 known_data = False
                 exception = e
             offset += (len(temp) * 2)
-        if input_format in FormatsGroup.INPUT_FORMATS_ASN:
+        elif input_format in FormatsGroup.INPUT_FORMATS_ASN:
             temp = raw_data[offset:]
             next_offset = find_offset_of_section(temp, PhConstants.STR_CURLY_BRACE_START,
                                                  PhConstants.STR_CURLY_BRACE_END) + 1
@@ -158,6 +158,22 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
             try:  # Needed For Unknown data / TLV
                 M.from_asn1(temp)
                 temp = M.to_asn1()
+            except Exception as e:
+                known_data = False
+                exception = e
+            offset += next_offset
+        elif input_format in FormatsGroup.INPUT_FORMATS_JSON :
+            # TODO: Can be merged with ASN1 Above
+            temp = raw_data[offset:]
+            next_offset = find_offset_of_section(temp, PhConstants.STR_CURLY_BRACE_START,
+                                                 PhConstants.STR_CURLY_BRACE_END) + 1
+            print_debug_var_v('next_offset', next_offset)
+            # There could be n white spaces (\n, \r , or both)
+            next_offset = find_offset_of_next_non_white_space_char(temp, next_offset)
+            print_debug_var_v('next_offset', next_offset)
+            try:  # Needed For Unknown data / TLV
+                M.from_json(temp)
+                temp = M.to_json()
             except Exception as e:
                 known_data = False
                 exception = e

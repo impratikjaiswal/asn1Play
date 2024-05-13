@@ -14,9 +14,9 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Sunday, May 12 2024, 15:03:57:879938, IST (GMT+0530)
+Time Stamp is Monday, May 13 2024, 09:58:12:135405, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is b902928;  (HEAD -> main, origin/main, origin/HEAD); 2024-05-11 20:51:57 +0530; imPratik <impratikjaiswal@gmail.com>; Urls Updated
+Git Summary is 7593908;  (HEAD -> main); 2024-05-12 15:07:50 +0530; imPratik <impratikjaiswal@gmail.com>; support of multiple input formats
 --------------------------------------------------------------------------------
 pythonHelpers version is v3.0.7
 --------------------------------------------------------------------------------
@@ -8160,6 +8160,173 @@ Output Data:
 
 --------------------------------------------------------------------------------
 Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: bytes buffer not long enough; Unknown raw data: bf25375a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031990206
+* StoreMetadataRequest; ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandator... *
+Remarks List Generated: StoreMetadataRequest; ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandator...
+Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der
+Input File: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1
+Input Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+
+Output Data: bf25335a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031
+--------------------------------------------------------------------------------
+* StoreMetadataRequest; {          "iccid": "989209012143658709f5",          "profileName": "Operational Profile Na... *
+Remarks List Generated: StoreMetadataRequest; {          "iccid": "989209012143658709f5",          "profileName": "Operational Profile Na...
+Info => Conversion_Mode; Asn1 Element: StoreMetadataRequest; Input Format: json; Output Format: der
+Input Data: {
+         "iccid": "989209012143658709f5",
+         "profileName": "Operational Profile Name 1",
+         "serviceProviderName": "SP Name 1"
+        }
+Output Data: bf25335a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031
+--------------------------------------------------------------------------------
+* StoreMetadataRequest; {          "iccid": "989209012143658709f5",          "profileName": "Operational Profile Na... *
+Remarks List Generated: StoreMetadataRequest; {          "iccid": "989209012143658709f5",          "profileName": "Operational Profile Na...
+Info => Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: json; Output Format: asn1
+Input Data: {
+         "iccid": "989209012143658709f5",
+         "profileName": "Operational Profile Name 1",
+         "serviceProviderName": "SP Name 1"
+        }
+Output Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+--------------------------------------------------------------------------------
+**** GetEimPackageResponse; ..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json ****
+Remarks List Generated: GetEimPackageResponse; ..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json
+Info => Conversion_Mode; Asn1 Element: GetEimPackageResponse; Input Format: json; Output Format: der
+Input File: ..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json
+Input Data: {
+ "euiccPackageRequest": {
+  "eimSignature": "80d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb",
+  "euiccPackageSigned": {
+   "counterValue": 3,
+   "eidValue": "730f11567c634e3399fbabd91a9e5726",
+   "eimId": "E7BF8FF5-56BF-3881-8F9F-26EC8E63BFF7",
+   "euiccPackage": {
+    "psmoList": [
+     {
+      "disable": {
+       "iccid": "8929901012345678905f"
+      }
+     },
+     {
+      "disable": {
+       "iccid": "8929901012345678905f"
+      }
+     }
+    ]
+   }
+  }
+ }
+}
+
+Output Data: bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d384639462d3236454338453633424646375a10730f11567c634e3399fbabd91a9e5726810103a01ca40c5a0a8929901012345678905fa40c5a0a8929901012345678905f5f374080d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb
+--------------------------------------------------------------------------------
+**** GetEimPackageResponse; ..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json ****
+Remarks List Generated: GetEimPackageResponse; ..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json
+Info => Encoding_Mode; Asn1 Element: GetEimPackageResponse; Input Format: json; Output Format: asn1
+Input File: ..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json
+Input Data: {
+ "euiccPackageRequest": {
+  "eimSignature": "80d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb",
+  "euiccPackageSigned": {
+   "counterValue": 3,
+   "eidValue": "730f11567c634e3399fbabd91a9e5726",
+   "eimId": "E7BF8FF5-56BF-3881-8F9F-26EC8E63BFF7",
+   "euiccPackage": {
+    "psmoList": [
+     {
+      "disable": {
+       "iccid": "8929901012345678905f"
+      }
+     },
+     {
+      "disable": {
+       "iccid": "8929901012345678905f"
+      }
+     }
+    ]
+   }
+  }
+ }
+}
+
+Output Data:
+euiccPackageRequest : {
+  euiccPackageSigned {
+    eimId "E7BF8FF5-56BF-3881-8F9F-26EC8E63BFF7",
+    eidValue '730F11567C634E3399FBABD91A9E5726'H,
+    counterValue 3,
+    euiccPackage psmoList : {
+      disable : {
+        iccid '8929901012345678905F'H
+      },
+      disable : {
+        iccid '8929901012345678905F'H
+      }
+    }
+  },
+  eimSignature '80D82B20D657F8956858CA38848C337783A7C5793429B7EDCC724D7D490CBC85C38408C4BD39DD756478928CE26624C0D71E8B781EF5E56CF0F1398F494385CB'H
+}
+--------------------------------------------------------------------------------
+* GetEimPackageResponse; bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d384639462d323645433845363342... *
+Remarks List Generated: GetEimPackageResponse; bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d384639462d323645433845363342...
+Info => Conversion_Mode; Asn1 Element: GetEimPackageResponse; Input Format: der; Output Format: json
+Input Data: bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d384639462d3236454338453633424646375a10730f11567c634e3399fbabd91a9e5726810103a01ca40c5a0a8929901012345678905fa40c5a0a8929901012345678905f5f374080d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb
+Output Data: {
+ "euiccPackageRequest": {
+  "eimSignature": "80d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb",
+  "euiccPackageSigned": {
+   "counterValue": 3,
+   "eidValue": "730f11567c634e3399fbabd91a9e5726",
+   "eimId": "E7BF8FF5-56BF-3881-8F9F-26EC8E63BFF7",
+   "euiccPackage": {
+    "psmoList": [
+     {
+      "disable": {
+       "iccid": "8929901012345678905f"
+      }
+     },
+     {
+      "disable": {
+       "iccid": "8929901012345678905f"
+      }
+     }
+    ]
+   }
+  }
+ }
+}
+--------------------------------------------------------------------------------
+* GetEimPackageResponse; bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d384639462d323645433845363342... *
+Remarks List Generated: GetEimPackageResponse; bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d384639462d323645433845363342...
+Info => Encoding_Mode; Asn1 Element: GetEimPackageResponse; Input Format: der; Output Format: asn1
+Input Data: bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d384639462d3236454338453633424646375a10730f11567c634e3399fbabd91a9e5726810103a01ca40c5a0a8929901012345678905fa40c5a0a8929901012345678905f5f374080d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb
+Output Data:
+euiccPackageRequest : {
+  euiccPackageSigned {
+    eimId "E7BF8FF5-56BF-3881-8F9F-26EC8E63BFF7",
+    eidValue '730F11567C634E3399FBABD91A9E5726'H,
+    counterValue 3,
+    euiccPackage psmoList : {
+      disable : {
+        iccid '8929901012345678905F'H
+      },
+      disable : {
+        iccid '8929901012345678905F'H
+      }
+    }
+  },
+  eimSignature '80D82B20D657F8956858CA38848C337783A7C5793429B7EDCC724D7D490CBC85C38408C4BD39DD756478928CE26624C0D71E8B781EF5E56CF0F1398F494385CB'H
+}
+--------------------------------------------------------------------------------
 ******************************************** Output Format is get_internals ********************************************
 Remarks List: Output Format is get_internals
 Info => Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: get_internals

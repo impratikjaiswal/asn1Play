@@ -1,6 +1,6 @@
 from python_helpers.ph_keys import PhKeys
 
-from asn1_play.generated_code.asn1.GSMA import SGP_22
+from asn1_play.generated_code.asn1.GSMA import SGP_22, SGP_32
 from asn1_play.generated_code.asn1.TCA import eUICC_Profile_Package
 from asn1_play.generated_code.asn1.asn1 import Asn1
 from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
@@ -730,7 +730,7 @@ class UnitTesting(DataTypeMaster):
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),
-            # Can be deleted
+            #
             Data(
                 raw_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
                 asn1_element=eUICC_Profile_Package.PEDefinitions.PE_End,
@@ -872,8 +872,69 @@ class UnitTesting(DataTypeMaster):
             ),
         ]
 
+        data_pool_json = [
+            #
+            Data(
+                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.ASN1,
+                output_format=Formats.DER,
+            ),
+            #
+            Data(
+                raw_data="""{
+         "iccid": "989209012143658709f5",
+         "profileName": "Operational Profile Name 1",
+         "serviceProviderName": "SP Name 1"
+        }""",
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v2_4, 'StoreMetadataRequest'),
+                input_format=Formats.JSON,
+                output_format=Formats.DER,
+            ),
+            #
+            Data(
+                raw_data="""{
+         "iccid": "989209012143658709f5",
+         "profileName": "Operational Profile Name 1",
+         "serviceProviderName": "SP Name 1"
+        }""",
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v2_4, 'StoreMetadataRequest'),
+                input_format=Formats.JSON,
+                output_format=Formats.ASN1,
+            ),
+            #
+            Data(
+                raw_data=r'..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json',
+                asn1_element=SGP_32.SGP32Definitions.GetEimPackageResponse,
+                input_format=Formats.JSON,
+                output_format=Formats.DER,
+            ),
+            #
+            Data(
+                raw_data=r'..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json',
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'GetEimPackageResponse'),
+                input_format=Formats.JSON,
+                output_format=Formats.ASN1,
+            ),
+            #
+            Data(
+                raw_data=r'bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d384639462d3236454338453633424646375a10730f11567c634e3399fbabd91a9e5726810103a01ca40c5a0a8929901012345678905fa40c5a0a8929901012345678905f5f374080d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb',
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'GetEimPackageResponse'),
+                input_format=Formats.DER,
+                output_format=Formats.JSON,
+            ),
+            #
+            Data(
+                raw_data=r'bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d384639462d3236454338453633424646375a10730f11567c634e3399fbabd91a9e5726810103a01ca40c5a0a8929901012345678905fa40c5a0a8929901012345678905f5f374080d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb',
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'GetEimPackageResponse'),
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+
+        ]
+
         data_pool_asn1_to_all_formats = []
-        for output_format in FormatsGroup.OUTPUT_FORMATS_ALL:
+        for output_format in FormatsGroup.OUTPUT_FORMATS_SUPPORTED:
             data_pool_asn1_to_all_formats.append(
                 Data(
                     remarks_list=f"Output Format is {output_format}",
@@ -896,5 +957,6 @@ class UnitTesting(DataTypeMaster):
             data_pool_asn_element_with_schema +
             data_pool_web_requests +
             data_pool_negative +
+            data_pool_json +
             data_pool_asn1_to_all_formats
         )

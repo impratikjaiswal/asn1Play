@@ -1,0 +1,24 @@
+{
+ "euiccPackageRequest": {
+  "eimSignature": "80d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb",
+  "euiccPackageSigned": {
+   "counterValue": 3,
+   "eidValue": "730f11567c634e3399fbabd91a9e5726",
+   "eimId": "E7BF8FF5-56BF-3881-8F9F-26EC8E63BFF7",
+   "euiccPackage": {
+    "psmoList": [
+     {
+      "disable": {
+       "iccid": "8929901012345678905f"
+      }
+     },
+     {
+      "disable": {
+       "iccid": "8929901012345678905f"
+      }
+     }
+    ]
+   }
+  }
+ }
+}
