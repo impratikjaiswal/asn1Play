@@ -268,8 +268,8 @@ class UnitTesting(DataTypeMaster):
             #
             Data(
                 input_data=[
-                             'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.'
-                         ] * 100,
+                               'This is a long dataaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.'
+                           ] * 100,
                 input_format=Formats.ASCII,
                 output_format=Formats.HEX,
                 print_input=False,
@@ -278,8 +278,8 @@ class UnitTesting(DataTypeMaster):
             #
             Data(
                 input_data=[
-                             'This is a long dataaaaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.'
-                         ] * 10,
+                               'This is a long dataaaaaaa for the testing of Trimming of remarks of individual item of the pool in asn play.'
+                           ] * 10,
                 input_format=Formats.ASCII,
                 output_format=Formats.HEX,
                 print_input=False,

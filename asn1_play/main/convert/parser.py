@@ -116,8 +116,9 @@ def parse_or_update_any_data(data, meta_data=None):
     output_versions_dic.update(
         PhUtil.get_key_value_pair(PhKeys.TIME_STAMP, PhUtil.get_time_stamp(files_format=False), dic_format=True))
     # parse Data
-    meta_data.parsed_data = decode_encode_asn(input_data=data.input_data, parse_only=True, input_format=data.input_format,
-                                              output_format=data.output_format, asn1_element=data.asn1_element)
+    meta_data.parsed_data = decode_encode_asn(input_data=data.input_data, parse_only=True,
+                                              input_format=data.input_format, output_format=data.output_format,
+                                              asn1_element=data.asn1_element)
     if meta_data.parsed_data and data.tlv_parsing_of_output is True:
         data_type_tlv = DataTypeMaster()
         data_type_tlv.set_data_pool(data_pool=Data(input_data=meta_data.parsed_data, quite_mode=True))

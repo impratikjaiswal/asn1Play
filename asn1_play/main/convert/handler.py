@@ -91,8 +91,9 @@ def decode_encode_asn(input_data=PhConstants.STR_EMPTY, parse_only=True, input_f
         if output_data:
             return output_data
         additional_msgs_list = PhUtil.get_key_value_pair(PhKeys.INPUT_DATA, input_data)
-        raise ValueError(PhExceptionHelper(msg_key=Constants.INPUT_DATA_CONVERSION_NOT_POSSIBLE, function_name=func_name,
-                                           additional_msgs_list=additional_msgs_list))
+        raise ValueError(
+            PhExceptionHelper(msg_key=Constants.INPUT_DATA_CONVERSION_NOT_POSSIBLE, function_name=func_name,
+                              additional_msgs_list=additional_msgs_list))
     if not asn1_element or asn1_element is None:
         raise ValueError(PhExceptionHelper(msg_key=Constants.ASN1_ELEMENT_IS_EMPTY_OR_MISSING, function_name=func_name))
     if isinstance(asn1_element, Asn1):
@@ -162,7 +163,7 @@ def decode_encode_asn(input_data=PhConstants.STR_EMPTY, parse_only=True, input_f
                 known_data = False
                 exception = e
             offset += next_offset
-        elif input_format in FormatsGroup.INPUT_FORMATS_JSON :
+        elif input_format in FormatsGroup.INPUT_FORMATS_JSON:
             # TODO: Can be merged with ASN1 Above
             temp = input_data[offset:]
             next_offset = find_offset_of_section(temp, PhConstants.STR_CURLY_BRACE_START,

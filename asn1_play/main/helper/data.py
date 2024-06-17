@@ -10,6 +10,7 @@ from asn1_play.main.helper.formats_group import FormatsGroup
 from asn1_play.main.helper.keywords import KeyWords
 from asn1_play.main.helper.variables import Variables
 
+
 class Data:
     def __init__(self,
                  input_data=None,
