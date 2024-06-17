@@ -10,11 +10,12 @@ class Defaults:
     PRINT_INFO = True
     PRINT_INPUT = True
     PRINT_OUTPUT = True
+    QUITE_MODE = False
+    EXECUTION_MODE = PhExecutionModes.USER
+    ERROR_HANDLING_MODE = PhErrorHandlingModes.CONTINUE_ON_ERROR
     RE_PARSE_OUTPUT = False
     FORMAT_INPUT = Formats.DER
     FORMAT_OUTPUT = Formats.ASN1
-    EXECUTION_MODE = PhExecutionModes.USER
-    ERROR_HANDLING_MODE = PhErrorHandlingModes.CONTINUE_ON_ERROR
     OUTPUT_FILE_EXTENSION = PhFileExtensions.TXT
     ASN1_SCHEMA = Asn1Versions.GSMA_SGP_22_v3_0_0
     ASN1_OBJECT = 'StoreMetadataRequest'

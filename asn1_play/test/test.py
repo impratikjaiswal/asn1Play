@@ -11,15 +11,15 @@ class Test():
 
     @classmethod
     def test_data(self):
-        raw_data = 'Welcome To AsnPlay !!!'
+        input_data = 'Welcome To AsnPlay !!!'
         input_format = Formats.ASCII
         output_format = Formats.HEX
 
         data_type = DataTypeMaster()
         data_type.set_data_pool(
-            data_pool=[Data(raw_data=raw_data, input_format=input_format, output_format=output_format)])
+            data_pool=[Data(input_data=input_data, input_format=input_format, output_format=output_format)])
         data_type.parse_safe(PhErrorHandlingModes.CONTINUE_ON_ERROR)
-        print(f'raw_data {raw_data}')
+        print(f'input_data {input_data}')
         print(f'input_format {input_format}')
         print(f'output_format {output_format}')
         print(f'output_data {data_type.get_output_data()}')

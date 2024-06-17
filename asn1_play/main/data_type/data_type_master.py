@@ -1,3 +1,4 @@
+import subprocess
 import traceback
 
 import binascii
@@ -13,7 +14,7 @@ from asn1_play.generated_code.asn1.GSMA.SGP_32 import default_asn_version_sgp32
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import default_asn_version_epp
 from asn1_play.generated_code.asn1.asn1 import Asn1
 from asn1_play.main.convert import converter
-from asn1_play.main.convert.converter import read_web_request
+from asn1_play.main.convert.converter import read_web_request, set_defaults
 from asn1_play.main.convert.parser import parse_or_update_any_data
 from asn1_play.main.helper.data import Data
 from asn1_play.main.helper.keywords import KeyWords
@@ -25,15 +26,16 @@ class DataTypeMaster(object):
         self.print_input = None
         self.print_output = None
         self.print_info = None
+        self.quite_mode = None
+        self.remarks = None
         self.output_file = None
-        self.remarks_list = None
         self.re_parse_output = None
         self.output_file_name_keyword = None
         self.output_format = None
         self.input_format = None
         self.asn1_element = None
         self.data_pool = []
-        self.__master_data = (Data(raw_data=None), MetaData(raw_data_org=None), PhExceptionHelper(msg_key=None))
+        self.__master_data = (Data(input_data=None), MetaData(input_data_org=None), PhExceptionHelper(msg_key=None))
 
     def set_print_input(self, print_input):
         self.print_input = print_input
@@ -44,11 +46,14 @@ class DataTypeMaster(object):
     def set_print_info(self, print_info):
         self.print_info = print_info
 
+    def set_quiet_mode(self, quite_mode):
+        self.quite_mode = quite_mode
+
+    def set_remarks(self, remarks):
+        self.remarks = remarks
+
     def set_output_file(self, output_file):
         self.output_file = output_file
-
-    def set_remarks_list(self, remarks_list):
-        self.remarks_list = remarks_list
 
     def set_re_parse_output(self, re_parse_output):
         self.re_parse_output = re_parse_output
@@ -97,13 +102,13 @@ class DataTypeMaster(object):
         except Exception as e:
             known = False
             summary_msg = None
-            exception_object = e.args[0]
+            exception_object = e.args[0] if len(e.args) > 0 else e
             if not isinstance(exception_object, PhExceptionHelper):
                 # for scenarios like FileExistsError where a touple is returned, (17, 'Cannot create a file when that file already exists')
                 exception_object = PhExceptionHelper(exception=e)
             if isinstance(e, binascii.Error):
                 known = True
-                summary_msg = PhConstants.INVALID_RAW_DATA
+                summary_msg = PhConstants.INVALID_INPUT_DATA
             elif isinstance(e, ValueError):
                 known = True
                 summary_msg = PhConstants.INPUTS_ERROR
@@ -119,6 +124,12 @@ class DataTypeMaster(object):
             elif isinstance(e, AttributeError):
                 known = True
                 summary_msg = PhConstants.INPUTS_ERROR
+            elif isinstance(e, subprocess.TimeoutExpired):
+                known = True
+                summary_msg = PhConstants.TIME_OUT_ERROR
+            elif isinstance(e, subprocess.CalledProcessError):
+                known = True
+                summary_msg = e.stderr if e.stderr else PhConstants.NON_ZERO_EXIT_STATUS_ERROR
             exception_object.set_summary_msg(summary_msg)
             self.__master_data = (
                 self.__master_data[PhMasterData.INDEX_DATA], self.__master_data[PhMasterData.INDEX_META_DATA],
@@ -144,22 +155,24 @@ class DataTypeMaster(object):
             data.print_input = data.print_input if data.print_input is not None else self.print_input
             data.print_output = data.print_output if data.print_output is not None else self.print_output
             data.print_info = data.print_info if data.print_info is not None else self.print_info
-            data.output_file = data.output_file if data.output_file is not None else self.output_file
-            data.remarks_list = data.remarks_list if data.remarks_list is not None else self.remarks_list
+            data.quite_mode = data.quite_mode if data.quite_mode is not None else self.quite_mode
+            data.remarks = data.remarks if data.remarks is not None else self.remarks
             data.asn1_element = data.asn1_element if data.asn1_element is not None else self.asn1_element
+            data.output_file = data.output_file if data.output_file is not None else self.output_file
             data.input_format = data.input_format if data.input_format is not None else self.input_format
             data.output_format = data.output_format if data.output_format is not None else self.output_format
             data.re_parse_output = data.re_parse_output if data.re_parse_output is not None else self.re_parse_output
             data.output_file_name_keyword = data.output_file_name_keyword if data.output_file_name_keyword is not None else self.output_file_name_keyword
         else:
             data = Data(
-                raw_data=data,
+                input_data=data,
                 print_input=self.print_input,
                 print_output=self.print_output,
                 print_info=self.print_info,
-                output_file=self.output_file,
-                remarks_list=self.remarks_list,
+                quite_mode=self.quite_mode,
+                remarks=self.remarks,
                 asn1_element=self.asn1_element,
+                output_file=self.output_file,
                 input_format=self.input_format,
                 output_format=self.output_format,
                 re_parse_output=self.re_parse_output,
@@ -185,10 +198,10 @@ class DataTypeMaster(object):
                 data.asn1_element = Asn1(asn1_schema=asn1_schema, asn1_object=name)
             if isinstance(data.asn1_element, Asn1):
                 data.set_asn1_element_name()
-        converter.path_generalisation(data, PhKeys.RAW_DATA)
+        converter.path_generalisation(data, PhKeys.INPUT_DATA)
         converter.path_generalisation(data, PhKeys.OUTPUT_FILE)
-        converter.path_generalisation(data, PhKeys.REMARKS_LIST)
-        meta_data = MetaData(raw_data_org=data.raw_data)
+        converter.path_generalisation(data, PhKeys.REMARKS)
+        meta_data = MetaData(input_data_org=data.input_data)
         self.__master_data = (data, meta_data)
         parse_or_update_any_data(data, meta_data)
 
@@ -211,3 +224,22 @@ class DataTypeMaster(object):
             output_data = exception_data.get_details() if isinstance(exception_data,
                                                                      PhExceptionHelper) else exception_data
         return output_data if only_output else (output_data, info_data)
+
+    def to_dic(self, data):
+        """
+
+        :param data:
+        :return:
+        """
+        set_defaults(data, None)
+        return {
+            PhKeys.INPUT_DATA: data.input_data,
+            PhKeys.REMARKS: data.get_remarks_as_str(),
+            PhKeys.DATA_GROUP: data.data_group,
+            PhKeys.INPUT_FORMAT: data.input_format,
+            PhKeys.OUTPUT_FORMAT: data.output_format,
+            PhKeys.ASN1_ELEMENT: data.asn1_element,
+            PhKeys.OUTPUT_FILE: data.output_file,
+            PhKeys.RE_PARSE_OUTPUT: data.re_parse_output,
+            PhKeys.OUTPUT_FILE_NAME_KEYWORD: data.output_file_name_keyword,
+        }

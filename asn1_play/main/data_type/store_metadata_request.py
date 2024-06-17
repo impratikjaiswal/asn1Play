@@ -20,9 +20,9 @@ class StoreMetaData(DataTypeMaster):
         output_file = None
         super().set_output_file(output_file)
 
-    def set_remarks_list(self):
-        remarks_list = None
-        super().set_remarks_list(remarks_list)
+    def set_remarks(self):
+        remarks = None
+        super().set_remarks(remarks)
 
     def set_re_parse_output(self):
         re_parse_output = None

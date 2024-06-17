@@ -23,9 +23,9 @@ class StoreMetaDataBulk(DataTypeMaster):
         output_file = r'..\..\Data\UserData\bulk\StoreMetadataRequest\$REMARKS'
         super().set_output_file(output_file)
 
-    def set_remarks_list(self):
-        remarks_list = None
-        super().set_remarks_list(remarks_list)
+    def set_remarks(self):
+        remarks = None
+        super().set_remarks(remarks)
 
     def set_re_parse_output(self):
         re_parse_output = None
@@ -51,18 +51,18 @@ class StoreMetaDataBulk(DataTypeMaster):
         data_pool = [
             #
             Data(
-                remarks_list='Sample Data 1',
-                raw_data='BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
+                remarks='Sample Data 1',
+                input_data='BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
             ),
             #
             Data(
-                remarks_list='Sample Data 2',
-                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                remarks='Sample Data 2',
+                input_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
             ),
             #
             Data(
-                remarks_list='Sample Data 3',
-                raw_data='bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640',
+                remarks='Sample Data 3',
+                input_data='bf25645a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031930101b621301f800204f0811974657374736d6470706c7573312e6578616d706c652e636f6db705800392f91899020640',
             )
         ]
         super().set_data_pool(data_pool)

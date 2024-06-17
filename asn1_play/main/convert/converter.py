@@ -28,6 +28,8 @@ from asn1_play.main.helper.variables import Variables
 
 
 def print_data(data, meta_data):
+    if data.quite_mode:
+        return
     input_sep = PhConstants.SEPERATOR_MULTI_LINE if data.input_format in FormatsGroup.TXT_FORMATS else PhConstants.SEPERATOR_ONE_LINE
     output_sep = PhConstants.SEPERATOR_MULTI_LINE if data.output_format in FormatsGroup.TXT_FORMATS or data.tlv_parsing_of_output == True else PhConstants.SEPERATOR_ONE_LINE
     if data.print_info:
@@ -43,10 +45,10 @@ def print_data(data, meta_data):
                 if remarks_original in remarks_generated:
                     remarks_generated = ''
             meta_data.output_dic.update(
-                get_dic_data_and_print(PhKeys.REMARKS_LIST, PhConstants.SEPERATOR_ONE_LINE, remarks_original))
+                get_dic_data_and_print(PhKeys.REMARKS, PhConstants.SEPERATOR_ONE_LINE, remarks_original))
         if remarks_generated:
             meta_data.output_dic.update(
-                get_dic_data_and_print(PhKeys.REMARKS_LIST_GENERATED, PhConstants.SEPERATOR_ONE_LINE,
+                get_dic_data_and_print(PhKeys.REMARKS_GENERATED, PhConstants.SEPERATOR_ONE_LINE,
                                        remarks_generated))
         info = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, [
             get_mode(data.input_format, data.output_format, meta_data.input_mode_key,
@@ -80,7 +82,7 @@ def print_data(data, meta_data):
             meta_data.output_dic.update(get_dic_data_and_print(PhKeys.RE_OUTPUT_FILE, PhConstants.SEPERATOR_ONE_LINE,
                                                                meta_data.re_output_file_path))
     if data.print_input:
-        meta_data.output_dic.update(get_dic_data_and_print(PhKeys.INPUT_DATA, input_sep, data.raw_data))
+        meta_data.output_dic.update(get_dic_data_and_print(PhKeys.INPUT_DATA, input_sep, data.input_data))
     bulk_mode = True if len(data.get_input_modes_hierarchy()) >= 1 else False
     output_present = meta_data.parsed_data
     print_output = data.print_output
@@ -263,7 +265,7 @@ def set_input_output_format(data):
     """
     input_format_temp = None
     output_format_temp = None
-    file_ext = PhUtil.get_file_name_and_extn(file_path=data.raw_data, only_extn=True)
+    file_ext = PhUtil.get_file_name_and_extn(file_path=data.input_data, only_extn=True)
     if file_ext in FormatsGroup.INPUT_FILE_FORMATS_HEX:
         input_format_temp = Formats.DER
         output_format_temp = Formats.ASN1
@@ -280,6 +282,8 @@ def set_input_output_format(data):
 
 
 def set_defaults_for_printing(data):
+    if data.quite_mode is None:
+        data.quite_mode = Defaults.QUITE_MODE
     if data.print_input is None:
         data.print_input = Defaults.PRINT_INPUT
     if data.print_output is None:
@@ -301,6 +305,8 @@ def set_defaults(data, meta_data):
         data.output_format = Defaults.FORMAT_OUTPUT
     if data.re_parse_output is None:
         data.re_parse_output = Defaults.RE_PARSE_OUTPUT
+    if meta_data is None:
+        return
     data.set_asn1_element_name()
     if data.asn1_element:
         meta_data.operation_mode = OperationModes.ENCODE_DECODE
@@ -364,7 +370,7 @@ def set_output_file_path(data, meta_data):
     if meta_data.input_mode_key == PhKeys.INPUT_YML or meta_data.input_mode_key == PhKeys.INPUT_FILE:
         # YML File writing is mandatory, But output_file is not Provided, so Dest File will be source File only
         # File writing is needed, But output_file is not Provided,so Dest File will be prepared from source File only
-        input_file_name = meta_data.raw_data_org
+        input_file_name = meta_data.input_data_org
         file_mode = True
         if not output_file:
             output_file = input_file_name
@@ -456,9 +462,9 @@ def replace_version(target_data, data):
 
 
 def path_generalisation(data, key):
-    if key == PhKeys.RAW_DATA:
-        if isinstance(data.raw_data, str):
-            data.raw_data = replace_version(data.raw_data, data)
+    if key == PhKeys.INPUT_DATA:
+        if isinstance(data.input_data, str):
+            data.input_data = replace_version(data.input_data, data)
 
     if key == PhKeys.OUTPUT_FILE:
         if data.output_file:

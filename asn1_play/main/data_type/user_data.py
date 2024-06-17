@@ -23,9 +23,9 @@ class UserData(DataTypeMaster):
         output_file = None
         super().set_output_file(output_file)
 
-    def set_remarks_list(self):
-        remarks_list = None
-        super().set_remarks_list(remarks_list)
+    def set_remarks(self):
+        remarks = None
+        super().set_remarks(remarks)
 
     def set_re_parse_output(self):
         re_parse_output = None
@@ -51,16 +51,16 @@ class UserData(DataTypeMaster):
         data_pool = [
             #
             Data(
-                remarks_list='SGP22; Der to Asn1',
-                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                remarks='SGP22; Der to Asn1',
+                input_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),
             #
             Data(
-                remarks_list='SGP22; Asn1 to Der; Tlv',
-                raw_data="""{
+                remarks='SGP22; Asn1 to Der; Tlv',
+                input_data="""{
     iccid '989209012143658709F5'H,
     serviceProviderName "SP Name 1",
     profileName "Operational Profile Name 1"
@@ -72,8 +72,8 @@ class UserData(DataTypeMaster):
             ),
             #
             Data(
-                remarks_list='TCA; Asn1 to Der',
-                raw_data="""{
+                remarks='TCA; Asn1 to Der',
+                input_data="""{
     major-version 2,
     minor-version 1,
     profileType "GSMA Profile Package",
@@ -91,22 +91,22 @@ class UserData(DataTypeMaster):
             ),
             #
             Data(
-                remarks_list='Der(Hex) to Base 64',
-                raw_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                remarks='Der(Hex) to Base 64',
+                input_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
                 input_format=Formats.DER,
                 output_format=Formats.DER_64,
             ),
             #
             Data(
-                remarks_list='Ascii to Hex',
-                raw_data='Welcome To AsnPlay !!!',
+                remarks='Ascii to Hex',
+                input_data='Welcome To AsnPlay !!!',
                 input_format=Formats.ASCII,
                 output_format=Formats.HEX,
             ),
             #
             Data(
-                remarks_list='Hex to ASCII',
-                raw_data='57656c636f6d6520546f2041736e506c617920212121',
+                remarks='Hex to ASCII',
+                input_data='57656c636f6d6520546f2041736e506c617920212121',
                 input_format=Formats.HEX,
                 output_format=Formats.ASCII
             ),

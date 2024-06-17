@@ -25,9 +25,9 @@ class Dev(DataTypeMaster):
         output_file = None
         super().set_output_file(output_file)
 
-    def set_remarks_list(self):
-        remarks_list = None
-        super().set_remarks_list(remarks_list)
+    def set_remarks(self):
+        remarks = None
+        super().set_remarks(remarks)
 
     def set_re_parse_output(self):
         re_parse_output = None
@@ -53,21 +53,21 @@ class Dev(DataTypeMaster):
         data_pool = [
             # Can be deleted
             Data(
-                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
+                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
             ),
             # Can be deleted
             Data(
-                raw_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
+                input_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
                 asn1_element=eUICC_Profile_Package.PEDefinitions.PE_End,
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
             ),
             # Can be deleted
             Data(
-                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
                 asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v2_4, 'StoreMetadataRequest'),
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,

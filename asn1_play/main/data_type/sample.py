@@ -1,3 +1,7 @@
+from collections import OrderedDict
+
+from python_helpers.ph_util import PhUtil
+
 from asn1_play.generated_code.asn1.GSMA import SGP_22
 from asn1_play.generated_code.asn1.GSMA.SGP_22.v0_0.python_gen.sgp22.sgp22 import PKIX1Explicit88
 from asn1_play.generated_code.asn1.TCA import eUICC_Profile_Package
@@ -9,7 +13,7 @@ from asn1_play.main.helper.formats import Formats
 from asn1_play.main.helper.keywords import KeyWords
 
 
-class AnyData(DataTypeMaster):
+class Sample(DataTypeMaster):
 
     def set_print_input(self):
         print_input = None
@@ -531,3 +535,17 @@ class AnyData(DataTypeMaster):
             ),
         ]
         super().set_data_pool(data_pool)
+
+    def get_sample_data_pool_for_web(self):
+        if not self.data_pool:
+            self.set_data_pool()
+        sample_data_dic = OrderedDict()
+        for data in self.data_pool:
+            if not data.remarks:
+                print('Skipping Sample as Remarks are not available')
+                continue
+            key, data.data_group = PhUtil.generate_key_and_data_group(data.remarks)
+            if key in sample_data_dic:
+                raise ValueError(f'Duplicate Sample Remarks: {key}')
+            sample_data_dic.update({key: super().to_dic(data)})
+        return sample_data_dic

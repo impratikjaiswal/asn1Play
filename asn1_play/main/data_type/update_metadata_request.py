@@ -22,9 +22,9 @@ class UpdateMetadataRequest(DataTypeMaster):
         output_file = None
         super().set_output_file(output_file)
 
-    def set_remarks_list(self):
-        remarks_list = None
-        super().set_remarks_list(remarks_list)
+    def set_remarks(self):
+        remarks = None
+        super().set_remarks(remarks)
 
     def set_re_parse_output(self):
         re_parse_output = None
@@ -50,11 +50,11 @@ class UpdateMetadataRequest(DataTypeMaster):
         data_pool = [
             #
             Data(
-                raw_data='bf2a0499020520'
+                input_data='bf2a0499020520'
             ),
             #
             Data(
-                raw_data="""{
+                input_data="""{
                 profilePolicyRules {ppr2}
                 }""",
                 input_format=Formats.ASN1,
@@ -62,27 +62,27 @@ class UpdateMetadataRequest(DataTypeMaster):
             ),
             #
             Data(
-                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest.asn1'
+                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest.asn1'
             ),
             #
             Data(
-                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr0_no_ppr.asn1'
+                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr0_no_ppr.asn1'
             ),
             #
             Data(
-                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr1_pp2.asn1'
+                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr1_pp2.asn1'
             ),
             #
             Data(
-                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr2_ppr1.asn1'
+                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr2_ppr1.asn1'
             ),
             #
             Data(
-                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr3_ppr1_ppr2.asn1'
+                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr3_ppr1_ppr2.asn1'
             ),
             #
             Data(
-                raw_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest.hex'
+                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest.hex'
             ),
         ]
         super().set_data_pool(data_pool)

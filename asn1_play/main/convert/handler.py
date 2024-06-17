@@ -25,26 +25,26 @@ Enable Flags for Debugging
 # _debug = True
 
 
-def convert_data(raw_data, output_format):
+def convert_data(input_data, output_format):
     # Data is converted to Hex
     if output_format in FormatsGroup.BASE64_FORMATS:
-        return base64.b64encode(unhexlify(raw_data)).decode()
+        return base64.b64encode(unhexlify(input_data)).decode()
     if output_format in FormatsGroup.ASCII_FORMATS:
-        return PhUtil.hex_str_to_ascii(raw_data)
+        return PhUtil.hex_str_to_ascii(input_data)
     if output_format in FormatsGroup.INPUT_FORMATS_DER:
-        return raw_data
+        return input_data
     if output_format in Formats.DER_BYTE_ARRAY:
-        return PhUtil.hex_str_to_dec_list(raw_data)
+        return PhUtil.hex_str_to_dec_list(input_data)
     if output_format in Formats.DER_BYTE_ARRAY_SIGNED:
-        return PhUtil.hex_str_to_dec_list(raw_data, signed_byte_handling=True)
+        return PhUtil.hex_str_to_dec_list(input_data, signed_byte_handling=True)
     return None
 
 
-def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_format=Defaults.FORMAT_INPUT,
+def decode_encode_asn(input_data=PhConstants.STR_EMPTY, parse_only=True, input_format=Defaults.FORMAT_INPUT,
                       output_format=Defaults.FORMAT_OUTPUT, asn1_element=None):
     """
     Ref: https://github.com/P1sec/pycrate/wiki/Using-the-pycrate-asn1-runtime
-    :param raw_data:
+    :param input_data:
     :param parse_only:
     :param input_format:
     :param output_format:
@@ -53,7 +53,7 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
     """
     func_name = decode_encode_asn.__name__
     exception = None
-    print_debug_var_v('raw_data', raw_data)
+    print_debug_var_v('input_data', input_data)
     print_debug_var_v('parse_only', parse_only)
     print_debug_var_v('input_format', input_format)
     print_debug_var_v('output_format', output_format)
@@ -62,8 +62,8 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
     if asn1_element and isinstance(asn1_element, Asn1):
         if asn1_element.is_fetch_asn1_objects_list():
             return asn1_element.get_asn1_object_list(str_format=True)
-    if not raw_data:
-        raise ValueError(PhExceptionHelper(msg_key=Constants.RAW_DATA_MISSING, function_name=func_name))
+    if not input_data:
+        raise ValueError(PhExceptionHelper(msg_key=Constants.INPUT_DATA_MISSING, function_name=func_name))
     if input_format not in FormatsGroup.INPUT_FORMATS_SUPPORTED:
         raise ValueError(
             PhExceptionHelper(msg_key=Constants.UNKNOWN_INPUT_FORMAT, msg_value=input_format, function_name=func_name))
@@ -71,27 +71,27 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
         raise ValueError(
             PhExceptionHelper(msg_key=Constants.UNKNOWN_OUTPUT_FORMAT, msg_value=output_format,
                               function_name=func_name))
-    if isinstance(raw_data, bytes):
-        raw_data = raw_data.hex()
+    if isinstance(input_data, bytes):
+        input_data = input_data.hex()
     if input_format in FormatsGroup.INPUT_FORMATS_ASCII:
-        raw_data = PhUtil.ascii_to_hex_str(raw_data)
-        print_debug_var(Constants.RAW_DATA_HEX_CONVERSION_IS_DONE, raw_data)
+        input_data = PhUtil.ascii_to_hex_str(input_data)
+        print_debug_var(Constants.INPUT_DATA_HEX_CONVERSION_IS_DONE, input_data)
     if input_format in FormatsGroup.INPUT_FORMATS_HEX:
         if input_format in FormatsGroup.BYTE_ARRAY_FORMATS:
-            raw_data = PhUtil.dec_to_hex(raw_data)
+            input_data = PhUtil.dec_to_hex(input_data)
         # Trim Hex Data
-        raw_data = PhUtil.trim_and_kill_all_white_spaces(raw_data)
-        print_debug_var(Constants.RAW_DATA_TRIMMING_IS_DONE, raw_data)
-        if not PhUtil.is_hex(raw_data) and PhUtil.is_base64(raw_data):
-            raw_data = base64.b64decode(raw_data).hex()
-            print_debug_var(Constants.RAW_DATA_BASE_64_CONVERSION_IS_DONE, raw_data)
+        input_data = PhUtil.trim_and_kill_all_white_spaces(input_data)
+        print_debug_var(Constants.INPUT_DATA_TRIMMING_IS_DONE, input_data)
+        if not PhUtil.is_hex(input_data) and PhUtil.is_base64(input_data):
+            input_data = base64.b64decode(input_data).hex()
+            print_debug_var(Constants.INPUT_DATA_BASE_64_CONVERSION_IS_DONE, input_data)
     if input_format in FormatsGroup.INPUT_FORMATS_NON_TXT and output_format in FormatsGroup.INPUT_FORMATS_NON_TXT:
         print_debug_var(Constants.ASN1_ELEMENT_IS_NOT_NEEDED)
-        output_data = convert_data(raw_data, output_format)
+        output_data = convert_data(input_data, output_format)
         if output_data:
             return output_data
-        additional_msgs_list = PhUtil.get_key_value_pair(PhKeys.RAW_DATA, raw_data)
-        raise ValueError(PhExceptionHelper(msg_key=Constants.RAW_DATA_CONVERSION_NOT_POSSIBLE, function_name=func_name,
+        additional_msgs_list = PhUtil.get_key_value_pair(PhKeys.INPUT_DATA, input_data)
+        raise ValueError(PhExceptionHelper(msg_key=Constants.INPUT_DATA_CONVERSION_NOT_POSSIBLE, function_name=func_name,
                                            additional_msgs_list=additional_msgs_list))
     if not asn1_element or asn1_element is None:
         raise ValueError(PhExceptionHelper(msg_key=Constants.ASN1_ELEMENT_IS_EMPTY_OR_MISSING, function_name=func_name))
@@ -130,7 +130,7 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
     # print(help(M))
     record_count = 0
     print_debug_var('Elements Processing')
-    while offset < len(raw_data):
+    while offset < len(input_data):
         initial_offset = offset
         # TODO: SML-330
         known_data = True
@@ -139,7 +139,7 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
         print_debug_var_v('len', len)
         temp = PhConstants.STR_EMPTY
         if input_format in FormatsGroup.INPUT_FORMATS_HEX:
-            temp = bytes.fromhex(raw_data[offset:])
+            temp = bytes.fromhex(input_data[offset:])
             try:  # Needed For Unknown data / TLV
                 M.from_der(temp)
                 temp = M.to_der()
@@ -148,7 +148,7 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
                 exception = e
             offset += (len(temp) * 2)
         elif input_format in FormatsGroup.INPUT_FORMATS_ASN:
-            temp = raw_data[offset:]
+            temp = input_data[offset:]
             next_offset = find_offset_of_section(temp, PhConstants.STR_CURLY_BRACE_START,
                                                  PhConstants.STR_CURLY_BRACE_END) + 1
             print_debug_var_v('next_offset', next_offset)
@@ -164,7 +164,7 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
             offset += next_offset
         elif input_format in FormatsGroup.INPUT_FORMATS_JSON :
             # TODO: Can be merged with ASN1 Above
-            temp = raw_data[offset:]
+            temp = input_data[offset:]
             next_offset = find_offset_of_section(temp, PhConstants.STR_CURLY_BRACE_START,
                                                  PhConstants.STR_CURLY_BRACE_END) + 1
             print_debug_var_v('next_offset', next_offset)
@@ -195,7 +195,7 @@ def decode_encode_asn(raw_data=PhConstants.STR_EMPTY, parse_only=True, input_for
                     parsing_data_current = temp.hex()
                 # TODO: SML-329, SML-330, SML-414
                 raise ValueError(
-                    PhExceptionHelper(msg_key=Constants.UNKNOWN_RAW_DATA, msg_value=parsing_data_current,
+                    PhExceptionHelper(msg_key=Constants.UNKNOWN_INPUT_DATA, msg_value=parsing_data_current,
                                       function_name=func_name, exception=exception))
             print_debug_var('parsing_data_current', parsing_data_current)
             if parsing_data_current:
@@ -328,7 +328,7 @@ def find_offset_of_section(data, char_to_find, corresponding_char_to_find):
                     f'Corresponding character "{corresponding_char_to_find}" (Total Count {start_char_list_len}) for "{char_to_find}" (Total Count {end_char_list_len}) is not found.',
                     PhUtil.get_key_value_pair('data', data)
                 ]
-                raise ValueError(PhExceptionHelper(msg_key=Constants.RAW_DATA_ASN1_FORMATION_ISSUE,
+                raise ValueError(PhExceptionHelper(msg_key=Constants.INPUT_DATA_ASN1_FORMATION_ISSUE,
                                                    additional_msgs_list=additional_data,
                                                    function_name='find_offset_of_section'))
             slack.pop()

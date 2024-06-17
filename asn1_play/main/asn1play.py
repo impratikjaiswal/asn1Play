@@ -11,6 +11,7 @@ from asn1_play.main.data_type.any_data import AnyData
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.data_type.dev import Dev
 from asn1_play.main.data_type.profile_element import ProfileElement
+from asn1_play.main.data_type.sample import Sample
 from asn1_play.main.data_type.store_metadata_request import StoreMetaData
 from asn1_play.main.data_type.store_metadata_request_bulk import StoreMetaDataBulk
 from asn1_play.main.data_type.unit_testing import UnitTesting
@@ -45,6 +46,7 @@ def process_data(execution_mode, error_handling_mode):
         # Sample With Plenty vivid Examples; Single as well as Bulk
         #####
         AnyData(),
+        Sample(),
     ]
     data_types_sample_specific = [
         #####
@@ -98,7 +100,7 @@ def process_data(execution_mode, error_handling_mode):
         data_type.set_print_output()
         data_type.set_print_info()
         data_type.set_output_file()
-        data_type.set_remarks_list()
+        data_type.set_remarks()
         data_type.set_re_parse_output()
         data_type.set_output_file_name_keyword()
         data_type.set_output_format()
@@ -128,6 +130,8 @@ def main():
     PhUtil.print_version(' '.join([PhKeys.SGP32, PhKeys.COMPILE_TIME]), sgp_32_version, no_additional_info=True)
     PhUtil.print_version(' '.join([PhKeys.EUICC_PROFILE_PACKAGE, PhKeys.COMPILE_TIME]), epp_version,
                          no_additional_info=True)
+    # Validate & Print Sample Data For Web
+    PhUtil.print_iter(Sample().get_sample_data_pool_for_web(), header='Sample Data', depth_level=1)
     # Process Data
     process_data(execution_mode, error_handling_mode)
     PhUtil.print_done()

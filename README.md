@@ -121,7 +121,7 @@ To Refer Sample usages, search for below keywords in source code (\asn1Play\asn1
   - $REMARKS
     - Used for output_file_path, when Remarks needs to be considered in output path.
   - $ASN1_ELEMENT
-    - Used for remarks_list, when Asn Element Name needs to be considered in remarks_list.
+    - Used for remarks, when Asn Element Name needs to be considered in remarks.
   - $ITEM_INDEX
     - Used for output_file_path, when Item Index (For Bulk Mode) needs to be considered in output path.
 
