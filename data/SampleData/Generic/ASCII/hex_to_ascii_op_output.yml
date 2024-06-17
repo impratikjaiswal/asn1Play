@@ -1,12 +1,12 @@
 input:
-    remarks_list: HexInput; AsciiOutput; YmlInput; OutputKeyword;
+    remarks: HexInput; AsciiOutput; YmlInput; OutputKeyword;
     asn1_element: None
     input_format: Formats.HEX
     output_format: Formats.ASCII
-    raw_data: 57656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c617920212121
+    input_data: 57656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c617920212121
     output_file_name_keyword: KeyWords.OUTPUT_FILE_NAME_KEYWORD
 output:
-    remarks_list: HexInput; AsciiOutput; YmlInput; OutputKeyword
+    remarks: HexInput; AsciiOutput; YmlInput; OutputKeyword
     info: 'Yml_Conversion_Mode; Input Format: hex; Output Format: ascii; Output File Name Keyword: output'
     input_yml: ..\..\Data\SampleData\Generic\ASCII\hex_to_ascii_op.yml
     output_file: ../../Data/SampleData/Generic/ASCII/\hex_to_ascii_op_output.yml
@@ -14,9 +14,9 @@ output:
     output_data: Welcome To AsnPlay !!!Welcome To AsnPlay !!!Welcome To AsnPlay !!!Welcome To AsnPlay !!!
 output_version:
     Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
-    pythonHelpers: v3.0.7
-    asn1Play: v7.0.0
+    pythonHelpers: v3.1.0
+    asn1Play: v8.0.0
     SGP22: v3_0_0
     SGP32: v1_0_1
     eUICC_Profile_Package: v3_2
-    time_stamp: Monday, May 13 2024, 09:58:12:177404, IST (GMT+0530)
+    time_stamp: Monday, Jun 17 2024, 23:03:39:274717, IST (GMT+0530)

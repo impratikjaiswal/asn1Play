@@ -1,10 +1,10 @@
 input:
-    remarks_list: Asn1Input; DerOutput; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword;
+    remarks: Asn1Input; DerOutput; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword;
     asn1_element: SGP_22.RSPDefinitions.StoreMetadataRequest
     input_format: Formats.ASN1
     output_format: Formats.DER
     output_file_name_keyword: output
-    raw_data: |-
+    input_data: |-
         {
           iccid '989209012143658709F5'H,
           serviceProviderName "SP Name 1",

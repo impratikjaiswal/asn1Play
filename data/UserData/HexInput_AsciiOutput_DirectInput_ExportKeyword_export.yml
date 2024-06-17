@@ -1,10 +1,10 @@
 input:
-    raw_data: 57656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c617920212121
-    input_format: hex
-    output_format: ascii
+    input_data: 57656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c617920212121
     print_input: true
     print_output: true
     print_info: true
-    output_file_name_keyword: output
-    remarks_list:
+    remarks:
     - HexInput; AsciiOutput; DirectInput; ExportKeyword;
+    input_format: hex
+    output_format: ascii
+    output_file_name_keyword: output

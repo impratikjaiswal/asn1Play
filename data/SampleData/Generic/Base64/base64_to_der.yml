@@ -1,7 +1,7 @@
 input:
-    remarks_list: Base64Input; DerOutput; YmlInput; OutputKeyword;
+    remarks: Base64Input; DerOutput; YmlInput; OutputKeyword;
     asn1_element: None
     input_format: Formats.DER_64
     output_format: Formats.DER
-    raw_data: "vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAxmQIGQA=="
+    input_data: "vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAxmQIGQA=="
     output_file_name_keyword: output

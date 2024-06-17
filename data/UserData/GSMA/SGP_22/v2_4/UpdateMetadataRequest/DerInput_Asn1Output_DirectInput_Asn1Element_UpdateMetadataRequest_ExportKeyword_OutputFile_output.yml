@@ -1,17 +1,17 @@
 input:
-    raw_data: bf2a0499020520
-    asn1_element: SGP_22.RSPDefinitions.UpdateMetadataRequest
-    input_format: der
-    output_format: asn1
+    input_data: bf2a0499020520
     print_input: true
     print_output: true
     print_info: true
+    remarks:
+    - DerInput; Asn1Output; DirectInput; Asn1Element; UpdateMetadataRequest; ExportKeyword; OutputFile;
+    input_format: der
+    output_format: asn1
+    asn1_element: SGP_22.RSPDefinitions.UpdateMetadataRequest
     output_file: ..\..\Data\UserData\GSMA\SGP_22\v2_4\UpdateMetadataRequest
     output_file_name_keyword: output
-    remarks_list:
-    - DerInput; Asn1Output; DirectInput; Asn1Element; UpdateMetadataRequest; ExportKeyword; OutputFile;
 output:
-    remarks_list: DerInput; Asn1Output; DirectInput; Asn1Element; UpdateMetadataRequest; ExportKeyword; OutputFile
+    remarks: DerInput; Asn1Output; DirectInput; Asn1Element; UpdateMetadataRequest; ExportKeyword; OutputFile
     info: 'Yml_Encoding_Mode; Asn1 Element: UpdateMetadataRequest; Input Format: der; Output Format: asn1; Output File: ..\..\Data\UserData\GSMA\SGP_22\v2_4\UpdateMetadataRequest; Output File Name Keyword: output'
     input_yml: ..\..\Data\UserData\GSMA\SGP_22\v2_4\UpdateMetadataRequest\DerInput_Asn1Output_DirectInput_Asn1Element_UpdateMetadataRequest_ExportKeyword_OutputFile_export.yml
     output_file: ../../Data/UserData/GSMA/SGP_22/v2_4/\UpdateMetadataRequest\DerInput_Asn1Output_DirectInput_Asn1Element_UpdateMetadataRequest_ExportKeyword_OutputFile_output.yml
@@ -22,9 +22,9 @@ output:
         }
 output_version:
     Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
-    pythonHelpers: v3.0.7
-    asn1Play: v7.0.0
+    pythonHelpers: v3.1.0
+    asn1Play: v8.0.0
     SGP22: v2_4
     SGP32: v1_0_1
     eUICC_Profile_Package: v3_2
-    time_stamp: Monday, May 13 2024, 09:54:15:005685, IST (GMT+0530)
+    time_stamp: Monday, Jun 17 2024, 23:02:09:213061, IST (GMT+0530)

@@ -1,10 +1,10 @@
 input:
-    remarks_list: Asn1Input; DerOutput; YmlInput; Asn1Element; ProfileElement; OutputKeyword;
+    remarks: Asn1Input; DerOutput; YmlInput; Asn1Element; ProfileElement; OutputKeyword;
     asn1_element: eUICC_Profile_Package.PEDefinitions.ProfileElement
     input_format: Formats.ASN1
     output_format: Formats.DER
     output_file_name_keyword: output
-    raw_data: |-
+    input_data: |-
       header : {
         major-version 2,
         minor-version 1,
