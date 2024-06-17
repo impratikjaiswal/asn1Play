@@ -120,8 +120,7 @@ class Sample(DataTypeMaster):
             #
             Data(
                 remarks='Asn1 Objects Static List; v3_1',
-                asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v3_1),
-                FETCH_ASN1_OBJECTS_LIST=True
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v3_1, fetch_asn1_objects_list=True),
             ),
             #
             Data(
