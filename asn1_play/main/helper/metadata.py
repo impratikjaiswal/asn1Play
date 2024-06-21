@@ -2,11 +2,13 @@ from collections import OrderedDict
 
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_keys import PhKeys
+from python_helpers.ph_util import PhUtil
 
 
 class MetaData:
     def __init__(self, input_data_org):
         self.input_data_org = input_data_org
+        self.transaction_id = PhUtil.generate_transaction_id()
         self.operation_mode = None
         self.input_mode_key = None
         self.output_file_path = None

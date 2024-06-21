@@ -51,8 +51,11 @@ def print_data(data, meta_data):
                 get_dic_data_and_print(PhKeys.REMARKS_GENERATED, PhConstants.SEPERATOR_ONE_LINE,
                                        remarks_generated))
         info = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, [
-            get_mode(data.input_format, data.output_format, meta_data.input_mode_key,
-                     data.get_input_modes_hierarchy()),
+            get_dic_data_and_print(PhKeys.TRANSACTION_ID, PhConstants.SEPERATOR_ONE_LINE, meta_data.transaction_id,
+                                   dic_format=False, print_also=False),
+            get_dic_data_and_print(PhKeys.MODE, PhConstants.SEPERATOR_ONE_LINE,
+                                   get_mode(data.input_format, data.output_format, meta_data.input_mode_key,
+                                            data.get_input_modes_hierarchy()), dic_format=False, print_also=False),
             get_dic_data_and_print(PhKeys.ASN1_ELEMENT, PhConstants.SEPERATOR_ONE_LINE, data.get_asn1_element_name(),
                                    dic_format=False,
                                    print_also=False) if data.get_asn1_element_name() else None,
