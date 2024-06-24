@@ -130,6 +130,10 @@ def main():
     PhUtil.print_version(' '.join([PhKeys.SGP32, PhKeys.COMPILE_TIME]), sgp_32_version, no_additional_info=True)
     PhUtil.print_version(' '.join([PhKeys.EUICC_PROFILE_PACKAGE, PhKeys.COMPILE_TIME]), epp_version,
                          no_additional_info=True)
+    # Unit Testing Sequences
+    # SGP22_v2_4-epp_v3_2
+    # SGP22_v3_0_0-epp_v3_1
+    # SGP22_v3_0_0-epp_v3_2
     # Validate & Print Sample Data For Web
     PhUtil.print_iter(Sample().get_sample_data_pool_for_web(), header='Sample Data', depth_level=1)
     # Process Data

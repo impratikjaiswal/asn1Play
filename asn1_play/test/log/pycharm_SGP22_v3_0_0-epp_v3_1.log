@@ -14,26 +14,33 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Friday, Jun 21 2024, 10:06:23:843091, IST (GMT+0530)
+Time Stamp is Monday, Jun 24 2024, 10:15:25:895490, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is 8c962a2;  (HEAD -> main); 2024-06-21 10:00:29 +0530; imPratik <impratikjaiswal@gmail.com>; support of transaction ID
+Git Summary is ae788c6;  (HEAD -> main, origin/main, origin/HEAD); 2024-06-24 10:04:57 +0530; imPratik <impratikjaiswal@gmail.com>; support of SGP32 v1.1
 --------------------------------------------------------------------------------
-pythonHelpers version is v3.1.2.dev4
+pythonHelpers version is v3.1.3
 --------------------------------------------------------------------------------
-asn1Play version is v8.0.1
+asn1Play version is v8.1.0
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
-tlvPlay version is v4.0.0
+tlvPlay version is v4.0.1
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 SGP22 compile_time version is v3_0_0
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
-SGP32 compile_time version is v1_0_1
+SGP32 compile_time version is v1_1
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 eUICC_Profile_Package compile_time version is v3_1
 --------------------------------------------------------------------------------
+init_modules: different OID objects (id-rspRole-euicc, id-rspRole-euicc-v2) with same OID value (2, 23, 146, 1, 2, 1, 1)
+init_modules: different OID objects (id-rspRole-eum, id-rspRole-eum-v2) with same OID value (2, 23, 146, 1, 2, 1, 2)
+init_modules: different OID objects (id-rspRole-dp-tls, id-rspRole-dp-tls-v2) with same OID value (2, 23, 146, 1, 2, 1, 3)
+init_modules: different OID objects (id-rspRole-dp-auth, id-rspRole-dp-auth-v2) with same OID value (2, 23, 146, 1, 2, 1, 4)
+init_modules: different OID objects (id-rspRole-dp-pb, id-rspRole-dp-pb-v2) with same OID value (2, 23, 146, 1, 2, 1, 5)
+init_modules: different OID objects (id-rspRole-ds-tls, id-rspRole-ds-tls-v2) with same OID value (2, 23, 146, 1, 2, 1, 6)
+init_modules: different OID objects (id-rspRole-ds-auth, id-rspRole-ds-auth-v2) with same OID value (2, 23, 146, 1, 2, 1, 7)
 init_modules: different OID objects (id-rspRole-euicc, id-rspRole-euicc-v2) with same OID value (2, 23, 146, 1, 2, 1, 1)
 init_modules: different OID objects (id-rspRole-eum, id-rspRole-eum-v2) with same OID value (2, 23, 146, 1, 2, 1, 2)
 init_modules: different OID objects (id-rspRole-dp-tls, id-rspRole-dp-tls-v2) with same OID value (2, 23, 146, 1, 2, 1, 3)
@@ -5390,6 +5397,7 @@ GSMA_SGP_22_v3_0_0
 GSMA_SGP_22_v3_1
 GSMA_SGP_32_v1_0
 GSMA_SGP_32_v1_0_1
+GSMA_SGP_32_v1_1
 TCA_EPP_v1_0
 TCA_EPP_v2_0
 TCA_EPP_v2_1
