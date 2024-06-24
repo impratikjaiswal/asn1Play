@@ -9,7 +9,7 @@ from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 ####################
 
 # Default version to be used in whole system
-version = CompileTimeVersion.v3_0_0
+version = CompileTimeVersion.v3_1
 
 if version == CompileTimeVersion.v1_0:
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v1_0.python_gen.sgp22.sgp22 import RSPDefinitions

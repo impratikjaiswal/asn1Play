@@ -8,7 +8,7 @@ from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 ####################
 
 # Default version to be used in whole system
-version = CompileTimeVersion.v3_2
+version = CompileTimeVersion.v3_3_1
 
 if version == CompileTimeVersion.v1_0:
     from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.v1_0.python_gen.epp.epp import PEDefinitions

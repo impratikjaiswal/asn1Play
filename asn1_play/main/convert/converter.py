@@ -68,6 +68,8 @@ def print_data(data, meta_data):
             get_dic_data_and_print(PhKeys.OUTPUT_FILE_NAME_KEYWORD, PhConstants.SEPERATOR_ONE_LINE,
                                    data.output_file_name_keyword,
                                    dic_format=False, print_also=False) if data.output_file_name_keyword else None,
+            get_dic_data_and_print(PhKeys.QUITE_MODE, PhConstants.SEPERATOR_ONE_LINE, data.quite_mode,
+                                   dic_format=False, print_also=False) if data.quite_mode else None,
         ]))
         meta_data.output_dic.update(get_dic_data_and_print(PhKeys.INFO, PhConstants.SEPERATOR_INFO, info))
         if meta_data.input_mode_key:
@@ -85,7 +87,7 @@ def print_data(data, meta_data):
             meta_data.output_dic.update(get_dic_data_and_print(PhKeys.RE_OUTPUT_FILE, PhConstants.SEPERATOR_ONE_LINE,
                                                                meta_data.re_output_file_path))
     if data.print_input:
-        meta_data.output_dic.update(get_dic_data_and_print(PhKeys.INPUT_DATA, input_sep, data.input_data))
+        meta_data.output_dic.update(get_dic_data_and_print(PhKeys.INPUT_DATA, input_sep, meta_data.input_data_org))
     bulk_mode = True if len(data.get_input_modes_hierarchy()) >= 1 else False
     output_present = meta_data.parsed_data
     print_output = data.print_output
