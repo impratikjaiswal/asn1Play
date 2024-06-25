@@ -174,6 +174,14 @@ def prepare_config_data(data):
     return file_dic
 
 
+def clear_quotation_marks(v):
+    if isinstance(v, str):
+        if (v.startswith('"') and v.endswith('"')) or (v.startswith("'") and v.endswith("'")) or (
+                v.startswith('"""') and v.endswith('"""')):
+            v = v[1:-1]
+    return v
+
+
 def parse_config(config_data):
     asn1_schema = None
     asn1_object = None
@@ -184,6 +192,7 @@ def parse_config(config_data):
         if v:
             # Trim Garbage data
             v = PhUtil.trim_white_spaces_in_str(v)
+            v = clear_quotation_marks(v)
             if v in ['None']:
                 v = None
                 config_data[k] = v

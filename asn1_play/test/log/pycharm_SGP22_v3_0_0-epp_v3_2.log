@@ -14,9 +14,9 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Tuesday, Jun 25 2024, 11:02:49:450885, IST (GMT+0530)
+Time Stamp is Tuesday, Jun 25 2024, 12:03:05:897787, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is b78c697;  (HEAD -> main, tag: v8.1.0, origin/main, origin/HEAD); 2024-06-24 10:17:05 +0530; imPratik <impratikjaiswal@gmail.com>; support of SGP 32 v1.1
+Git Summary is 010fa9a;  (HEAD -> main); 2024-06-25 11:10:45 +0530; imPratik <impratikjaiswal@gmail.com>; logs updated with SGP32 1.1 support
 --------------------------------------------------------------------------------
 pythonHelpers version is v3.1.3
 --------------------------------------------------------------------------------
@@ -7879,9 +7879,21 @@ Output Data:
   profilePolicyRules '01'B -- ppr1 --
 }
 --------------------------------------------------------------------------------
-*********************************************** Web Request; asn1_object ***********************************************
-Remarks: Web Request; asn1_object
-Info => Transaction Id: s4qk8mlc6dl6; Mode: Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1
+***************************************** Web Request; asn1_schema; asn1_object ****************************************
+Remarks: Web Request; asn1_schema; asn1_object
+Info => Transaction Id: brif0xt8vgbq; Mode: Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1
+Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
+Output Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1",
+  profilePolicyRules '01'B -- ppr1 --
+}
+--------------------------------------------------------------------------------
+******************************** Web Request; asn1_schema; asn1_object; Extra Quotation ********************************
+Remarks: Web Request; asn1_schema; asn1_object; Extra Quotation
+Info => Transaction Id: fipwsge273t4; Mode: Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1
 Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
 Output Data:
 {
@@ -7893,7 +7905,7 @@ Output Data:
 --------------------------------------------------------------------------------
 ****************************************** Web Request; asn1_object_alternate ******************************************
 Remarks: Web Request; asn1_object_alternate
-Info => Transaction Id: 9kpps06y1ii6; Mode: Encoding_Mode; Input Format: der; Output Format: asn1
+Info => Transaction Id: 3bx7nl89khq2; Mode: Encoding_Mode; Input Format: der; Output Format: asn1
 Input Data: BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640
 Output Data:
 {

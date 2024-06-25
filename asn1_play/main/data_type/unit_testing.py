@@ -561,8 +561,16 @@ class UnitTesting(DataTypeMaster):
                 'asn1_element': SGP_22.RSPDefinitions.StoreMetadataRequest
             },
             {
-                PhKeys.REMARKS: 'Web Request; asn1_object;',
+                PhKeys.REMARKS: 'Web Request; asn1_schema; asn1_object;',
                 'input_data': 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
+                'input_format': Formats.DER,
+                'output_format': Formats.ASN1,
+                'asn1_schema': 'GSMA_SGP_22_v3_0_0',
+                'asn1_object': 'StoreMetadataRequest',
+            },
+            {
+                PhKeys.REMARKS: 'Web Request; asn1_schema; asn1_object; Extra Quotation',
+                'input_data': '"BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640"',
                 'input_format': Formats.DER,
                 'output_format': Formats.ASN1,
                 'asn1_schema': 'GSMA_SGP_22_v3_0_0',
