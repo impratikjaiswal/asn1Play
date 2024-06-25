@@ -9,6 +9,8 @@ from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 ####################
 
 # Default version to be used in whole system
+# TODO: Circular Import
+# version = Defaults.ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_22
 version = CompileTimeVersion.v3_1
 
 if version == CompileTimeVersion.v1_0:

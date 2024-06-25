@@ -4,9 +4,6 @@ from python_helpers.ph_modes_execution import PhExecutionModes
 from python_helpers.ph_util import PhUtil
 from tlv_play.main.helper.constants_config import ConfigConst as tlvConfigConst
 
-from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
-from asn1_play.generated_code.asn1.GSMA.SGP_32 import version as sgp_32_version
-from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
 from asn1_play.main.data_type.any_data import AnyData
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.data_type.dev import Dev
@@ -120,20 +117,25 @@ def main():
     """
     execution_mode = PhExecutionModes.USER
     error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
+    """
+    Set/Change Default Target Version of SGP22, SGP32, eUICC Profile Package (if needed)
+    """
+    sgp_22_version = Defaults.ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_22
+    sgp_32_version = Defaults.ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_32
+    epp_version = Defaults.ASN1_SCHEMA_COMPILE_TIME_TCA_EPP
+    """
+    Unit Testing Sequences
+    """
+    # SGP22_v2_4-epp_v3_2
+    # SGP22_v3_0_0-epp_v3_1
+    # SGP22_v3_0_0-epp_v3_2
     # Print Versions
     PhUtil.print_version(ConfigConst.TOOL_NAME, ConfigConst.TOOL_VERSION)
     PhUtil.print_version(tlvConfigConst.TOOL_NAME, tlvConfigConst.TOOL_VERSION, no_additional_info=True)
-    """
-    Set Target Version of SGP22, eUICC Profile Package 
-    """
     PhUtil.print_version(' '.join([PhKeys.SGP22, PhKeys.COMPILE_TIME]), sgp_22_version, no_additional_info=True)
     PhUtil.print_version(' '.join([PhKeys.SGP32, PhKeys.COMPILE_TIME]), sgp_32_version, no_additional_info=True)
     PhUtil.print_version(' '.join([PhKeys.EUICC_PROFILE_PACKAGE, PhKeys.COMPILE_TIME]), epp_version,
                          no_additional_info=True)
-    # Unit Testing Sequences
-    # SGP22_v2_4-epp_v3_2
-    # SGP22_v3_0_0-epp_v3_1
-    # SGP22_v3_0_0-epp_v3_2
     # Validate & Print Sample Data For Web
     PhUtil.print_iter(Sample().get_sample_data_pool_for_web(), header='Sample Data', depth_level=1)
     # Process Data
