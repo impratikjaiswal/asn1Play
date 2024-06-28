@@ -1,4 +1,3 @@
-import importlib
 import os
 
 import sys
@@ -37,12 +36,12 @@ class TestSuite:
                     obj.error_handling_mode = kwargs.get('error_handling_mode')
                 if 'sgp_22_version' in kwargs:
                     obj.sgp_22_version = kwargs.get('sgp_22_version')
+                    # Asn1(Asn1Versions.GSMA_SGP_22_v2_4)
                 if 'sgp_32_version' in kwargs:
                     obj.sgp_32_version = kwargs.get('sgp_32_version')
                 if 'epp_version' in kwargs:
                     obj.epp_version = kwargs.get('epp_version')
                 obj.print_configurations()
-                obj2 = importlib.reload('asn1_play.generated_code.asn1.GSMA.SGP_22')
                 obj.process_data()
         except:
             pass
@@ -53,40 +52,40 @@ class TestSuite:
     def sgp22_v2_4__epp_v3_2__sgp32_v1_0_1(cls):
         execution_mode = PhExecutionModes.ALL
         error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
-        sgp_22_version = 'v2_4'
-        epp_version = 'v3_2'
-        sgp_32_version = 'v1_0_1'
+        sgp_22_version = sgp22Version.v2_4
+        epp_version = eppVersion.v3_2
+        sgp_32_version = sgp32Version.v1_0_1
         cls._test(
             file_name=f'{PhUtil.get_current_func_name()}.log',
             execution_mode=execution_mode, error_handling_mode=error_handling_mode,
             sgp_22_version=sgp_22_version, sgp_32_version=sgp_32_version, epp_version=epp_version
         )
-    #
-    # @classmethod
-    # def sgp22_v3_0_0__epp_v3_1__sgp32_v1_0_1(cls):
-    #     execution_mode = PhExecutionModes.ALL
-    #     error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
-    #     sgp_22_version = sgp22Version.v3_0_0
-    #     epp_version = eppVersion.v3_1
-    #     sgp_32_version = sgp32Version.v1_0_1
-    #     cls._test(
-    #         file_name=f'{PhUtil.get_current_func_name()}.log',
-    #         execution_mode=execution_mode, error_handling_mode=error_handling_mode,
-    #         sgp_22_version=sgp_22_version, sgp_32_version=sgp_32_version, epp_version=epp_version
-    #     )
-    #
-    # @classmethod
-    # def sgp22_v3_0_0__epp_v3_2__sgp32_v1_1(cls):
-    #     execution_mode = PhExecutionModes.ALL
-    #     error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
-    #     sgp_22_version = sgp22Version.v3_0_0
-    #     epp_version = eppVersion.v3_2
-    #     sgp_32_version = sgp32Version.v1_1
-    #     cls._test(
-    #         file_name=f'{PhUtil.get_current_func_name()}.log',
-    #         execution_mode=execution_mode, error_handling_mode=error_handling_mode,
-    #         sgp_22_version=sgp_22_version, sgp_32_version=sgp_32_version, epp_version=epp_version
-    #     )
+
+    @classmethod
+    def sgp22_v3_0_0__epp_v3_1__sgp32_v1_0_1(cls):
+        execution_mode = PhExecutionModes.ALL
+        error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
+        sgp_22_version = sgp22Version.v3_0_0
+        epp_version = eppVersion.v3_1
+        sgp_32_version = sgp32Version.v1_0_1
+        cls._test(
+            file_name=f'{PhUtil.get_current_func_name()}.log',
+            execution_mode=execution_mode, error_handling_mode=error_handling_mode,
+            sgp_22_version=sgp_22_version, sgp_32_version=sgp_32_version, epp_version=epp_version
+        )
+
+    @classmethod
+    def sgp22_v3_0_0__epp_v3_2__sgp32_v1_1(cls):
+        execution_mode = PhExecutionModes.ALL
+        error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
+        sgp_22_version = sgp22Version.v3_0_0
+        epp_version = eppVersion.v3_2
+        sgp_32_version = sgp32Version.v1_1
+        cls._test(
+            file_name=f'{PhUtil.get_current_func_name()}.log',
+            execution_mode=execution_mode, error_handling_mode=error_handling_mode,
+            sgp_22_version=sgp_22_version, sgp_32_version=sgp_32_version, epp_version=epp_version
+        )
 
     @classmethod
     def user(cls):
@@ -94,10 +93,11 @@ class TestSuite:
 
     @classmethod
     def test_all(cls):
-        cls.sgp22_v2_4__epp_v3_2__sgp32_v1_0_1()
+        # TODO: reimport needed like ASN1
+        # cls.sgp22_v2_4__epp_v3_2__sgp32_v1_0_1()
         # cls.sgp22_v3_0_0__epp_v3_1__sgp32_v1_0_1()
         # cls.sgp22_v3_0_0__epp_v3_2__sgp32_v1_1()
-        # cls.user()
+        cls.user()
 
 
 def main():
