@@ -24,6 +24,13 @@ class Defaults:
     ASN1_SCHEMA = Asn1Versions.GSMA_SGP_22_v3_1
     # TODO: Circular Import
     # ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_22 = sgp_22_version.v3_1
+    """
+    Unit Testing Sequences
+    
+    sgp22_v2_4__epp_v3_2__sgp32_v1_0_1
+    sgp22_v3_0_0__epp_v3_1__sgp32_v1_0_1
+    sgp22_v3_0_0__epp_v3_2__sgp32_v1_1
+    """
     ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_22 = sgp_22_version
     ASN1_SCHEMA_COMPILE_TIME_TCA_EPP = epp_version
     ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_32 = sgp_32_version

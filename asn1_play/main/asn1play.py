@@ -127,8 +127,8 @@ def set_configurations():
     Set/Change Default Target Version of SGP22, SGP32, eUICC Profile Package (if needed)
     """
     sgp_22_version = Defaults.ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_22
-    sgp_32_version = Defaults.ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_32
     epp_version = Defaults.ASN1_SCHEMA_COMPILE_TIME_TCA_EPP
+    sgp_32_version = Defaults.ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_32
 
 
 def print_configurations():

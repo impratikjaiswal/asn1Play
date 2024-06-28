@@ -14,13 +14,13 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Tuesday, Jun 25 2024, 12:03:05:897787, IST (GMT+0530)
+Time Stamp is Friday, Jun 28 2024, 22:14:11:596424, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is 010fa9a;  (HEAD -> main); 2024-06-25 11:10:45 +0530; imPratik <impratikjaiswal@gmail.com>; logs updated with SGP32 1.1 support
+Git Summary is 6b9d4f5;  (HEAD -> main); 2024-06-28 21:58:40 +0530; imPratik <impratikjaiswal@gmail.com>; test suite added
 --------------------------------------------------------------------------------
 pythonHelpers version is v3.1.3
 --------------------------------------------------------------------------------
-asn1Play version is v8.2.0
+asn1Play version is v8.3.0
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 tlvPlay version is v4.0.1
@@ -3267,10 +3267,102 @@ Output Data:
   profilePolicyRules '01'B -- ppr1 --
 }
 --------------------------------------------------------------------------------
+************************ ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\EUICCInfo2\EUICCInfo2.hex.yml ************************
+Remarks: DerInput; Asn1Output; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword
+Info => Transaction Id: hqi8ctzrtpwh; Mode: Yml_Encoding_Mode; Asn1 Element: EUICCInfo2; Input Format: der; Output Format: asn1
+Input Yml: ..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\EUICCInfo2\EUICCInfo2.hex.yml
+Output File: ../../Data/SampleData/GSMA/SGP_22/v3_0_0/EUICCInfo2/\EUICCInfo2.hex.yml
+Input Data: BF22820145810302030182030201008303040400840F81010082040007D63A830400001C32850502FFFFFFFC86030902008703020300880401FFFFFEA92C0414F54172BDF98A95D65CBEB88A38A1C11D800A85C30414C0BC70BA36929D43B467FF57570530E57AB8FCD8AA2C0414F54172BDF98A95D65CBEB88A38A1C11D800A85C30414C0BC70BA36929D43B467FF57570530E57AB8FCD88B01009902064004030000010C0D534D2D43542D55502D30353233AC48801F312E322E3834302E313233343536372F6D79506C6174666F726D4C6162656C812568747470733A2F2F6D79636F6D70616E792E636F6D2F6D79444C4F415265676973747261728D0205E08E0130AF050403030200900100B12C0414F54172BDF98A95D65CBEB88A38A1C11D800A85C30414C0BC70BA36929D43B467FF57570530E57AB8FCD892071A9283DE7465F09303030000
+Output Data:
+{
+  baseProfilePackageVersion '020301'H,
+  lowestSvn '020100'H,
+  euiccFirmwareVersion '040400'H,
+  extCardResource '81010082040007D63A830400001C32'H,
+  uiccCapability '111111111111111111111111111111'B -- contactlessSupport | usimSupport | isimSupport | csimSupport | akaMilenage | akaCave | akaTuak128 | akaTuak256 | usimTestAlgorithm | rfu2 | gbaAuthenUsim | gbaAuthenISim | mbmsAuthenUsim | eapClient | javacard | multos | multipleUsimSupport | multipleIsimSupport | multipleCsimSupport | berTlvFileSupport | dfLinkSupport | catTp | getIdentity | profile-a-x25519 | profile-b-p256 | suciCalculatorApi | dns-resolution | scp11ac | scp11c-authorization-mechanism | s16mode --,
+  ts102241Version '090200'H,
+  globalplatformVersion '020300'H,
+  euiccRspCapability '11111111111111111111111'B -- additionalProfile | loadCrlSupport | rpmSupport | testProfileSupport | deviceInfoExtensibilitySupport | serviceSpecificDataSupport | hriServerAddressSupport | serviceProviderMessageSupport | lpaProxySupport | enterpriseProfilesSupport | serviceDescriptionSupport | deviceChangeSupport | encryptedDeviceChangeDataSupport | estimatedProfileSizeIndicationSupport | profileSizeInProfilesInfoSupport | crlStaplingV3Support | certChainV3VerificationSupport | signedSmdsResponseV3Support | euiccRspCapInInfo1 | osUpdateSupport | cancelForEmptySpnPnSupport | updateNotifConfigInfoSupport | updateMetadataV3Support --,
+  euiccCiPKIdListForVerification {
+    'F54172BDF98A95D65CBEB88A38A1C11D800A85C3'H,
+    'C0BC70BA36929D43B467FF57570530E57AB8FCD8'H
+  },
+  euiccCiPKIdListForSigning {
+    'F54172BDF98A95D65CBEB88A38A1C11D800A85C3'H,
+    'C0BC70BA36929D43B467FF57570530E57AB8FCD8'H
+  },
+  euiccCategory 0 -- other --,
+  forbiddenProfilePolicyRules '01'B -- ppr1 --,
+  ppVersion '000001'H,
+  sasAcreditationNumber "SM-CT-UP-0523",
+  certificationDataObject {
+    platformLabel "1.2.840.1234567/myPlatformLabel",
+    discoveryBaseURL "https://mycompany.com/myDLOARegistrar"
+  },
+  treProperties '111'B -- isDiscrete | isIntegrated | usesRemoteMemory --,
+  treProductReference "0",
+  additionalProfilePackageVersions {
+    '030200'H
+  },
+  lpaMode 0 -- lpad --,
+  euiccCiPKIdListForSigningV3 {
+    'F54172BDF98A95D65CBEB88A38A1C11D800A85C3'H,
+    'C0BC70BA36929D43B467FF57570530E57AB8FCD8'H
+  },
+  additionalEuiccInfo '1A9283DE7465F0'H,
+  highestSvn '030000'H
+}
+--------------------------------------------------------------------------------
+************************* ..\..\Data\SampleData\GSMA\SGP_32\v1_1\EUICCInfo2\EUICCInfo2.hex.yml *************************
+Remarks: DerInput; Asn1Output; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword
+Info => Transaction Id: 9don3tzujk6m; Mode: Yml_Encoding_Mode; Asn1 Element: EUICCInfo2; Input Format: der; Output Format: asn1
+Input Yml: ..\..\Data\SampleData\GSMA\SGP_32\v1_1\EUICCInfo2\EUICCInfo2.hex.yml
+Output File: ../../Data/SampleData/GSMA/SGP_32/v1_1/EUICCInfo2/\EUICCInfo2.hex.yml
+Input Data: BF22820145810302030182030201008303040400840F81010082040007D63A830400001C32850502FFFFFFFC86030902008703020300880401FFFFFEA92C0414F54172BDF98A95D65CBEB88A38A1C11D800A85C30414C0BC70BA36929D43B467FF57570530E57AB8FCD8AA2C0414F54172BDF98A95D65CBEB88A38A1C11D800A85C30414C0BC70BA36929D43B467FF57570530E57AB8FCD88B01009902064004030000010C0D534D2D43542D55502D30353233AC48801F312E322E3834302E313233343536372F6D79506C6174666F726D4C6162656C812568747470733A2F2F6D79636F6D70616E792E636F6D2F6D79444C4F415265676973747261728D0205E08E0130AF050403030200900100B12C0414F54172BDF98A95D65CBEB88A38A1C11D800A85C30414C0BC70BA36929D43B467FF57570530E57AB8FCD892071A9283DE7465F09303030000
+Output Data:
+{
+  profileVersion '020301'H,
+  svn '020100'H,
+  euiccFirmwareVer '040400'H,
+  extCardResource '81010082040007D63A830400001C32'H,
+  uiccCapability '111111111111111111111111111111'B -- contactlessSupport | usimSupport | isimSupport | csimSupport | akaMilenage | akaCave | akaTuak128 | akaTuak256 | usimTestAlgorithm | rfu2 | gbaAuthenUsim | gbaAuthenISim | mbmsAuthenUsim | eapClient | javacard | multos | multipleUsimSupport | multipleIsimSupport | multipleCsimSupport | berTlvFileSupport | dfLinkSupport | catTp | getIdentity | profile-a-x25519 | profile-b-p256 | suciCalculatorApi | dns-resolution | scp11ac | scp11c-authorization-mechanism | s16mode --,
+  ts102241Version '090200'H,
+  globalplatformVersion '020300'H,
+  rspCapability '11111111111111111111111'B -- additionalProfile | crlSupport | rpmSupport | testProfileSupport | deviceInfoExtensibilitySupport | serviceSpecificDataSupport --,
+  euiccCiPKIdListForVerification {
+    'F54172BDF98A95D65CBEB88A38A1C11D800A85C3'H,
+    'C0BC70BA36929D43B467FF57570530E57AB8FCD8'H
+  },
+  euiccCiPKIdListForSigning {
+    'F54172BDF98A95D65CBEB88A38A1C11D800A85C3'H,
+    'C0BC70BA36929D43B467FF57570530E57AB8FCD8'H
+  },
+  euiccCategory 0 -- other --,
+  forbiddenProfilePolicyRules '01'B -- ppr1 --,
+  ppVersion '000001'H,
+  sasAcreditationNumber "SM-CT-UP-0523",
+  certificationDataObject {
+    platformLabel "1.2.840.1234567/myPlatformLabel",
+    discoveryBaseURL "https://mycompany.com/myDLOARegistrar"
+  },
+  treProperties '111'B -- isDiscrete | isIntegrated | usesRemoteMemory --,
+  treProductReference "0",
+  additionalEuiccProfilePackageVersions {
+    '030200'H
+  },
+  ipaMode 0 -- ipad --,
+  rfu2 {
+    'F54172BDF98A95D65CBEB88A38A1C11D800A85C3'H,
+    'C0BC70BA36929D43B467FF57570530E57AB8FCD8'H
+  },
+  rfu3 '1A9283DE7465F0'H,
+  rfu4 '030000'H
+}
+--------------------------------------------------------------------------------
 -------------------------------------------------------- Sample --------------------------------------------------------
 ****************************************** StoreMetaData; Der to Asn1; v3_0_0 ******************************************
 Remarks: StoreMetaData; Der to Asn1; v3_0_0
-Info => Transaction Id: 3zh6bpp6d66p; Mode: Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1
+Info => Transaction Id: 6ki01et64euf; Mode: Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1
 Input Data: BF2582031C5A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D6520319301019482029089504E470D0A1A0A0000000D49484452000000400000004008040000000060B9550000000774494D4507E00B091007364C956F97000000097048597300000B1200000B1201D2DD7EFC0000000467414D410000B18F0BFC61050000021F4944415478DAED99CD1583200C803D32000B3004ABB00ECBB0822338578AF559223F49B0A8175F2EC023E1238410DB09A667E5E1E55F80BF00F686060B1E66B80420C02A32550D0E966E8CC6F0128D193460635FA66A3B7D511DB48DD94788B655D7815071BA26E61B9000ACC711841085EB398D84C0CD94F921EBE2DDAB18DB6B5005B055C3BC752B4038745C5339449CD4950248100E1D4528FAC207B228E3101A4BD4AE52BA96A603808B05D44C27ADAB2AF8807A00A6184B228014807566ECA13538E5008AC890BF06BE809E4DBEBE0B808A842A009FFD7B010436AF06B04F034C8D47EA46004703E034E4D95B90A98A447300DC353C9F07A843404D9B2D904BCA84F62480A7013C39351431225B722DE9F6AD591A0047C194E5AE19BD865AFC1A26976F088603C0A7AC9117FCE131F64200BCDFED8E290EE058906C46F2FAD09DAC885AB1550C68D2A8B426DCF69B8E71F76D195B15CD368207463513FD2DEA6648476B2500EB999B6250FA5DC0499E0B88B921F2BBAF782E877588930370724E4D3F0DD01D49DBE7E92CB940423172008F3ED3C6011C03B1396BCE6EC24800C703B862682480A20142250B8C05C081385186CD65009607D059DD772B80AE3CB963010205B054436414808ABB0FF237752480A996FB3702D8334FDA0BF002BC002FC0488053B5F5380005DC0A1703F03FFDFDC433A6FA010CF1EF4165C831E602B40134844C66E67FA4C1000618E5AB8F6008C03FAAB7028C9117E0036BAF44917035AF0E0000000049454E44AE426082B621301F800204F0811974657374736D6470706C7573312E6578616D706C652E636F6DB705800392F91899020640BF220F300D8003883710A1060404C1020304BF230F300D8003883711A106040402020202
 Output Data:
 {
@@ -7474,10 +7566,24 @@ Input Data:
 
 --------------------------------------------------------------------------------
 Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: asn1_element is either empty or not provided
+*********************************** Reported Error:Json not getting parsed to Asn1 #6 **********************************
+Remarks: Reported Error:Json not getting parsed to Asn1 #6
+Info => Transaction Id: g5d993dojdsc; Mode: Conversion_Mode; Asn1 Element: ipaEuiccDataResponse; Input Format: json; Output Format: der
+Input Data:
+{
+"ipaEuiccDataResponse": {
+"ipaEuiccData": {
+"euiccCertificate": "",
+}
+}
+}
+Output Data: 
+--------------------------------------------------------------------------------
+Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: Unknown asn1 element: ipaEuiccDataResponse; Asn1 Schema: GSMA_SGP_22_v3_0_0
 ******************************************** DER; tlv_parsing_of_output=True *******************************************
 ***** BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031 *****
 Remarks: DER; tlv_parsing_of_output=True
-Info => Transaction Id: 61j29r2dfgh2; Mode: Formatting_Mode; Input Format: der; Output Format: der
+Info => Transaction Id: t3yx3zvovq6b; Mode: Formatting_Mode; Input Format: der; Output Format: der
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Output Data:
 BF25 33
@@ -8570,14 +8676,13 @@ Output Data: testt
 --------------------------------------------------------------------------------
 ************************************ Invalid input_data (base 64 conversion failure) ***********************************
 Remarks: Invalid input_data (base 64 conversion failure)
-Info => Transaction Id: 6beqd1wiylhh; Mode: Conversion_Mode; Input Format: der; Output Format: der_as_base64
+Info => Transaction Id: fv5asvjlnhs2; Mode: Conversion_Mode; Input Format: der; Output Format: der_as_base64
 Input Data: testt
-Output Data: 
+Output Data: testt
 --------------------------------------------------------------------------------
-Known Exception Occurred; Summary: check your input data; Details: Odd-length string
 ************************************ Invalid input_data (base 64 conversion failure) ***********************************
 Remarks: Invalid input_data (base 64 conversion failure)
-Info => Transaction Id: wbmfwn6oolwq; Mode: Encoding_Mode; Input Format: der; Output Format: asn1
+Info => Transaction Id: 1lvjp4qwa4i1; Mode: Encoding_Mode; Input Format: der; Output Format: asn1
 Input Data: D:\e\AC\DeleteProfileRequest.he
 Output Data:
 
@@ -8585,14 +8690,13 @@ Output Data:
 Known Exception Occurred At Function: decode_encode_asn; Summary: check all your inputs; Details: asn1_element is either empty or not provided
 ************************************ Invalid input_data (base 64 conversion failure) ***********************************
 Remarks: Invalid input_data (base 64 conversion failure)
-Info => Transaction Id: ysr1xdetf22n; Mode: Conversion_Mode; Input Format: der; Output Format: der_as_base64
+Info => Transaction Id: dritmr77g2x7; Mode: Conversion_Mode; Input Format: der; Output Format: der_as_base64
 Input Data: D:\e\AC\DeleteProfileRequest.he
-Output Data: 
+Output Data: D:\e\AC\DeleteProfileRequest.he
 --------------------------------------------------------------------------------
-Known Exception Occurred; Summary: check your input data; Details: Odd-length string
 ************************************ Invalid input_data (base 64 conversion failure) ***********************************
 Remarks: Invalid input_data (base 64 conversion failure)
-Info => Transaction Id: qtwsn22mmlq6; Mode: Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1
+Info => Transaction Id: tzga47m39fvc; Mode: Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1
 Input Data: D:\e\AC\DeleteProfileRequest.he
 Output Data:
 
@@ -8681,8 +8785,9 @@ Output Data: bf25335a0a989209012143658709f591095350204e616d652031921a4f706572617
 --------------------------------------------------------------------------------
 * StoreMetadataRequest; {          "iccid": "989209012143658709f5",          "profileName": "Operational Profile Na... *
 Remarks Generated: StoreMetadataRequest; {          "iccid": "989209012143658709f5",          "profileName": "Operational Profile Na...
-Info => Transaction Id: susl9b7ayybt; Mode: Conversion_Mode; Asn1 Element: StoreMetadataRequest; Input Format: json; Output Format: der
-Input Data: {
+Info => Transaction Id: nvcg6t3gw5g2; Mode: Conversion_Mode; Asn1 Element: StoreMetadataRequest; Input Format: json; Output Format: der
+Input Data:
+{
          "iccid": "989209012143658709f5",
          "profileName": "Operational Profile Name 1",
          "serviceProviderName": "SP Name 1"
@@ -8691,8 +8796,9 @@ Output Data: bf25335a0a989209012143658709f591095350204e616d652031921a4f706572617
 --------------------------------------------------------------------------------
 * StoreMetadataRequest; {          "iccid": "989209012143658709f5",          "profileName": "Operational Profile Na... *
 Remarks Generated: StoreMetadataRequest; {          "iccid": "989209012143658709f5",          "profileName": "Operational Profile Na...
-Info => Transaction Id: p4r970r8hphd; Mode: Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: json; Output Format: asn1
-Input Data: {
+Info => Transaction Id: kyja7ecjk1a1; Mode: Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: json; Output Format: asn1
+Input Data:
+{
          "iccid": "989209012143658709f5",
          "profileName": "Operational Profile Name 1",
          "serviceProviderName": "SP Name 1"
@@ -8706,9 +8812,10 @@ Output Data:
 --------------------------------------------------------------------------------
 **** GetEimPackageResponse; ..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json ****
 Remarks Generated: GetEimPackageResponse; ..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json
-Info => Transaction Id: 4k4snfvy4d0a; Mode: Conversion_Mode; Asn1 Element: GetEimPackageResponse; Input Format: json; Output Format: der
+Info => Transaction Id: xtdy54qenqhm; Mode: Conversion_Mode; Asn1 Element: GetEimPackageResponse; Input Format: json; Output Format: der
 Input File: ..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json
-Input Data: {
+Input Data:
+{
  "euiccPackageRequest": {
   "eimSignature": "80d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb",
   "euiccPackageSigned": {
@@ -8737,9 +8844,10 @@ Output Data: bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d38463
 --------------------------------------------------------------------------------
 **** GetEimPackageResponse; ..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json ****
 Remarks Generated: GetEimPackageResponse; ..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json
-Info => Transaction Id: tnci9bdyqmo9; Mode: Encoding_Mode; Asn1 Element: GetEimPackageResponse; Input Format: json; Output Format: asn1
+Info => Transaction Id: c2du399snuwa; Mode: Encoding_Mode; Asn1 Element: GetEimPackageResponse; Input Format: json; Output Format: asn1
 Input File: ..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json
-Input Data: {
+Input Data:
+{
  "euiccPackageRequest": {
   "eimSignature": "80d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb",
   "euiccPackageSigned": {
@@ -8784,9 +8892,10 @@ euiccPackageRequest : {
 --------------------------------------------------------------------------------
 * GetEimPackageResponse; bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d384639462d323645433845363342... *
 Remarks Generated: GetEimPackageResponse; bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d384639462d323645433845363342...
-Info => Transaction Id: g900drxlloon; Mode: Conversion_Mode; Asn1 Element: GetEimPackageResponse; Input Format: der; Output Format: json
+Info => Transaction Id: igvhplcvw78z; Mode: Conversion_Mode; Asn1 Element: GetEimPackageResponse; Input Format: der; Output Format: json
 Input Data: bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d384639462d3236454338453633424646375a10730f11567c634e3399fbabd91a9e5726810103a01ca40c5a0a8929901012345678905fa40c5a0a8929901012345678905f5f374080d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb
-Output Data: {
+Output Data:
+{
  "euiccPackageRequest": {
   "eimSignature": "80d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb",
   "euiccPackageSigned": {
@@ -9237,7 +9346,8 @@ Input Data:
   profileName "Operational Profile Name 1"
 }
 
-Output Data: {
+Output Data:
+{
  "iccid": "989209012143658709f5",
  "profileName": "Operational Profile Name 1",
  "serviceProviderName": "SP Name 1"
@@ -9254,7 +9364,8 @@ Input Data:
   profileName "Operational Profile Name 1"
 }
 
-Output Data: {
+Output Data:
+{
  "iccid": "989209012143658709f5",
  "profileName": "Operational Profile Name 1",
  "serviceProviderName": "SP Name 1"
