@@ -369,7 +369,6 @@ class AnyData(DataTypeMaster):
             Data(  # Asn1Input; DerOutput; YmlInput; Asn1Element; ProfileElement; OutputKeyword;
                 input_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PROFILE_OPERATIONAL1.asn1.yml'
             ),
-
             #
             Data(
                 remarks='DerInput; Asn1Output; DirectInput; Asn1Element; UpdateMetadataRequest; ExportKeyword; OutputFile;',
@@ -528,6 +527,14 @@ class AnyData(DataTypeMaster):
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1,
                 output_file=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\$REMARKS'
+            ),
+            #
+            Data(  # DerInput; Asn1Output; YmlInput; Asn1Element; EUICCInfo2; VersionVariable; OutputKeyword;
+                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\EUICCInfo2\EUICCInfo2.hex.yml',
+            ),
+            #
+            Data(  # DerInput; Asn1Output; YmlInput; Asn1Element; EUICCInfo2; VersionVariable; OutputKeyword;
+                input_data=r'..\..\Data\SampleData\GSMA\SGP_32\$VERSION\EUICCInfo2\EUICCInfo2.hex.yml',
             ),
         ]
         super().set_data_pool(data_pool)

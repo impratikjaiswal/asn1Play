@@ -18,14 +18,19 @@ from asn1_play.main.helper.constants_config import ConfigConst
 from asn1_play.main.helper.defaults import Defaults
 from asn1_play.test.test import Test
 
+execution_mode = None
+error_handling_mode = None
+sgp_22_version = None
+sgp_32_version = None
+epp_version = None
 
-def process_data(execution_mode, error_handling_mode):
+
+def process_data():
     """
 
-    :param error_handling_mode:
-    :param execution_mode:
     :return:
     """
+    global execution_mode, error_handling_mode, sgp_22_version, sgp_32_version, epp_version
     data_type_user = [
         #####
         # Empty class for user usage
@@ -91,7 +96,7 @@ def process_data(execution_mode, error_handling_mode):
         if isinstance(data_type, Dev):
             error_handling_mode = PhErrorHandlingModes.STOP_ON_ERROR
         if isinstance(data_type, Test):
-            Test.test_data()
+            Test.test_all()
             continue
         data_type.set_print_input()
         data_type.set_print_output()
@@ -107,11 +112,12 @@ def process_data(execution_mode, error_handling_mode):
         DataTypeMaster.parse_safe(data_type, error_handling_mode)
 
 
-def main():
+def set_configurations():
     """
 
     :return:
     """
+    global execution_mode, error_handling_mode, sgp_22_version, sgp_32_version, epp_version
     """
     Set Execution Mode, If you are a first time user then try #ExecutionModes.SAMPLE_GENERIC
     """
@@ -123,12 +129,9 @@ def main():
     sgp_22_version = Defaults.ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_22
     sgp_32_version = Defaults.ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_32
     epp_version = Defaults.ASN1_SCHEMA_COMPILE_TIME_TCA_EPP
-    """
-    Unit Testing Sequences
-    """
-    # SGP22_v2_4-epp_v3_2
-    # SGP22_v3_0_0-epp_v3_1
-    # SGP22_v3_0_0-epp_v3_2
+
+
+def print_configurations():
     # Print Versions
     PhUtil.print_version(ConfigConst.TOOL_NAME, ConfigConst.TOOL_VERSION)
     PhUtil.print_version(tlvConfigConst.TOOL_NAME, tlvConfigConst.TOOL_VERSION, no_additional_info=True)
@@ -138,8 +141,22 @@ def main():
                          no_additional_info=True)
     # Validate & Print Sample Data For Web
     PhUtil.print_iter(Sample().get_sample_data_pool_for_web(), header='Sample Data', depth_level=1)
+
+
+def main():
+    """
+
+    :return:
+    """
+    """
+    Do Configurations, as per your Need
+    """
+    set_configurations()
+    # Print Configurations
+    print_configurations()
     # Process Data
-    process_data(execution_mode, error_handling_mode)
+    process_data()
+    # All Done
     PhUtil.print_done()
 
 

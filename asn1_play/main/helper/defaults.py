@@ -25,6 +25,6 @@ class Defaults:
     # TODO: Circular Import
     # ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_22 = sgp_22_version.v3_1
     ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_22 = sgp_22_version
-    ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_32 = sgp_32_version
     ASN1_SCHEMA_COMPILE_TIME_TCA_EPP = epp_version
+    ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_32 = sgp_32_version
     ASN1_OBJECT = 'StoreMetadataRequest'

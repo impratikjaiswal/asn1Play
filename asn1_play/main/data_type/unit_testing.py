@@ -500,6 +500,19 @@ class UnitTesting(DataTypeMaster):
                 input_data=r'..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1',
             ),
             #
+            Data(
+                remarks='Reported Error:Json not getting parsed to Asn1 #6',
+                input_data="""{
+"ipaEuiccDataResponse": {
+"ipaEuiccData": {
+"euiccCertificate": "",
+}
+}
+}""",
+                input_format=Formats.JSON,
+                output_format=Formats.DER,
+                asn1_element='IpaEuiccDataResponse',
+            ),
         ]
 
         data_pool_tlv = [

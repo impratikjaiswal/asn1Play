@@ -110,8 +110,6 @@ class FormatsGroup:
     # Custom datatype, utilizing available data types
     # --------------------------------------------------------------------------#
 
-    TXT_FORMATS = [Formats.ASN1, Formats.GET_VAL, Formats.GET_VAL_PATHS]
-
     BASE64_FORMATS = [Formats.DER_64]
 
     HEX_FORMATS = [Formats.DER, Formats.BER]
@@ -132,7 +130,9 @@ class FormatsGroup:
 
     INPUT_FORMATS_ASCII = [Formats.ASCII, Formats.TXT]
 
-    INPUT_FORMATS_NON_TXT = INPUT_FORMATS_HEX + INPUT_FORMATS_ASCII
+    TXT_FORMATS = INPUT_FORMATS_ASN + INPUT_FORMATS_JSON + [Formats.GET_VAL, Formats.GET_VAL_PATHS]
+
+    NON_TXT_FORMATS = INPUT_FORMATS_HEX + INPUT_FORMATS_ASCII
 
     INPUT_FILE_FORMATS_HEX = [PhFileExtensions.HEX]
 

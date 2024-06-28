@@ -1,7 +1,6 @@
 import base64
 import re
 
-from binascii import unhexlify
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_exception_helper import PhExceptionHelper
 from python_helpers.ph_keys import PhKeys
@@ -28,7 +27,7 @@ Enable Flags for Debugging
 def convert_data(input_data, output_format):
     # Data is converted to Hex
     if output_format in FormatsGroup.BASE64_FORMATS:
-        return base64.b64encode(unhexlify(input_data)).decode()
+        return PhUtil.decode_to_base64_if_hex(input_data)
     if output_format in FormatsGroup.ASCII_FORMATS:
         return PhUtil.hex_str_to_ascii(input_data)
     if output_format in FormatsGroup.INPUT_FORMATS_DER:
@@ -85,7 +84,7 @@ def decode_encode_asn(input_data=PhConstants.STR_EMPTY, parse_only=True, input_f
         if not PhUtil.is_hex(input_data) and PhUtil.is_base64(input_data):
             input_data = base64.b64decode(input_data).hex()
             print_debug_var(Constants.INPUT_DATA_BASE_64_CONVERSION_IS_DONE, input_data)
-    if input_format in FormatsGroup.INPUT_FORMATS_NON_TXT and output_format in FormatsGroup.INPUT_FORMATS_NON_TXT:
+    if input_format in FormatsGroup.NON_TXT_FORMATS and output_format in FormatsGroup.NON_TXT_FORMATS:
         print_debug_var(Constants.ASN1_ELEMENT_IS_NOT_NEEDED)
         output_data = convert_data(input_data, output_format)
         if output_data:
@@ -190,6 +189,9 @@ def decode_encode_asn(input_data=PhConstants.STR_EMPTY, parse_only=True, input_f
                     parsing_data_current = M.to_asn1()
                     parsing_data_current = M.from_asn1()
             else:
+                # TODO: SML-450
+                print_debug_var_v('known_data', known_data)
+                print_debug_var_v('temp', temp)
                 if input_format in FormatsGroup.TXT_FORMATS:
                     parsing_data_current = str(temp)
                 else:
@@ -215,7 +217,7 @@ def decode_encode_asn(input_data=PhConstants.STR_EMPTY, parse_only=True, input_f
 
         if not known_data:
             continue
-    if parse_only and output_format in FormatsGroup.INPUT_FORMATS_NON_TXT:
+    if parse_only and output_format in FormatsGroup.NON_TXT_FORMATS:
         result = convert_data(parsing_data_concatenated, output_format)
         if result:
             parsing_data_concatenated = result
