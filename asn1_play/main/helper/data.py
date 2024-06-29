@@ -75,6 +75,7 @@ class Data:
         self.data_group = kwargs.get(PhKeys.DATA_GROUP, None)
         # Handle Internal args
         self.__input_modes_hierarchy = []
+        self.__asn1_schema_name = None
         self.__asn1_element_name = None
         self.__asn1_element_name_alternate = None
         self.__asn1_module_name = None
@@ -143,18 +144,22 @@ class Data:
 
     def set_asn1_element_name(self):
         if not self.asn1_element or self.asn1_element is None:
+            self.__asn1_schema_name = None
             self.__asn1_element_name = None
             self.__asn1_element_name_alternate = None
             self.__asn1_module_name = None
             self.__asn1_module_version = None
             return
         if isinstance(self.asn1_element, Asn1):
+            self.__asn1_schema_name = self.asn1_element.get_asn1_schema().get_name()
             self.__asn1_element_name = self.asn1_element.get_asn1_object()
             self.__asn1_element_name_alternate = self.asn1_element.get_asn1_object_alternate()
             self.__asn1_module_name = self.asn1_element.get_asn1_schema().get_asn1_class_name()
             self.__asn1_module_version = self.asn1_element.get_asn1_schema().get_asn1_version()
             return
         # Below code is to support legacy functionality
+        # Where the direct code is being used with compile Time Versions
+        # Either Object is passed or Object Name is passed
         if isinstance(self.asn1_element, str):
             self.__asn1_element_name = self.asn1_element
         else:
@@ -170,6 +175,26 @@ class Data:
             if self.__asn1_module_name == KeyWords.MODULE_EPP:
                 self.__asn1_module_version = epp_version
 
+    def get_asn1_element_info(self, verbose=False):
+        if not self.asn1_element:
+            return {}
+        asn1_schema = self.get_asn1_schema_name()
+        asn1_data_schema = {
+            PhKeys.ASN1_SCHEMA: asn1_schema,
+        }
+        asn1_data_module = {
+            PhKeys.ASN1_MODULE: self.get_asn1_module_name(),
+            PhKeys.ASN1_MODULE_VERSION: self.get_asn1_module_version(),
+        }
+        asn1_data = asn1_data_schema if asn1_schema and not verbose else asn1_data_module
+        # PhKeys.ASN1_OBJECT: self.asn1_element.get_asn1_object(),
+        asn1_data.update({PhKeys.ASN1_OBJECT: self.get_asn1_element_name()})
+        # PhKeys.ASN1_OBJECT_ALTERNATE: self.asn1_element.get_asn1_object_alternate(),
+        asn1_data.update({PhKeys.ASN1_OBJECT_ALTERNATE: self.get_asn1_element_name_alternate()})
+        if asn1_schema:
+            asn1_data.update({PhKeys.FETCH_ASN1_OBJECTS_LIST: self.asn1_element.fetch_asn1_objects_list})
+        return asn1_data
+
     def get_asn1_element_name(self):
         return self.__asn1_element_name
 
@@ -177,10 +202,15 @@ class Data:
         return self.__asn1_element_name_alternate
 
     def set_asn1_element_name_alternate(self):
-        self.__asn1_element_name_alternate = self.__asn1_element_name.replace('-', '_')
+        temp = self.__asn1_element_name.replace('-', '_')
+        if temp != self.__asn1_element_name:
+            self.__asn1_element_name_alternate = temp
 
     def get_asn1_element(self):
         return self.asn1_element
+
+    def get_asn1_schema_name(self):
+        return self.__asn1_schema_name
 
     def get_asn1_module_name(self):
         return self.__asn1_module_name

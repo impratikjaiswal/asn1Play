@@ -50,15 +50,33 @@ def print_data(data, meta_data):
             meta_data.output_dic.update(
                 get_dic_data_and_print(PhKeys.REMARKS_GENERATED, PhConstants.SEPERATOR_ONE_LINE,
                                        remarks_generated))
+        asn1_info = data.get_asn1_element_info()
         info = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, [
             get_dic_data_and_print(PhKeys.TRANSACTION_ID, PhConstants.SEPERATOR_ONE_LINE, meta_data.transaction_id,
                                    dic_format=False, print_also=False),
             get_dic_data_and_print(PhKeys.MODE, PhConstants.SEPERATOR_ONE_LINE,
                                    get_mode(data.input_format, data.output_format, meta_data.input_mode_key,
                                             data.get_input_modes_hierarchy()), dic_format=False, print_also=False),
-            get_dic_data_and_print(PhKeys.ASN1_ELEMENT, PhConstants.SEPERATOR_ONE_LINE, data.get_asn1_element_name(),
-                                   dic_format=False,
-                                   print_also=False) if data.get_asn1_element_name() else None,
+            #
+            get_dic_data_and_print(PhKeys.ASN1_SCHEMA, PhConstants.SEPERATOR_ONE_LINE,
+                                   asn1_info.get(PhKeys.ASN1_SCHEMA), dic_format=False,
+                                   print_also=False) if asn1_info.get(PhKeys.ASN1_SCHEMA, None) else None,
+            get_dic_data_and_print(PhKeys.ASN1_MODULE, PhConstants.SEPERATOR_ONE_LINE,
+                                   asn1_info.get(PhKeys.ASN1_MODULE), dic_format=False,
+                                   print_also=False) if asn1_info.get(PhKeys.ASN1_MODULE, None) else None,
+            get_dic_data_and_print(PhKeys.ASN1_MODULE_VERSION, PhConstants.SEPERATOR_ONE_LINE,
+                                   asn1_info.get(PhKeys.ASN1_MODULE_VERSION), dic_format=False,
+                                   print_also=False) if asn1_info.get(PhKeys.ASN1_MODULE_VERSION, None) else None,
+            get_dic_data_and_print(PhKeys.ASN1_OBJECT, PhConstants.SEPERATOR_ONE_LINE,
+                                   asn1_info.get(PhKeys.ASN1_OBJECT), dic_format=False,
+                                   print_also=False) if asn1_info.get(PhKeys.ASN1_OBJECT, None) else None,
+            get_dic_data_and_print(PhKeys.ASN1_OBJECT_ALTERNATE, PhConstants.SEPERATOR_ONE_LINE,
+                                   asn1_info.get(PhKeys.ASN1_OBJECT_ALTERNATE), dic_format=False,
+                                   print_also=False) if asn1_info.get(PhKeys.ASN1_OBJECT_ALTERNATE, None) else None,
+            get_dic_data_and_print(PhKeys.FETCH_ASN1_OBJECTS_LIST, PhConstants.SEPERATOR_ONE_LINE,
+                                   asn1_info.get(PhKeys.FETCH_ASN1_OBJECTS_LIST), dic_format=False,
+                                   print_also=False) if asn1_info.get(PhKeys.FETCH_ASN1_OBJECTS_LIST, None) else None,
+            #
             get_dic_data_and_print(PhKeys.INPUT_FORMAT, PhConstants.SEPERATOR_ONE_LINE, data.input_format,
                                    dic_format=False, print_also=False),
             get_dic_data_and_print(PhKeys.OUTPUT_FORMAT, PhConstants.SEPERATOR_ONE_LINE, data.output_format,
@@ -102,7 +120,7 @@ def print_data(data, meta_data):
 
 
 def get_dic_data_and_print(key, sep, value, dic_format=True, print_also=True):
-    if value is not None and '\n' in value:
+    if value is not None and isinstance(value, str) and '\n' in value:
         value = PreservedScalarString(value)
     return PhUtil.get_key_value_pair(key=key, value=value, sep=sep, dic_format=dic_format, print_also=print_also)
 
@@ -138,9 +156,10 @@ def prepare_config_data(data):
         if not v:
             continue
         if k in [PhKeys.ASN1_ELEMENT]:
-            value = data.get_asn1_element_name()
-            value_alternate = data.get_asn1_element_name_alternate()
-            module_name = data.get_asn1_module_name()
+            asn1_element_info = data.get_asn1_element_info(verbose=True)
+            value = asn1_element_info.get(PhKeys.ASN1_OBJECT)
+            value_alternate = asn1_element_info.get(PhKeys.ASN1_OBJECT_ALTERNATE)
+            module_name = asn1_element_info.get(PhKeys.ASN1_MODULE)
             class_obj = None
             module_path = None
             # Legacy Code

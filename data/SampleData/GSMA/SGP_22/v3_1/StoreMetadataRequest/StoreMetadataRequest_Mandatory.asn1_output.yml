@@ -1,0 +1,40 @@
+input:
+    remarks: Asn1Input; DerOutput; YmlInput; Asn1Element; ReParseOutput; StoreMetadataRequest; VersionVariable; OutputKeyword;
+    asn1_element: SGP_22.RSPDefinitions.StoreMetadataRequest
+    input_format: Formats.ASN1
+    output_format: Formats.DER
+    output_file_name_keyword: output
+    re_parse_output: true
+    input_data: |-
+        {
+          iccid '989209012143658709F5'H,
+          serviceProviderName "SP Name 1",
+          profileName "Operational Profile Name 1"
+        }
+output:
+    remarks: Asn1Input; DerOutput; YmlInput; Asn1Element; ReParseOutput; StoreMetadataRequest; VersionVariable; OutputKeyword
+    info: 'Transaction Id: a0grzh2kd7xr; Mode: Yml_Decoding_Mode; Asn1 Module: RSPDefinitions; Asn1 Module Version: v3_1; Asn1 Object: StoreMetadataRequest; Input Format: asn1; Output Format: der; Output File Name Keyword: output'
+    input_yml: D:\Other\Github_Self\asn1Play\Data\SampleData\GSMA\SGP_22\v3_1\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yml
+    output_file: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v3_1/StoreMetadataRequest/\StoreMetadataRequest_Mandatory.asn1_output.yml
+    re_output_file: D:/Other/Github_Self/asn1Play/Data/SampleData/GSMA/SGP_22/v3_1/StoreMetadataRequest/\StoreMetadataRequest_Mandatory.asn1_output_re_parsed.yml
+    input_data: |-
+        {
+          iccid '989209012143658709F5'H,
+          serviceProviderName "SP Name 1",
+          profileName "Operational Profile Name 1"
+        }
+    output_data: bf25335a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031
+    re_parsed_data: |-
+        {
+          iccid '989209012143658709F5'H,
+          serviceProviderName "SP Name 1",
+          profileName "Operational Profile Name 1"
+        }
+output_version:
+    Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
+    pythonHelpers: v3.1.5
+    asn1Play: v8.3.1
+    SGP22: v3_1
+    SGP32: v1_1
+    eUICC_Profile_Package: v3_3_1
+    time_stamp: Saturday, Jun 29 2024, 22:10:33:052798, IST (GMT+0530)

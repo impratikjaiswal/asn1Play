@@ -94,7 +94,7 @@ def decode_encode_asn(input_data=PhConstants.STR_EMPTY, parse_only=True, input_f
             PhExceptionHelper(msg_key=Constants.INPUT_DATA_CONVERSION_NOT_POSSIBLE, function_name=func_name,
                               additional_msgs_list=additional_msgs_list))
     if not asn1_element or asn1_element is None:
-        raise ValueError(PhExceptionHelper(msg_key=Constants.ASN1_ELEMENT_IS_EMPTY_OR_MISSING, function_name=func_name))
+        raise ValueError(PhExceptionHelper(msg_key=Constants.ASN1_SCHEMA_IS_EMPTY_OR_MISSING, function_name=func_name))
     if isinstance(asn1_element, Asn1):
         # Run Time Versions
         asn1_object = asn1_element.get_asn1_object()
@@ -109,10 +109,8 @@ def decode_encode_asn(input_data=PhConstants.STR_EMPTY, parse_only=True, input_f
         print_debug_var(Constants.ASN1_ELEMENT_MAPPING_IS_DONE)
         if asn1_element_fetched is None:
             raise ValueError(
-                PhExceptionHelper(msg_key=Constants.UNKNOWN_ASN1_ELEMENT, msg_value=asn1_object,
-                                  function_name=func_name,
-                                  additional_msgs_list=[PhUtil.get_key_value_pair(PhKeys.ASN1_SCHEMA,
-                                                                                  asn1_element.get_asn1_schema().get_name())]))
+                PhExceptionHelper(msg_key=Constants.UNKNOWN_ASN1_OBJECT, msg_value=asn1_object,
+                                  function_name=func_name))
         else:
             print_debug_var(Constants.ASN1_ELEMENT_MAPPING_IS_FAIL)
     else:

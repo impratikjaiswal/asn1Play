@@ -4,6 +4,7 @@ from collections import OrderedDict
 
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
+from python_helpers.ph_exception_helper import PhExceptionHelper
 from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from python_helpers.ph_util import PhUtil
@@ -15,6 +16,7 @@ from asn1_play.generated_code.asn1.GSMA.SGP_32 import version as sgp_32_version
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
 from asn1_play.main.convert import converter
 from asn1_play.main.convert.handler import decode_encode_asn
+from asn1_play.main.helper.constants import Constants
 from asn1_play.main.helper.constants_config import ConfigConst as ConfigConst_local
 from asn1_play.main.helper.formats_group import FormatsGroup
 from asn1_play.main.helper.metadata import MetaData
@@ -84,6 +86,8 @@ def parse_or_update_any_data(data, meta_data=None):
             # Binary File
             with open(data.input_data, 'rb') as the_file:
                 resp = the_file.read()
+        if not resp:
+            raise ValueError(PhExceptionHelper(msg_key=Constants.INPUT_FILE_EMPTY))
         file_ext = PhUtil.get_file_name_and_extn(file_path=data.input_data, only_extn=True)
         if file_ext in FormatsGroup.INPUT_FILE_FORMATS_YML:
             meta_data.input_mode_key = PhKeys.INPUT_YML

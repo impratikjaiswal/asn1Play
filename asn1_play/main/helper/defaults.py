@@ -27,6 +27,7 @@ class Defaults:
     """
     Unit Testing Sequences
     
+    sgp22_v3_1__epp_v3_3_1__sgp32_v1_1
     sgp22_v2_4__epp_v3_2__sgp32_v1_0_1
     sgp22_v3_0_0__epp_v3_1__sgp32_v1_0_1
     sgp22_v3_0_0__epp_v3_2__sgp32_v1_1

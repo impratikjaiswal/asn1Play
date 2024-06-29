@@ -1,0 +1,12 @@
+input:
+    input_data: 3007a0058000810163
+    print_input: true
+    print_output: true
+    print_info: true
+    remarks:
+    - DerInput; Asn1Output; DirectInput; Asn1Element; PE_End; ExportKeyword;
+    input_format: der
+    output_format: asn1
+    asn1_element: eUICC_Profile_Package.PEDefinitions.PE-End
+    output_file: ..\..\Data\UserData\TCA\eUICC_Profile_Package\v3_3_1\PE_End
+    output_file_name_keyword: output

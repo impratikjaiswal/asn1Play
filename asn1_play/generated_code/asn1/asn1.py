@@ -51,7 +51,9 @@ class Asn1:
 
     def __set_asn1_object_alternate(self, asn1_object_alternate):
         if asn1_object_alternate is None and self.asn1_object is not None:
-            self.asn1_object_alternate = self.asn1_object.replace('-', '_')
+            temp = self.asn1_object.replace('-', '_')
+            if temp != self.asn1_object:
+                self.asn1_object_alternate = temp
         else:
             self.asn1_object_alternate = asn1_object_alternate
 
@@ -71,4 +73,4 @@ class Asn1:
         return PhConstants.SEPERATOR_TWO_LINES.join(self.asn1_objects_list) if str_format else self.asn1_objects_list
 
     def __set_asn1_objects_list(self):
-        self.asn1_objects_list = list(self.get_asn1_mapping().keys())
+        self.asn1_objects_list = list(self.get_asn1_mapping().keys()) if self.asn1_mapping else None

@@ -1,0 +1,9 @@
+{
+  profilePolicyRules '001'B -- ppr2 --,
+  serviceSpecificDataStoredInEuicc {
+    {
+      vendorOid {2 999 16},
+      vendorSpecificData 'C1020304'H
+    }
+  }
+}

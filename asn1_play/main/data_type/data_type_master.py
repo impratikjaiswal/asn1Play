@@ -232,15 +232,6 @@ class DataTypeMaster(object):
         :return:
         """
         set_defaults(data, None)
-        asn1_data = {}
-        if data.asn1_element and isinstance(data.asn1_element, Asn1):
-            asn1_data.update({PhKeys.ASN1_SCHEMA: data.asn1_element.asn1_schema.get_name()})
-            asn1_object = data.asn1_element.get_asn1_object()
-            asn1_data.update({PhKeys.ASN1_OBJECT: asn1_object})
-            asn1_data.update({
-                PhKeys.ASN1_OBJECT_ALTERNATE: data.asn1_element.get_asn1_object_alternate() if (
-                        not asn1_object or asn1_object is None) else None})
-            asn1_data.update({PhKeys.FETCH_ASN1_OBJECTS_LIST: data.asn1_element.fetch_asn1_objects_list})
         common_data = {
             PhKeys.INPUT_DATA: data.input_data,
             PhKeys.REMARKS: data.get_remarks_as_str(),
@@ -252,4 +243,4 @@ class DataTypeMaster(object):
             PhKeys.TLV_PARSING_OF_OUTPUT: data.tlv_parsing_of_output,
             PhKeys.OUTPUT_FILE_NAME_KEYWORD: data.output_file_name_keyword,
         }
-        return {**common_data, **asn1_data}
+        return {**common_data, **data.get_asn1_element_info()}

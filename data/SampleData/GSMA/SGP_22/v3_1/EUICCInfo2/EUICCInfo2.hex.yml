@@ -1,0 +1,59 @@
+input:
+    remarks: DerInput; Asn1Output; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword;
+    asn1_element: SGP_22.RSPDefinitions.EUICCInfo2
+    input_format: Formats.DER
+    output_format: Formats.ASN1
+    input_data: BF22820145810302030182030201008303040400840F81010082040007D63A830400001C32850502FFFFFFFC86030902008703020300880401FFFFFEA92C0414F54172BDF98A95D65CBEB88A38A1C11D800A85C30414C0BC70BA36929D43B467FF57570530E57AB8FCD8AA2C0414F54172BDF98A95D65CBEB88A38A1C11D800A85C30414C0BC70BA36929D43B467FF57570530E57AB8FCD88B01009902064004030000010C0D534D2D43542D55502D30353233AC48801F312E322E3834302E313233343536372F6D79506C6174666F726D4C6162656C812568747470733A2F2F6D79636F6D70616E792E636F6D2F6D79444C4F415265676973747261728D0205E08E0130AF050403030200900100B12C0414F54172BDF98A95D65CBEB88A38A1C11D800A85C30414C0BC70BA36929D43B467FF57570530E57AB8FCD892071A9283DE7465F09303030000
+output:
+    remarks: DerInput; Asn1Output; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword
+    info: 'Transaction Id: vmaqvbzh0erj; Mode: Yml_Encoding_Mode; Asn1 Module: RSPDefinitions; Asn1 Module Version: v3_1; Asn1 Object: EUICCInfo2; Input Format: der; Output Format: asn1'
+    input_yml: ..\..\Data\SampleData\GSMA\SGP_22\v3_1\EUICCInfo2\EUICCInfo2.hex.yml
+    output_file: ../../Data/SampleData/GSMA/SGP_22/v3_1/EUICCInfo2/\EUICCInfo2.hex.yml
+    input_data: BF22820145810302030182030201008303040400840F81010082040007D63A830400001C32850502FFFFFFFC86030902008703020300880401FFFFFEA92C0414F54172BDF98A95D65CBEB88A38A1C11D800A85C30414C0BC70BA36929D43B467FF57570530E57AB8FCD8AA2C0414F54172BDF98A95D65CBEB88A38A1C11D800A85C30414C0BC70BA36929D43B467FF57570530E57AB8FCD88B01009902064004030000010C0D534D2D43542D55502D30353233AC48801F312E322E3834302E313233343536372F6D79506C6174666F726D4C6162656C812568747470733A2F2F6D79636F6D70616E792E636F6D2F6D79444C4F415265676973747261728D0205E08E0130AF050403030200900100B12C0414F54172BDF98A95D65CBEB88A38A1C11D800A85C30414C0BC70BA36929D43B467FF57570530E57AB8FCD892071A9283DE7465F09303030000
+    output_data: |-
+        {
+          baseProfilePackageVersion '020301'H,
+          lowestSvn '020100'H,
+          euiccFirmwareVersion '040400'H,
+          extCardResource '81010082040007D63A830400001C32'H,
+          uiccCapability '111111111111111111111111111111'B -- contactlessSupport | usimSupport | isimSupport | csimSupport | akaMilenage | akaCave | akaTuak128 | akaTuak256 | usimTestAlgorithm | rfu2 | gbaAuthenUsim | gbaAuthenISim | mbmsAuthenUsim | eapClient | javacard | multos | multipleUsimSupport | multipleIsimSupport | multipleCsimSupport | berTlvFileSupport | dfLinkSupport | catTp | getIdentity | profile-a-x25519 | profile-b-p256 | suciCalculatorApi | dns-resolution | scp11ac | scp11c-authorization-mechanism | s16mode --,
+          ts102241Version '090200'H,
+          globalplatformVersion '020300'H,
+          euiccRspCapability '11111111111111111111111'B -- additionalProfile | loadCrlSupport | rpmSupport | testProfileSupport | deviceInfoExtensibilitySupport | serviceSpecificDataSupport | hriServerAddressSupport | serviceProviderMessageSupport | lpaProxySupport | enterpriseProfilesSupport | serviceDescriptionSupport | deviceChangeSupport | encryptedDeviceChangeDataSupport | estimatedProfileSizeIndicationSupport | profileSizeInProfilesInfoSupport | crlStaplingV3Support | certChainV3VerificationSupport | signedSmdsResponseV3Support | euiccRspCapInInfo1 | osUpdateSupport | cancelForEmptySpnPnSupport | updateNotifConfigInfoSupport | updateMetadataV3Support --,
+          euiccCiPKIdListForVerification {
+            'F54172BDF98A95D65CBEB88A38A1C11D800A85C3'H,
+            'C0BC70BA36929D43B467FF57570530E57AB8FCD8'H
+          },
+          euiccCiPKIdListForSigning {
+            'F54172BDF98A95D65CBEB88A38A1C11D800A85C3'H,
+            'C0BC70BA36929D43B467FF57570530E57AB8FCD8'H
+          },
+          euiccCategory 0 -- other --,
+          forbiddenProfilePolicyRules '01'B -- ppr1 --,
+          ppVersion '000001'H,
+          sasAcreditationNumber "SM-CT-UP-0523",
+          certificationDataObject {
+            platformLabel "1.2.840.1234567/myPlatformLabel",
+            discoveryBaseURL "https://mycompany.com/myDLOARegistrar"
+          },
+          treProperties '111'B -- isDiscrete | isIntegrated | usesRemoteMemory --,
+          treProductReference "0",
+          additionalProfilePackageVersions {
+            '030200'H
+          },
+          lpaMode 0 -- lpad --,
+          euiccCiPKIdListForSigningV3 {
+            'F54172BDF98A95D65CBEB88A38A1C11D800A85C3'H,
+            'C0BC70BA36929D43B467FF57570530E57AB8FCD8'H
+          },
+          additionalEuiccInfo '1A9283DE7465F0'H,
+          highestSvn '030000'H
+        }
+output_version:
+    Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
+    pythonHelpers: v3.1.5
+    asn1Play: v8.3.1
+    SGP22: v3_1
+    SGP32: v1_1
+    eUICC_Profile_Package: v3_3_1
+    time_stamp: Saturday, Jun 29 2024, 22:10:34:348341, IST (GMT+0530)
