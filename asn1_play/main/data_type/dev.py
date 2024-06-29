@@ -72,38 +72,11 @@ class Dev(DataTypeMaster):
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),
-            # TODO: Issue
-            Data(
-                remarks='Reported Error:Json not getting parsed to Asn1 #6',
-                input_data="""{
-"ipaEuiccDataResponse": {
-"ipaEuiccData": {
-"euiccCertificate": "",
-}
-}
-}""",
-                input_format=Formats.JSON,
-                output_format=Formats.DER,
-                asn1_element='ipaEuiccDataResponse'
-            ),
-            #
-            Data(input_data="""{
-              "ipaEuiccDataResponse": {
-                "ipaEuiccData":
-              }
-            }
-            """,
-                 asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'IpaEuiccDataResponse'),
-                 input_format=Formats.JSON,
-                 output_format=Formats.ASN1,
-                 ),
-            #
+            # Needs to Check
             Data(
                 input_data="""{
-              "ipaEuiccDataResponse": {
                 "ipaEuiccData": {
-                  "euiccCertificate": "MIICADCCAaWgAwIBAgIJAgAAAAAAAAABMAoGCCqGSM49BAMCMDcxCzAJBgNVBAYTAkVTMRUwEwYDVQQKDAxSU1AgVGVzdCBFVU0xETAPBgNVBAMMCEVVTSBUZXN0MCAXDTIwMDQwMTA5NDg1OFoYDzc0OTYwMTI0MDk0ODU4WjBkMQswCQYDVQQGEwJFUzEVMBMGA1UECgwMUlNQIFRlc3QgRVVNMSkwJwYDVQQFEyA4OTA0OTAzMjEyMzQ1MTIzNDUxMjM0NTY3ODkwMTIzNTETMBEGA1UEAwwKVGVzdCBlVUlDQzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABG2z9Trch9wv8Qx7/Nh60TrpcAmvoGWmdX7lcbPy67GPRsHWjz7esOdLLl1UIFHn0n9QlSAoYFr973n+n//QOVmjazBpMB8GA1UdIwQYMBaAFN09ok01DBzF0K8JZfQOw0xe5AnxMB0GA1UdDgQWBBSlJHavXVCqN2Q3zLHaIXLvRfSE8DAOBgNVHQ8BAf8EBAMCB4AwFwYDVR0gAQH/BA0wCzAJBgdngRIBAgEBMAoGCCqGSM49BAMCA0kAMEYCIQDXK0F9FNHwZV6z0OuERGAKhwYfruAzTfwrkO0sVXvviAIhAO9Rwsb+xS6HoTRoVNVebwGP5umD3hEqy7hDWOx88S9T",
-                    }
+                  "euiccCertificate": "MIICADCCAaWgAwIBAgIJAgAAAAAAAAABMAoGCCqGSM49BAMCMDcxCzAJBgNVBAYTAkVTMRUwEwYDVQQKDAxSU1AgVGVzdCBFVU0xETAPBgNVBAMMCEVVTSBUZXN0MCAXDTIwMDQwMTA5NDg1OFoYDzc0OTYwMTI0MDk0ODU4WjBkMQswCQYDVQQGEwJFUzEVMBMGA1UECgwMUlNQIFRlc3QgRVVNMSkwJwYDVQQFEyA4OTA0OTAzMjEyMzQ1MTIzNDUxMjM0NTY3ODkwMTIzNTETMBEGA1UEAwwKVGVzdCBlVUlDQzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABG2z9Trch9wv8Qx7/Nh60TrpcAmvoGWmdX7lcbPy67GPRsHWjz7esOdLLl1UIFHn0n9QlSAoYFr973n+n//QOVmjazBpMB8GA1UdIwQYMBaAFN09ok01DBzF0K8JZfQOw0xe5AnxMB0GA1UdDgQWBBSlJHavXVCqN2Q3zLHaIXLvRfSE8DAOBgNVHQ8BAf8EBAMCB4AwFwYDVR0gAQH/BA0wCzAJBgdngRIBAgEBMAoGCCqGSM49BAMCA0kAMEYCIQDXK0F9FNHwZV6z0OuERGAKhwYfruAzTfwrkO0sVXvviAIhAO9Rwsb+xS6HoTRoVNVebwGP5umD3hEqy7hDWOx88S9T"
                 }
             }
             """,
@@ -111,33 +84,31 @@ class Dev(DataTypeMaster):
                 input_format=Formats.JSON,
                 output_format=Formats.ASN1,
             ),
-            #
+            # Needs to Check
             Data(
                 input_data="""{
-              "ipaEuiccDataResponse": {
-                "ipaEuiccData": {
-                  "euiccCertificate": "MIICADCCAaWgAwIBAgIJAgAAAAAAAAABMAoGCCqGSM49BAMCMDcxCzAJBgNVBAYTAkVTMRUwEwYDVQQKDAxSU1AgVGVzdCBFVU0xETAPBgNVBAMMCEVVTSBUZXN0MCAXDTIwMDQwMTA5NDg1OFoYDzc0OTYwMTI0MDk0ODU4WjBkMQswCQYDVQQGEwJFUzEVMBMGA1UECgwMUlNQIFRlc3QgRVVNMSkwJwYDVQQFEyA4OTA0OTAzMjEyMzQ1MTIzNDUxMjM0NTY3ODkwMTIzNTETMBEGA1UEAwwKVGVzdCBlVUlDQzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABG2z9Trch9wv8Qx7/Nh60TrpcAmvoGWmdX7lcbPy67GPRsHWjz7esOdLLl1UIFHn0n9QlSAoYFr973n+n//QOVmjazBpMB8GA1UdIwQYMBaAFN09ok01DBzF0K8JZfQOw0xe5AnxMB0GA1UdDgQWBBSlJHavXVCqN2Q3zLHaIXLvRfSE8DAOBgNVHQ8BAf8EBAMCB4AwFwYDVR0gAQH/BA0wCzAJBgdngRIBAgEBMAoGCCqGSM49BAMCA0kAMEYCIQDXK0F9FNHwZV6z0OuERGAKhwYfruAzTfwrkO0sVXvviAIhAO9Rwsb+xS6HoTRoVNVebwGP5umD3hEqy7hDWOx88S9T",
-                  "ipaCapabilities": {
-                    "ipaFeatures": {
-                      "directRspServerCommunication": true,
-                      "indirectRspServerCommunication": false,
-                      "eimDownloadDataHandling": false,
-                      "eimCtxParams1Generation": false,
-                      "eimProfileMetadataVerification": false,
-                      "minimizeESipaBytes": false
-                    },
-                    "ipaSupportedProtocols": {
-                      "ipaRetrieveHttps": false,
-                      "ipaRetrieveCoaps": false,
-                      "ipaInjectHttps": false,
-                      "ipaInjectCoaps": false,
-                      "ipaProprietary": false
+                    "ipaEuiccData": {
+                      "euiccCertificate": "MIICADCCAaWgAwIBAgIJAgAAAAAAAAABMAoGCCqGSM49BAMCMDcxCzAJBgNVBAYTAkVTMRUwEwYDVQQKDAxSU1AgVGVzdCBFVU0xETAPBgNVBAMMCEVVTSBUZXN0MCAXDTIwMDQwMTA5NDg1OFoYDzc0OTYwMTI0MDk0ODU4WjBkMQswCQYDVQQGEwJFUzEVMBMGA1UECgwMUlNQIFRlc3QgRVVNMSkwJwYDVQQFEyA4OTA0OTAzMjEyMzQ1MTIzNDUxMjM0NTY3ODkwMTIzNTETMBEGA1UEAwwKVGVzdCBlVUlDQzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABG2z9Trch9wv8Qx7/Nh60TrpcAmvoGWmdX7lcbPy67GPRsHWjz7esOdLLl1UIFHn0n9QlSAoYFr973n+n//QOVmjazBpMB8GA1UdIwQYMBaAFN09ok01DBzF0K8JZfQOw0xe5AnxMB0GA1UdDgQWBBSlJHavXVCqN2Q3zLHaIXLvRfSE8DAOBgNVHQ8BAf8EBAMCB4AwFwYDVR0gAQH/BA0wCzAJBgdngRIBAgEBMAoGCCqGSM49BAMCA0kAMEYCIQDXK0F9FNHwZV6z0OuERGAKhwYfruAzTfwrkO0sVXvviAIhAO9Rwsb+xS6HoTRoVNVebwGP5umD3hEqy7hDWOx88S9T",
+                      "ipaCapabilities": {
+                        "ipaFeatures": {
+                          "directRspServerCommunication": true,
+                          "indirectRspServerCommunication": false,
+                          "eimDownloadDataHandling": false,
+                          "eimCtxParams1Generation": false,
+                          "eimProfileMetadataVerification": false,
+                          "minimizeESipaBytes": false
+                        },
+                        "ipaSupportedProtocols": {
+                          "ipaRetrieveHttps": false,
+                          "ipaRetrieveCoaps": false,
+                          "ipaInjectHttps": false,
+                          "ipaInjectCoaps": false,
+                          "ipaProprietary": false
+                      }
                     }
                   }
                 }
-              }
-            }
-            """,
+                """,
                 asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'IpaEuiccDataResponse'),
                 input_format=Formats.JSON,
                 output_format=Formats.ASN1,

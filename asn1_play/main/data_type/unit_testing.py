@@ -500,19 +500,6 @@ class UnitTesting(DataTypeMaster):
                 input_data=r'..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1',
             ),
             #
-            Data(
-                remarks='Reported Error:Json not getting parsed to Asn1 #6',
-                input_data="""{
-"ipaEuiccDataResponse": {
-"ipaEuiccData": {
-"euiccCertificate": "",
-}
-}
-}""",
-                input_format=Formats.JSON,
-                output_format=Formats.DER,
-                asn1_element='IpaEuiccDataResponse',
-            ),
         ]
 
         data_pool_tlv = [
@@ -924,34 +911,6 @@ class UnitTesting(DataTypeMaster):
                 output_format=Formats.ASN1,
             ),
             #
-            Data(
-                input_data=r'..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json',
-                asn1_element=SGP_32.SGP32Definitions.GetEimPackageResponse,
-                input_format=Formats.JSON,
-                output_format=Formats.DER,
-            ),
-            #
-            Data(
-                input_data=r'..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json',
-                asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'GetEimPackageResponse'),
-                input_format=Formats.JSON,
-                output_format=Formats.ASN1,
-            ),
-            #
-            Data(
-                input_data=r'bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d384639462d3236454338453633424646375a10730f11567c634e3399fbabd91a9e5726810103a01ca40c5a0a8929901012345678905fa40c5a0a8929901012345678905f5f374080d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb',
-                asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'GetEimPackageResponse'),
-                input_format=Formats.DER,
-                output_format=Formats.JSON,
-            ),
-            #
-            Data(
-                input_data=r'bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d384639462d3236454338453633424646375a10730f11567c634e3399fbabd91a9e5726810103a01ca40c5a0a8929901012345678905fa40c5a0a8929901012345678905f5f374080d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb',
-                asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'GetEimPackageResponse'),
-                input_format=Formats.DER,
-                output_format=Formats.ASN1,
-            ),
-
         ]
 
         data_pool_asn1_to_all_formats = []
@@ -966,6 +925,90 @@ class UnitTesting(DataTypeMaster):
                 )
             )
 
+            data_pool_reported = [
+                #
+                Data(
+                    remarks='Reported; DER to JSON | JSON to DER conversion #3; Json to Der',
+                    input_data=r'..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json',
+                    asn1_element=SGP_32.SGP32Definitions.GetEimPackageResponse,
+                    input_format=Formats.JSON,
+                    output_format=Formats.DER,
+                ),
+                #
+                Data(
+                    remarks='Reported; DER to JSON | JSON to DER conversion #3; Json to Asn1',
+                    input_data=r'..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json',
+                    asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'GetEimPackageResponse'),
+                    input_format=Formats.JSON,
+                    output_format=Formats.ASN1,
+                ),
+                #
+                Data(
+                    remarks='Reported; DER to JSON | JSON to DER conversion #3; Der to Json',
+                    input_data=r'bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d384639462d3236454338453633424646375a10730f11567c634e3399fbabd91a9e5726810103a01ca40c5a0a8929901012345678905fa40c5a0a8929901012345678905f5f374080d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb',
+                    asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'GetEimPackageResponse'),
+                    input_format=Formats.DER,
+                    output_format=Formats.JSON,
+                ),
+                #
+                Data(
+                    remarks='Reported; DER to JSON | JSON to DER conversion #3; Der to asn1',
+                    input_data=r'bf4f81a2bf51819e3059802445374246384646352d353642462d333838312d384639462d3236454338453633424646375a10730f11567c634e3399fbabd91a9e5726810103a01ca40c5a0a8929901012345678905fa40c5a0a8929901012345678905f5f374080d82b20d657f8956858ca38848c337783a7c5793429b7edcc724d7d490cbc85c38408c4bd39dd756478928ce26624c0d71e8b781ef5e56cf0f1398f494385cb',
+                    asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'GetEimPackageResponse'),
+                    input_format=Formats.DER,
+                    output_format=Formats.ASN1,
+                ),
+                #
+                Data(
+                    remarks='Reported; Json not getting parsed to Asn1 #6',
+                    input_data="""{
+                "ipaEuiccDataResponse": {
+                "ipaEuiccData": {
+                "euiccCertificate": "",
+                }
+                }
+                }""",
+                    input_format=Formats.JSON,
+                    output_format=Formats.DER,
+                    asn1_element=SGP_32.SGP32Definitions.IpaEuiccDataResponse,
+                ),
+                #
+                Data(
+                    remarks='Reported; Json not getting parsed to Asn1 #6; Corrected structure',
+                    input_data=""" {
+         "ipaEuiccData": {
+          "euiccCertificate": ""
+         }
+        }""",
+                    input_format=Formats.JSON,
+                    output_format=Formats.DER,
+                    asn1_element=SGP_32.SGP32Definitions.IpaEuiccDataResponse,
+                ),
+                #
+                Data(
+                    remarks='Reported; Json not getting parsed to Asn1 #6; Corrected structure',
+                    input_data="""{
+         "ipaEuiccData": {
+          "defaultSmdpAddress": "smdp.amenitypj.in"
+         }
+        }""",
+                    input_format=Formats.JSON,
+                    output_format=Formats.DER,
+                    asn1_element=SGP_32.SGP32Definitions.IpaEuiccDataResponse,
+                ),
+                #
+                Data(
+                    remarks='Reported; Json not getting parsed to Asn1 #6; Empty ipaEuiccData',
+                    input_data="""{
+                            "ipaEuiccData": {}
+                          }
+            """,
+                    asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'IpaEuiccDataResponse'),
+                    input_format=Formats.JSON,
+                    output_format=Formats.ASN1,
+                ),
+            ]
+
         super().set_data_pool(
             data_pool_positive +
             data_pool_byte_array +
@@ -979,5 +1022,6 @@ class UnitTesting(DataTypeMaster):
             data_pool_web_requests +
             data_pool_negative +
             data_pool_json +
-            data_pool_asn1_to_all_formats
+            data_pool_asn1_to_all_formats +
+            data_pool_reported
         )

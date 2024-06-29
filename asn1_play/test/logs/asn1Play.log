@@ -7,9 +7,9 @@ User Name is Pratik Jaiswal
 --------------------------------------------------------------------------------
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Friday, Jun 28 2024, 21:55:27:923654, IST (GMT+0530)
+Time Stamp is Friday, Jun 28 2024, 22:31:08:822858, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is a2b5ea4;  (HEAD -> main); 2024-06-28 21:34:03 +0530; imPratik <impratikjaiswal@gmail.com>; logs Renamed
+Git Summary is 8df3620;  (HEAD -> main, origin/main, origin/HEAD); 2024-06-28 22:30:40 +0530; imPratik <impratikjaiswal@gmail.com>; Json not getting parsed to Asn1 #6 Fixed
 --------------------------------------------------------------------------------
 pythonHelpers version is v3.1.3
 --------------------------------------------------------------------------------
@@ -57,7 +57,7 @@ Hex to ASCII: {'input_data': '57656c636f6d6520546f2041736e506c617920212121', 're
 ------------------------------------------------------- UserData -------------------------------------------------------
 ************************************************** SGP22; Der to Asn1 **************************************************
 Remarks: SGP22; Der to Asn1
-Info => Transaction Id: zs5ngkl62irv; Mode: Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1
+Info => Transaction Id: 74lkfu2c5acg; Mode: Encoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: der; Output Format: asn1
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Output Data:
 {
@@ -69,7 +69,7 @@ Output Data:
 ************************************************ SGP22; Asn1 to Der; Tlv ***********************************************
 ***** bf25335a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031 *****
 Remarks: SGP22; Asn1 to Der; Tlv
-Info => Transaction Id: qt9nlyyp8ke3; Mode: Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der
+Info => Transaction Id: jx1ebipfpja8; Mode: Decoding_Mode; Asn1 Element: StoreMetadataRequest; Input Format: asn1; Output Format: der
 Input Data:
 {
     iccid '989209012143658709F5'H,
@@ -84,7 +84,7 @@ BF25 33
 --------------------------------------------------------------------------------
 *************************************************** TCA; Asn1 to Der ***************************************************
 Remarks: TCA; Asn1 to Der
-Info => Transaction Id: etnvyzky6iki; Mode: Decoding_Mode; Asn1 Element: ProfileHeader; Input Format: asn1; Output Format: der
+Info => Transaction Id: voz6i70fpcdm; Mode: Decoding_Mode; Asn1 Element: ProfileHeader; Input Format: asn1; Output Format: der
 Input Data:
 {
     major-version 2,
@@ -102,19 +102,19 @@ Output Data: 3036800102810101821447534d412050726f66696c65205061636b616765830a892
 --------------------------------------------------------------------------------
 ************************************************** Der(Hex) to Base 64 *************************************************
 Remarks: Der(Hex) to Base 64
-Info => Transaction Id: sqf25sn9dj72; Mode: Conversion_Mode; Input Format: der; Output Format: der_as_base64
+Info => Transaction Id: h7r61se519f1; Mode: Conversion_Mode; Input Format: der; Output Format: der_as_base64
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Output Data: vyUzWgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAx
 --------------------------------------------------------------------------------
 ***************************************************** Ascii to Hex *****************************************************
 Remarks: Ascii to Hex
-Info => Transaction Id: l39bcx54ux28; Mode: Conversion_Mode; Input Format: ascii; Output Format: hex
+Info => Transaction Id: sn3bkpu6b846; Mode: Conversion_Mode; Input Format: ascii; Output Format: hex
 Input Data: Welcome To AsnPlay !!!
 Output Data: 57656c636f6d6520546f2041736e506c617920212121
 --------------------------------------------------------------------------------
 ***************************************************** Hex to ASCII *****************************************************
 Remarks: Hex to ASCII
-Info => Transaction Id: 013j2hyu12p4; Mode: Conversion_Mode; Input Format: hex; Output Format: ascii
+Info => Transaction Id: 3ds170tgxvee; Mode: Conversion_Mode; Input Format: hex; Output Format: ascii
 Input Data: 57656c636f6d6520546f2041736e506c617920212121
 Output Data: Welcome To AsnPlay !!!
 --------------------------------------------------------------------------------
