@@ -109,7 +109,7 @@ def process_data():
         data_type.set_input_format()
         data_type.set_asn1_element()
         data_type.set_data_pool()
-        DataTypeMaster.parse_safe(data_type, error_handling_mode)
+        DataTypeMaster.process_safe(data_type, error_handling_mode)
 
 
 def set_configurations():

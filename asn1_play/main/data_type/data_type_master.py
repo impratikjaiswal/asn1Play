@@ -15,7 +15,7 @@ from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import default_asn_
 from asn1_play.generated_code.asn1.asn1 import Asn1
 from asn1_play.main.convert import converter
 from asn1_play.main.convert.converter import read_web_request, set_defaults
-from asn1_play.main.convert.parser import parse_or_update_any_data
+from asn1_play.main.convert.parser import process_all_data_types
 from asn1_play.main.helper.data import Data
 from asn1_play.main.helper.keywords import KeyWords
 from asn1_play.main.helper.metadata import MetaData
@@ -73,7 +73,7 @@ class DataTypeMaster(object):
     def set_data_pool(self, data_pool):
         self.data_pool = data_pool
 
-    def parse_safe(self, error_handling_mode, data=None):
+    def process_safe(self, error_handling_mode, data=None):
         """
 
         :param data:
@@ -87,7 +87,7 @@ class DataTypeMaster(object):
             Handle Pool
             """
             for data_item in data:
-                self.parse_safe(error_handling_mode=error_handling_mode, data=data_item)
+                self.process_safe(error_handling_mode=error_handling_mode, data=data_item)
             return
         """
         Handle Individual Request
@@ -98,7 +98,7 @@ class DataTypeMaster(object):
                 Web Form
                 """
                 data = read_web_request(data)
-            self.__parse_safe_individual(data)
+            self.__process_safe_individual(data)
         except Exception as e:
             known = False
             summary_msg = None
@@ -145,7 +145,7 @@ class DataTypeMaster(object):
             if error_handling_mode == PhErrorHandlingModes.STOP_ON_ERROR:
                 raise
 
-    def __parse_safe_individual(self, data):
+    def __process_safe_individual(self, data):
         """
         Handle Individual Request
         :param data:
@@ -203,7 +203,7 @@ class DataTypeMaster(object):
         converter.path_generalisation(data, PhKeys.REMARKS)
         meta_data = MetaData(input_data_org=data.input_data)
         self.__master_data = (data, meta_data)
-        parse_or_update_any_data(data, meta_data)
+        process_all_data_types(data, meta_data)
 
     def get_output_data(self, only_output=True):
         """

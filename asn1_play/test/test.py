@@ -17,7 +17,7 @@ class Test:
         data_type = DataTypeMaster()
         data_type.set_data_pool(
             data_pool=[Data(input_data=input_data, input_format=input_format, output_format=output_format)])
-        data_type.parse_safe(PhErrorHandlingModes.CONTINUE_ON_ERROR)
+        data_type.process_safe(PhErrorHandlingModes.CONTINUE_ON_ERROR)
         print(f'input_data {input_data}')
         print(f'input_format {input_format}')
         print(f'output_format {output_format}')

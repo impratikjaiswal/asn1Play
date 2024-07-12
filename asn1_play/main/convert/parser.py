@@ -15,14 +15,14 @@ from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
 from asn1_play.generated_code.asn1.GSMA.SGP_32 import version as sgp_32_version
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
 from asn1_play.main.convert import converter
-from asn1_play.main.convert.handler import decode_encode_asn
+from asn1_play.main.convert.handler import process_data
 from asn1_play.main.helper.constants import Constants
 from asn1_play.main.helper.constants_config import ConfigConst as ConfigConst_local
 from asn1_play.main.helper.formats_group import FormatsGroup
 from asn1_play.main.helper.metadata import MetaData
 
 
-def parse_or_update_any_data(data, meta_data=None):
+def process_all_data_types(data, meta_data=None):
     """
 
     :param meta_data:
@@ -30,7 +30,7 @@ def parse_or_update_any_data(data, meta_data=None):
     :return:
     """
     """
-    Bulk Mode
+    Bulk Data Handling (Recursive)
     """
     converter.set_defaults_for_printing(data)
     byte_array_format = True if data.input_format in FormatsGroup.BYTE_ARRAY_FORMATS else False
@@ -56,13 +56,13 @@ def parse_or_update_any_data(data, meta_data=None):
             sub_data.set_auto_generated_remarks_if_needed(PhUtil.get_key_value_pair(key='item', value=index,
                                                                                     sep=PhConstants.SEPERATOR_TWO_WORDS,
                                                                                     dic_format=False))
-            parsed_data_list.append(parse_or_update_any_data(sub_data))
+            parsed_data_list.append(process_all_data_types(sub_data))
         return parsed_data_list
     if not byte_array_format and data.input_data and os.path.isdir(os.path.abspath(data.input_data)):
         # directory is provided
-        PhUtil.print_heading(data.get_remarks_as_str(), heading_level=3)
         meta_data.input_mode_key = PhKeys.INPUT_DIR
         data.append_input_modes_hierarchy(meta_data.input_mode_key)
+        PhUtil.print_heading(data.get_remarks_as_str(), heading_level=3)
         converter.print_data(data, meta_data)
         converter.set_includes_excludes_files(data, meta_data)
         files_list = PhUtil.traverse_it(top=os.path.abspath(data.input_data), traverse_mode='Regex',
@@ -70,9 +70,9 @@ def parse_or_update_any_data(data, meta_data=None):
         if files_list:
             files_list_data = data
             files_list_data.input_data = files_list
-            return parse_or_update_any_data(files_list_data)
+            return process_all_data_types(files_list_data)
     """
-    Individual
+    Individual File Handling
     """
     file_dic_all_str = {}
     data.set_auto_generated_remarks_if_needed()
@@ -98,6 +98,9 @@ def parse_or_update_any_data(data, meta_data=None):
             converter.set_input_output_format(data)
             data.input_data = resp
         data.append_input_modes_hierarchy(meta_data.input_mode_key)
+    """
+    Individual Data Handling
+    """
     # Needed for scenario when remarks will be fetched from YML
     data.set_auto_generated_remarks_if_needed()
     converter.set_defaults(data, meta_data)
@@ -119,10 +122,13 @@ def parse_or_update_any_data(data, meta_data=None):
         PhUtil.get_tool_name_w_version(PhKeys.EUICC_PROFILE_PACKAGE, epp_version, dic_format=True))
     output_versions_dic.update(
         PhUtil.get_key_value_pair(PhKeys.TIME_STAMP, PhUtil.get_time_stamp(files_format=False), dic_format=True))
-    # parse Data
-    meta_data.parsed_data = decode_encode_asn(input_data=data.input_data, parse_only=True,
-                                              input_format=data.input_format, output_format=data.output_format,
-                                              asn1_element=data.asn1_element)
+    """
+    Data Processing
+    """
+    meta_data.parsed_data = process_data(data, meta_data)
+    """
+    Output Handling
+    """
     if meta_data.parsed_data and data.tlv_parsing_of_output is True:
         data_type_tlv = DataTypeMaster()
         data_type_tlv.set_data_pool(data_pool=Data(input_data=meta_data.parsed_data, quite_mode=True))
@@ -131,9 +137,7 @@ def parse_or_update_any_data(data, meta_data=None):
         if meta_data.parsed_data_tlv and PhConstants.EXCEPTION_OCCURRED not in meta_data.parsed_data_tlv:
             meta_data.parsed_data = meta_data.parsed_data_tlv
     if data.re_parse_output:
-        meta_data.re_parsed_data = decode_encode_asn(input_data=meta_data.parsed_data, parse_only=True,
-                                                     input_format=data.output_format,
-                                                     output_format=data.input_format, asn1_element=data.asn1_element)
+        meta_data.re_parsed_data = process_data(data, meta_data, flip_output=True)
     converter.print_data(data, meta_data)
     if meta_data.input_mode_key == PhKeys.INPUT_YML:
         converter.write_yml_file(meta_data.output_file_path, file_dic_all_str, meta_data.output_dic,

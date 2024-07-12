@@ -8,7 +8,6 @@ from python_helpers.ph_util import PhUtil
 
 from asn1_play.generated_code.asn1.asn1 import Asn1
 from asn1_play.main.helper.constants import Constants
-from asn1_play.main.helper.defaults import Defaults
 from asn1_play.main.helper.formats import Formats
 from asn1_play.main.helper.formats_group import FormatsGroup
 from asn1_play.main.helper.methods import Methods
@@ -39,8 +38,30 @@ def convert_data(input_data, output_format):
     return None
 
 
-def decode_encode_asn(input_data=PhConstants.STR_EMPTY, parse_only=True, input_format=Defaults.FORMAT_INPUT,
-                      output_format=Defaults.FORMAT_OUTPUT, asn1_element=None):
+def process_data(data, meta_data, flip_output=False):
+    """
+
+    :param meta_data:
+    :param flip_output:
+    :param data:
+    :return:
+    """
+
+    if flip_output is True:
+        input_data = meta_data.parsed_data
+        input_format = data.output_format
+        output_format = data.input_format
+    else:
+        input_data = data.input_data
+        input_format = data.input_format
+        output_format = data.output_format
+    parse_only = True
+    asn1_element = data.asn1_element
+    return decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
+                             output_format=output_format, asn1_element=asn1_element)
+
+
+def decode_encode_asn(input_data, parse_only, input_format, output_format, asn1_element):
     """
     Ref: https://github.com/P1sec/pycrate/wiki/Using-the-pycrate-asn1-runtime
     :param input_data:
