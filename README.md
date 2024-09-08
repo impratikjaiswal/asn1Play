@@ -4,6 +4,7 @@ ASN.1 Encoder, Decoder & Validator.
 1. [GSMA SGP.22](https://www.gsma.com/esim/esim-specification/ "GSMA SGP.22" )
 1. [TCA eUICC_Profile_Package (SAIP)](https://trustedconnectivityalliance.org/technology-library-sim-specifications/ "SAIP")
 1. [GSMA SGP.32](https://www.gsma.com/esim/esim-specification/ "GSMA SGP.32" )
+
 <BR>However, Tool can be extended to support any ASN1 based conversion (asn1schema of related specification needs to be added to tool).
 <BR>Supports large variety of encoding-decoding rules (DER, JER, JSON, BER, CER, APER, COER, OER, UPER etc).
 
