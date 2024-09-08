@@ -1,10 +1,11 @@
 # asn1Play
-ASN1 Encoder &amp; Decoder based on [pycrate](https://github.com/P1sec/pycrate).
-<BR>Currently supporting ASN1(s) of various versions of below specifications:
+ASN.1 Encoder, Decoder & Validator.
+<BR>Currently supports various versions of below specifications along with their inherited specs:
 1. [GSMA SGP.22](https://www.gsma.com/esim/esim-specification/ "GSMA SGP.22" )
 1. [TCA eUICC_Profile_Package (SAIP)](https://trustedconnectivityalliance.org/technology-library-sim-specifications/ "SAIP")
 1. [GSMA SGP.32](https://www.gsma.com/esim/esim-specification/ "GSMA SGP.32" )
-<BR>However, Tool can be extended to support any ASN1 based conversion.
+<BR>However, Tool can be extended to support any ASN1 based conversion (asn1schema of related specification needs to be added to tool).
+<BR>Supports large variety of encoding-decoding rules (DER, JER, JSON, BER, CER, APER, COER, OER, UPER etc).
 
 [![GitHub License](https://img.shields.io/github/license/impratikjaiswal/asn1Play)](LICENSE)
 [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-2.1-4baaaa.svg)](CODE_OF_CONDUCT.md)
