@@ -1,14 +1,14 @@
 import importlib
 
 from asn1_play.generated_code.asn1.GSMA.SGP_22.compile_time_version import CompileTimeVersion
-from asn1_play.generated_code.asn1.GSMA.SGP_22.v3_0_0.python_gen.sgp22.sgp22 import PKIX1Explicit88, PKIX1Implicit88
+from asn1_play.generated_code.asn1.GSMA.SGP_22.v3_1.python_gen.sgp22.sgp22 import PKIX1Explicit88, PKIX1Implicit88
 from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 
 ####################
 # Compile Time Stuff
 ####################
 
-# Default version to be used in whole system
+# Default version to be used in the whole system
 # TODO: Circular Import
 # version = Defaults.ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_22
 version = CompileTimeVersion.v3_1
@@ -140,6 +140,9 @@ def __set_asn1_classes(param):
 
 def __set_asn1_mapping(param):
     pkix_mapping = {
+        # # 1.x
+        # 'Certificate': PKIX1Explicit88.Certificate,
+        # since 2.x onwards
         'Certificate': PKIX1Explicit88.Certificate,
         'CertificateList': PKIX1Explicit88.CertificateList,
         'Time': PKIX1Explicit88.Time,

@@ -11,7 +11,7 @@ input:
     output_file_name_keyword: output
 output:
     remarks: HexInput; AsciiOutput; DirectInput; ExportKeyword; OutputFile
-    info: 'Transaction Id: xg2xwg6knz0l; Mode: Yml_Conversion_Mode; Input Format: hex; Output Format: ascii; Output File: ..\..\Data\SampleData\Generic\ASCII; Output File Name Keyword: output'
+    info: 'Transaction Id: iynt4tyuf1au; Mode: Yml_Conversion_Mode; Input Format: hex; Output Format: ascii; Output File: ..\..\Data\SampleData\Generic\ASCII; Output File Name Keyword: output'
     input_yml: ..\..\Data\SampleData\Generic\ASCII\HexInput_AsciiOutput_DirectInput_ExportKeyword_OutputFile_export.yml
     output_file: ../../Data/SampleData/Generic/\ASCII\HexInput_AsciiOutput_DirectInput_ExportKeyword_OutputFile_output.yml
     input_data: 57656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c617920212121
@@ -19,8 +19,8 @@ output:
 output_version:
     Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
     pythonHelpers: v3.1.5
-    asn1Play: v8.3.3
+    asn1Play: v8.3.4
     SGP22: v3_1
-    SGP32: v1_1
+    SGP32: v1_2
     eUICC_Profile_Package: v3_3_1
-    time_stamp: Friday, Jul 12 2024, 09:56:27:110748, IST (GMT+0530)
+    time_stamp: Thursday, Sep 19 2024, 22:29:44:722635, IST (GMT+0530)

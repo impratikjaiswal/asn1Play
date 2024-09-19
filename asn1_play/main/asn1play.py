@@ -119,7 +119,7 @@ def set_configurations():
     """
     global execution_mode, error_handling_mode, sgp_22_version, sgp_32_version, epp_version
     """
-    Set Execution Mode, If you are a first time user then try #ExecutionModes.SAMPLE_GENERIC
+    Set Execution Mode, First time users can try #PhExecutionModes.SAMPLE_GENERIC
     """
     execution_mode = PhExecutionModes.USER
     error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR

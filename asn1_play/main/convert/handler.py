@@ -15,12 +15,30 @@ from asn1_play.main.helper.methods import Methods
 M = None
 _debug = False
 
-"""
-Enable Flags for Debugging
-"""
 
-
+# Enable Flag for Debugging
 # _debug = True
+
+
+def process_data(data, meta_data, flip_output=False):
+    """
+
+    :param data:
+    :param meta_data:
+    :param flip_output:
+    :return:
+    """
+    input_data = data.input_data
+    input_format = data.input_format
+    output_format = data.output_format
+    if flip_output is True:
+        input_data = meta_data.parsed_data
+        input_format = data.output_format
+        output_format = data.input_format
+    parse_only = True
+    asn1_element = data.asn1_element
+    return decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
+                             output_format=output_format, asn1_element=asn1_element)
 
 
 def convert_data(input_data, output_format):
@@ -36,29 +54,6 @@ def convert_data(input_data, output_format):
     if output_format in Formats.DER_BYTE_ARRAY_SIGNED:
         return PhUtil.hex_str_to_dec_list(input_data, signed_byte_handling=True)
     return None
-
-
-def process_data(data, meta_data, flip_output=False):
-    """
-
-    :param meta_data:
-    :param flip_output:
-    :param data:
-    :return:
-    """
-
-    if flip_output is True:
-        input_data = meta_data.parsed_data
-        input_format = data.output_format
-        output_format = data.input_format
-    else:
-        input_data = data.input_data
-        input_format = data.input_format
-        output_format = data.output_format
-    parse_only = True
-    asn1_element = data.asn1_element
-    return decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
-                             output_format=output_format, asn1_element=asn1_element)
 
 
 def decode_encode_asn(input_data, parse_only, input_format, output_format, asn1_element):

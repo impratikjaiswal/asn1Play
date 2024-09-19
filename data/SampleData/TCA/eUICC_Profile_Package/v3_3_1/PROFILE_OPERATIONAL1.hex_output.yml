@@ -8,7 +8,7 @@ input:
     output_file_name_keyword: output
 output:
     remarks: DerInput; Asn1Output; YmlInput; Asn1Element; ProfileElement; OutputKeyword
-    info: 'Transaction Id: 1rnbgt49fbqk; Mode: Yml_Encoding_Mode; Asn1 Module: PEDefinitions; Asn1 Module Version: v3_3_1; Asn1 Object: ProfileElement; Input Format: der; Output Format: asn1; Output File Name Keyword: output'
+    info: 'Transaction Id: 7x7xdv1bm1kz; Mode: Yml_Encoding_Mode; Asn1 Module: PEDefinitions; Asn1 Module Version: v3_3_1; Asn1 Object: ProfileElement; Input Format: der; Output Format: asn1; Output File Name Keyword: output'
     input_yml: ..\..\Data\SampleData\TCA\eUICC_Profile_Package\v3_3_1\PROFILE_OPERATIONAL1.hex.yml
     output_file: ../../Data/SampleData/TCA/eUICC_Profile_Package/v3_3_1/\PROFILE_OPERATIONAL1.hex_output.yml
     input_data: 
@@ -344,8 +344,8 @@ output:
 output_version:
     Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
     pythonHelpers: v3.1.5
-    asn1Play: v8.3.3
+    asn1Play: v8.3.4
     SGP22: v3_1
-    SGP32: v1_1
+    SGP32: v1_2
     eUICC_Profile_Package: v3_3_1
-    time_stamp: Friday, Jul 12 2024, 09:56:27:240288, IST (GMT+0530)
+    time_stamp: Thursday, Sep 19 2024, 22:29:44:835632, IST (GMT+0530)

@@ -119,6 +119,14 @@ class Sample(DataTypeMaster):
             ),
             #
             Data(
+                remarks='PKIX1Explicit88; Der to Asn1; SubjectPublicKeyInfo',
+                input_data='305a301406072a8648ce3d020104092b2403030208010107034200043e590c38a9c256315ecff3291416dd335409a666fd41b3b51e5e5114f343abf0a26774c6c26c48753afe283643227bb6608cd261cc972d374a479124ebf27722',
+                asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_2, 'SubjectPublicKeyInfo'),
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+            #
+            Data(
                 remarks='Asn1 Objects Static List; v3_1',
                 asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v3_1, fetch_asn1_objects_list=True),
             ),

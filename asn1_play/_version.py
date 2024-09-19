@@ -7,5 +7,5 @@ Provides asn1_play version information.
 
 from incremental import Version
 
-__version__ = Version("asn1_play", 8, 3, 3)
+__version__ = Version("asn1_play", 8, 3, 4)
 __all__ = ["__version__"]

@@ -7,7 +7,7 @@ from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 # Compile Time Stuff
 ####################
 
-# Default version to be used in whole system
+# Default version to be used in the whole system
 version = CompileTimeVersion.v3_3_1
 
 if version == CompileTimeVersion.v1_0:

@@ -1,14 +1,15 @@
 import importlib
 
 from asn1_play.generated_code.asn1.GSMA.SGP_32.compile_time_version import CompileTimeVersion
+from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_1.python_gen.sgp32.sgp32 import PKIX1Explicit88, PKIX1Implicit88
 from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 
 ####################
 # Compile Time Stuff
 ####################
 
-# Default version to be used in whole system
-version = CompileTimeVersion.v1_1
+# Default version to be used in the whole system
+version = CompileTimeVersion.v1_2
 
 if version == CompileTimeVersion.v1_0:
     from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0.python_gen.sgp32.sgp32 import SGP32Definitions
@@ -69,8 +70,16 @@ def __set_asn1_classes(param):
 
 
 def __set_asn1_mapping(param):
+    pkix_mapping = {
+        # since 1.0 onwards
+        'Certificate': PKIX1Explicit88.Certificate,
+        'SubjectPublicKeyInfo': PKIX1Explicit88.SubjectPublicKeyInfo,
+        'SubjectKeyIdentifier': PKIX1Implicit88.SubjectKeyIdentifier,
+    }
+    # TODO: SML-332
     all_mapping = {
         **param,
+        **pkix_mapping
     }
     global asn1_mapping
     asn1_mapping = all_mapping
