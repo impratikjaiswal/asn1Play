@@ -2,6 +2,7 @@ import copy
 import os
 
 from python_helpers.ph_constants import PhConstants
+from python_helpers.ph_data_master import PhMasterData, PhMasterDataKeys
 from python_helpers.ph_exception_helper import PhExceptionHelper
 from python_helpers.ph_file_extensions import PhFileExtensions
 from python_helpers.ph_keys import PhKeys
@@ -27,7 +28,11 @@ from asn1_play.main.helper.mode_operation import OperationModes
 from asn1_play.main.helper.variables import Variables
 
 
-def print_data(data, meta_data):
+def print_data(data=None, meta_data=None, info_data=None, master_data=None):
+    if master_data is not None and isinstance(master_data, PhMasterData):
+        data = master_data.get_master_data(PhMasterDataKeys.DATA)
+        meta_data = master_data.get_master_data(PhMasterDataKeys.META_DATA)
+        info_data = master_data.get_master_data(PhMasterDataKeys.INFO_DATA)
     if data.quite_mode:
         return
     input_sep = PhConstants.SEPERATOR_MULTI_LINE if data.input_format in FormatsGroup.TXT_FORMATS else PhConstants.SEPERATOR_ONE_LINE
@@ -50,6 +55,11 @@ def print_data(data, meta_data):
             meta_data.output_dic.update(
                 get_dic_data_and_print(PhKeys.REMARKS_GENERATED, PhConstants.SEPERATOR_ONE_LINE,
                                        remarks_generated))
+        if info_data is not None:
+            info_msg = info_data.get_info_str()
+            if info_msg:
+                meta_data.output_dic.update(
+                    get_dic_data_and_print(PhKeys.INFO_DATA, PhConstants.SEPERATOR_MULTI_LINE_TABBED, info_msg))
         asn1_info = data.get_asn1_element_info()
         info = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, [
             get_dic_data_and_print(PhKeys.TRANSACTION_ID, PhConstants.SEPERATOR_ONE_LINE, meta_data.transaction_id,
@@ -83,6 +93,11 @@ def print_data(data, meta_data):
                                    dic_format=False, print_also=False),
             get_dic_data_and_print(PhKeys.OUTPUT_FILE, PhConstants.SEPERATOR_ONE_LINE, data.output_file,
                                    dic_format=False, print_also=False) if data.output_file else None,
+            get_dic_data_and_print(PhKeys.RE_PARSE_OUTPUT, PhConstants.SEPERATOR_ONE_LINE, data.re_parse_output,
+                                   dic_format=False, print_also=False) if data.re_parse_output else None,
+            get_dic_data_and_print(PhKeys.TLV_PARSING_OF_OUTPUT, PhConstants.SEPERATOR_ONE_LINE,
+                                   data.tlv_parsing_of_output,
+                                   dic_format=False, print_also=False) if data.tlv_parsing_of_output else None,
             get_dic_data_and_print(PhKeys.OUTPUT_FILE_NAME_KEYWORD, PhConstants.SEPERATOR_ONE_LINE,
                                    data.output_file_name_keyword,
                                    dic_format=False, print_also=False) if data.output_file_name_keyword else None,
@@ -208,24 +223,38 @@ def parse_config(config_data):
     fetch_asn1_objects_list = None
     # PhUtil.print_iter(config_data, 'config_data initial', verbose=True)
     for k, v in config_data.items():
-        if v:
+        if not v:
+            continue
+        if isinstance(v, str):
             # Trim Garbage data
             v = PhUtil.trim_white_spaces_in_str(v)
             v = clear_quotation_marks(v)
-            if v in ['None']:
+            v_lower_case = v.lower()
+            v_eval = None
+            try:
+                v_eval = eval(v)
+                if isinstance(v_eval, str):
+                    # Everything was already str
+                    v_eval = None
+            except:
+                pass
+            if v_lower_case in ['none']:
                 v = None
                 config_data[k] = v
-            if v in [PhConstants.STR_SELECT_OPTION]:
-                v = None
-                config_data[k] = v
-            if v in ['True']:
+            if v_lower_case in ['true']:
                 v = True
                 config_data[k] = v
-            if v in ['False']:
+            if v_lower_case in ['false']:
                 v = False
                 config_data[k] = v
         if not v:
             continue
+        if v in [PhConstants.STR_SELECT_OPTION]:
+            v = None
+            config_data[k] = v
+        if k in [PhKeys.INPUT_DATA]:
+            if v_eval is not None:
+                v = v_eval
         if k in [PhKeys.ASN1_SCHEMA]:
             asn1_schema = Asn1Versions._get_asn1_version(v)
             continue

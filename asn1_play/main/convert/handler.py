@@ -20,7 +20,7 @@ _debug = False
 # _debug = True
 
 
-def process_data(data, meta_data, flip_output=False):
+def process_data(data, meta_data, info_data, flip_output=False):
     """
 
     :param data:
@@ -37,16 +37,24 @@ def process_data(data, meta_data, flip_output=False):
         output_format = data.input_format
     parse_only = True
     asn1_element = data.asn1_element
-    return decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
-                             output_format=output_format, asn1_element=asn1_element)
+    res = decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
+                            output_format=output_format, asn1_element=asn1_element, info_data=info_data)
+    if flip_output is True:
+        meta_data.re_parsed_data = res
+    else:
+        meta_data.parsed_data = res
+    # return res
 
 
-def convert_data(input_data, output_format):
+def convert_data(input_data, output_format, info_data):
     # Data is converted to Hex
     if output_format in FormatsGroup.BASE64_FORMATS:
         return PhUtil.decode_to_base64_if_hex(input_data)
     if output_format in FormatsGroup.ASCII_FORMATS:
-        return PhUtil.hex_str_to_ascii(input_data)
+        decoding_format = PhConstants.STR_ENCODING_FORMAT_UTF8
+        if info_data is not None:
+            info_data.set_info(f'Trying with {decoding_format}')
+        return PhUtil.hex_str_to_ascii(input_data, only_if_printable=False, decoding_format=decoding_format)
     if output_format in FormatsGroup.INPUT_FORMATS_DER:
         return input_data
     if output_format in Formats.DER_BYTE_ARRAY:
@@ -56,7 +64,7 @@ def convert_data(input_data, output_format):
     return None
 
 
-def decode_encode_asn(input_data, parse_only, input_format, output_format, asn1_element):
+def decode_encode_asn(input_data, parse_only, input_format, output_format, asn1_element, info_data):
     """
     Ref: https://github.com/P1sec/pycrate/wiki/Using-the-pycrate-asn1-runtime
     :param input_data:
@@ -102,7 +110,7 @@ def decode_encode_asn(input_data, parse_only, input_format, output_format, asn1_
             print_debug_var(Constants.INPUT_DATA_BASE_64_CONVERSION_IS_DONE, input_data)
     if input_format in FormatsGroup.NON_TXT_FORMATS and output_format in FormatsGroup.NON_TXT_FORMATS:
         print_debug_var(Constants.ASN1_ELEMENT_IS_NOT_NEEDED)
-        output_data = convert_data(input_data, output_format)
+        output_data = convert_data(input_data, output_format, info_data)
         if output_data:
             return output_data
         additional_msgs_list = PhUtil.get_key_value_pair(PhKeys.INPUT_DATA, input_data)
@@ -232,7 +240,7 @@ def decode_encode_asn(input_data, parse_only, input_format, output_format, asn1_
         if not known_data:
             continue
     if parse_only and output_format in FormatsGroup.NON_TXT_FORMATS:
-        result = convert_data(parsing_data_concatenated, output_format)
+        result = convert_data(parsing_data_concatenated, output_format, info_data)
         if result:
             parsing_data_concatenated = result
     if parse_only:

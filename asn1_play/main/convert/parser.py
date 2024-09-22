@@ -22,7 +22,7 @@ from asn1_play.main.helper.formats_group import FormatsGroup
 from asn1_play.main.helper.metadata import MetaData
 
 
-def process_all_data_types(data, meta_data=None):
+def process_all_data_types(data, meta_data=None, info_data=None):
     """
 
     :param meta_data:
@@ -101,7 +101,7 @@ def process_all_data_types(data, meta_data=None):
     """
     Individual Data Handling
     """
-    # Needed for scenario when remarks will be fetched from YML
+    # Needed for a scenario when remarks will be fetched from YML
     data.set_auto_generated_remarks_if_needed()
     converter.set_defaults(data, meta_data)
     converter.set_output_file_path(data, meta_data)
@@ -125,7 +125,7 @@ def process_all_data_types(data, meta_data=None):
     """
     Data Processing
     """
-    meta_data.parsed_data = process_data(data, meta_data)
+    process_data(data=data, meta_data=meta_data, info_data=info_data)
     """
     Output Handling
     """
@@ -137,8 +137,8 @@ def process_all_data_types(data, meta_data=None):
         if meta_data.parsed_data_tlv and PhConstants.EXCEPTION_OCCURRED not in meta_data.parsed_data_tlv:
             meta_data.parsed_data = meta_data.parsed_data_tlv
     if data.re_parse_output:
-        meta_data.re_parsed_data = process_data(data, meta_data, flip_output=True)
-    converter.print_data(data, meta_data)
+        process_data(data=data, meta_data=meta_data, info_data=info_data, flip_output=True)
+    converter.print_data(data=data, meta_data=meta_data, info_data=info_data)
     if meta_data.input_mode_key == PhKeys.INPUT_YML:
         converter.write_yml_file(meta_data.output_file_path, file_dic_all_str, meta_data.output_dic,
                                  output_versions_dic)

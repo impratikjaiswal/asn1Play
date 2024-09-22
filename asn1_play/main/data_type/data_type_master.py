@@ -3,10 +3,11 @@ import traceback
 
 import binascii
 from python_helpers.ph_constants import PhConstants
-from python_helpers.ph_data_master import PhMasterData
+from python_helpers.ph_data_master import PhMasterData, PhMasterDataKeys
 from python_helpers.ph_exception_helper import PhExceptionHelper
 from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
+from python_helpers.ph_util import PhUtil
 from ruamel.yaml.representer import RepresenterError
 
 from asn1_play.generated_code.asn1.GSMA.SGP_22 import default_asn_version_sgp22
@@ -17,6 +18,7 @@ from asn1_play.main.convert import converter
 from asn1_play.main.convert.converter import read_web_request, set_defaults
 from asn1_play.main.convert.parser import process_all_data_types
 from asn1_play.main.helper.data import Data
+from asn1_play.main.helper.infodata import InfoData
 from asn1_play.main.helper.keywords import KeyWords
 from asn1_play.main.helper.metadata import MetaData
 
@@ -35,7 +37,12 @@ class DataTypeMaster(object):
         self.input_format = None
         self.asn1_element = None
         self.data_pool = []
-        self.__master_data = (Data(input_data=None), MetaData(input_data_org=None), PhExceptionHelper(msg_key=None))
+        self.__master_data = PhMasterData(
+            data=Data(input_data=None),
+            meta_data=MetaData(input_data_org=None),
+            error_data=PhExceptionHelper(msg_key=None),
+            info_data=InfoData(info=None)
+        )
 
     def set_print_input(self, print_input):
         self.print_input = print_input
@@ -131,12 +138,8 @@ class DataTypeMaster(object):
                 known = True
                 summary_msg = e.stderr if e.stderr else PhConstants.NON_ZERO_EXIT_STATUS_ERROR
             exception_object.set_summary_msg(summary_msg)
-            self.__master_data = (
-                self.__master_data[PhMasterData.INDEX_DATA], self.__master_data[PhMasterData.INDEX_META_DATA],
-                exception_object)
-            processed_data = self.__master_data[PhMasterData.INDEX_DATA]
-            processed_meta_data = self.__master_data[PhMasterData.INDEX_META_DATA]
-            converter.print_data(processed_data, processed_meta_data)
+            self.__master_data.set_master_data(PhMasterDataKeys.ERROR_DATA, exception_object)
+            converter.print_data(master_data=self.__master_data)
             msg = PhConstants.SEPERATOR_TWO_WORDS.join(
                 [PhConstants.KNOWN if known else PhConstants.UNKNOWN, exception_object.get_details()])
             print(f'{msg}')
@@ -202,28 +205,16 @@ class DataTypeMaster(object):
         converter.path_generalisation(data, PhKeys.OUTPUT_FILE)
         converter.path_generalisation(data, PhKeys.REMARKS)
         meta_data = MetaData(input_data_org=data.input_data)
-        self.__master_data = (data, meta_data)
-        process_all_data_types(data, meta_data)
+        info_data = InfoData()
+        self.__master_data = PhMasterData(data=data, meta_data=meta_data, error_data=None, info_data=info_data)
+        process_all_data_types(data, meta_data, info_data)
 
     def get_output_data(self, only_output=True):
         """
 
         :return:
         """
-        output_data = PhConstants.STR_EMPTY
-        info_data = PhConstants.STR_EMPTY
-        if len(self.__master_data) > PhMasterData.INDEX_META_DATA:
-            # MetaData Object is Present
-            meta_data = self.__master_data[PhMasterData.INDEX_META_DATA]
-            if isinstance(meta_data, MetaData):
-                output_data = meta_data.parsed_data
-                info_data = meta_data.get_info_data()
-        if len(self.__master_data) > PhMasterData.INDEX_ERROR_DATA:
-            # Exception Object is Present
-            exception_data = self.__master_data[PhMasterData.INDEX_ERROR_DATA]
-            output_data = exception_data.get_details() if isinstance(exception_data,
-                                                                     PhExceptionHelper) else exception_data
-        return output_data if only_output else (output_data, info_data)
+        return self.__master_data.get_output_data(only_output=only_output)
 
     def to_dic(self, data):
         """
@@ -243,4 +234,4 @@ class DataTypeMaster(object):
             PhKeys.TLV_PARSING_OF_OUTPUT: data.tlv_parsing_of_output,
             PhKeys.OUTPUT_FILE_NAME_KEYWORD: data.output_file_name_keyword,
         }
-        return {**common_data, **data.get_asn1_element_info()}
+        return PhUtil.dict_clean(PhUtil.dict_merge(common_data, data.get_asn1_element_info()))
