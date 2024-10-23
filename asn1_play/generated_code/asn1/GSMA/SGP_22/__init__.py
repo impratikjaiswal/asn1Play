@@ -1,7 +1,9 @@
 import importlib
 
-from asn1_play.generated_code.asn1.GSMA.SGP_22.compile_time_version import CompileTimeVersion
+from asn1_play.generated_code.asn1.GSMA.SGP_22.compile_time_version import version as sgp_22_version
+# from asn1_play.generated_code.asn1.GSMA.SGP_22.compile_time_version import CompileTimeVersion
 from asn1_play.generated_code.asn1.GSMA.SGP_22.v3_1.python_gen.sgp22.sgp22 import PKIX1Explicit88, PKIX1Implicit88
+from asn1_play.generated_code.asn1.GSMA.SGP_22.versions import Versions
 from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 
 ####################
@@ -9,102 +11,107 @@ from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 ####################
 
 # Default version to be used in the whole system
-# TODO: Circular Import
-# version = Defaults.ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_22
-version = CompileTimeVersion.v3_1
+version = sgp_22_version
 
-if version == CompileTimeVersion.v1_0:
+if version == Versions.v1_0:
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v1_0.python_gen.sgp22.sgp22 import RSPDefinitions
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v1_0.python_gen.sgp22.sgp22_mapping import \
         sgp_22_mapping as asn1_mapping
 
     default_asn_version_sgp22 = Asn1Versions.GSMA_SGP_22_v1_0
 
-elif version == CompileTimeVersion.v1_1:
+elif version == Versions.v1_1:
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v1_1.python_gen.sgp22.sgp22 import RSPDefinitions
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v1_1.python_gen.sgp22.sgp22_mapping import \
         sgp_22_mapping as asn1_mapping
 
     default_asn_version_sgp22 = Asn1Versions.GSMA_SGP_22_v1_1
 
-elif version == CompileTimeVersion.v1_2:
+elif version == Versions.v1_2:
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v1_2.python_gen.sgp22.sgp22 import RSPDefinitions
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v1_2.python_gen.sgp22.sgp22_mapping import \
         sgp_22_mapping as asn1_mapping
 
     default_asn_version_sgp22 = Asn1Versions.GSMA_SGP_22_v1_2
 
-elif version == CompileTimeVersion.v2_0:
+elif version == Versions.v2_0:
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_0.python_gen.sgp22.sgp22 import RSPDefinitions
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_0.python_gen.sgp22.sgp22_mapping import \
         sgp_22_mapping as asn1_mapping
 
     default_asn_version_sgp22 = Asn1Versions.GSMA_SGP_22_v2_0
 
-elif version == CompileTimeVersion.v2_1:
+elif version == Versions.v2_1:
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_1.python_gen.sgp22.sgp22 import RSPDefinitions
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_1.python_gen.sgp22.sgp22_mapping import \
         sgp_22_mapping as asn1_mapping
 
     default_asn_version_sgp22 = Asn1Versions.GSMA_SGP_22_v2_1
 
-elif version == CompileTimeVersion.v2_2:
+elif version == Versions.v2_2:
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_2.python_gen.sgp22.sgp22 import RSPDefinitions
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_2.python_gen.sgp22.sgp22_mapping import \
         sgp_22_mapping as asn1_mapping
 
     default_asn_version_sgp22 = Asn1Versions.GSMA_SGP_22_v2_2
 
-elif version == CompileTimeVersion.v2_2_1:
+elif version == Versions.v2_2_1:
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_2_1.python_gen.sgp22.sgp22 import RSPDefinitions
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_2_1.python_gen.sgp22.sgp22_mapping import \
         sgp_22_mapping as asn1_mapping
 
     default_asn_version_sgp22 = Asn1Versions.GSMA_SGP_22_v2_2_1
 
-elif version == CompileTimeVersion.v2_2_2:
+elif version == Versions.v2_2_2:
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_2_2.python_gen.sgp22.sgp22 import RSPDefinitions
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_2_2.python_gen.sgp22.sgp22_mapping import \
         sgp_22_mapping as asn1_mapping
 
     default_asn_version_sgp22 = Asn1Versions.GSMA_SGP_22_v2_2_2
 
-elif version == CompileTimeVersion.v2_3:
+elif version == Versions.v2_3:
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_3.python_gen.sgp22.sgp22 import RSPDefinitions
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_3.python_gen.sgp22.sgp22_mapping import \
         sgp_22_mapping as asn1_mapping
 
     default_asn_version_sgp22 = Asn1Versions.GSMA_SGP_22_v2_3
 
-elif version == CompileTimeVersion.v2_4:
+elif version == Versions.v2_4:
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_4.python_gen.sgp22.sgp22 import RSPDefinitions
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_4.python_gen.sgp22.sgp22_mapping import \
         sgp_22_mapping as asn1_mapping
 
     default_asn_version_sgp22 = Asn1Versions.GSMA_SGP_22_v2_4
 
-elif version == CompileTimeVersion.v2_4_sgp23_1_11:
+elif version == Versions.v2_4_sgp23_1_11:
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_4_sgp23_1_11.python_gen.sgp22.sgp22 import RSPDefinitions
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_4_sgp23_1_11.python_gen.sgp22.sgp22_mapping import \
         sgp_22_mapping as asn1_mapping
 
     default_asn_version_sgp22 = Asn1Versions.GSMA_SGP_22_v2_4_sgp23_1_11
 
-elif version == CompileTimeVersion.v2_5:
+elif version == Versions.v2_5:
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_5.python_gen.sgp22.sgp22 import RSPDefinitions
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_5.python_gen.sgp22.sgp22_mapping import \
         sgp_22_mapping as asn1_mapping
 
     default_asn_version_sgp22 = Asn1Versions.GSMA_SGP_22_v2_5
 
-elif version == CompileTimeVersion.v3_0_0:
+elif version == Versions.v2_6:
+    from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_6.python_gen.sgp22.sgp22 import RSPDefinitions
+    from asn1_play.generated_code.asn1.GSMA.SGP_22.v2_6.python_gen.sgp22.sgp22_mapping import \
+        sgp_22_mapping as asn1_mapping
+
+    default_asn_version_sgp22 = Asn1Versions.GSMA_SGP_22_v2_6
+
+elif version == Versions.v3_0_0:
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v3_0_0.python_gen.sgp22.sgp22 import RSPDefinitions
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v3_0_0.python_gen.sgp22.sgp22_mapping import \
         sgp_22_mapping as asn1_mapping
 
     default_asn_version_sgp22 = Asn1Versions.GSMA_SGP_22_v3_0_0
 
-elif version == CompileTimeVersion.v3_1:
+elif version == Versions.v3_1:
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v3_1.python_gen.sgp22.sgp22 import RSPDefinitions
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v3_1.python_gen.sgp22.sgp22_mapping import \
         sgp_22_mapping as asn1_mapping
