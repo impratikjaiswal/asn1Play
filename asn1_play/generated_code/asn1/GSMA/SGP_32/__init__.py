@@ -1,7 +1,8 @@
 import importlib
 
-from asn1_play.generated_code.asn1.GSMA.SGP_32.compile_time_version import CompileTimeVersion
+from asn1_play.generated_code.asn1.GSMA.SGP_32.compile_time_version import version as sgp_32_version_compile
 from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_1.python_gen.sgp32.sgp32 import PKIX1Explicit88, PKIX1Implicit88
+from asn1_play.generated_code.asn1.GSMA.SGP_32.versions import Versions
 from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 
 ####################
@@ -9,16 +10,16 @@ from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 ####################
 
 # Default version to be used in the whole system
-version = CompileTimeVersion.v1_2
+version = sgp_32_version_compile
 
-if version == CompileTimeVersion.v1_0:
+if version == Versions.v1_0:
     from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0.python_gen.sgp32.sgp32 import SGP32Definitions
     from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0.python_gen.sgp32.sgp32_mapping import \
         sgp_32_mapping as asn1_mapping
 
     default_asn_version_sgp32 = Asn1Versions.GSMA_SGP_32_v1_0
 
-elif version == CompileTimeVersion.v1_0_1:
+elif version == Versions.v1_0_1:
     from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0_1.python_gen.sgp32.sgp32 import SGP32Definitions
     from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_0_1.python_gen.sgp32.sgp32_mapping import \
         sgp_32_mapping as asn1_mapping
@@ -26,7 +27,7 @@ elif version == CompileTimeVersion.v1_0_1:
     default_asn_version_sgp32 = Asn1Versions.GSMA_SGP_32_v1_0_1
 
 
-elif version == CompileTimeVersion.v1_1:
+elif version == Versions.v1_1:
     from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_1.python_gen.sgp32.sgp32 import SGP32Definitions
     from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_1.python_gen.sgp32.sgp32_mapping import \
         sgp_32_mapping as asn1_mapping
@@ -35,7 +36,7 @@ elif version == CompileTimeVersion.v1_1:
 
 
 
-elif version == CompileTimeVersion.v1_2:
+elif version == Versions.v1_2:
     from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_2.python_gen.sgp32.sgp32 import SGP32Definitions
     from asn1_play.generated_code.asn1.GSMA.SGP_32.v1_2.python_gen.sgp32.sgp32_mapping import \
         sgp_32_mapping as asn1_mapping

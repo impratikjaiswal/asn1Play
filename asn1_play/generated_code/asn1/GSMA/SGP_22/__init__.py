@@ -1,7 +1,6 @@
 import importlib
 
-from asn1_play.generated_code.asn1.GSMA.SGP_22.compile_time_version import version as sgp_22_version
-# from asn1_play.generated_code.asn1.GSMA.SGP_22.compile_time_version import CompileTimeVersion
+from asn1_play.generated_code.asn1.GSMA.SGP_22.compile_time_version import version as sgp_22_version_compile
 from asn1_play.generated_code.asn1.GSMA.SGP_22.v3_1.python_gen.sgp22.sgp22 import PKIX1Explicit88, PKIX1Implicit88
 from asn1_play.generated_code.asn1.GSMA.SGP_22.versions import Versions
 from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
@@ -11,7 +10,7 @@ from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 ####################
 
 # Default version to be used in the whole system
-version = sgp_22_version
+version = sgp_22_version_compile
 
 if version == Versions.v1_0:
     from asn1_play.generated_code.asn1.GSMA.SGP_22.v1_0.python_gen.sgp22.sgp22 import RSPDefinitions

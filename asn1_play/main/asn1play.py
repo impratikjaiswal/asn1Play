@@ -4,6 +4,9 @@ from python_helpers.ph_modes_execution import PhExecutionModes
 from python_helpers.ph_util import PhUtil
 from tlv_play.main.helper.constants_config import ConfigConst as tlvConfigConst
 
+from asn1_play.generated_code.asn1.GSMA.SGP_22.compile_time_version import version as sgp_22_compile
+from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.compile_time_version import version as epp_compile
+from asn1_play.generated_code.asn1.GSMA.SGP_32.compile_time_version import version as sgp_32_compile
 from asn1_play.main.data_type.any_data import AnyData
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.data_type.dev import Dev
@@ -30,7 +33,7 @@ def process_data():
 
     :return:
     """
-    global execution_mode, error_handling_mode, sgp_22_version, sgp_32_version, epp_version
+    global execution_mode, error_handling_mode
     data_type_user = [
         #####
         # Empty class for user usage
@@ -126,9 +129,9 @@ def set_configurations():
     """
     Set/Change Default Target Version of SGP22, SGP32, eUICC Profile Package (if needed)
     """
-    sgp_22_version = Defaults.ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_22
-    epp_version = Defaults.ASN1_SCHEMA_COMPILE_TIME_TCA_EPP
-    sgp_32_version = Defaults.ASN1_SCHEMA_COMPILE_TIME_GSMA_SGP_32
+    sgp_22_version = sgp_22_compile
+    epp_version = epp_compile
+    sgp_32_version = sgp_32_compile
 
 
 def print_configurations():
