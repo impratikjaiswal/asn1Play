@@ -105,7 +105,7 @@ class Data:
         self.__auto_generated_remarks = None
 
     def set_auto_generated_remarks_if_needed(self, internal_remarks=None):
-        internal_remarks = PhUtil.set_if_not_none(internal_remarks)
+        internal_remarks = PhUtil.set_if_none(internal_remarks)
         default_remarks = self.__get_default_remarks()
         if self.remarks and self.remarks[0]:
             # User Remarks is already provided, default remarks are not needed

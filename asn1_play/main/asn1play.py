@@ -1,12 +1,13 @@
 from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from python_helpers.ph_modes_execution import PhExecutionModes
+from python_helpers.ph_time import PhTime
 from python_helpers.ph_util import PhUtil
 from tlv_play.main.helper.constants_config import ConfigConst as tlvConfigConst
 
 from asn1_play.generated_code.asn1.GSMA.SGP_22.compile_time_version import version as sgp_22_compile
-from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.compile_time_version import version as epp_compile
 from asn1_play.generated_code.asn1.GSMA.SGP_32.compile_time_version import version as sgp_32_compile
+from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.compile_time_version import version as epp_compile
 from asn1_play.main.data_type.any_data import AnyData
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.data_type.dev import Dev
@@ -21,6 +22,9 @@ from asn1_play.main.helper.constants_config import ConfigConst
 from asn1_play.main.helper.defaults import Defaults
 from asn1_play.test.test import Test
 
+"""
+Global Variables
+"""
 execution_mode = None
 error_handling_mode = None
 sgp_22_version = None
@@ -152,14 +156,26 @@ def main():
     :return:
     """
     """
-    Do Configurations, as per your Need
+    Time Object
     """
+    ph_time_obj = PhTime()
+    ph_time_obj.start()
+    """
+    Configurations
+    """
+    # Do Configurations, as per your Need
     set_configurations()
     # Print Configurations
     print_configurations()
-    # Process Data
+    """
+    Process
+    """
     process_data()
-    # All Done
+    """
+    Wrap up, All Done
+    """
+    ph_time_obj.stop()
+    ph_time_obj.print()
     PhUtil.print_done()
 
 
