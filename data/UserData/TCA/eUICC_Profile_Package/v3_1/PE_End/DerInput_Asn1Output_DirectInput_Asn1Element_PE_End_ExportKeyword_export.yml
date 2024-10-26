@@ -8,5 +8,5 @@ input:
     input_format: der
     output_format: asn1
     asn1_element: eUICC_Profile_Package.PEDefinitions.PE-End
-    output_file: ..\..\Data\UserData\TCA\eUICC_Profile_Package\v3_1\PE_End
+    output_file: Data\UserData\TCA\eUICC_Profile_Package\v3_1\PE_End
     output_file_name_keyword: output

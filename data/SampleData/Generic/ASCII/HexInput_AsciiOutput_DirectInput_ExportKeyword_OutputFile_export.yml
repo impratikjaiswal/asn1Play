@@ -7,5 +7,5 @@ input:
     - HexInput; AsciiOutput; DirectInput; ExportKeyword; OutputFile;
     input_format: hex
     output_format: ascii
-    output_file: ..\..\Data\SampleData\Generic\ASCII
+    output_file: Data\SampleData\Generic\ASCII
     output_file_name_keyword: output

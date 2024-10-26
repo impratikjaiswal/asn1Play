@@ -8,5 +8,5 @@ input:
     input_format: der
     output_format: asn1
     asn1_element: SGP_22.RSPDefinitions.UpdateMetadataRequest
-    output_file: ..\..\Data\UserData\GSMA\SGP_22\v2_4\UpdateMetadataRequest
+    output_file: Data\UserData\GSMA\SGP_22\v2_4\UpdateMetadataRequest
     output_file_name_keyword: output
