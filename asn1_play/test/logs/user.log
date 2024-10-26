@@ -1,0 +1,115 @@
+init_modules: different OID objects (id-rspRole-euicc, id-rspRole-euicc-v2) with same OID value (2, 23, 146, 1, 2, 1, 1)
+init_modules: different OID objects (id-rspRole-eum, id-rspRole-eum-v2) with same OID value (2, 23, 146, 1, 2, 1, 2)
+init_modules: different OID objects (id-rspRole-dp-tls, id-rspRole-dp-tls-v2) with same OID value (2, 23, 146, 1, 2, 1, 3)
+init_modules: different OID objects (id-rspRole-dp-auth, id-rspRole-dp-auth-v2) with same OID value (2, 23, 146, 1, 2, 1, 4)
+init_modules: different OID objects (id-rspRole-dp-pb, id-rspRole-dp-pb-v2) with same OID value (2, 23, 146, 1, 2, 1, 5)
+init_modules: different OID objects (id-rspRole-ds-tls, id-rspRole-ds-tls-v2) with same OID value (2, 23, 146, 1, 2, 1, 6)
+init_modules: different OID objects (id-rspRole-ds-auth, id-rspRole-ds-auth-v2) with same OID value (2, 23, 146, 1, 2, 1, 7)
+init_modules: different OID objects (id-rspRole-euicc, id-rspRole-euicc-v2) with same OID value (2, 23, 146, 1, 2, 1, 1)
+init_modules: different OID objects (id-rspRole-eum, id-rspRole-eum-v2) with same OID value (2, 23, 146, 1, 2, 1, 2)
+init_modules: different OID objects (id-rspRole-dp-tls, id-rspRole-dp-tls-v2) with same OID value (2, 23, 146, 1, 2, 1, 3)
+init_modules: different OID objects (id-rspRole-dp-auth, id-rspRole-dp-auth-v2) with same OID value (2, 23, 146, 1, 2, 1, 4)
+init_modules: different OID objects (id-rspRole-dp-pb, id-rspRole-dp-pb-v2) with same OID value (2, 23, 146, 1, 2, 1, 5)
+init_modules: different OID objects (id-rspRole-ds-tls, id-rspRole-ds-tls-v2) with same OID value (2, 23, 146, 1, 2, 1, 6)
+init_modules: different OID objects (id-rspRole-ds-auth, id-rspRole-ds-auth-v2) with same OID value (2, 23, 146, 1, 2, 1, 7)
+--------------------------------------------------------------------------------
+Python version is v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
+Python executable Path is D:\Other\Github_Self\asn1Play\venv\Scripts
+--------------------------------------------------------------------------------
+User Name is Pratik Jaiswal
+User Account is impra
+--------------------------------------------------------------------------------
+Time Stamp is Saturday, Oct 26 2024, 23:06:57:209110, IST (GMT+0530)
+--------------------------------------------------------------------------------
+Git Summary is f0dc78d;  (HEAD -> main); 2024-10-24 20:36:50 +0530; imPratik <impratikjaiswal@gmail.com>; sync & update
+--------------------------------------------------------------------------------
+pythonHelpers version is v4.4.5
+--------------------------------------------------------------------------------
+asn1Play version is v8.3.5
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+tlvPlay version is v4.2.3
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+SGP22 compile_time version is v3_1
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+SGP32 compile_time version is v1_2
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+eUICC_Profile_Package compile_time version is v3_1
+--------------------------------------------------------------------------------
+------------------------------------------------------- UserData -------------------------------------------------------
+************************************************** SGP22; Der to Asn1 **************************************************
+Remarks: SGP22; Der to Asn1
+Info => Transaction Id: ujh2br46vt84; Mode: Encoding_Mode; Asn1 Schema: GSMA_SGP_22_v3_1; Asn1 Object: StoreMetadataRequest; Input Format: der; Output Format: asn1
+Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
+Output Data:
+{
+  iccid '989209012143658709F5'H,
+  serviceProviderName "SP Name 1",
+  profileName "Operational Profile Name 1"
+}
+--------------------------------------------------------------------------------
+************************************************ SGP22; Asn1 to Der; Tlv ***********************************************
+***** bf25335a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031 *****
+Remarks: SGP22; Asn1 to Der; Tlv
+Info => Transaction Id: pq75gdtoz6pm; Mode: Decoding_Mode; Asn1 Schema: GSMA_SGP_22_v3_1; Asn1 Object: StoreMetadataRequest; Input Format: asn1; Output Format: der; Tlv Parsing Of Output: True
+Input Data:
+{
+    iccid '989209012143658709F5'H,
+    serviceProviderName "SP Name 1",
+    profileName "Operational Profile Name 1"
+}
+Output Data:
+BF25 33
+  5A 0A 989209012143658709F5
+  91 09 5350204E616D652031
+  92 1A 4F7065726174696F6E616C2050726F66696C65204E616D652031
+--------------------------------------------------------------------------------
+*************************************************** TCA; Asn1 to Der ***************************************************
+Remarks: TCA; Asn1 to Der
+Info => Transaction Id: zi42h12sxacv; Mode: Decoding_Mode; Asn1 Schema: TCA_EPP_v3_1; Asn1 Object: ProfileHeader; Input Format: asn1; Output Format: der
+Input Data:
+{
+    major-version 2,
+    minor-version 1,
+    profileType "GSMA Profile Package",
+    iccid '8929901012345678905F'H,
+    eUICC-Mandatory-services {
+        usim NULL
+    },
+    eUICC-Mandatory-GFSTEList {
+        {2 23 143 1 2 1}
+    }
+}
+Output Data: 3036800102810101821447534d412050726f66696c65205061636b616765830a8929901012345678905fa5028100a608060667810f010201
+--------------------------------------------------------------------------------
+************************************************** Der(Hex) to Base 64 *************************************************
+Remarks: Der(Hex) to Base 64
+Info => Transaction Id: eeiqr2b4ui3r; Mode: Conversion_Mode; Input Format: der; Output Format: der_as_base64
+Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
+Output Data: vyUzWgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAx
+--------------------------------------------------------------------------------
+***************************************************** Ascii to Hex *****************************************************
+Remarks: Ascii to Hex
+Info => Transaction Id: gqrdovf0n6gq; Mode: Conversion_Mode; Input Format: ascii; Output Format: hex
+Input Data: Welcome To AsnPlay !!!
+Output Data: 57656c636f6d6520546f2041736e506c617920212121
+--------------------------------------------------------------------------------
+***************************************************** Hex to ASCII *****************************************************
+Remarks: Hex to ASCII
+Info Data: Trying with utf-8
+Info => Transaction Id: zut6txemmcex; Mode: Conversion_Mode; Input Format: hex; Output Format: ascii
+Input Data: 57656c636f6d6520546f2041736e506c617920212121
+Output Data: Welcome To AsnPlay !!!
+--------------------------------------------------------------------------------
+---------------------------------- Time Details ----------------------------------
+Current Time Stamp: 2024-10-26 23:06:57.230161+05:30
+Execution Time: 00:00:00; Milliseconds: 9.03773307800293
+Execution Time CPU: 00:00:00; Milliseconds: 0.0
+Timer State: TIMER_OFF
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+              All Done.              
+--------------------------------------------------------------------------------
