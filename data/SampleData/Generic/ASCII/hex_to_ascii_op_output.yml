@@ -8,7 +8,7 @@ input:
 output:
     remarks: HexInput; AsciiOutput; YmlInput; OutputKeyword
     info_data: Trying with utf-8
-    info: 'Transaction Id: w5wfbanv8oph; Mode: Yml_Conversion_Mode; Input Format: hex; Output Format: ascii; Output File Name Keyword: output'
+    info: 'Transaction Id: j0sb2ijmwjg7; Mode: Yml_Conversion_Mode; Input Format: hex; Output Format: ascii; Output File Name Keyword: output'
     input_yml: Data\SampleData\Generic\ASCII\hex_to_ascii_op.yml
     output_file: Data/SampleData/Generic/ASCII/\hex_to_ascii_op_output.yml
     input_data: 57656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c617920212121
@@ -20,4 +20,4 @@ output_version:
     SGP22: v3_0_0
     SGP32: v1_1
     eUICC_Profile_Package: v3_2
-    time_stamp: Saturday, Oct 26 2024, 23:07:20:900944, IST (GMT+0530)
+    time_stamp: Saturday, Oct 26 2024, 23:18:16:978285, IST (GMT+0530)

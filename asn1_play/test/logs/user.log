@@ -19,9 +19,9 @@ Python executable Path is D:\Other\Github_Self\asn1Play\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Saturday, Oct 26 2024, 23:06:57:209110, IST (GMT+0530)
+Time Stamp is Saturday, Oct 26 2024, 23:17:49:682832, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is f0dc78d;  (HEAD -> main); 2024-10-24 20:36:50 +0530; imPratik <impratikjaiswal@gmail.com>; sync & update
+Git Summary is facb0a9;  (HEAD -> main, origin/main, origin/HEAD); 2024-10-26 23:15:07 +0530; imPratik <impratikjaiswal@gmail.com>; Test batches added & verified
 --------------------------------------------------------------------------------
 pythonHelpers version is v4.4.5
 --------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ eUICC_Profile_Package compile_time version is v3_1
 ------------------------------------------------------- UserData -------------------------------------------------------
 ************************************************** SGP22; Der to Asn1 **************************************************
 Remarks: SGP22; Der to Asn1
-Info => Transaction Id: ujh2br46vt84; Mode: Encoding_Mode; Asn1 Schema: GSMA_SGP_22_v3_1; Asn1 Object: StoreMetadataRequest; Input Format: der; Output Format: asn1
+Info => Transaction Id: 99p7gt7r11l9; Mode: Encoding_Mode; Asn1 Schema: GSMA_SGP_22_v3_1; Asn1 Object: StoreMetadataRequest; Input Format: der; Output Format: asn1
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Output Data:
 {
@@ -54,7 +54,7 @@ Output Data:
 ************************************************ SGP22; Asn1 to Der; Tlv ***********************************************
 ***** bf25335a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031 *****
 Remarks: SGP22; Asn1 to Der; Tlv
-Info => Transaction Id: pq75gdtoz6pm; Mode: Decoding_Mode; Asn1 Schema: GSMA_SGP_22_v3_1; Asn1 Object: StoreMetadataRequest; Input Format: asn1; Output Format: der; Tlv Parsing Of Output: True
+Info => Transaction Id: n8ezkw27scy6; Mode: Decoding_Mode; Asn1 Schema: GSMA_SGP_22_v3_1; Asn1 Object: StoreMetadataRequest; Input Format: asn1; Output Format: der; Tlv Parsing Of Output: True
 Input Data:
 {
     iccid '989209012143658709F5'H,
@@ -69,7 +69,7 @@ BF25 33
 --------------------------------------------------------------------------------
 *************************************************** TCA; Asn1 to Der ***************************************************
 Remarks: TCA; Asn1 to Der
-Info => Transaction Id: zi42h12sxacv; Mode: Decoding_Mode; Asn1 Schema: TCA_EPP_v3_1; Asn1 Object: ProfileHeader; Input Format: asn1; Output Format: der
+Info => Transaction Id: l1ez8nshosmg; Mode: Decoding_Mode; Asn1 Schema: TCA_EPP_v3_1; Asn1 Object: ProfileHeader; Input Format: asn1; Output Format: der
 Input Data:
 {
     major-version 2,
@@ -87,26 +87,26 @@ Output Data: 3036800102810101821447534d412050726f66696c65205061636b616765830a892
 --------------------------------------------------------------------------------
 ************************************************** Der(Hex) to Base 64 *************************************************
 Remarks: Der(Hex) to Base 64
-Info => Transaction Id: eeiqr2b4ui3r; Mode: Conversion_Mode; Input Format: der; Output Format: der_as_base64
+Info => Transaction Id: o6a9ujawh5ff; Mode: Conversion_Mode; Input Format: der; Output Format: der_as_base64
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Output Data: vyUzWgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAx
 --------------------------------------------------------------------------------
 ***************************************************** Ascii to Hex *****************************************************
 Remarks: Ascii to Hex
-Info => Transaction Id: gqrdovf0n6gq; Mode: Conversion_Mode; Input Format: ascii; Output Format: hex
+Info => Transaction Id: jygbhgg93nr5; Mode: Conversion_Mode; Input Format: ascii; Output Format: hex
 Input Data: Welcome To AsnPlay !!!
 Output Data: 57656c636f6d6520546f2041736e506c617920212121
 --------------------------------------------------------------------------------
 ***************************************************** Hex to ASCII *****************************************************
 Remarks: Hex to ASCII
 Info Data: Trying with utf-8
-Info => Transaction Id: zut6txemmcex; Mode: Conversion_Mode; Input Format: hex; Output Format: ascii
+Info => Transaction Id: yct1hxudesxe; Mode: Conversion_Mode; Input Format: hex; Output Format: ascii
 Input Data: 57656c636f6d6520546f2041736e506c617920212121
 Output Data: Welcome To AsnPlay !!!
 --------------------------------------------------------------------------------
 ---------------------------------- Time Details ----------------------------------
-Current Time Stamp: 2024-10-26 23:06:57.230161+05:30
-Execution Time: 00:00:00; Milliseconds: 9.03773307800293
+Current Time Stamp: 2024-10-26 23:17:49.695833+05:30
+Execution Time: 00:00:00; Milliseconds: 11.0015869140625
 Execution Time CPU: 00:00:00; Milliseconds: 0.0
 Timer State: TIMER_OFF
 --------------------------------------------------------------------------------

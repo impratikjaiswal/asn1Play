@@ -19,9 +19,9 @@ Python executable Path is D:\Other\Github_Self\asn1Play\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Saturday, Oct 26 2024, 23:07:01:842920, IST (GMT+0530)
+Time Stamp is Saturday, Oct 26 2024, 23:17:55:495373, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is f0dc78d;  (HEAD -> main); 2024-10-24 20:36:50 +0530; imPratik <impratikjaiswal@gmail.com>; sync & update
+Git Summary is facb0a9;  (HEAD -> main, origin/main, origin/HEAD); 2024-10-26 23:15:07 +0530; imPratik <impratikjaiswal@gmail.com>; Test batches added & verified
 --------------------------------------------------------------------------------
 pythonHelpers version is v4.4.5
 --------------------------------------------------------------------------------
@@ -42,7 +42,7 @@ eUICC_Profile_Package compile_time version is v3_1
 --------------------------------------------------------- Test ---------------------------------------------------------
 ************************************************ Welcome To AsnPlay !!! ************************************************
 Remarks Generated: Welcome To AsnPlay !!!
-Info => Transaction Id: kr27bjb52jfu; Mode: Conversion_Mode; Input Format: ascii; Output Format: hex
+Info => Transaction Id: 898l0kxixrt9; Mode: Conversion_Mode; Input Format: ascii; Output Format: hex
 Input Data: Welcome To AsnPlay !!!
 Output Data: 57656c636f6d6520546f2041736e506c617920212121
 --------------------------------------------------------------------------------
@@ -84,9 +84,9 @@ TCA_EPP_v3_3
 TCA_EPP_v3_3_1
 
 ---------------------------------- Time Details ----------------------------------
-Current Time Stamp: 2024-10-26 23:07:01.859921+05:30
-Execution Time: 00:00:00; Milliseconds: 6.000757217407227
-Execution Time CPU: 00:00:00; Milliseconds: 15.625
+Current Time Stamp: 2024-10-26 23:17:55.509882+05:30
+Execution Time: 00:00:00; Milliseconds: 6.000995635986328
+Execution Time CPU: 00:00:00; Milliseconds: 0.0
 Timer State: TIMER_OFF
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
