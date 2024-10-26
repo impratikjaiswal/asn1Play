@@ -1,6 +1,7 @@
 from asn1_play.generated_code.asn1.GSMA import SGP_22
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.helper.data import Data
+from asn1_play.main.helper.folders import Folders
 from asn1_play.main.helper.formats import Formats
 
 
@@ -20,7 +21,7 @@ class StoreMetaDataBulk(DataTypeMaster):
 
     def set_output_file(self):
         # RemarksVariable;
-        output_file = r'..\..\Data\UserData\bulk\StoreMetadataRequest\$REMARKS'
+        output_file = Folders.in_user(r'bulk\StoreMetadataRequest\$REMARKS')
         super().set_output_file(output_file)
 
     def set_remarks(self):

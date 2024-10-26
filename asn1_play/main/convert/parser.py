@@ -20,6 +20,7 @@ from asn1_play.main.helper.constants import Constants
 from asn1_play.main.helper.constants_config import ConfigConst as ConfigConst_local
 from asn1_play.main.helper.formats_group import FormatsGroup
 from asn1_play.main.helper.metadata import MetaData
+from asn1_play.main.helper.util import Util
 
 
 def process_all_data_types(data, meta_data=None, info_data=None):
@@ -143,7 +144,7 @@ def process_all_data_types(data, meta_data=None, info_data=None):
         converter.write_yml_file(meta_data.output_file_path, file_dic_all_str, meta_data.output_dic,
                                  output_versions_dic)
     elif meta_data.output_file_path:
-        PhUtil.makedirs(PhUtil.get_file_name_and_extn(file_path=meta_data.output_file_path, only_path=True))
+        Util.make_dirs(file_path=meta_data.output_file_path)
         converter.write_output_file(meta_data.output_file_path, meta_data.parsed_data)
         if meta_data.re_parsed_data:
             converter.write_output_file(meta_data.re_output_file_path, meta_data.re_parsed_data)

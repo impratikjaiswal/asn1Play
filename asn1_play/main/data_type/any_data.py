@@ -5,6 +5,7 @@ from asn1_play.generated_code.asn1.asn1 import Asn1
 from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.helper.data import Data
+from asn1_play.main.helper.folders import Folders
 from asn1_play.main.helper.formats import Formats
 from asn1_play.main.helper.keywords import KeyWords
 
@@ -56,7 +57,7 @@ class AnyData(DataTypeMaster):
             #
             Data(
                 remarks='# DerInput; Asn1Output; FileInput; Asn1Schema; Asn1Element; StoreMetadataRequest; VersionVariable; GSMA_SGP_22_v3_0_0;',
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex'),
                 asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v3_0_0, 'StoreMetadataRequest'),
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
@@ -64,7 +65,7 @@ class AnyData(DataTypeMaster):
             #
             Data(
                 remarks='# DerInput; Asn1Output; FileInput; Asn1Schema; Asn1Element; StoreMetadataRequest; VersionVariable; GSMA_SGP_22_v2_4;',
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex'),
                 asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v2_4, 'StoreMetadataRequest'),
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
@@ -72,7 +73,7 @@ class AnyData(DataTypeMaster):
             #
             Data(
                 remarks='# DerInput; Asn1Output; FileInput; Asn1Schema; Asn1Element; EimConfigurationData; VersionVariable;',
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_32\$VERSION\EimConfigurationData\EimConfigurationData.asn1',
+                input_data=Folders.in_sample_sgp_32(r'$VERSION\EimConfigurationData\EimConfigurationData.asn1'),
                 asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'EimConfigurationData'),
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
@@ -87,11 +88,11 @@ class AnyData(DataTypeMaster):
             ),
             #
             Data(  # HexInput; AsciiOutput; YmlInput;
-                input_data=r'..\..\Data\SampleData\Generic\ASCII\hex_to_ascii_op_same_file.yml'
+                input_data=Folders.in_sample_gen(r'ASCII\hex_to_ascii_op_same_file.yml')
             ),
             #
             Data(  # HexInput; AsciiOutput; YmlInput; OutputKeyword;
-                input_data=r'..\..\Data\SampleData\Generic\ASCII\hex_to_ascii_op.yml'
+                input_data=Folders.in_sample_gen(r'ASCII\hex_to_ascii_op.yml')
             ),
             #
             Data(
@@ -119,7 +120,7 @@ class AnyData(DataTypeMaster):
             ),
             #
             Data(  # 'HexInput; AsciiOutput; YmlInput; ExportedInput;
-                input_data=r'..\..\Data\UserData\HexInput_AsciiOutput_DirectInput_ExportKeyword_export.yml',
+                input_data=Folders.in_user(r'HexInput_AsciiOutput_DirectInput_ExportKeyword_export.yml'),
             ),
             #
             Data(
@@ -127,12 +128,13 @@ class AnyData(DataTypeMaster):
                 input_data='57656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c617920212121',
                 input_format=Formats.HEX,
                 output_format=Formats.ASCII,
-                output_file=r'..\..\Data\SampleData\Generic\ASCII',
+                output_file=Folders.in_sample_gen(r'ASCII'),
                 output_file_name_keyword=KeyWords.EXPORT_FILE_NAME_KEYWORD,
             ),
             #
             Data(  # 'HexInput; AsciiOutput; DirectInput; ExportKeyword; OutputFile; YmlInput;
-                input_data=r'..\..\Data\SampleData\Generic\ASCII\HexInput_AsciiOutput_DirectInput_ExportKeyword_OutputFile_export.yml',
+                input_data=Folders.in_sample_gen(
+                    r'ASCII\HexInput_AsciiOutput_DirectInput_ExportKeyword_OutputFile_export.yml'),
             ),
             #
             Data(
@@ -158,14 +160,14 @@ class AnyData(DataTypeMaster):
             #
             Data(
                 remarks='AsciiInput; HexOutput; FileInput;',
-                input_data=r'..\..\Data\SampleData\Generic\ASCII\ascii_to_hex_welcome.txt',
+                input_data=Folders.in_sample_gen(r'ASCII\ascii_to_hex_welcome.txt'),
                 input_format=Formats.ASCII,
                 output_format=Formats.HEX,
             ),
             #
             Data(
                 remarks='HexInput; AsciiOutput; FileInput;',
-                input_data=r'..\..\Data\SampleData\Generic\ASCII\hex_to_ascii_welcome.hex',
+                input_data=Folders.in_sample_gen(r'ASCII\hex_to_ascii_welcome.hex'),
                 input_format=Formats.HEX,
                 output_format=Formats.ASCII,
             ),
@@ -207,7 +209,7 @@ class AnyData(DataTypeMaster):
             ),
             #
             Data(  # DerInput; Base64Output; YmlInput; OutputKeyword;
-                input_data=r'..\..\Data\SampleData\Generic\Base64\der_to_base64.yml'
+                input_data=Folders.in_sample_gen(r'Base64\der_to_base64.yml')
             ),
             #
             Data(
@@ -219,7 +221,7 @@ class AnyData(DataTypeMaster):
             ),
             #
             Data(  # Base64Input; DerOutput; YmlInput; OutputKeyword;
-                input_data=r'..\..\Data\SampleData\Generic\Base64\base64_to_der.yml'
+                input_data=Folders.in_sample_gen(r'Base64\base64_to_der.yml')
             ),
             #
             Data(
@@ -281,7 +283,8 @@ class AnyData(DataTypeMaster):
             #
             Data(
                 remarks='# Asn1Input; DerOutput; FileInput; Asn1Element; TlvParsing; StoreMetadataRequest; ',
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
+                input_data=Folders.in_sample_sgp_22(
+                    r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1'),
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
@@ -317,7 +320,8 @@ class AnyData(DataTypeMaster):
             #
             Data(
                 remarks='# Der64Input; Asn1Output; FileInput; Asn1Element; StoreMetadataRequest; VersionVariable;',
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64',
+                input_data=Folders.in_sample_sgp_22(
+                    r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64'),
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1
@@ -325,7 +329,8 @@ class AnyData(DataTypeMaster):
             #
             Data(
                 remarks='# Der64Input; Asn1Output; FileInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword;',
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64',
+                input_data=Folders.in_sample_sgp_22(
+                    r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64'),
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1,
@@ -334,7 +339,7 @@ class AnyData(DataTypeMaster):
             #
             Data(
                 remarks='# DerInput; Asn1Output; FileInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword;',
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex'),
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
@@ -342,16 +347,17 @@ class AnyData(DataTypeMaster):
             ),
             #
             Data(  # DerInput; Asn1Output; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword;
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex.yml',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex.yml'),
             ),
             #
             Data(  # Asn1Input; DerOutput; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword;
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.asn1.yml',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest.asn1.yml'),
             ),
             #
             Data(
                 # Asn1Input; DerOutput; YmlInput; Asn1Element; ReParseOutput; StoreMetadataRequest; VersionVariable; OutputKeyword;
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yml',
+                input_data=Folders.in_sample_sgp_22(
+                    r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1.yml'),
             ),
             #
             Data(
@@ -363,11 +369,11 @@ class AnyData(DataTypeMaster):
             ),
             #
             Data(  # DerInput; Asn1Output; YmlInput; Asn1Element; ProfileElement; OutputKeyword;
-                input_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PROFILE_OPERATIONAL1.hex.yml'
+                input_data=Folders.in_sample_epp(r'$VERSION\PROFILE_OPERATIONAL1.hex.yml')
             ),
             #
             Data(  # Asn1Input; DerOutput; YmlInput; Asn1Element; ProfileElement; OutputKeyword;
-                input_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PROFILE_OPERATIONAL1.asn1.yml'
+                input_data=Folders.in_sample_epp(r'$VERSION\PROFILE_OPERATIONAL1.asn1.yml')
             ),
             #
             Data(
@@ -377,11 +383,12 @@ class AnyData(DataTypeMaster):
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
                 output_file_name_keyword=KeyWords.EXPORT_FILE_NAME_KEYWORD,
-                output_file=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest',
+                output_file=Folders.in_user_sgp_22(r'$VERSION\UpdateMetadataRequest'),
             ),
             #
             Data(  # 'DerInput; Asn1Output; YmlInput; ExportedInput; Asn1Element; UpdateMetadataRequest;',
-                input_data=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\DerInput_Asn1Output_DirectInput_Asn1Element_UpdateMetadataRequest_ExportKeyword_OutputFile_export.yml',
+                input_data=Folders.in_user_sgp_22(
+                    r'$VERSION\UpdateMetadataRequest\DerInput_Asn1Output_DirectInput_Asn1Element_UpdateMetadataRequest_ExportKeyword_OutputFile_export.yml'),
             ),
             #
             Data(
@@ -391,13 +398,12 @@ class AnyData(DataTypeMaster):
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
                 output_file_name_keyword=KeyWords.EXPORT_FILE_NAME_KEYWORD,
-                output_file=r'..\..\Data\UserData\TCA\eUICC_Profile_Package\$VERSION\PE_End',
+                output_file=Folders.in_user_epp(r'$VERSION\PE_End'),
             ),
             #
             Data(  # 'DerInput; Asn1Output; YmlInput; ExportedInput; Asn1Element; PE_End;',
-                input_data=r'../../Data/UserData/TCA/eUICC_Profile_Package/$VERSION/\PE_End\DerInput_Asn1Output_DirectInput_Asn1Element_PE_End_ExportKeyword_export.yml',
+                input_data=Folders.in_user_epp(r'$VERSION/\PE_End\DerInput_Asn1Output_DirectInput_Asn1Element_PE_End_ExportKeyword_export.yml'),
             ),
-
             #
             Data(
                 remarks='# DerInput; Asn1Output; DirectInput; Asn1Element; PE_End;',
@@ -433,14 +439,14 @@ class AnyData(DataTypeMaster):
             #
             Data(
                 remarks='# BulkMode; DirectoryInput; YmlInput; .YmlFiles;',
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest'),
                 input_format=Formats.YML,
                 output_format=''
             ),
             #
             Data(
                 remarks='# BulkMode; DirectoryInput; DerInput; Asn1Output; .HexFiles;',
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest'),
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER,
                 output_format=Formats.ASN1
@@ -448,7 +454,7 @@ class AnyData(DataTypeMaster):
             #
             Data(
                 remarks='# BulkMode; DirectoryInput; Base64Input; Asn1Output; .Base64Files;',
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest'),
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1
@@ -456,7 +462,7 @@ class AnyData(DataTypeMaster):
             #
             Data(
                 remarks='# BulkMode; DirectoryInput; Asn1Input; Der64Output; .Asn1Files;',
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest'),
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.ASN1,
                 output_format=Formats.DER_64
@@ -464,18 +470,18 @@ class AnyData(DataTypeMaster):
             #
             Data(
                 remarks='# BulkMode; DirectoryInput; .YmlFiles; .HexFiles; .Base64Files; .Asn1Files; ',
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest'),
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format='',
             ),
             #
             Data(
                 remarks='# BulkMode; DirectoryInput; Asn1Input; Der64Output; DirectoryOutput; .Asn1Files;',
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest'),
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
-                output_file=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\hex',
+                output_file=Folders.in_user_sgp_22(r'$VERSION\StoreMetadataRequest\hex'),
             ),
             #
             Data(
@@ -500,7 +506,7 @@ class AnyData(DataTypeMaster):
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1,
-                output_file=r'..\..\Data\UserData\Temp\$ITEM_INDEX',
+                output_file=Folders.in_user(r'Temp\$ITEM_INDEX'),
             ),
             #
             Data(
@@ -526,15 +532,15 @@ class AnyData(DataTypeMaster):
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1,
-                output_file=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\$REMARKS'
+                output_file=Folders.in_user_sgp_22(r'$VERSION\StoreMetadataRequest\$REMARKS'),
             ),
             #
             Data(  # DerInput; Asn1Output; YmlInput; Asn1Element; EUICCInfo2; VersionVariable; OutputKeyword;
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\EUICCInfo2\EUICCInfo2.hex.yml',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\EUICCInfo2\EUICCInfo2.hex.yml'),
             ),
             #
             Data(  # DerInput; Asn1Output; YmlInput; Asn1Element; EUICCInfo2; VersionVariable; OutputKeyword;
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_32\$VERSION\EUICCInfo2\EUICCInfo2.hex.yml',
+                input_data=Folders.in_sample_sgp_32(r'$VERSION\EUICCInfo2\EUICCInfo2.hex.yml'),
             ),
         ]
         super().set_data_pool(data_pool)

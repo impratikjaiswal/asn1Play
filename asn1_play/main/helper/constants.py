@@ -1,6 +1,3 @@
-import os
-
-
 class Constants:
     # Verified
     UNKNOWN_INPUT_DATA = 'Unknown Input Data'
@@ -33,4 +30,3 @@ class Constants:
     STR_DIR_LIST = 'Dir_List'
     STR_MODE = 'Mode'
     STR_FORMATTING = 'Formatting'
-    DEFAULT_OUTPUT_FOLDER = os.sep.join([os.pardir, os.pardir, 'Data', 'UserData'])

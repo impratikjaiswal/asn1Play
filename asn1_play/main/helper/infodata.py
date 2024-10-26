@@ -12,5 +12,8 @@ class InfoData:
     def get_info_list(self):
         return self.info
 
+    def get_info_count(self):
+        return len(self.info)
+
     def get_info_str(self, sep='\n\t'):
         return sep.join(filter(None, self.info))

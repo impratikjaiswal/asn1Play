@@ -6,6 +6,7 @@ from asn1_play.generated_code.asn1.asn1 import Asn1
 from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.helper.data import Data
+from asn1_play.main.helper.folders import Folders
 from asn1_play.main.helper.formats import Formats
 from asn1_play.main.helper.formats_group import FormatsGroup
 from asn1_play.main.helper.keywords import KeyWords
@@ -57,7 +58,7 @@ class UnitTesting(DataTypeMaster):
         data_pool_positive = [
             #
             Data(  # #YmlInput #ExportKeyword
-                input_data=r'..\..\Data\UserData\Generic\ASCII\hex_to_ascii_exp.yml'
+                input_data=Folders.in_user_gen(r'ASCII\hex_to_ascii_exp.yml'),
             ),
             #
             Data(
@@ -287,7 +288,7 @@ class UnitTesting(DataTypeMaster):
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex',
+                input_data=Folders.in_sample_sgp_22(r'v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex'),
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
             ),
             #
@@ -308,7 +309,8 @@ class UnitTesting(DataTypeMaster):
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1,
-                output_file=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64',
+                output_file=Folders.in_user_sgp_22(
+                    r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64'),
             ),
             Data(
                 remarks=['Extend Remarks List Sample', 'Extend Remarks List'],
@@ -320,7 +322,7 @@ class UnitTesting(DataTypeMaster):
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1,
-                output_file=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\StoreMetadataRequest',
+                output_file=Folders.in_user_sgp_22(r'$VERSION\StoreMetadataRequest'),
             ),
         ]
 
@@ -331,7 +333,7 @@ class UnitTesting(DataTypeMaster):
                 asn1_element=None,
                 input_format=Formats.ASCII,
                 output_format=Formats.HEX,
-                output_file=r'..\..\Data\UserData\Temp\Pj.txt',
+                output_file=Folders.in_user(r'Temp\Pj.txt'),
             ),
             #
             Data(
@@ -340,7 +342,7 @@ class UnitTesting(DataTypeMaster):
                 asn1_element=None,
                 input_format=Formats.ASCII,
                 output_format=Formats.HEX,
-                output_file=r'..\..\Data\UserData\Temp\Pj.txt',
+                output_file=Folders.in_user(r'Temp\Pj.txt'),
             ),
             #
             Data(
@@ -349,7 +351,7 @@ class UnitTesting(DataTypeMaster):
                 asn1_element=None,
                 input_format=Formats.ASCII,
                 output_format=Formats.HEX,
-                output_file=r'..\..\Data\UserData\Temp\Pj$ITEM_INDEX.txt',
+                output_file=Folders.in_user(r'Temp\Pj$ITEM_INDEX.txt'),
             ),
             #
             Data(
@@ -358,7 +360,7 @@ class UnitTesting(DataTypeMaster):
                 asn1_element=None,
                 input_format=Formats.ASCII,
                 output_format=Formats.HEX,
-                output_file=r'..\..\Data\UserData\Temp\Pj.txt',
+                output_file=Folders.in_user(r'Temp\Pj.txt'),
             ),
             #
             Data(
@@ -367,7 +369,7 @@ class UnitTesting(DataTypeMaster):
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 print_input=False,
                 print_output=False,
-                output_file=r'..\..\Data\UserData\Bulk_export\.txt'
+                output_file=Folders.in_user(r'Bulk_export\.txt'),
             ),
             #
             Data(
@@ -375,7 +377,7 @@ class UnitTesting(DataTypeMaster):
                 asn1_element=None,
                 input_format=Formats.ASCII,
                 output_format=Formats.HEX,
-                output_file=r'..\..\Data\UserData\Temp\\',
+                output_file=Folders.in_user(r'Temp\\'),
             ),
             #
             Data(
@@ -383,7 +385,7 @@ class UnitTesting(DataTypeMaster):
                 asn1_element=None,
                 input_format=Formats.ASCII,
                 output_format=Formats.HEX,
-                output_file=r'..\..\Data\UserData\Temp/',
+                output_file=Folders.in_user(r'Temp/'),
             ),
             #
             Data(
@@ -391,7 +393,7 @@ class UnitTesting(DataTypeMaster):
                 asn1_element=None,
                 input_format=Formats.ASCII,
                 output_format=Formats.HEX,
-                output_file=r'..\..\Data\UserData\Temp',
+                output_file=Folders.in_user(r'Temp'),
             ),
             #
             Data(
@@ -404,7 +406,7 @@ class UnitTesting(DataTypeMaster):
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 print_input=False,
                 print_output=False,
-                output_file=r'..\..\Data\UserData\Bulk_export\.txt'
+                output_file=Folders.in_user(r'Bulk_export\.txt'),
             ),
             #
             Data(
@@ -417,7 +419,7 @@ class UnitTesting(DataTypeMaster):
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 print_input=False,
                 print_output=False,
-                output_file=r'..\..\Data\UserData\Bulk_export'
+                output_file=Folders.in_user(r'Bulk_export'),
             ),
         ]
 
@@ -465,7 +467,7 @@ class UnitTesting(DataTypeMaster):
             #
             Data(
                 remarks='InvalidAsnElement',
-                input_data=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataReques.yml'
+                input_data=Folders.in_user_sgp_22(r'$VERSION\InvalidRequest\StoreMetadataReques.yml'),
             ),
             #
             Data(
@@ -493,11 +495,12 @@ class UnitTesting(DataTypeMaster):
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex',
+                input_data=Folders.in_sample_sgp_22(r'v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex'),
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1',
+                input_data=Folders.in_sample_sgp_22(
+                    r'v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1'),
             ),
             #
         ]
@@ -632,28 +635,28 @@ class UnitTesting(DataTypeMaster):
             #####
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex'),
                 asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v3_0_0, 'StoreMetadataRequest'),
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex'),
                 asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v2_4, 'StoreMetadataRequest'),
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex'),
                 asn1_element='StoreMetadataRequest',
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex'),
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
@@ -663,28 +666,32 @@ class UnitTesting(DataTypeMaster):
             #####
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
+                input_data=Folders.in_sample_sgp_22(
+                    r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1'),
                 asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v3_0_0, 'StoreMetadataRequest'),
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
+                input_data=Folders.in_sample_sgp_22(
+                    r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1'),
                 asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v2_4, 'StoreMetadataRequest'),
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
+                input_data=Folders.in_sample_sgp_22(
+                    r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1'),
                 asn1_element='StoreMetadataRequest',
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
+                input_data=Folders.in_sample_sgp_22(
+                    r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1'),
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
@@ -694,28 +701,28 @@ class UnitTesting(DataTypeMaster):
             #####
             #
             Data(
-                input_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
+                input_data=Folders.in_sample_epp(r'$VERSION\PE_End.asn1'),
                 asn1_element=Asn1(Asn1Versions.TCA_EPP_v3_1, 'PE_End'),
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
+                input_data=Folders.in_sample_epp(r'$VERSION\PE_End.asn1'),
                 asn1_element=Asn1(Asn1Versions.TCA_EPP_v3_2, 'PE_End'),
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
             ),
             # negative scenario
             Data(
-                input_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
+                input_data=Folders.in_sample_epp(r'$VERSION\PE_End.asn1'),
                 asn1_element='PE_End',
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
+                input_data=Folders.in_sample_epp(r'$VERSION\PE_End.asn1'),
                 asn1_element=eUICC_Profile_Package.PEDefinitions.PE_End,
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
@@ -725,28 +732,28 @@ class UnitTesting(DataTypeMaster):
             #####
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex'),
                 asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v3_0_0, 'StoreMetadataRequest'),
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex'),
                 asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v2_4, 'StoreMetadataRequest'),
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex'),
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER,
                 output_format=Formats.ASN1,
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
+                input_data=Folders.in_sample_epp(r'$VERSION\PE_End.asn1'),
                 asn1_element=eUICC_Profile_Package.PEDefinitions.PE_End,
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
@@ -773,22 +780,22 @@ class UnitTesting(DataTypeMaster):
             #
             Data(
                 remarks='InvalidInputFormat',
-                input_data=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataRequest_inp_derr.yml'
+                input_data=Folders.in_user_sgp_22(r'$VERSION\InvalidRequest\StoreMetadataRequest_inp_derr.yml'),
             ),
             #
             Data(
                 remarks='InvalidInputFormat',
-                input_data=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataRequest_inp_derr_formats.yml'
+                input_data=Folders.in_user_sgp_22(r'$VERSION\InvalidRequest\StoreMetadataRequest_inp_derr_formats.yml'),
             ),
             #
             Data(
                 remarks='InvalidOutputFormat',
-                input_data=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataRequest_op_asn2.yml'
+                input_data=Folders.in_user_sgp_22(r'$VERSION\InvalidRequest\StoreMetadataRequest_op_asn2.yml'),
             ),
             #
             Data(
                 remarks='InvalidOutputFormat',
-                input_data=r'..\..\Data\UserData\GSMA\SGP_22\$VERSION\InvalidRequest\StoreMetadataRequest_op_asn2_formats.yml'
+                input_data=Folders.in_user_sgp_22(r'$VERSION\InvalidRequest\StoreMetadataRequest_op_asn2_formats.yml'),
             ),
             #
             Data(
@@ -867,7 +874,7 @@ class UnitTesting(DataTypeMaster):
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.DER_64,
                 output_format=Formats.ASN1,
-                output_file=r'..\\..\\Data\\UserData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\Extend_Remarks_List_Item_3.asn1\\'
+                output_file=Folders.in_user_sgp_22(r'$VERSION\\StoreMetadataRequest\\Extend_Remarks_List_Item_3.asn1\\')
             ),
             #
             Data(
@@ -889,7 +896,8 @@ class UnitTesting(DataTypeMaster):
         data_pool_json = [
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
+                input_data=Folders.in_sample_sgp_22(
+                    r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1'),
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                 input_format=Formats.ASN1,
                 output_format=Formats.DER,
@@ -924,7 +932,8 @@ class UnitTesting(DataTypeMaster):
             data_pool_asn1_to_all_formats.append(
                 Data(
                     remarks=f"Output Format is {output_format}",
-                    input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
+                    input_data=Folders.in_sample_sgp_22(
+                        r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1'),
                     asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
                     input_format=Formats.ASN1,
                     output_format=output_format,
@@ -935,7 +944,7 @@ class UnitTesting(DataTypeMaster):
             #
             Data(
                 remarks='Reported; DER to JSON | JSON to DER conversion #3; Json to Der',
-                input_data=r'..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json',
+                input_data=Folders.in_user_sgp_32(r'v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json'),
                 asn1_element=SGP_32.SGP32Definitions.GetEimPackageResponse,
                 input_format=Formats.JSON,
                 output_format=Formats.DER,
@@ -943,7 +952,7 @@ class UnitTesting(DataTypeMaster):
             #
             Data(
                 remarks='Reported; DER to JSON | JSON to DER conversion #3; Json to Asn1',
-                input_data=r'..\..\Data\UserData\GSMA\SGP_32\v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json',
+                input_data=Folders.in_user_sgp_32(r'v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json'),
                 asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'GetEimPackageResponse'),
                 input_format=Formats.JSON,
                 output_format=Formats.ASN1,
@@ -1016,13 +1025,40 @@ class UnitTesting(DataTypeMaster):
         ]
 
         data_pool_self_correction = [
-            # Need to Handle with Self Fix
+            # TODO: Need to Handle with Self Fix
+            #
             Data(
                 remarks='Hex to Ascii; Non Printable Characters (like new line)',
                 input_data='500D0A50',
                 input_format=Formats.HEX,
                 output_format=Formats.ASCII,
             ),
+            #
+            Data(
+                remarks='Hex to Ascii; (Non UTF) input data conversion is not possible; Input Data ',
+                input_data='\x85',
+                input_format=Formats.HEX,
+                output_format=Formats.ASCII,
+            ),
+            #
+            Data(
+                remarks='Hex to Ascii; expected str, bytes or os.PathLike object, not int',
+                input_data='85',
+                input_format=Formats.HEX,
+                output_format=Formats.ASCII,
+            ),
+            {
+                PhKeys.REMARKS: 'Web Request; Hex to Ascii; (Non UTF) input data conversion is not possible; Input Data: ',
+                'input_data': '\x85',
+                'input_format': Formats.HEX,
+                'output_format': Formats.ASCII,
+            },
+            {
+                PhKeys.REMARKS: 'Web Request; Hex to Ascii; non-hexadecimal number found in fromhex()',
+                'input_data': '\85',
+                'input_format': Formats.HEX,
+                'output_format': Formats.ASCII,
+            },
         ]
 
         super().set_data_pool(

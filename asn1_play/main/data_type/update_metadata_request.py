@@ -1,6 +1,7 @@
 from asn1_play.generated_code.asn1.GSMA import SGP_22
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.helper.data import Data
+from asn1_play.main.helper.folders import Folders
 from asn1_play.main.helper.formats import Formats
 
 
@@ -62,27 +63,31 @@ class UpdateMetadataRequest(DataTypeMaster):
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest.asn1'
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\UpdateMetadataRequest\UpdateMetadataRequest.asn1')
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr0_no_ppr.asn1'
+                input_data=Folders.in_sample_sgp_22(
+                    r'$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr0_no_ppr.asn1')
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr1_pp2.asn1'
+                input_data=Folders.in_sample_sgp_22(
+                    r'$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr1_pp2.asn1')
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr2_ppr1.asn1'
+                input_data=Folders.in_sample_sgp_22(
+                    r'$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr2_ppr1.asn1')
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr3_ppr1_ppr2.asn1'
+                input_data=Folders.in_sample_sgp_22(
+                    r'$VERSION\UpdateMetadataRequest\UpdateMetadataRequest_ppr3_ppr1_ppr2.asn1')
             ),
             #
             Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\UpdateMetadataRequest\UpdateMetadataRequest.hex'
+                input_data=Folders.in_sample_sgp_22(r'$VERSION\UpdateMetadataRequest\UpdateMetadataRequest.hex')
             ),
         ]
         super().set_data_pool(data_pool)

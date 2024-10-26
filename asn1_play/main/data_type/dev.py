@@ -1,5 +1,5 @@
-from asn1_play.generated_code.asn1.GSMA import SGP_22
-from asn1_play.generated_code.asn1.TCA import eUICC_Profile_Package
+from python_helpers.ph_keys import PhKeys
+
 from asn1_play.generated_code.asn1.asn1 import Asn1
 from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
@@ -51,27 +51,6 @@ class Dev(DataTypeMaster):
 
     def set_data_pool(self):
         data_pool = [
-            # Can be deleted
-            Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
-                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
-                input_format=Formats.ASN1,
-                output_format=Formats.DER,
-            ),
-            # Can be deleted
-            Data(
-                input_data=r'..\..\Data\SampleData\TCA\eUICC_Profile_Package\$VERSION\PE_End.asn1',
-                asn1_element=eUICC_Profile_Package.PEDefinitions.PE_End,
-                input_format=Formats.ASN1,
-                output_format=Formats.DER,
-            ),
-            # Can be deleted
-            Data(
-                input_data=r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
-                asn1_element=Asn1(Asn1Versions.GSMA_SGP_22_v2_4, 'StoreMetadataRequest'),
-                input_format=Formats.DER,
-                output_format=Formats.ASN1,
-            ),
             # Needs to Check
             Data(
                 input_data="""{
@@ -113,6 +92,12 @@ class Dev(DataTypeMaster):
                 input_format=Formats.JSON,
                 output_format=Formats.ASN1,
             ),
-            #
+            # Needs to Check
+            {
+                PhKeys.REMARKS: 'Web Request; Hex to Ascii; _getfullpathname: path should be string, bytes or os.PathLike, not int',
+                'input_data': '85',
+                'input_format': Formats.HEX,
+                'output_format': Formats.ASCII,
+            },
         ]
         super().set_data_pool(data_pool)

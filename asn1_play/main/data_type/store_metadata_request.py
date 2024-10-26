@@ -1,5 +1,6 @@
 from asn1_play.generated_code.asn1.GSMA import SGP_22
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
+from asn1_play.main.helper.folders import Folders
 
 
 class StoreMetaData(DataTypeMaster):
@@ -49,31 +50,32 @@ class StoreMetaData(DataTypeMaster):
             #
             'BF2581885A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031930101B621301F800204F0811974657374736D6470706C7573312E6578616D706C652E636F6DB705800392F91899020640BF220F300D8003883710A1060404C1020304BF230F300D8003883711A106040402020202',
             #
-            r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.asn1',
+            Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest.asn1'),
             #
-            r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon.asn1',
+            Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon.asn1'),
             #
-            r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1',
+            Folders.in_sample_sgp_22(
+                r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1'),
             #
-            r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex',
+            Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex'),
             #
-            r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex',
+            Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex'),
             #
-            r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.base64',
+            Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest.base64'),
             #
-            r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64',
+            Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon.base64'),
             #
-            r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_output.asn1',
+            Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_output.asn1'),
             #
-            r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon_output.asn1',
+            Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_wo_icon_output.asn1'),
             #
-            r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1',
+            Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.asn1'),
             #
-            r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_ppr.asn1',
+            Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_ppr.asn1'),
             #
-            r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.hex',
+            Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_Mandatory.hex'),
             #
-            r'..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest_ppr.hex',
+            Folders.in_sample_sgp_22(r'$VERSION\StoreMetadataRequest\StoreMetadataRequest_ppr.hex'),
             #
         ]
         super().set_data_pool(data_pool)

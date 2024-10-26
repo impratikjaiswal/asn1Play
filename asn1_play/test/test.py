@@ -32,11 +32,3 @@ class Test:
     def test_all(cls):
         cls.test_sample_data()
         cls.test_all_versions()
-
-
-def main():
-    Test.test_all()
-
-
-if __name__ == '__main__':
-    main()

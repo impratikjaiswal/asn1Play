@@ -55,6 +55,11 @@ def process_data():
         # Sample With Plenty vivid Examples; Single as well as Bulk
         #####
         AnyData(),
+    ]
+    data_types_samples = [
+        #####
+        # Sample With Plenty vivid Examples; Single as well as Bulk
+        #####
         Sample(),
     ]
     data_types_sample_specific = [
@@ -81,30 +86,36 @@ def process_data():
         #####
         UnitTesting(),
     ]
-    test_generic = [
+    data_type_unit_testing_external = [
         #####
-        # Unit Testing Generic
+        # Unit Testing External
         #####
         Test(),
     ]
+
     data_types_pool = {
         PhExecutionModes.USER: data_type_user,
         PhExecutionModes.DEV: data_type_dev,
         PhExecutionModes.SAMPLE_GENERIC: data_types_sample_generic,
+        PhExecutionModes.SAMPLES_LIST: data_types_samples,
         PhExecutionModes.SAMPLE_SPECIFIC: data_types_sample_specific,
-        PhExecutionModes.UNIT_TESTING: test_generic + data_type_unit_testing,
-        PhExecutionModes.ALL: data_types_sample_generic + data_types_sample_specific + test_generic + data_type_unit_testing + data_type_user,
+        PhExecutionModes.UNIT_TESTING: data_type_unit_testing,
+        PhExecutionModes.UNIT_TESTING_EXTERNAL: data_type_unit_testing_external,
+        PhExecutionModes.ALL: data_types_sample_generic + data_types_sample_specific + data_type_unit_testing + data_type_user,
     }
     data_types = data_types_pool.get(execution_mode, Defaults.EXECUTION_MODE)
     for data_type in data_types:
         PhUtil.print_heading(str_heading=str(data_type.__class__.__name__))
-        if isinstance(data_type, UnitTesting):
-            error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
-        if isinstance(data_type, Dev):
-            error_handling_mode = PhErrorHandlingModes.STOP_ON_ERROR
+        # if isinstance(data_type, UnitTesting):
+        #     error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
+        # if isinstance(data_type, Dev):
+        #     error_handling_mode = PhErrorHandlingModes.STOP_ON_ERROR
         if isinstance(data_type, Test):
             Test.test_all()
             continue
+        if isinstance(data_type, Sample):
+            # Validate & Print Sample Data For Web
+            PhUtil.print_iter(Sample().get_sample_data_pool_for_web(), header='Sample Data')
         data_type.set_print_input()
         data_type.set_print_output()
         data_type.set_print_info()
@@ -146,8 +157,6 @@ def print_configurations():
     PhUtil.print_version(' '.join([PhKeys.SGP32, PhKeys.COMPILE_TIME]), sgp_32_version, no_additional_info=True)
     PhUtil.print_version(' '.join([PhKeys.EUICC_PROFILE_PACKAGE, PhKeys.COMPILE_TIME]), epp_version,
                          no_additional_info=True)
-    # Validate & Print Sample Data For Web
-    PhUtil.print_iter(Sample().get_sample_data_pool_for_web(), header='Sample Data', depth_level=1)
 
 
 def main():

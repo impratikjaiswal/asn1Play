@@ -30,6 +30,8 @@ class Asn1Versions:
                                              asn1_class_name='RSPDefinitions')
     GSMA_SGP_22_v2_5 = Asn1Schema(asn1_family=Asn1Family.GSMA_SGP_22, asn1_version='v2_5',
                                   asn1_class_name='RSPDefinitions')
+    GSMA_SGP_22_v2_6 = Asn1Schema(asn1_family=Asn1Family.GSMA_SGP_22, asn1_version='v2_6',
+                                  asn1_class_name='RSPDefinitions')
     GSMA_SGP_22_v3_0_0 = Asn1Schema(asn1_family=Asn1Family.GSMA_SGP_22, asn1_version='v3_0_0',
                                     asn1_class_name='RSPDefinitions')
     GSMA_SGP_22_v3_1 = Asn1Schema(asn1_family=Asn1Family.GSMA_SGP_22, asn1_version='v3_1',
@@ -40,9 +42,9 @@ class Asn1Versions:
     GSMA_SGP_32_v1_0_1 = Asn1Schema(asn1_family=Asn1Family.GSMA_SGP_32, asn1_version='v1_0_1',
                                     asn1_class_name='SGP32Definitions')
     GSMA_SGP_32_v1_1 = Asn1Schema(asn1_family=Asn1Family.GSMA_SGP_32, asn1_version='v1_1',
-                                    asn1_class_name='SGP32Definitions')
+                                  asn1_class_name='SGP32Definitions')
     GSMA_SGP_32_v1_2 = Asn1Schema(asn1_family=Asn1Family.GSMA_SGP_32, asn1_version='v1_2',
-                                    asn1_class_name='SGP32Definitions')
+                                  asn1_class_name='SGP32Definitions')
     #
     TCA_EPP_v1_0 = Asn1Schema(asn1_family=Asn1Family.TCA_EPP, asn1_version='v1_0', asn1_class_name='PEDefinitions')
     TCA_EPP_v2_0 = Asn1Schema(asn1_family=Asn1Family.TCA_EPP, asn1_version='v2_0', asn1_class_name='PEDefinitions')

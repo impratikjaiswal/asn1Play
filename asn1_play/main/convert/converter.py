@@ -21,10 +21,12 @@ from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 from asn1_play.main.helper.constants import Constants
 from asn1_play.main.helper.data import Data
 from asn1_play.main.helper.defaults import Defaults
+from asn1_play.main.helper.folders import Folders
 from asn1_play.main.helper.formats import Formats
 from asn1_play.main.helper.formats_group import FormatsGroup
 from asn1_play.main.helper.keywords import KeyWords
 from asn1_play.main.helper.mode_operation import OperationModes
+from asn1_play.main.helper.util import Util
 from asn1_play.main.helper.variables import Variables
 
 
@@ -56,10 +58,11 @@ def print_data(data=None, meta_data=None, info_data=None, master_data=None):
                 get_dic_data_and_print(PhKeys.REMARKS_GENERATED, PhConstants.SEPERATOR_ONE_LINE,
                                        remarks_generated))
         if info_data is not None:
+            info_count = info_data.get_info_count()
             info_msg = info_data.get_info_str()
             if info_msg:
-                meta_data.output_dic.update(
-                    get_dic_data_and_print(PhKeys.INFO_DATA, PhConstants.SEPERATOR_MULTI_LINE_TABBED, info_msg))
+                sep = PhConstants.SEPERATOR_MULTI_LINE_TABBED if info_count > 1 else PhConstants.SEPERATOR_ONE_LINE
+                meta_data.output_dic.update(get_dic_data_and_print(PhKeys.INFO_DATA, sep, info_msg))
         asn1_info = data.get_asn1_element_info()
         info = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, [
             get_dic_data_and_print(PhKeys.TRANSACTION_ID, PhConstants.SEPERATOR_ONE_LINE, meta_data.transaction_id,
@@ -385,7 +388,7 @@ def set_defaults(data, meta_data):
     meta_data.output_file_ext_default = default_output_file_mapping.get(
         Formats.YML if (meta_data.export_mode or meta_data.input_mode_key == PhKeys.INPUT_YML) else data.output_format,
         PhFileExtensions.TXT)
-    meta_data.output_file_location_default = Constants.DEFAULT_OUTPUT_FOLDER
+    meta_data.output_file_location_default = Folders.in_user()
 
 
 def read_yaml(input_file):
@@ -400,7 +403,7 @@ def read_web_request(request_form):
 
 
 def write_yml_file(output_file_path, file_dic, output_dic=None, output_versions_dic=None):
-    PhUtil.makedirs(PhUtil.get_file_name_and_extn(file_path=output_file_path, only_path=True))
+    Util.make_dirs(file_path=output_file_path)
     with open(output_file_path, 'w') as file:
         if output_dic:
             file_dic[PhKeys.OUTPUT] = dict(output_dic)
