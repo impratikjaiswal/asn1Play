@@ -98,14 +98,6 @@ class TestAutoBatch:
         :param test_case_data:
         :return:
         """
-        """
-        cd ..
-        cd ..
-        handle_env
-        # d:/Other/Github_Self/asn1Play
-        python -m asn1_play.main.asn1play > 1.txt
-        handle_env 
-        """
         executable_script = [
             '@echo off',
             PhDos.switch_to_current_folder(),
@@ -154,6 +146,7 @@ class TestAutoBatch:
             TestData.get_test_data('sample_list'),
             TestData.get_test_data('dev'),
             TestData.get_test_data('unit_testing_external'),
+            TestData.get_test_data('all'),
             TestData.get_test_data('sgp22_v3_1__epp_v3_3_1__sgp32_v1_1'),
             TestData.get_test_data('sgp22_v2_4__epp_v3_2__sgp32_v1_0_1'),
             TestData.get_test_data('sgp22_v3_0_0__epp_v3_1__sgp32_v1_0_1'),

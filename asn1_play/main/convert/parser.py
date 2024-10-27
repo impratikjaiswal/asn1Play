@@ -109,7 +109,7 @@ def process_all_data_types(data, meta_data=None, info_data=None):
     converter.set_re_output_file_name(data, meta_data)
     if meta_data.export_mode:
         converter.print_data(data, meta_data)
-        converter.write_yml_file(meta_data.output_file_path, converter.prepare_config_data(data))
+        converter.write_yml_file(meta_data.output_file_path, converter.prepare_config_data_for_yml(data))
         return None
     output_versions_dic = OrderedDict()
     output_versions_dic.update(PhUtil.get_tool_name_w_version(dic_format=True))
@@ -133,7 +133,7 @@ def process_all_data_types(data, meta_data=None, info_data=None):
     if meta_data.parsed_data and data.tlv_parsing_of_output is True:
         data_type_tlv = DataTypeMaster()
         data_type_tlv.set_data_pool(data_pool=Data(input_data=meta_data.parsed_data, quite_mode=True))
-        data_type_tlv.parse_safe(PhErrorHandlingModes.CONTINUE_ON_ERROR)
+        data_type_tlv.process_safe(PhErrorHandlingModes.CONTINUE_ON_ERROR)
         meta_data.parsed_data_tlv = data_type_tlv.get_output_data()
         if meta_data.parsed_data_tlv and PhConstants.EXCEPTION_OCCURRED not in meta_data.parsed_data_tlv:
             meta_data.parsed_data = meta_data.parsed_data_tlv

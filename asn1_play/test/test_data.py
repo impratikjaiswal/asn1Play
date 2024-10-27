@@ -25,6 +25,10 @@ class TestData:
             {
                 PhKeys.VAR_EXECUTION_MODE: 'UNIT_TESTING_EXTERNAL',
             },
+        'all':
+            {
+                PhKeys.VAR_EXECUTION_MODE: 'ALL',
+            },
         'sgp22_v2_4__epp_v3_2__sgp32_v1_0_1':
             {
                 PhKeys.SGP22: sgp_22_versions.v2_4,

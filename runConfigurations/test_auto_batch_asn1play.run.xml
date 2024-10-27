@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="test_auto_batch" type="PythonConfigurationType" factoryName="Python" folderName="asn1Play" nameIsGenerated="true">
+  <configuration default="false" name="test_auto_batch_asn1play" type="PythonConfigurationType" factoryName="Python" folderName="asn1Play">
     <output_file path="$PROJECT_DIR$/../../Github_Personal/AmenityPjRaw/TempFiles/pycharm.log" is_save="true" />
     <module name="asn1play" />
     <option name="ENV_FILES" value="" />

@@ -164,7 +164,7 @@ def set_includes_excludes_files(data, meta_data):
     meta_data.include_files = [('*' + x) for x in meta_data.include_files]
 
 
-def prepare_config_data(data):
+def prepare_config_data_for_yml(data):
     data_dic = dict()
     config_data = data.__dict__
     for k, v in config_data.items():
