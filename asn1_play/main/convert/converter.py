@@ -211,13 +211,6 @@ def prepare_config_data_for_yml(data):
     return file_dic
 
 
-def clear_quotation_marks(v):
-    if isinstance(v, str):
-        if (v.startswith('"') and v.endswith('"')) or (v.startswith("'") and v.endswith("'")) or (
-                v.startswith('"""') and v.endswith('"""')):
-            v = v[1:-1]
-    return v
-
 
 def parse_config(config_data):
     asn1_schema = None
@@ -231,7 +224,7 @@ def parse_config(config_data):
         if isinstance(v, str):
             # Trim Garbage data
             v = PhUtil.trim_white_spaces_in_str(v)
-            v = clear_quotation_marks(v)
+            v = PhUtil.clear_quotation_marks(v)
             v_lower_case = v.lower()
             v_eval = None
             try:

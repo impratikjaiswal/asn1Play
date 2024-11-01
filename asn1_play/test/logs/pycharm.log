@@ -132,6 +132,34 @@ Attempting to deactivate existing (and activated) Virtual Environment
 ******************************************************* clean_up *******************************************************
 execution_mode: value_original was UNIT_TESTING_EXTERNAL; target_value is USER
 top_folder_path: value_original was []; target_value is [os.pardir, os.pardir]
+---------------------------------------------------------- all ---------------------------------------------------------
+test_case_data:
+test_case_id: all
+test_case_name: all
+test_case_file_name: all.log
+execution_mode: ALL
+error_handling_mode: CONTINUE_ON_ERROR
+top_folder_path: []
+
+*********************************************** update_variables_in_file ***********************************************
+execution_mode: value_original was USER; target_value is ALL
+top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
+Executing "run_tc_asn1_play.bat"
+
+
+
+
+"all"
+Attempting to activate existing Virtual Environment
+Attempting to deactivate existing (and activated) Virtual Environment
+
+
+
+
+"Batch Execution Done"
+******************************************************* clean_up *******************************************************
+execution_mode: value_original was ALL; target_value is USER
+top_folder_path: value_original was []; target_value is [os.pardir, os.pardir]
 ------------------------------------------ sgp22_v3_1__epp_v3_3_1__sgp32_v1_1 ------------------------------------------
 test_case_data:
 test_case_id: sgp22_v3_1__epp_v3_3_1__sgp32_v1_1

@@ -19,16 +19,16 @@ Python executable Path is D:\Other\Github_Self\asn1Play\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Sunday, Oct 27 2024, 17:32:45:598947, IST (GMT+0530)
+Time Stamp is Friday, Nov 01 2024, 12:51:13:772637, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is 224770a;  (HEAD -> main, tag: v8.4.0, origin/main, origin/HEAD); 2024-10-26 23:26:44 +0530; imPratik <impratikjaiswal@gmail.com>; v8.4.0
+Git Summary is e7d3bfa;  (HEAD -> main, tag: v8.4.1, origin/main, origin/HEAD); 2024-10-27 17:36:55 +0530; imPratik <impratikjaiswal@gmail.com>; v8.4.1
 --------------------------------------------------------------------------------
-pythonHelpers version is v4.4.5
+pythonHelpers version is v4.4.8
 --------------------------------------------------------------------------------
-asn1Play version is v8.4.1
+asn1Play version is v8.4.2
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
-tlvPlay version is v4.2.4
+tlvPlay version is v4.2.5
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 SGP22 compile_time version is v3_1
@@ -49,7 +49,7 @@ init_modules: different OID objects (id-rspRole-ds-tls, id-rspRole-ds-tls-v2) wi
 init_modules: different OID objects (id-rspRole-ds-auth, id-rspRole-ds-auth-v2) with same OID value (2, 23, 146, 1, 2, 1, 7)
 * IpaEuiccDataResponse; {                 "ipaEuiccData": {                   "euiccCertificate": "MIICADCCAaWgAwIB... *
 Remarks Generated: IpaEuiccDataResponse; {                 "ipaEuiccData": {                   "euiccCertificate": "MIICADCCAaWgAwIB...
-Info => Transaction Id: 923d74pucjq4; Mode: Encoding_Mode; Asn1 Schema: GSMA_SGP_32_v1_0_1; Asn1 Object: IpaEuiccDataResponse; Input Format: json; Output Format: asn1
+Info => Transaction Id: 8cae9w5h29jb; Mode: Encoding_Mode; Asn1 Schema: GSMA_SGP_32_v1_0_1; Asn1 Object: IpaEuiccDataResponse; Input Format: json; Output Format: asn1
 Input Data:
 {
                 "ipaEuiccData": {
@@ -68,7 +68,7 @@ Known Exception Occurred At Function: decode_encode_asn; Summary: Check all your
             
 * IpaEuiccDataResponse; {                     "ipaEuiccData": {                       "euiccCertificate": "MIICADCC... *
 Remarks Generated: IpaEuiccDataResponse; {                     "ipaEuiccData": {                       "euiccCertificate": "MIICADCC...
-Info => Transaction Id: 9380dvqs3xgy; Mode: Encoding_Mode; Asn1 Schema: GSMA_SGP_32_v1_0_1; Asn1 Object: IpaEuiccDataResponse; Input Format: json; Output Format: asn1
+Info => Transaction Id: pk7pxgu7d8fp; Mode: Encoding_Mode; Asn1 Schema: GSMA_SGP_32_v1_0_1; Asn1 Object: IpaEuiccDataResponse; Input Format: json; Output Format: asn1
 Input Data:
 {
                     "ipaEuiccData": {
@@ -120,15 +120,15 @@ Known Exception Occurred At Function: decode_encode_asn; Summary: Check all your
                 }
                 
 Remarks: Web Request; Hex to Ascii; _getfullpathname: path should be string, bytes or os.PathLike, not int
-Info => Transaction Id: fx08nod5yjfm; Mode: Conversion_Mode; Input Format: hex; Output Format: ascii
+Info => Transaction Id: 3sld8m5jfyft; Mode: Conversion_Mode; Input Format: hex; Output Format: ascii
 Input Data: 85
 Output Data: 
 --------------------------------------------------------------------------------
 UnKnown Exception Occurred; Details: _getfullpathname: path should be string, bytes or os.PathLike, not int
 ---------------------------------- Time Details ----------------------------------
-Current Time Stamp: 2024-10-27 17:32:45.655948+05:30
-Execution Time: 00:00:00; Milliseconds: 59.999942779541016
-Execution Time CPU: 00:00:00; Milliseconds: 62.5
+Current Time Stamp: 2024-11-01 12:51:13.826678+05:30
+Execution Time: 00:00:00; Milliseconds: 42.99807548522949
+Execution Time CPU: 00:00:00; Milliseconds: 46.875
 Timer State: TIMER_OFF
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------

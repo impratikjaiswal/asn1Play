@@ -3,7 +3,7 @@
 ##################################################
 
 # tlvPlay Tool From Specific Tag (Remove @ String for Main Branch); Public Repo
-git+https://github.com/impratikjaiswal/tlvPlay@v4.2.4
+git+https://github.com/impratikjaiswal/tlvPlay@v4.2.5
 
 # tlvPlay Tool From Local Path
 # D:\Other\Github_Self\tlvPlay
