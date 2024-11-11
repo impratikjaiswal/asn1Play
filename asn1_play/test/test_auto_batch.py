@@ -6,14 +6,12 @@ from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_process import PhProcess
 from python_helpers.ph_util import PhUtil
 
+from asn1_play import MODULE_NAME, PACKAGE_NAME
+from asn1_play.main.asn1play import print_configurations
 from asn1_play.test.test_data import TestData
 
 
 class TestAutoBatch:
-    BATCH_RUN_TC = 'run_tc_asn1_play.bat'
-
-    MODULE_NAME = 'asn1_play.main.asn1play'
-
     PROJECT_PATH = r'D:\Other\Github_Self\asn1Play'
 
     get_file_path_mapping_relative = {
@@ -92,35 +90,40 @@ class TestAutoBatch:
         cls._update_variables_in_file(original_data)
 
     @classmethod
-    def prepare_batch_file(cls, test_case_data):
+    def prepare_batch_file(cls, test_case_data, default_batch_data=None, batch_params=None):
         """
 
+        :param default_batch_data:
         :param test_case_data:
+        :param batch_params:
         :return:
         """
+        log_file_path = os.sep.join([PACKAGE_NAME, 'test', 'logs', test_case_data.get(PhKeys.TEST_CASE_FILE_NAME)])
         executable_script = [
-            '@echo off',
+            default_batch_data,
+            PhDos.echo_off(),
             PhDos.switch_to_current_folder(),
             PhDos.get_seperator(test_case_data.get(PhKeys.TEST_CASE_ID)),
             PhDos.change_directory_parent(),
-            PhDos.change_directory_parent()
+            PhDos.change_directory_parent(),
+            PhDos.call_script_for_env_handling(True),
+            PhConstants.SEPERATOR_TWO_WORDS.join(filter(None, [
+                PhDos.run_python(module_name=MODULE_NAME),
+                batch_params,
+                PhDos.redirect_output(file_path=log_file_path)
+            ])),
+            PhDos.call_script_for_env_handling(False),
+            PhDos.get_seperator(heading="Batch Execution Done"),
+            PhDos.echo_on(),
         ]
-        executable_script.extend(PhDos.call_script_for_env_handling(True))
-        log_file_path = os.sep.join(['asn1_play', 'test', 'logs', test_case_data.get(PhKeys.TEST_CASE_FILE_NAME)])
-        executable_script.append(
-            f'{PhDos.run_python(module_name=TestAutoBatch.MODULE_NAME)}'
-            f'{PhConstants.SEPERATOR_TWO_WORDS}'
-            f'{PhDos.redirect_output(file_path=log_file_path)}',
-        )
-        executable_script.extend(PhDos.call_script_for_env_handling(False))
-        executable_script.append(PhDos.get_seperator(heading="Batch Execution Done"))
-        batch_file_path = os.sep.join([TestAutoBatch.BATCH_RUN_TC])
+        batch_file_path = os.sep.join([PhDos.BATCH_RUN_TC])
         with open(batch_file_path, mode='w') as my_file:
-            my_file.write('\n'.join(executable_script))
+            content = PhUtil.normalise_list(executable_script)
+            my_file.write('\n'.join(content))
         PhProcess.run_batch_file(batch_file_path)
 
     @classmethod
-    def test(cls, test_case_data):
+    def test(cls, test_case_data, default_batch_data=None):
         """
 
         :param test_case_data:
@@ -130,9 +133,21 @@ class TestAutoBatch:
         PhUtil.print_iter(test_case_data, header='test_case_data')
         PhUtil.print_heading('update_variables_in_file', heading_level=2)
         original_data = cls._update_variables_in_file(test_case_data)
-        cls.prepare_batch_file(test_case_data)
+        cls.prepare_batch_file(test_case_data, default_batch_data)
         PhUtil.print_heading('clean_up', heading_level=2)
         cls.clean_up(original_data)
+
+    @classmethod
+    def test_cli(cls, test_case_data, default_batch_data=None):
+        """
+
+        :param test_case_data:
+        :return:
+        """
+        PhUtil.print_heading(test_case_data.get(PhKeys.TEST_CASE_ID))
+        PhUtil.print_iter(test_case_data, header='test_case_data')
+        batch_params = test_case_data.get(PhKeys.BATCH_PARAMS)
+        cls.prepare_batch_file(test_case_data, default_batch_data, batch_params)
 
     @classmethod
     def test_all(cls):
@@ -140,20 +155,24 @@ class TestAutoBatch:
 
         :return:
         """
-        test_cases_data_pool = [
-            # Unit Testing Sequences
-            TestData.get_test_data('user'),
-            TestData.get_test_data('sample_list'),
-            TestData.get_test_data('dev'),
-            TestData.get_test_data('unit_testing_external'),
-            TestData.get_test_data('all'),
-            TestData.get_test_data('sgp22_v3_1__epp_v3_3_1__sgp32_v1_1'),
-            TestData.get_test_data('sgp22_v2_4__epp_v3_2__sgp32_v1_0_1'),
-            TestData.get_test_data('sgp22_v3_0_0__epp_v3_1__sgp32_v1_0_1'),
-            TestData.get_test_data('sgp22_v3_0_0__epp_v3_2__sgp32_v1_1'),
-        ]
-        for test_case_data in test_cases_data_pool:
-            cls.test(test_case_data)
+        print_configurations()
+        """
+        Non CLI Tests
+        """
+        for index, key in enumerate(TestData.dynamic_data.keys()):
+            test_case_data = TestData.get_test_data(key=key)
+            common_data = PhUtil.to_list(PhDos.echo(f'Iteration {index + 1}', wrap_up=True))
+            common_data.extend(PhDos.common_info())
+            cls.test(test_case_data=test_case_data, default_batch_data=common_data)
+        """
+        CLI Tests
+        """
+        TestData.generate_dynamic_cli_from_read_me()
+        for index, key in enumerate(TestData.dynamic_data_cli.keys()):
+            test_case_data = TestData.get_test_data_cli(key=key)
+            common_data = PhUtil.to_list(PhDos.echo(f'Iteration {index + 1}', wrap_up=True))
+            common_data.extend(PhDos.common_info())
+            cls.test_cli(test_case_data=test_case_data, default_batch_data=common_data)
 
 
 def main():

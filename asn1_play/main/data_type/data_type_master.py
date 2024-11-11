@@ -25,11 +25,17 @@ from asn1_play.main.helper.metadata import MetaData
 
 class DataTypeMaster(object):
     def __init__(self):
+        # Common Objects
         self.print_input = None
         self.print_output = None
         self.print_info = None
         self.quite_mode = None
         self.remarks = None
+        self.encoding = None
+        self.encoding_errors = None
+        self.archive_output = None
+        self.archive_output_format = None
+        # Specific Objects
         self.output_file = None
         self.re_parse_output = None
         self.output_file_name_keyword = None
@@ -58,6 +64,18 @@ class DataTypeMaster(object):
 
     def set_remarks(self, remarks):
         self.remarks = remarks
+
+    def set_encoding(self, encoding):
+        self.encoding = encoding
+
+    def set_encoding_errors(self, encoding_errors):
+        self.encoding_errors = encoding_errors
+
+    def set_archive_output(self, archive_output):
+        self.archive_output = archive_output
+
+    def set_archive_output_format(self, archive_output_format):
+        self.archive_output_format = archive_output_format
 
     def set_output_file(self, output_file):
         self.output_file = output_file
@@ -160,6 +178,10 @@ class DataTypeMaster(object):
             data.print_info = data.print_info if data.print_info is not None else self.print_info
             data.quite_mode = data.quite_mode if data.quite_mode is not None else self.quite_mode
             data.remarks = data.remarks if data.remarks is not None else self.remarks
+            data.encoding = data.encoding if data.encoding is not None else self.encoding
+            data.encoding_errors = data.encoding_errors if data.encoding_errors is not None else self.encoding_errors
+            data.archive_output = data.archive_output if data.archive_output is not None else self.archive_output
+            data.archive_output_format = data.archive_output_format if data.archive_output_format is not None else self.archive_output_format
             data.asn1_element = data.asn1_element if data.asn1_element is not None else self.asn1_element
             data.output_file = data.output_file if data.output_file is not None else self.output_file
             data.input_format = data.input_format if data.input_format is not None else self.input_format
@@ -174,6 +196,10 @@ class DataTypeMaster(object):
                 print_info=self.print_info,
                 quite_mode=self.quite_mode,
                 remarks=self.remarks,
+                encoding=self.encoding,
+                encoding_errors=self.encoding_errors,
+                archive_output=self.archive_output,
+                archive_output_format=self.archive_output_format,
                 asn1_element=self.asn1_element,
                 output_file=self.output_file,
                 input_format=self.input_format,
@@ -227,6 +253,10 @@ class DataTypeMaster(object):
             PhKeys.INPUT_DATA: data.input_data,
             PhKeys.REMARKS: data.get_remarks_as_str(),
             PhKeys.DATA_GROUP: data.data_group,
+            PhKeys.ENCODING: data.encoding,
+            PhKeys.ENCODING_ERRORS: data.encoding_errors,
+            PhKeys.ARCHIVE_OUTPUT: data.archive_output,
+            PhKeys.ARCHIVE_OUTPUT_FORMAT: data.archive_output_format,
             PhKeys.INPUT_FORMAT: data.input_format,
             PhKeys.OUTPUT_FORMAT: data.output_format,
             PhKeys.OUTPUT_FILE: data.output_file,

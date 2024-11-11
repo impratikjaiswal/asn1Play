@@ -4,7 +4,6 @@ from collections import OrderedDict
 
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
-from python_helpers.ph_exception_helper import PhExceptionHelper
 from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from python_helpers.ph_util import PhUtil
@@ -16,16 +15,16 @@ from asn1_play.generated_code.asn1.GSMA.SGP_32 import version as sgp_32_version
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
 from asn1_play.main.convert import converter
 from asn1_play.main.convert.handler import process_data
-from asn1_play.main.helper.constants import Constants
 from asn1_play.main.helper.constants_config import ConfigConst as ConfigConst_local
 from asn1_play.main.helper.formats_group import FormatsGroup
+from asn1_play.main.helper.infodata import InfoData
 from asn1_play.main.helper.metadata import MetaData
-from asn1_play.main.helper.util import Util
 
 
 def process_all_data_types(data, meta_data=None, info_data=None):
     """
 
+    :param info_data:
     :param meta_data:
     :param data:
     :return:
@@ -33,13 +32,22 @@ def process_all_data_types(data, meta_data=None, info_data=None):
     """
     Bulk Data Handling (Recursive)
     """
-    converter.set_defaults_for_printing(data)
+    converter.set_defaults_for_common_objects(data)
     byte_array_format = True if data.input_format in FormatsGroup.BYTE_ARRAY_FORMATS else False
     if meta_data is None:
         meta_data = MetaData(input_data_org=data.input_data)
+    if info_data is None:
+        info_data = InfoData()
+    multiple_inputs = False
     if not byte_array_format and isinstance(data.input_data, list):
         # List is provided
+        multiple_inputs = True
         meta_data.input_mode_key = PhKeys.INPUT_LIST
+    if not byte_array_format and isinstance(data.input_data, tuple):
+        # CUI (Click) Multi is a tuple
+        multiple_inputs = True
+        meta_data.input_mode_key = PhKeys.INPUT_TUPLE
+    if multiple_inputs:
         data.append_input_modes_hierarchy(meta_data.input_mode_key)
         data.set_auto_generated_remarks_if_needed()
         data.set_one_time_remarks(f'({len(data.input_data)} Elements)')
@@ -59,11 +67,15 @@ def process_all_data_types(data, meta_data=None, info_data=None):
                                                                                     dic_format=False))
             parsed_data_list.append(process_all_data_types(sub_data))
         return parsed_data_list
-    if not byte_array_format and data.input_data and os.path.isdir(os.path.abspath(data.input_data)):
+    if not byte_array_format and data.input_data and isinstance(data.input_data, str) and os.path.isdir(
+            os.path.abspath(data.input_data)):
+        # XXX: path should be string, bytes or os.PathLike; throwing error during full testing
         # directory is provided
         meta_data.input_mode_key = PhKeys.INPUT_DIR
         data.append_input_modes_hierarchy(meta_data.input_mode_key)
         PhUtil.print_heading(data.get_remarks_as_str(), heading_level=3)
+        # TODO: Creating problems
+        # converter.set_defaults(data, meta_data)
         converter.print_data(data, meta_data)
         converter.set_includes_excludes_files(data, meta_data)
         files_list = PhUtil.traverse_it(top=os.path.abspath(data.input_data), traverse_mode='Regex',
@@ -80,20 +92,12 @@ def process_all_data_types(data, meta_data=None, info_data=None):
     PhUtil.print_heading(data.get_remarks_as_str(), heading_level=2)
     if not byte_array_format and data.input_data and os.path.isfile(data.input_data):
         # file is provided
-        try:
-            with open(data.input_data, 'r') as the_file:
-                resp = ''.join(the_file.readlines())
-        except UnicodeDecodeError:
-            # Binary File
-            with open(data.input_data, 'rb') as the_file:
-                resp = the_file.read()
-        if not resp:
-            raise ValueError(PhExceptionHelper(msg_key=Constants.INPUT_FILE_EMPTY))
+        resp = converter.read_input_file(data=data, meta_data=meta_data, info_data=info_data)
         file_ext = PhUtil.get_file_name_and_extn(file_path=data.input_data, only_extn=True)
         if file_ext in FormatsGroup.INPUT_FILE_FORMATS_YML:
             meta_data.input_mode_key = PhKeys.INPUT_YML
             file_dic_all_str, data = converter.read_yaml(resp)
-            converter.set_defaults_for_printing(data)
+            converter.set_defaults_for_common_objects(data)
         else:
             meta_data.input_mode_key = PhKeys.INPUT_FILE
             converter.set_input_output_format(data)
@@ -144,8 +148,8 @@ def process_all_data_types(data, meta_data=None, info_data=None):
         converter.write_yml_file(meta_data.output_file_path, file_dic_all_str, meta_data.output_dic,
                                  output_versions_dic)
     elif meta_data.output_file_path:
-        Util.make_dirs(file_path=meta_data.output_file_path)
-        converter.write_output_file(meta_data.output_file_path, meta_data.parsed_data)
+        PhUtil.make_dirs(file_path=meta_data.output_file_path)
+        converter.write_output_file(data=data, meta_data=meta_data, info_data=info_data)
         if meta_data.re_parsed_data:
-            converter.write_output_file(meta_data.re_output_file_path, meta_data.re_parsed_data)
+            converter.write_output_file(data=data, meta_data=meta_data, info_data=info_data, flip_output=True)
     return meta_data.parsed_data

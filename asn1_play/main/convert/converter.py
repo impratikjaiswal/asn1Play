@@ -8,7 +8,6 @@ from python_helpers.ph_file_extensions import PhFileExtensions
 from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_util import PhUtil
 from ruamel.yaml.main import YAML
-from ruamel.yaml.scalarstring import PreservedScalarString
 
 from asn1_play.generated_code.asn1.GSMA import SGP_22
 from asn1_play.generated_code.asn1.GSMA import SGP_32
@@ -26,11 +25,18 @@ from asn1_play.main.helper.formats import Formats
 from asn1_play.main.helper.formats_group import FormatsGroup
 from asn1_play.main.helper.keywords import KeyWords
 from asn1_play.main.helper.mode_operation import OperationModes
-from asn1_play.main.helper.util import Util
 from asn1_play.main.helper.variables import Variables
 
 
 def print_data(data=None, meta_data=None, info_data=None, master_data=None):
+    """
+    
+    :param data:
+    :param meta_data:
+    :param info_data:
+    :param master_data:
+    :return:
+    """
     if master_data is not None and isinstance(master_data, PhMasterData):
         data = master_data.get_master_data(PhMasterDataKeys.DATA)
         meta_data = master_data.get_master_data(PhMasterDataKeys.META_DATA)
@@ -52,78 +58,94 @@ def print_data(data=None, meta_data=None, info_data=None, master_data=None):
                 if remarks_original in remarks_generated:
                     remarks_generated = ''
             meta_data.output_dic.update(
-                get_dic_data_and_print(PhKeys.REMARKS, PhConstants.SEPERATOR_ONE_LINE, remarks_original))
+                PhUtil.get_dic_data_and_print(PhKeys.REMARKS, PhConstants.SEPERATOR_ONE_LINE, remarks_original))
         if remarks_generated:
             meta_data.output_dic.update(
-                get_dic_data_and_print(PhKeys.REMARKS_GENERATED, PhConstants.SEPERATOR_ONE_LINE,
-                                       remarks_generated))
+                PhUtil.get_dic_data_and_print(PhKeys.REMARKS_GENERATED, PhConstants.SEPERATOR_ONE_LINE,
+                                              remarks_generated))
         if info_data is not None:
             info_count = info_data.get_info_count()
             info_msg = info_data.get_info_str()
             if info_msg:
                 sep = PhConstants.SEPERATOR_MULTI_LINE_TABBED if info_count > 1 else PhConstants.SEPERATOR_ONE_LINE
-                meta_data.output_dic.update(get_dic_data_and_print(PhKeys.INFO_DATA, sep, info_msg))
+                meta_data.output_dic.update(PhUtil.get_dic_data_and_print(PhKeys.INFO_DATA, sep, info_msg))
         asn1_info = data.get_asn1_element_info()
         info = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, [
-            get_dic_data_and_print(PhKeys.TRANSACTION_ID, PhConstants.SEPERATOR_ONE_LINE, meta_data.transaction_id,
-                                   dic_format=False, print_also=False),
-            get_dic_data_and_print(PhKeys.MODE, PhConstants.SEPERATOR_ONE_LINE,
-                                   get_mode(data.input_format, data.output_format, meta_data.input_mode_key,
-                                            data.get_input_modes_hierarchy()), dic_format=False, print_also=False),
+            PhUtil.get_dic_data_and_print(PhKeys.TRANSACTION_ID, PhConstants.SEPERATOR_ONE_LINE,
+                                          meta_data.transaction_id, dic_format=False, print_also=False),
+            PhUtil.get_dic_data_and_print(PhKeys.MODE, PhConstants.SEPERATOR_ONE_LINE,
+                                          get_mode(data.input_format, data.output_format, meta_data.input_mode_key,
+                                                   data.get_input_modes_hierarchy()), dic_format=False,
+                                          print_also=False),
             #
-            get_dic_data_and_print(PhKeys.ASN1_SCHEMA, PhConstants.SEPERATOR_ONE_LINE,
-                                   asn1_info.get(PhKeys.ASN1_SCHEMA), dic_format=False,
-                                   print_also=False) if asn1_info.get(PhKeys.ASN1_SCHEMA, None) else None,
-            get_dic_data_and_print(PhKeys.ASN1_MODULE, PhConstants.SEPERATOR_ONE_LINE,
-                                   asn1_info.get(PhKeys.ASN1_MODULE), dic_format=False,
-                                   print_also=False) if asn1_info.get(PhKeys.ASN1_MODULE, None) else None,
-            get_dic_data_and_print(PhKeys.ASN1_MODULE_VERSION, PhConstants.SEPERATOR_ONE_LINE,
-                                   asn1_info.get(PhKeys.ASN1_MODULE_VERSION), dic_format=False,
-                                   print_also=False) if asn1_info.get(PhKeys.ASN1_MODULE_VERSION, None) else None,
-            get_dic_data_and_print(PhKeys.ASN1_OBJECT, PhConstants.SEPERATOR_ONE_LINE,
-                                   asn1_info.get(PhKeys.ASN1_OBJECT), dic_format=False,
-                                   print_also=False) if asn1_info.get(PhKeys.ASN1_OBJECT, None) else None,
-            get_dic_data_and_print(PhKeys.ASN1_OBJECT_ALTERNATE, PhConstants.SEPERATOR_ONE_LINE,
-                                   asn1_info.get(PhKeys.ASN1_OBJECT_ALTERNATE), dic_format=False,
-                                   print_also=False) if asn1_info.get(PhKeys.ASN1_OBJECT_ALTERNATE, None) else None,
-            get_dic_data_and_print(PhKeys.FETCH_ASN1_OBJECTS_LIST, PhConstants.SEPERATOR_ONE_LINE,
-                                   asn1_info.get(PhKeys.FETCH_ASN1_OBJECTS_LIST), dic_format=False,
-                                   print_also=False) if asn1_info.get(PhKeys.FETCH_ASN1_OBJECTS_LIST, None) else None,
+            PhUtil.get_dic_data_and_print(PhKeys.ASN1_SCHEMA, PhConstants.SEPERATOR_ONE_LINE,
+                                          asn1_info.get(PhKeys.ASN1_SCHEMA), dic_format=False,
+                                          print_also=False) if asn1_info.get(PhKeys.ASN1_SCHEMA, None) else None,
+            PhUtil.get_dic_data_and_print(PhKeys.ASN1_MODULE, PhConstants.SEPERATOR_ONE_LINE,
+                                          asn1_info.get(PhKeys.ASN1_MODULE), dic_format=False,
+                                          print_also=False) if asn1_info.get(PhKeys.ASN1_MODULE, None) else None,
+            PhUtil.get_dic_data_and_print(PhKeys.ASN1_MODULE_VERSION, PhConstants.SEPERATOR_ONE_LINE,
+                                          asn1_info.get(PhKeys.ASN1_MODULE_VERSION), dic_format=False,
+                                          print_also=False) if asn1_info.get(PhKeys.ASN1_MODULE_VERSION,
+                                                                             None) else None,
+            PhUtil.get_dic_data_and_print(PhKeys.ASN1_OBJECT, PhConstants.SEPERATOR_ONE_LINE,
+                                          asn1_info.get(PhKeys.ASN1_OBJECT), dic_format=False,
+                                          print_also=False) if asn1_info.get(PhKeys.ASN1_OBJECT, None) else None,
+            PhUtil.get_dic_data_and_print(PhKeys.ASN1_OBJECT_ALTERNATE, PhConstants.SEPERATOR_ONE_LINE,
+                                          asn1_info.get(PhKeys.ASN1_OBJECT_ALTERNATE), dic_format=False,
+                                          print_also=False) if asn1_info.get(PhKeys.ASN1_OBJECT_ALTERNATE,
+                                                                             None) else None,
+            PhUtil.get_dic_data_and_print(PhKeys.FETCH_ASN1_OBJECTS_LIST, PhConstants.SEPERATOR_ONE_LINE,
+                                          asn1_info.get(PhKeys.FETCH_ASN1_OBJECTS_LIST), dic_format=False,
+                                          print_also=False) if asn1_info.get(PhKeys.FETCH_ASN1_OBJECTS_LIST,
+                                                                             None) else None,
             #
-            get_dic_data_and_print(PhKeys.INPUT_FORMAT, PhConstants.SEPERATOR_ONE_LINE, data.input_format,
-                                   dic_format=False, print_also=False),
-            get_dic_data_and_print(PhKeys.OUTPUT_FORMAT, PhConstants.SEPERATOR_ONE_LINE, data.output_format,
-                                   dic_format=False, print_also=False),
-            get_dic_data_and_print(PhKeys.OUTPUT_FILE, PhConstants.SEPERATOR_ONE_LINE, data.output_file,
-                                   dic_format=False, print_also=False) if data.output_file else None,
-            get_dic_data_and_print(PhKeys.RE_PARSE_OUTPUT, PhConstants.SEPERATOR_ONE_LINE, data.re_parse_output,
-                                   dic_format=False, print_also=False) if data.re_parse_output else None,
-            get_dic_data_and_print(PhKeys.TLV_PARSING_OF_OUTPUT, PhConstants.SEPERATOR_ONE_LINE,
-                                   data.tlv_parsing_of_output,
-                                   dic_format=False, print_also=False) if data.tlv_parsing_of_output else None,
-            get_dic_data_and_print(PhKeys.OUTPUT_FILE_NAME_KEYWORD, PhConstants.SEPERATOR_ONE_LINE,
-                                   data.output_file_name_keyword,
-                                   dic_format=False, print_also=False) if data.output_file_name_keyword else None,
-            get_dic_data_and_print(PhKeys.QUITE_MODE, PhConstants.SEPERATOR_ONE_LINE, data.quite_mode,
-                                   dic_format=False, print_also=False) if data.quite_mode else None,
+            PhUtil.get_dic_data_and_print(PhKeys.INPUT_FORMAT, PhConstants.SEPERATOR_ONE_LINE, data.input_format,
+                                          dic_format=False, print_also=False),
+            PhUtil.get_dic_data_and_print(PhKeys.OUTPUT_FORMAT, PhConstants.SEPERATOR_ONE_LINE, data.output_format,
+                                          dic_format=False, print_also=False),
+            PhUtil.get_dic_data_and_print(PhKeys.OUTPUT_FILE, PhConstants.SEPERATOR_ONE_LINE, data.output_file,
+                                          dic_format=False, print_also=False) if data.output_file else None,
+            PhUtil.get_dic_data_and_print(PhKeys.RE_PARSE_OUTPUT, PhConstants.SEPERATOR_ONE_LINE, data.re_parse_output,
+                                          dic_format=False, print_also=False) if data.re_parse_output else None,
+            PhUtil.get_dic_data_and_print(PhKeys.TLV_PARSING_OF_OUTPUT, PhConstants.SEPERATOR_ONE_LINE,
+                                          data.tlv_parsing_of_output,
+                                          dic_format=False, print_also=False) if data.tlv_parsing_of_output else None,
+            PhUtil.get_dic_data_and_print(PhKeys.OUTPUT_FILE_NAME_KEYWORD, PhConstants.SEPERATOR_ONE_LINE,
+                                          data.output_file_name_keyword,
+                                          dic_format=False,
+                                          print_also=False) if data.output_file_name_keyword else None,
+            PhUtil.get_dic_data_and_print(PhKeys.ENCODING, PhConstants.SEPERATOR_ONE_LINE, data.encoding,
+                                          dic_format=False, print_also=False) if data.encoding else None,
+            PhUtil.get_dic_data_and_print(PhKeys.ENCODING_ERRORS, PhConstants.SEPERATOR_ONE_LINE, data.encoding_errors,
+                                          dic_format=False, print_also=False) if data.encoding_errors else None,
+            # PhUtil.get_dic_data_and_print(PhKeys.ARCHIVE_OUTPUT, PhConstants.SEPERATOR_ONE_LINE, data.archive_output,
+            #                               dic_format=False, print_also=False) if data.archive_output else None,
+            # PhUtil.get_dic_data_and_print(PhKeys.ARCHIVE_OUTPUT_FORMAT, PhConstants.SEPERATOR_ONE_LINE,
+            #                               data.archive_output_format,
+            #                               dic_format=False, print_also=False) if data.archive_output_format else None,
+            PhUtil.get_dic_data_and_print(PhKeys.QUITE_MODE, PhConstants.SEPERATOR_ONE_LINE, data.quite_mode,
+                                          dic_format=False, print_also=False) if data.quite_mode else None,
         ]))
-        meta_data.output_dic.update(get_dic_data_and_print(PhKeys.INFO, PhConstants.SEPERATOR_INFO, info))
+        meta_data.output_dic.update(PhUtil.get_dic_data_and_print(PhKeys.INFO, PhConstants.SEPERATOR_INFO, info))
         if meta_data.input_mode_key:
-            meta_data.output_dic.update(get_dic_data_and_print(meta_data.input_mode_key, PhConstants.SEPERATOR_ONE_LINE,
-                                                               meta_data.input_mode_value))
+            meta_data.output_dic.update(
+                PhUtil.get_dic_data_and_print(meta_data.input_mode_key, PhConstants.SEPERATOR_ONE_LINE,
+                                              meta_data.input_mode_value))
             if len(data.get_input_modes_hierarchy()) > 1:
                 meta_data.output_dic.update(
-                    get_dic_data_and_print(PhKeys.INPUT_MODES_HIERARCHY, PhConstants.SEPERATOR_ONE_LINE,
-                                           data.get_input_modes_hierarchy_as_str()))
+                    PhUtil.get_dic_data_and_print(PhKeys.INPUT_MODES_HIERARCHY, PhConstants.SEPERATOR_ONE_LINE,
+                                                  data.get_input_modes_hierarchy_as_str()))
         if meta_data.export_mode or (meta_data.parsed_data and meta_data.output_file_path):
             meta_data.output_dic.update(
-                get_dic_data_and_print(PhKeys.EXPORT_FILE if meta_data.export_mode else PhKeys.OUTPUT_FILE,
-                                       PhConstants.SEPERATOR_ONE_LINE, meta_data.output_file_path))
+                PhUtil.get_dic_data_and_print(PhKeys.EXPORT_FILE if meta_data.export_mode else PhKeys.OUTPUT_FILE,
+                                              PhConstants.SEPERATOR_ONE_LINE, meta_data.output_file_path))
         if meta_data.re_parsed_data and meta_data.re_output_file_path:
-            meta_data.output_dic.update(get_dic_data_and_print(PhKeys.RE_OUTPUT_FILE, PhConstants.SEPERATOR_ONE_LINE,
-                                                               meta_data.re_output_file_path))
+            meta_data.output_dic.update(
+                PhUtil.get_dic_data_and_print(PhKeys.RE_OUTPUT_FILE, PhConstants.SEPERATOR_ONE_LINE,
+                                              meta_data.re_output_file_path))
     if data.print_input:
-        meta_data.output_dic.update(get_dic_data_and_print(PhKeys.INPUT_DATA, input_sep, data.input_data))
+        meta_data.output_dic.update(PhUtil.get_dic_data_and_print(PhKeys.INPUT_DATA, input_sep, data.input_data))
     bulk_mode = True if len(data.get_input_modes_hierarchy()) >= 1 else False
     output_present = meta_data.parsed_data
     print_output = data.print_output
@@ -131,16 +153,12 @@ def print_data(data=None, meta_data=None, info_data=None, master_data=None):
         # in bulk mode, output will not be available
         print_output = False
     if data.print_output and print_output:  # and meta_data.parsed_data:
-        meta_data.output_dic.update(get_dic_data_and_print(PhKeys.OUTPUT_DATA, output_sep, meta_data.parsed_data))
+        meta_data.output_dic.update(
+            PhUtil.get_dic_data_and_print(PhKeys.OUTPUT_DATA, output_sep, meta_data.parsed_data))
     if data.print_output and print_output and data.re_parse_output:
-        meta_data.output_dic.update(get_dic_data_and_print(PhKeys.RE_PARSED_DATA, input_sep, meta_data.re_parsed_data))
+        meta_data.output_dic.update(
+            PhUtil.get_dic_data_and_print(PhKeys.RE_PARSED_DATA, input_sep, meta_data.re_parsed_data))
     PhUtil.print_separator()
-
-
-def get_dic_data_and_print(key, sep, value, dic_format=True, print_also=True):
-    if value is not None and isinstance(value, str) and '\n' in value:
-        value = PreservedScalarString(value)
-    return PhUtil.get_key_value_pair(key=key, value=value, sep=sep, dic_format=dic_format, print_also=print_also)
 
 
 def set_includes_excludes_files(data, meta_data):
@@ -211,46 +229,18 @@ def prepare_config_data_for_yml(data):
     return file_dic
 
 
-
 def parse_config(config_data):
     asn1_schema = None
     asn1_object = None
     asn1_object_alternate = None
     fetch_asn1_objects_list = None
+    data_types = {
+    }
+    config_data = PhUtil.parse_config(config_data, data_types=data_types)
     # PhUtil.print_iter(config_data, 'config_data initial', verbose=True)
     for k, v in config_data.items():
         if not v:
             continue
-        if isinstance(v, str):
-            # Trim Garbage data
-            v = PhUtil.trim_white_spaces_in_str(v)
-            v = PhUtil.clear_quotation_marks(v)
-            v_lower_case = v.lower()
-            v_eval = None
-            try:
-                v_eval = eval(v)
-                if isinstance(v_eval, str):
-                    # Everything was already str
-                    v_eval = None
-            except:
-                pass
-            if v_lower_case in ['none']:
-                v = None
-                config_data[k] = v
-            if v_lower_case in ['true']:
-                v = True
-                config_data[k] = v
-            if v_lower_case in ['false']:
-                v = False
-                config_data[k] = v
-        if not v:
-            continue
-        if v in [PhConstants.STR_SELECT_OPTION]:
-            v = None
-            config_data[k] = v
-        if k in [PhKeys.INPUT_DATA]:
-            if v_eval is not None:
-                v = v_eval
         if k in [PhKeys.ASN1_SCHEMA]:
             asn1_schema = Asn1Versions._get_asn1_version(v)
             continue
@@ -339,15 +329,20 @@ def set_input_output_format(data):
         data.input_format = input_format_temp
 
 
-def set_defaults_for_printing(data):
-    if data.quite_mode is None:
-        data.quite_mode = Defaults.QUITE_MODE
-    if data.print_input is None:
-        data.print_input = Defaults.PRINT_INPUT
-    if data.print_output is None:
-        data.print_output = Defaults.PRINT_OUTPUT
-    if data.print_info is None:
-        data.print_info = Defaults.PRINT_INFO
+def set_defaults_for_common_objects(data):
+    """
+
+    :param data:
+    :return:
+    """
+    data.quite_mode = PhUtil.set_if_none(data.quite_mode, Defaults.QUITE_MODE)
+    data.print_input = PhUtil.set_if_none(data.print_input, Defaults.PRINT_INPUT)
+    data.print_output = PhUtil.set_if_none(data.print_output, Defaults.PRINT_OUTPUT)
+    data.print_info = PhUtil.set_if_none(data.print_info, Defaults.PRINT_INFO)
+    data.encoding = PhUtil.set_if_none(data.encoding, Defaults.ENCODING)
+    data.encoding_errors = PhUtil.set_if_none(data.encoding_errors, Defaults.ENCODING_ERRORS)
+    data.archive_output = PhUtil.set_if_none(data.archive_output, Defaults.ARCHIVE_OUTPUT)
+    data.archive_output_format = PhUtil.set_if_none(data.archive_output_format, Defaults.ARCHIVE_OUTPUT_FORMAT)
 
 
 def set_defaults(data, meta_data):
@@ -357,12 +352,9 @@ def set_defaults(data, meta_data):
     :param meta_data:
     :return:
     """
-    if data.input_format is None:
-        data.input_format = Defaults.FORMAT_INPUT
-    if data.output_format is None:
-        data.output_format = Defaults.FORMAT_OUTPUT
-    if data.re_parse_output is None:
-        data.re_parse_output = Defaults.RE_PARSE_OUTPUT
+    data.input_format = PhUtil.set_if_none(data.input_format, Defaults.FORMAT_INPUT)
+    data.output_format = PhUtil.set_if_none(data.output_format, Defaults.FORMAT_OUTPUT)
+    data.re_parse_output = PhUtil.set_if_none(data.re_parse_output, Defaults.RE_PARSE_OUTPUT)
     if meta_data is None:
         return
     data.set_asn1_element_name()
@@ -391,12 +383,8 @@ def read_yaml(input_file):
     return file_dic, Data(**config_data)
 
 
-def read_web_request(request_form):
-    return Data(**parse_config(request_form))
-
-
 def write_yml_file(output_file_path, file_dic, output_dic=None, output_versions_dic=None):
-    Util.make_dirs(file_path=output_file_path)
+    PhUtil.make_dirs(file_path=output_file_path)
     with open(output_file_path, 'w') as file:
         if output_dic:
             file_dic[PhKeys.OUTPUT] = dict(output_dic)
@@ -406,6 +394,10 @@ def write_yml_file(output_file_path, file_dic, output_dic=None, output_versions_
         yaml_object.width = 1000
         yaml_object.indent(mapping=4)
         yaml_object.dump(file_dic, file)
+
+
+def read_web_request(request_form):
+    return Data(**parse_config(request_form))
 
 
 def set_output_file_path(data, meta_data):
@@ -488,9 +480,29 @@ def set_re_output_file_name(data, meta_data):
     return
 
 
-def write_output_file(output_file_name, parsed_data):
-    with open(output_file_name, 'w') as file:
-        file.writelines(parsed_data)
+def read_input_file(data, meta_data, info_data):
+    try:
+        # Text File
+        with open(data.input_data, mode='r', encoding=data.encoding, errors=data.encoding_errors) as the_file:
+            resp = ''.join(the_file.readlines())
+    except UnicodeDecodeError:
+        # Binary File/Encoding Error
+        with open(data.input_data, 'rb') as the_file:
+            resp = the_file.read()
+    if not resp:
+        raise ValueError(PhExceptionHelper(msg_key=PhConstants.EMPTY_INPUT_FILE))
+    return resp
+
+
+def write_output_file(data, meta_data, info_data, flip_output=False):
+    output_file_path = meta_data.output_file_path
+    data_to_write = meta_data.parsed_data
+    if flip_output is True:
+        output_file_path = meta_data.re_output_file_path
+        data_to_write = meta_data.re_parsed_data
+    data_to_write = PhUtil.set_if_none(data_to_write, PhConstants.STR_EMPTY)
+    with open(output_file_path, mode='w', encoding=data.encoding, errors=data.encoding_errors) as file:
+        file.writelines(data_to_write)
 
 
 def replace_data(target_data, keyword, new_value):

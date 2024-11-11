@@ -8,16 +8,16 @@ input:
 output:
     remarks: HexInput; AsciiOutput; YmlInput; OutputKeyword
     info_data: Trying with utf-8
-    info: 'Transaction Id: d6bkcd16xerz; Mode: Yml_Conversion_Mode; Input Format: hex; Output Format: ascii; Output File Name Keyword: output'
+    info: 'Transaction Id: bet5wxt7y8pb; Mode: Yml_Conversion_Mode; Input Format: hex; Output Format: ascii; Output File Name Keyword: output; Encoding: utf-8; Encoding Errors: replace'
     input_yml: Data\SampleData\Generic\ASCII\hex_to_ascii_op.yml
     output_file: Data/SampleData/Generic/ASCII/\hex_to_ascii_op_output.yml
     input_data: 57656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c61792021212157656c636f6d6520546f2041736e506c617920212121
     output_data: Welcome To AsnPlay !!!Welcome To AsnPlay !!!Welcome To AsnPlay !!!Welcome To AsnPlay !!!
 output_version:
     Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
-    pythonHelpers: v4.4.8
-    asn1Play: v8.4.2
-    SGP22: v3_0_0
+    pythonHelpers: v5.1.0
+    asn1Play: v8.5.0
+    SGP22: v3_1
     SGP32: v1_1
-    eUICC_Profile_Package: v3_2
-    time_stamp: Friday, Nov 01 2024, 12:51:39:549795, IST (GMT+0530)
+    eUICC_Profile_Package: v3_3_1
+    time_stamp: Monday, Nov 11 2024, 14:43:37:548512, IST (GMT+0530)

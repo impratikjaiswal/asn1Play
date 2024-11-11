@@ -25,6 +25,7 @@ def process_data(data, meta_data, info_data, flip_output=False):
 
     :param data:
     :param meta_data:
+    :param info_data:
     :param flip_output:
     :return:
     """
@@ -43,7 +44,6 @@ def process_data(data, meta_data, info_data, flip_output=False):
         meta_data.re_parsed_data = res
     else:
         meta_data.parsed_data = res
-    # return res
 
 
 def convert_data(input_data, output_format, info_data):
@@ -51,10 +51,10 @@ def convert_data(input_data, output_format, info_data):
     if output_format in FormatsGroup.BASE64_FORMATS:
         return PhUtil.decode_to_base64_if_hex(input_data)
     if output_format in FormatsGroup.ASCII_FORMATS:
-        decoding_format = PhConstants.STR_ENCODING_FORMAT_UTF8
+        decoding_format = PhConstants.CHAR_ENCODING_UTF8
         if info_data is not None:
             info_data.set_info(f'Trying with {decoding_format}')
-        return PhUtil.hex_str_to_ascii(input_data, only_if_printable=False, decoding_format=decoding_format)
+        return PhUtil.hex_str_to_ascii(input_data, only_if_printable=False, encoding=decoding_format)
     if output_format in FormatsGroup.INPUT_FORMATS_DER:
         return input_data
     if output_format in Formats.DER_BYTE_ARRAY:

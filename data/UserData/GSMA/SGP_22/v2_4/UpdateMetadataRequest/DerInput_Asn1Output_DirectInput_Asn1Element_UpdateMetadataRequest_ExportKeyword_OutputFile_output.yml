@@ -5,6 +5,10 @@ input:
     print_info: true
     remarks:
     - DerInput; Asn1Output; DirectInput; Asn1Element; UpdateMetadataRequest; ExportKeyword; OutputFile;
+    encoding: utf-8
+    encoding_errors: replace
+    archive_output: true
+    archive_output_format: .zip
     input_format: der
     output_format: asn1
     asn1_element: SGP_22.RSPDefinitions.UpdateMetadataRequest
@@ -12,7 +16,7 @@ input:
     output_file_name_keyword: output
 output:
     remarks: DerInput; Asn1Output; DirectInput; Asn1Element; UpdateMetadataRequest; ExportKeyword; OutputFile
-    info: 'Transaction Id: utqk6owlicny; Mode: Yml_Encoding_Mode; Asn1 Module: RSPDefinitions; Asn1 Module Version: v2_4; Asn1 Object: UpdateMetadataRequest; Input Format: der; Output Format: asn1; Output File: Data\UserData\GSMA\SGP_22\v2_4\UpdateMetadataRequest; Output File Name Keyword: output'
+    info: 'Transaction Id: gnwo71blpw3q; Mode: Yml_Encoding_Mode; Asn1 Module: RSPDefinitions; Asn1 Module Version: v2_4; Asn1 Object: UpdateMetadataRequest; Input Format: der; Output Format: asn1; Output File: Data\UserData\GSMA\SGP_22\v2_4\UpdateMetadataRequest; Output File Name Keyword: output; Encoding: utf-8; Encoding Errors: replace'
     input_yml: Data\UserData\GSMA\SGP_22\v2_4\UpdateMetadataRequest\DerInput_Asn1Output_DirectInput_Asn1Element_UpdateMetadataRequest_ExportKeyword_OutputFile_export.yml
     output_file: Data/UserData/GSMA/SGP_22/v2_4/\UpdateMetadataRequest\DerInput_Asn1Output_DirectInput_Asn1Element_UpdateMetadataRequest_ExportKeyword_OutputFile_output.yml
     input_data: bf2a0499020520
@@ -22,9 +26,9 @@ output:
         }
 output_version:
     Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
-    pythonHelpers: v4.4.8
-    asn1Play: v8.4.2
+    pythonHelpers: v5.1.0
+    asn1Play: v8.5.0
     SGP22: v2_4
     SGP32: v1_0_1
     eUICC_Profile_Package: v3_2
-    time_stamp: Friday, Nov 01 2024, 12:51:28:907436, IST (GMT+0530)
+    time_stamp: Monday, Nov 11 2024, 14:43:17:120654, IST (GMT+0530)

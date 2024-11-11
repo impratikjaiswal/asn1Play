@@ -13,30 +13,43 @@ from asn1_play.main.helper.variables import Variables
 
 class Data:
     def __init__(self,
+                 # Common Param
                  input_data=None,
                  print_input=None,
                  print_output=None,
                  print_info=None,
                  quite_mode=None,
                  remarks=[],
+                 encoding=None,
+                 encoding_errors=None,
+                 archive_output=None,
+                 # TODO: Check if file can be exported, then zip also can be exported
+                 archive_output_format=None,
+                 # Specific Param
                  input_format=None,
                  output_format=None,
+                 # TODO: Check if output_file/output_path (export yml) can be part of common param
+                 output_file=None,
                  asn1_element=None,
                  tlv_parsing_of_output=None,
-                 output_file=None,
                  re_parse_output=None,
                  output_file_name_keyword=None,
+                 # Unknown Param
                  **kwargs,
                  ):
         """
         Instantiate the Data Object for further Processing.
 
-        :param input_data: Input Data
-        :param print_input: Printing of input needed ?
-        :param print_output: Printing of output needed ?
-        :param print_info:  Printing of info needed ?
-        :param quite_mode: Quite mode needed ? if yes, no printing at all.
+        :param input_data: Input Data; String(s), File Path(s), Dir Paths(s)
+        :param print_input: Printing of input needed?
+        :param print_output: Printing of output needed?
+        :param print_info:  Printing of info needed?
+        :param quite_mode: Quite mode needed? If yes, no printing at all.
         :param remarks: Remarks for Input Data
+        :param encoding: Encoding for Input/Output Data
+        :param encoding_errors: Encoding Errors Handling for Input/Output Data
+        :param archive_output: Archiving of output needed?
+        :param archive_output_format: Archive Output Format
         :param input_format: Format of Input Data
         :param output_format:
         :param asn1_element:
@@ -60,6 +73,10 @@ class Data:
         self.print_info = print_info
         self.quite_mode = quite_mode
         self.remarks = remarks
+        self.encoding = encoding
+        self.encoding_errors = encoding_errors
+        self.archive_output = archive_output
+        self.archive_output_format = archive_output_format
         self.input_format = input_format
         self.output_format = output_format
         self.asn1_element = asn1_element

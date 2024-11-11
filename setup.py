@@ -18,11 +18,11 @@ if not packages:
 print(f'Packages are {packages}')
 # potential dependencies
 install_reqs = [
-    'pycrate',
-    'ruamel.yaml',
     'incremental',
     'click',
     'twisted',
+    'ruamel.yaml',
+    'pycrate',
 ]
 
 setup_reqs = [

@@ -1,13 +1,13 @@
-from python_helpers.ph_util import PhUtil
-
-
 class InfoData:
     def __init__(self, info=[]):
-        self.info = info
-        self.set_info(self.info)
+        self.info = []
+        self.set_info(info)
 
     def set_info(self, info):
-        self.info = PhUtil.to_list(info, trim_data=True, all_str=True)
+        if isinstance(info, list):
+            self.info.extend(info)
+        else:
+            self.info.append(info)
 
     def get_info_list(self):
         return self.info

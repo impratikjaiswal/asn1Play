@@ -19,13 +19,33 @@ class UserData(DataTypeMaster):
         print_info = None
         super().set_print_info(print_info)
 
-    def set_output_file(self):
-        output_file = None
-        super().set_output_file(output_file)
+    def set_quiet_mode(self):
+        quite_mode = None
+        super().set_quiet_mode(quite_mode)
 
     def set_remarks(self):
         remarks = None
         super().set_remarks(remarks)
+
+    def set_encoding(self):
+        encoding = None
+        super().set_encoding(encoding)
+
+    def set_encoding_errors(self):
+        encoding_errors = None
+        super().set_encoding_errors(encoding_errors)
+
+    def set_archive_output(self):
+        archive_output = None
+        super().set_archive_output(archive_output)
+
+    def set_archive_output_format(self):
+        archive_output_format = None
+        super().set_archive_output_format(archive_output_format)
+
+    def set_output_file(self):
+        output_file = None
+        super().set_output_file(output_file)
 
     def set_re_parse_output(self):
         re_parse_output = None

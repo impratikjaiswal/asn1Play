@@ -6,7 +6,6 @@ class Constants:
     UNKNOWN_ASN1_SCHEMA = 'Unknown Asn1 Schema'
     UNKNOWN_ASN1_OBJECT = 'Unknown Asn1 Object'
     #
-    INPUT_FILE_EMPTY = 'Input File Is empty.'
     ASN1_OBJECT_IS_EMPTY_OR_MISSING = 'Asn1 Object is either empty or not provided.'
     ASN1_SCHEMA_IS_EMPTY_OR_MISSING = 'Asn1 Schema is either empty or not provided.'
     # Not Verified

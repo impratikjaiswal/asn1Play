@@ -6,7 +6,7 @@
 # git+https://impratikjaiswal:github_pat_11ADC5ANI03ZMYqhfKDRTR_dC9oMVWu9yJQu5OC95WotyQywvInmOpl00HwEdM77DuSJXSGPYVuqRMg7B@github.com/impratikjaiswal/pythonHelpers@v1.7.0
 
 # Util Lib From Specific Tag (Remove @ String for Main Branch); Public Repo
-git+https://github.com/impratikjaiswal/pythonHelpers@v4.4.8
+git+https://github.com/impratikjaiswal/pythonHelpers@v5.1.0
 
 # Util Lib From Local Path
 # D:\Other\Github_Self\pythonHelpers

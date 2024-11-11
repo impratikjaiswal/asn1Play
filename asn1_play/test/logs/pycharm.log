@@ -12,6 +12,67 @@ init_modules: different OID objects (id-rspRole-dp-auth, id-rspRole-dp-auth-v2) 
 init_modules: different OID objects (id-rspRole-dp-pb, id-rspRole-dp-pb-v2) with same OID value (2, 23, 146, 1, 2, 1, 5)
 init_modules: different OID objects (id-rspRole-ds-tls, id-rspRole-ds-tls-v2) with same OID value (2, 23, 146, 1, 2, 1, 6)
 init_modules: different OID objects (id-rspRole-ds-auth, id-rspRole-ds-auth-v2) with same OID value (2, 23, 146, 1, 2, 1, 7)
+--------------------------------------------------------------------------------
+Python version is v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
+Python executable Path is D:\Other\Github_Self\asn1Play\venv\Scripts
+--------------------------------------------------------------------------------
+User Name is Pratik Jaiswal
+User Account is impra
+--------------------------------------------------------------------------------
+Time Stamp is Monday, Nov 11 2024, 14:42:57:065524, IST (GMT+0530)
+--------------------------------------------------------------------------------
+Git Summary is d72f59e;  (HEAD -> main, tag: v8.4.2, origin/main, origin/HEAD); 2024-11-01 13:00:56 +0530; imPratik <impratikjaiswal@gmail.com>; imports synced
+--------------------------------------------------------------------------------
+pythonHelpers version is v5.1.0
+--------------------------------------------------------------------------------
+asn1Play version is v8.5.0
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+tlvPlay version is v4.3.1
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+SGP22 compile_time version is 
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+SGP32 compile_time version is 
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+eUICC_Profile_Package compile_time version is 
+--------------------------------------------------------------------------------
+----------------------------------------------------- unit_testing -----------------------------------------------------
+test_case_data:
+test_case_id: unit_testing
+test_case_name: unit_testing
+test_case_file_name: unit_testing.log
+execution_mode: UNIT_TESTING
+error_handling_mode: CONTINUE_ON_ERROR
+top_folder_path: []
+
+*********************************************** update_variables_in_file ***********************************************
+execution_mode: value_original was USER; target_value is UNIT_TESTING
+top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
+Executing "run_tc.bat"
+Iteration 1
+Time Stamp is: 11-11-2024 14:42:57.10
+impra
+LAPTOP-AO84OQO2
+
+Microsoft Windows [Version 10.0.19045.5011]
+
+
+
+
+"unit_testing"
+Attempting to activate existing Virtual Environment
+Attempting to deactivate existing (and activated) Virtual Environment
+
+
+
+
+"Batch Execution Done"
+******************************************************* clean_up *******************************************************
+execution_mode: value_original was UNIT_TESTING; target_value is USER
+top_folder_path: value_original was []; target_value is [os.pardir, os.pardir]
 --------------------------------------------------------- user ---------------------------------------------------------
 test_case_data:
 test_case_id: user
@@ -23,7 +84,13 @@ top_folder_path: []
 
 *********************************************** update_variables_in_file ***********************************************
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
-Executing "run_tc_asn1_play.bat"
+Executing "run_tc.bat"
+Iteration 2
+Time Stamp is: 11-11-2024 14:43:01.97
+impra
+LAPTOP-AO84OQO2
+
+Microsoft Windows [Version 10.0.19045.5011]
 
 
 
@@ -38,11 +105,11 @@ Attempting to deactivate existing (and activated) Virtual Environment
 "Batch Execution Done"
 ******************************************************* clean_up *******************************************************
 top_folder_path: value_original was []; target_value is [os.pardir, os.pardir]
------------------------------------------------------- sample_list -----------------------------------------------------
+----------------------------------------------------- samples_list -----------------------------------------------------
 test_case_data:
-test_case_id: sample_list
-test_case_name: sample_list
-test_case_file_name: sample_list.log
+test_case_id: samples_list
+test_case_name: samples_list
+test_case_file_name: samples_list.log
 execution_mode: SAMPLES_LIST
 error_handling_mode: CONTINUE_ON_ERROR
 top_folder_path: []
@@ -50,12 +117,18 @@ top_folder_path: []
 *********************************************** update_variables_in_file ***********************************************
 execution_mode: value_original was USER; target_value is SAMPLES_LIST
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
-Executing "run_tc_asn1_play.bat"
+Executing "run_tc.bat"
+Iteration 3
+Time Stamp is: 11-11-2024 14:43:03.43
+impra
+LAPTOP-AO84OQO2
+
+Microsoft Windows [Version 10.0.19045.5011]
 
 
 
 
-"sample_list"
+"samples_list"
 Attempting to activate existing Virtual Environment
 Attempting to deactivate existing (and activated) Virtual Environment
 
@@ -78,7 +151,13 @@ top_folder_path: []
 *********************************************** update_variables_in_file ***********************************************
 execution_mode: value_original was USER; target_value is DEV
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
-Executing "run_tc_asn1_play.bat"
+Executing "run_tc.bat"
+Iteration 4
+Time Stamp is: 11-11-2024 14:43:04.92
+impra
+LAPTOP-AO84OQO2
+
+Microsoft Windows [Version 10.0.19045.5011]
 
 
 
@@ -86,15 +165,21 @@ Executing "run_tc_asn1_play.bat"
 "dev"
 Attempting to activate existing Virtual Environment
 Traceback (most recent call last):
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 108, in process_safe
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 126, in process_safe
     self.__process_safe_individual(data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 210, in __process_safe_individual
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 236, in __process_safe_individual
     process_all_data_types(data, meta_data, info_data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\parser.py", line 62, in process_all_data_types
-    if not byte_array_format and data.input_data and os.path.isdir(os.path.abspath(data.input_data)):
-  File "D:\ProgramFiles\Python39\lib\ntpath.py", line 527, in abspath
-    return normpath(_getfullpathname(path))
-TypeError: _getfullpathname: path should be string, bytes or os.PathLike, not int
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\parser.py", line 133, in process_all_data_types
+    process_data(data=data, meta_data=meta_data, info_data=info_data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 41, in process_data
+    res = decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 106, in decode_encode_asn
+    input_data = PhUtil.trim_and_kill_all_white_spaces(input_data)
+  File "D:\Other\Github_Self\asn1Play\venv\lib\site-packages\python_helpers\ph_util.py", line 91, in trim_and_kill_all_white_spaces
+    return re.sub(r'\s+', '', str_data)
+  File "D:\ProgramFiles\Python39\lib\re.py", line 210, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+TypeError: expected string or bytes-like object
 Attempting to deactivate existing (and activated) Virtual Environment
 
 
@@ -116,7 +201,13 @@ top_folder_path: []
 *********************************************** update_variables_in_file ***********************************************
 execution_mode: value_original was USER; target_value is UNIT_TESTING_EXTERNAL
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
-Executing "run_tc_asn1_play.bat"
+Executing "run_tc.bat"
+Iteration 5
+Time Stamp is: 11-11-2024 14:43:06.46
+impra
+LAPTOP-AO84OQO2
+
+Microsoft Windows [Version 10.0.19045.5011]
 
 
 
@@ -144,13 +235,35 @@ top_folder_path: []
 *********************************************** update_variables_in_file ***********************************************
 execution_mode: value_original was USER; target_value is ALL
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
-Executing "run_tc_asn1_play.bat"
+Executing "run_tc.bat"
+Iteration 6
+Time Stamp is: 11-11-2024 14:43:07.99
+impra
+LAPTOP-AO84OQO2
+
+Microsoft Windows [Version 10.0.19045.5011]
 
 
 
 
 "all"
 Attempting to activate existing Virtual Environment
+Traceback (most recent call last):
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 126, in process_safe
+    self.__process_safe_individual(data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 236, in __process_safe_individual
+    process_all_data_types(data, meta_data, info_data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\parser.py", line 133, in process_all_data_types
+    process_data(data=data, meta_data=meta_data, info_data=info_data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 41, in process_data
+    res = decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 106, in decode_encode_asn
+    input_data = PhUtil.trim_and_kill_all_white_spaces(input_data)
+  File "D:\Other\Github_Self\asn1Play\venv\lib\site-packages\python_helpers\ph_util.py", line 91, in trim_and_kill_all_white_spaces
+    return re.sub(r'\s+', '', str_data)
+  File "D:\ProgramFiles\Python39\lib\re.py", line 210, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+TypeError: expected string or bytes-like object
 Attempting to deactivate existing (and activated) Virtual Environment
 
 
@@ -158,41 +271,6 @@ Attempting to deactivate existing (and activated) Virtual Environment
 
 "Batch Execution Done"
 ******************************************************* clean_up *******************************************************
-execution_mode: value_original was ALL; target_value is USER
-top_folder_path: value_original was []; target_value is [os.pardir, os.pardir]
------------------------------------------- sgp22_v3_1__epp_v3_3_1__sgp32_v1_1 ------------------------------------------
-test_case_data:
-test_case_id: sgp22_v3_1__epp_v3_3_1__sgp32_v1_1
-test_case_name: sgp22_v3_1__epp_v3_3_1__sgp32_v1_1
-test_case_file_name: sgp22_v3_1__epp_v3_3_1__sgp32_v1_1.log
-SGP22: v3_1
-eUICC_Profile_Package: v3_3_1
-SGP32: v1_1
-execution_mode: ALL
-error_handling_mode: CONTINUE_ON_ERROR
-top_folder_path: []
-
-*********************************************** update_variables_in_file ***********************************************
-SGP32: value_original was v1_2; target_value is v1_1
-eUICC_Profile_Package: value_original was v3_1; target_value is v3_3_1
-execution_mode: value_original was USER; target_value is ALL
-top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
-Executing "run_tc_asn1_play.bat"
-
-
-
-
-"sgp22_v3_1__epp_v3_3_1__sgp32_v1_1"
-Attempting to activate existing Virtual Environment
-Attempting to deactivate existing (and activated) Virtual Environment
-
-
-
-
-"Batch Execution Done"
-******************************************************* clean_up *******************************************************
-SGP32: value_original was v1_1; target_value is v1_2
-eUICC_Profile_Package: value_original was v3_3_1; target_value is v3_1
 execution_mode: value_original was ALL; target_value is USER
 top_folder_path: value_original was []; target_value is [os.pardir, os.pardir]
 ------------------------------------------ sgp22_v2_4__epp_v3_2__sgp32_v1_0_1 ------------------------------------------
@@ -213,13 +291,35 @@ SGP32: value_original was v1_2; target_value is v1_0_1
 eUICC_Profile_Package: value_original was v3_1; target_value is v3_2
 execution_mode: value_original was USER; target_value is ALL
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
-Executing "run_tc_asn1_play.bat"
+Executing "run_tc.bat"
+Iteration 7
+Time Stamp is: 11-11-2024 14:43:14.88
+impra
+LAPTOP-AO84OQO2
+
+Microsoft Windows [Version 10.0.19045.5011]
 
 
 
 
 "sgp22_v2_4__epp_v3_2__sgp32_v1_0_1"
 Attempting to activate existing Virtual Environment
+Traceback (most recent call last):
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 126, in process_safe
+    self.__process_safe_individual(data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 236, in __process_safe_individual
+    process_all_data_types(data, meta_data, info_data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\parser.py", line 133, in process_all_data_types
+    process_data(data=data, meta_data=meta_data, info_data=info_data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 41, in process_data
+    res = decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 106, in decode_encode_asn
+    input_data = PhUtil.trim_and_kill_all_white_spaces(input_data)
+  File "D:\Other\Github_Self\asn1Play\venv\lib\site-packages\python_helpers\ph_util.py", line 91, in trim_and_kill_all_white_spaces
+    return re.sub(r'\s+', '', str_data)
+  File "D:\ProgramFiles\Python39\lib\re.py", line 210, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+TypeError: expected string or bytes-like object
 Attempting to deactivate existing (and activated) Virtual Environment
 
 
@@ -249,13 +349,35 @@ SGP22: value_original was v3_1; target_value is v3_0_0
 SGP32: value_original was v1_2; target_value is v1_0_1
 execution_mode: value_original was USER; target_value is ALL
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
-Executing "run_tc_asn1_play.bat"
+Executing "run_tc.bat"
+Iteration 8
+Time Stamp is: 11-11-2024 14:43:20.49
+impra
+LAPTOP-AO84OQO2
+
+Microsoft Windows [Version 10.0.19045.5011]
 
 
 
 
 "sgp22_v3_0_0__epp_v3_1__sgp32_v1_0_1"
 Attempting to activate existing Virtual Environment
+Traceback (most recent call last):
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 126, in process_safe
+    self.__process_safe_individual(data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 236, in __process_safe_individual
+    process_all_data_types(data, meta_data, info_data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\parser.py", line 133, in process_all_data_types
+    process_data(data=data, meta_data=meta_data, info_data=info_data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 41, in process_data
+    res = decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 106, in decode_encode_asn
+    input_data = PhUtil.trim_and_kill_all_white_spaces(input_data)
+  File "D:\Other\Github_Self\asn1Play\venv\lib\site-packages\python_helpers\ph_util.py", line 91, in trim_and_kill_all_white_spaces
+    return re.sub(r'\s+', '', str_data)
+  File "D:\ProgramFiles\Python39\lib\re.py", line 210, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+TypeError: expected string or bytes-like object
 Attempting to deactivate existing (and activated) Virtual Environment
 
 
@@ -285,13 +407,35 @@ SGP32: value_original was v1_2; target_value is v1_1
 eUICC_Profile_Package: value_original was v3_1; target_value is v3_2
 execution_mode: value_original was USER; target_value is ALL
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
-Executing "run_tc_asn1_play.bat"
+Executing "run_tc.bat"
+Iteration 9
+Time Stamp is: 11-11-2024 14:43:27.18
+impra
+LAPTOP-AO84OQO2
+
+Microsoft Windows [Version 10.0.19045.5011]
 
 
 
 
 "sgp22_v3_0_0__epp_v3_2__sgp32_v1_1"
 Attempting to activate existing Virtual Environment
+Traceback (most recent call last):
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 126, in process_safe
+    self.__process_safe_individual(data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 236, in __process_safe_individual
+    process_all_data_types(data, meta_data, info_data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\parser.py", line 133, in process_all_data_types
+    process_data(data=data, meta_data=meta_data, info_data=info_data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 41, in process_data
+    res = decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 106, in decode_encode_asn
+    input_data = PhUtil.trim_and_kill_all_white_spaces(input_data)
+  File "D:\Other\Github_Self\asn1Play\venv\lib\site-packages\python_helpers\ph_util.py", line 91, in trim_and_kill_all_white_spaces
+    return re.sub(r'\s+', '', str_data)
+  File "D:\ProgramFiles\Python39\lib\re.py", line 210, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+TypeError: expected string or bytes-like object
 Attempting to deactivate existing (and activated) Virtual Environment
 
 
@@ -304,3 +448,112 @@ SGP32: value_original was v1_1; target_value is v1_2
 eUICC_Profile_Package: value_original was v3_2; target_value is v3_1
 execution_mode: value_original was ALL; target_value is USER
 top_folder_path: value_original was []; target_value is [os.pardir, os.pardir]
+------------------------------------------ sgp22_v3_1__epp_v3_3_1__sgp32_v1_1 ------------------------------------------
+test_case_data:
+test_case_id: sgp22_v3_1__epp_v3_3_1__sgp32_v1_1
+test_case_name: sgp22_v3_1__epp_v3_3_1__sgp32_v1_1
+test_case_file_name: sgp22_v3_1__epp_v3_3_1__sgp32_v1_1.log
+SGP22: v3_1
+eUICC_Profile_Package: v3_3_1
+SGP32: v1_1
+execution_mode: ALL
+error_handling_mode: CONTINUE_ON_ERROR
+top_folder_path: []
+
+*********************************************** update_variables_in_file ***********************************************
+SGP32: value_original was v1_2; target_value is v1_1
+eUICC_Profile_Package: value_original was v3_1; target_value is v3_3_1
+execution_mode: value_original was USER; target_value is ALL
+top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
+Executing "run_tc.bat"
+Iteration 10
+Time Stamp is: 11-11-2024 14:43:34.88
+impra
+LAPTOP-AO84OQO2
+
+Microsoft Windows [Version 10.0.19045.5011]
+
+
+
+
+"sgp22_v3_1__epp_v3_3_1__sgp32_v1_1"
+Attempting to activate existing Virtual Environment
+Traceback (most recent call last):
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 126, in process_safe
+    self.__process_safe_individual(data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 236, in __process_safe_individual
+    process_all_data_types(data, meta_data, info_data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\parser.py", line 133, in process_all_data_types
+    process_data(data=data, meta_data=meta_data, info_data=info_data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 41, in process_data
+    res = decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 106, in decode_encode_asn
+    input_data = PhUtil.trim_and_kill_all_white_spaces(input_data)
+  File "D:\Other\Github_Self\asn1Play\venv\lib\site-packages\python_helpers\ph_util.py", line 91, in trim_and_kill_all_white_spaces
+    return re.sub(r'\s+', '', str_data)
+  File "D:\ProgramFiles\Python39\lib\re.py", line 210, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+TypeError: expected string or bytes-like object
+Attempting to deactivate existing (and activated) Virtual Environment
+
+
+
+
+"Batch Execution Done"
+******************************************************* clean_up *******************************************************
+SGP32: value_original was v1_1; target_value is v1_2
+eUICC_Profile_Package: value_original was v3_3_1; target_value is v3_1
+execution_mode: value_original was ALL; target_value is USER
+top_folder_path: value_original was []; target_value is [os.pardir, os.pardir]
+----------------------------------------------------- cli_no_param -----------------------------------------------------
+test_case_data:
+test_case_id: cli_no_param
+test_case_name: cli_no_param
+test_case_file_name: cli_no_param.log
+batch_params: 
+
+Executing "run_tc.bat"
+Iteration 1
+Time Stamp is: 11-11-2024 14:43:43.41
+impra
+LAPTOP-AO84OQO2
+
+Microsoft Windows [Version 10.0.19045.5011]
+
+
+
+
+"cli_no_param"
+Attempting to activate existing Virtual Environment
+Attempting to deactivate existing (and activated) Virtual Environment
+
+
+
+
+"Batch Execution Done"
+------------------------------------------------------ cli_--help ------------------------------------------------------
+test_case_data:
+test_case_id: cli_--help
+test_case_name: cli_--help
+test_case_file_name: cli_--help.log
+batch_params: --help
+
+Executing "run_tc.bat"
+Iteration 2
+Time Stamp is: 11-11-2024 14:43:45.27
+impra
+LAPTOP-AO84OQO2
+
+Microsoft Windows [Version 10.0.19045.5011]
+
+
+
+
+"cli_--help"
+Attempting to activate existing Virtual Environment
+Attempting to deactivate existing (and activated) Virtual Environment
+
+
+
+
+"Batch Execution Done"
