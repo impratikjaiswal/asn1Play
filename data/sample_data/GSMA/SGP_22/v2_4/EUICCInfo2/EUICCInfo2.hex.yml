@@ -1,0 +1,50 @@
+input:
+    remarks: DerInput; Asn1Output; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword;
+    asn1_element: SGP_22.RSPDefinitions.EUICCInfo2
+    input_format: Formats.DER
+    output_format: Formats.ASN1
+    input_data: BF2281F8810302010082030202008303040400840F8101008204000805D4830400001C088504067F16C08603090200870302030088020490A92C0414C0BC70BA36929D43B467FF57570530E57AB8FCD80414F54172BDF98A95D65CBEB88A38A1C11D800A85C3AA2C0414C0BC70BA36929D43B467FF57570530E57AB8FCD80414F54172BDF98A95D65CBEB88A38A1C11D800A85C39902078004030000010C1347264441636372656469746174696F6E4E6272AC48801F312E322E3834302E313233343536372F6D79506C6174666F726D4C6162656C812568747470733A2F2F6D79636F6D70616E792E636F6D2F6D79444C4F41526567697374726172
+output:
+    remarks: DerInput; Asn1Output; YmlInput; Asn1Element; StoreMetadataRequest; VersionVariable; OutputKeyword
+    info: 'Transaction Id: iatsig8stbmf; Mode: Yml_Encoding_Mode; Asn1 Module: RSPDefinitions; Asn1 Module Version: v2_4; Asn1 Object: EUICCInfo2; Input Format: der; Output Format: asn1; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip'
+    input_yml: data\sample_data\GSMA\SGP_22\v2_4\EUICCInfo2\EUICCInfo2.hex.yml
+    output_path: data/sample_data/GSMA/SGP_22/v2_4/EUICCInfo2/\EUICCInfo2.hex.yml
+    input_data: BF2281F8810302010082030202008303040400840F8101008204000805D4830400001C088504067F16C08603090200870302030088020490A92C0414C0BC70BA36929D43B467FF57570530E57AB8FCD80414F54172BDF98A95D65CBEB88A38A1C11D800A85C3AA2C0414C0BC70BA36929D43B467FF57570530E57AB8FCD80414F54172BDF98A95D65CBEB88A38A1C11D800A85C39902078004030000010C1347264441636372656469746174696F6E4E6272AC48801F312E322E3834302E313233343536372F6D79506C6174666F726D4C6162656C812568747470733A2F2F6D79636F6D70616E792E636F6D2F6D79444C4F41526567697374726172
+    input_data_length: 504
+    output_data: |-
+        {
+          profileVersion '020100'H,
+          svn '020200'H,
+          euiccFirmwareVer '040400'H,
+          extCardResource '8101008204000805D4830400001C08'H,
+          uiccCapability '011111110001011011'B -- usimSupport | isimSupport | csimSupport | akaMilenage | akaCave | akaTuak128 | akaTuak256 | gbaAuthenISim | eapClient | javacard | multipleUsimSupport | multipleIsimSupport --,
+          ts102241Version '090200'H,
+          globalplatformVersion '020300'H,
+          rspCapability '9'H -- additionalProfile | testProfileSupport --,
+          euiccCiPKIdListForVerification {
+            'C0BC70BA36929D43B467FF57570530E57AB8FCD8'H,
+            'F54172BDF98A95D65CBEB88A38A1C11D800A85C3'H
+          },
+          euiccCiPKIdListForSigning {
+            'C0BC70BA36929D43B467FF57570530E57AB8FCD8'H,
+            'F54172BDF98A95D65CBEB88A38A1C11D800A85C3'H
+          },
+          forbiddenProfilePolicyRules '1'B -- pprUpdateControl --,
+          ppVersion '000001'H,
+          sasAcreditationNumber "G&DAccreditationNbr",
+          certificationDataObject {
+            platformLabel "1.2.840.1234567/myPlatformLabel",
+            discoveryBaseURL "https://mycompany.com/myDLOARegistrar"
+          }
+        }
+    output_data_length: 1025
+output_version:
+    Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
+    asn1Play: v8.5.1
+    pythonHelpers: v5.2.2.dev1
+    tlvPlay: v4.3.1
+    pycrate: v0.6.0
+    SGP22: v2_4
+    SGP32: v1_0_1
+    eUICC_Profile_Package: v3_2
+    time_stamp: Monday, Jan 20 2025, 14:39:53:357274, IST (GMT+0530)

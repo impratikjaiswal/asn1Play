@@ -50,6 +50,6 @@ setup(
     license="MIT",
     python_requires=">=3.9",
     packages=packages,
-    install_requires=install_reqs
+    install_requires=install_reqs,
     # test_suite="test.sample_package",
 )

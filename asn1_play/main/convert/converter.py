@@ -3,10 +3,12 @@ import os
 
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_data_master import PhMasterData, PhMasterDataKeys
+from python_helpers.ph_defaults import PhDefaultTypesExclude
 from python_helpers.ph_exception_helper import PhExceptionHelper
 from python_helpers.ph_file_extensions import PhFileExtensions
 from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_util import PhUtil
+from python_helpers.ph_variables import PhVariables
 from ruamel.yaml.main import YAML
 
 from asn1_play.generated_code.asn1.GSMA import SGP_22
@@ -19,13 +21,12 @@ from asn1_play.generated_code.asn1.asn1 import Asn1
 from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 from asn1_play.main.helper.constants import Constants
 from asn1_play.main.helper.data import Data
-from asn1_play.main.helper.defaults import Defaults
+from asn1_play.main.helper.defaults import Defaults, DefaultTypesInclude
 from asn1_play.main.helper.folders import Folders
 from asn1_play.main.helper.formats import Formats
 from asn1_play.main.helper.formats_group import FormatsGroup
 from asn1_play.main.helper.keywords import KeyWords
 from asn1_play.main.helper.mode_operation import OperationModes
-from asn1_play.main.helper.variables import Variables
 
 
 def print_data(data=None, meta_data=None, info_data=None, master_data=None):
@@ -45,6 +46,7 @@ def print_data(data=None, meta_data=None, info_data=None, master_data=None):
         return
     input_sep = PhConstants.SEPERATOR_MULTI_LINE if data.input_format in FormatsGroup.TXT_FORMATS else PhConstants.SEPERATOR_ONE_LINE
     output_sep = PhConstants.SEPERATOR_MULTI_LINE if data.output_format in FormatsGroup.TXT_FORMATS or data.tlv_parsing_of_output == True else PhConstants.SEPERATOR_ONE_LINE
+    len_sep = PhConstants.SEPERATOR_ONE_LINE
     if data.print_info:
         remarks_original = data.get_remarks_as_str(user_original_remarks=True)
         remarks_generated = data.get_remarks_as_str()
@@ -66,9 +68,13 @@ def print_data(data=None, meta_data=None, info_data=None, master_data=None):
         if info_data is not None:
             info_count = info_data.get_info_count()
             info_msg = info_data.get_info_str()
-            if info_msg:
+            info_present = info_msg
+            if info_present:
                 sep = PhConstants.SEPERATOR_MULTI_LINE_TABBED if info_count > 1 else PhConstants.SEPERATOR_ONE_LINE
                 meta_data.output_dic.update(PhUtil.get_dic_data_and_print(PhKeys.INFO_DATA, sep, info_msg))
+                if data.print_info:
+                    meta_data.output_dic.update(
+                        PhUtil.get_dic_data_and_print(PhKeys.INFO_DATA, len_sep, info_msg, length_needed=True))
         asn1_info = data.get_asn1_element_info()
         info = PhConstants.SEPERATOR_MULTI_OBJ.join(filter(None, [
             PhUtil.get_dic_data_and_print(PhKeys.TRANSACTION_ID, PhConstants.SEPERATOR_ONE_LINE,
@@ -104,26 +110,25 @@ def print_data(data=None, meta_data=None, info_data=None, master_data=None):
                                           dic_format=False, print_also=False),
             PhUtil.get_dic_data_and_print(PhKeys.OUTPUT_FORMAT, PhConstants.SEPERATOR_ONE_LINE, data.output_format,
                                           dic_format=False, print_also=False),
-            PhUtil.get_dic_data_and_print(PhKeys.OUTPUT_FILE, PhConstants.SEPERATOR_ONE_LINE, data.output_file,
-                                          dic_format=False, print_also=False) if data.output_file else None,
-            PhUtil.get_dic_data_and_print(PhKeys.RE_PARSE_OUTPUT, PhConstants.SEPERATOR_ONE_LINE, data.re_parse_output,
-                                          dic_format=False, print_also=False) if data.re_parse_output else None,
             PhUtil.get_dic_data_and_print(PhKeys.TLV_PARSING_OF_OUTPUT, PhConstants.SEPERATOR_ONE_LINE,
                                           data.tlv_parsing_of_output,
                                           dic_format=False, print_also=False) if data.tlv_parsing_of_output else None,
+            PhUtil.get_dic_data_and_print(PhKeys.RE_PARSE_OUTPUT, PhConstants.SEPERATOR_ONE_LINE, data.re_parse_output,
+                                          dic_format=False, print_also=False) if data.re_parse_output else None,
+            PhUtil.get_dic_data_and_print(PhKeys.OUTPUT_PATH, PhConstants.SEPERATOR_ONE_LINE, data.output_path,
+                                          dic_format=False, print_also=False) if data.output_path else None,
             PhUtil.get_dic_data_and_print(PhKeys.OUTPUT_FILE_NAME_KEYWORD, PhConstants.SEPERATOR_ONE_LINE,
-                                          data.output_file_name_keyword,
-                                          dic_format=False,
+                                          data.output_file_name_keyword, dic_format=False,
                                           print_also=False) if data.output_file_name_keyword else None,
             PhUtil.get_dic_data_and_print(PhKeys.ENCODING, PhConstants.SEPERATOR_ONE_LINE, data.encoding,
                                           dic_format=False, print_also=False) if data.encoding else None,
             PhUtil.get_dic_data_and_print(PhKeys.ENCODING_ERRORS, PhConstants.SEPERATOR_ONE_LINE, data.encoding_errors,
                                           dic_format=False, print_also=False) if data.encoding_errors else None,
-            # PhUtil.get_dic_data_and_print(PhKeys.ARCHIVE_OUTPUT, PhConstants.SEPERATOR_ONE_LINE, data.archive_output,
-            #                               dic_format=False, print_also=False) if data.archive_output else None,
-            # PhUtil.get_dic_data_and_print(PhKeys.ARCHIVE_OUTPUT_FORMAT, PhConstants.SEPERATOR_ONE_LINE,
-            #                               data.archive_output_format,
-            #                               dic_format=False, print_also=False) if data.archive_output_format else None,
+            PhUtil.get_dic_data_and_print(PhKeys.ARCHIVE_OUTPUT, PhConstants.SEPERATOR_ONE_LINE, data.archive_output,
+                                          dic_format=False, print_also=False) if data.archive_output else None,
+            PhUtil.get_dic_data_and_print(PhKeys.ARCHIVE_OUTPUT_FORMAT, PhConstants.SEPERATOR_ONE_LINE,
+                                          data.archive_output_format,
+                                          dic_format=False, print_also=False) if data.archive_output_format else None,
             PhUtil.get_dic_data_and_print(PhKeys.QUITE_MODE, PhConstants.SEPERATOR_ONE_LINE, data.quite_mode,
                                           dic_format=False, print_also=False) if data.quite_mode else None,
         ]))
@@ -138,26 +143,36 @@ def print_data(data=None, meta_data=None, info_data=None, master_data=None):
                                                   data.get_input_modes_hierarchy_as_str()))
         if meta_data.export_mode or (meta_data.parsed_data and meta_data.output_file_path):
             meta_data.output_dic.update(
-                PhUtil.get_dic_data_and_print(PhKeys.EXPORT_FILE if meta_data.export_mode else PhKeys.OUTPUT_FILE,
+                PhUtil.get_dic_data_and_print(PhKeys.EXPORT_FILE if meta_data.export_mode else PhKeys.OUTPUT_PATH,
                                               PhConstants.SEPERATOR_ONE_LINE, meta_data.output_file_path))
         if meta_data.re_parsed_data and meta_data.re_output_file_path:
             meta_data.output_dic.update(
-                PhUtil.get_dic_data_and_print(PhKeys.RE_OUTPUT_FILE, PhConstants.SEPERATOR_ONE_LINE,
+                PhUtil.get_dic_data_and_print(PhKeys.RE_OUTPUT_PATH, PhConstants.SEPERATOR_ONE_LINE,
                                               meta_data.re_output_file_path))
+    in_data = data.input_data
     if data.print_input:
-        meta_data.output_dic.update(PhUtil.get_dic_data_and_print(PhKeys.INPUT_DATA, input_sep, data.input_data))
+        meta_data.output_dic.update(PhUtil.get_dic_data_and_print(PhKeys.INPUT_DATA, input_sep, in_data))
+    if data.print_info:
+        meta_data.output_dic.update(
+            PhUtil.get_dic_data_and_print(PhKeys.INPUT_DATA, len_sep, in_data, length_needed=True))
     bulk_mode = True if len(data.get_input_modes_hierarchy()) >= 1 else False
     output_present = meta_data.parsed_data
-    print_output = data.print_output
-    if not output_present and (bulk_mode or meta_data.export_mode):
-        # in bulk mode, output will not be available
-        print_output = False
-    if data.print_output and print_output:  # and meta_data.parsed_data:
-        meta_data.output_dic.update(
-            PhUtil.get_dic_data_and_print(PhKeys.OUTPUT_DATA, output_sep, meta_data.parsed_data))
-    if data.print_output and print_output and data.re_parse_output:
-        meta_data.output_dic.update(
-            PhUtil.get_dic_data_and_print(PhKeys.RE_PARSED_DATA, input_sep, meta_data.re_parsed_data))
+    output_filp_present = meta_data.re_parsed_data
+    if output_present:
+        if data.print_output:
+            meta_data.output_dic.update(
+                PhUtil.get_dic_data_and_print(PhKeys.OUTPUT_DATA, output_sep, meta_data.parsed_data))
+        if data.print_info:
+            meta_data.output_dic.update(
+                PhUtil.get_dic_data_and_print(PhKeys.OUTPUT_DATA, len_sep, meta_data.parsed_data, length_needed=True))
+    if output_filp_present:
+        if data.print_output:
+            meta_data.output_dic.update(
+                PhUtil.get_dic_data_and_print(PhKeys.RE_PARSED_DATA, input_sep, meta_data.re_parsed_data))
+        if data.print_info:
+            meta_data.output_dic.update(
+                PhUtil.get_dic_data_and_print(PhKeys.RE_PARSED_DATA, len_sep, meta_data.re_parsed_data,
+                                              length_needed=True))
     PhUtil.print_separator()
 
 
@@ -220,7 +235,7 @@ def prepare_config_data_for_yml(data):
         if k in [PhKeys.INPUT_FORMAT, PhKeys.OUTPUT_FORMAT]:
             pass
         if k in [PhKeys.OUTPUT_FILE_NAME_KEYWORD]:
-            # Here we need to be ready for further usage of exported file
+            # Here we need to be ready for further usage of an exported file
             data_dic[k] = KeyWords.OUTPUT_FILE_NAME_KEYWORD
             continue
         data_dic[k] = v
@@ -229,14 +244,37 @@ def prepare_config_data_for_yml(data):
     return file_dic
 
 
-def parse_config(config_data):
+def dict_to_data(config_data):
     asn1_schema = None
     asn1_object = None
     asn1_object_alternate = None
     fetch_asn1_objects_list = None
-    data_types = {
+    data_types_include = {
+        # Common Param
+        # PhKeys.INPUT_DATA:
+        PhKeys.PRINT_INPUT: DefaultTypesInclude.PRINT_INPUT,
+        PhKeys.PRINT_OUTPUT: DefaultTypesInclude.PRINT_OUTPUT,
+        PhKeys.PRINT_INFO: DefaultTypesInclude.PRINT_INFO,
+        PhKeys.QUITE_MODE: DefaultTypesInclude.QUITE_MODE,
+        PhKeys.ENCODING: DefaultTypesInclude.ENCODING,
+        PhKeys.ENCODING_ERRORS: DefaultTypesInclude.ENCODING_ERRORS,
+        PhKeys.ARCHIVE_OUTPUT: DefaultTypesInclude.ARCHIVE_OUTPUT,
+        PhKeys.ARCHIVE_OUTPUT_FORMAT: DefaultTypesInclude.ARCHIVE_OUTPUT_FORMAT,
+        # Specific Param
+        PhKeys.INPUT_FORMAT: DefaultTypesInclude.INPUT_FORMAT,
+        PhKeys.OUTPUT_FORMAT: DefaultTypesInclude.OUTPUT_FORMAT,
+        PhKeys.TLV_PARSING_OF_OUTPUT: DefaultTypesInclude.TLV_PARSING_OF_OUTPUT,
+        PhKeys.RE_PARSE_OUTPUT: DefaultTypesInclude.RE_PARSE_OUTPUT,
+        PhKeys.FETCH_ASN1_OBJECTS_LIST: DefaultTypesInclude.FETCH_ASN1_OBJECTS_LIST,
     }
-    config_data = PhUtil.parse_config(config_data, data_types=data_types)
+    data_types_exclude = {
+        # Common Param
+        PhKeys.INPUT_DATA: PhDefaultTypesExclude.INPUT_DATA,
+        # PhKeys.REMARKS: ,
+    }
+
+    config_data = PhUtil.dict_to_data(user_dict=config_data, data_types_include=data_types_include,
+                                      data_types_exclude=data_types_exclude, trim_data=False)
     # PhUtil.print_iter(config_data, 'config_data initial', verbose=True)
     for k, v in config_data.items():
         if not v:
@@ -298,13 +336,6 @@ def parse_config(config_data):
     return config_data
 
 
-def validate_config_data(config_data):
-    config_data = dict(config_data).get(PhKeys.INPUT, None)
-    if not config_data:
-        raise ValueError(PhExceptionHelper(msg_key=Constants.CONFIG_INPUT_MISSING))
-    return parse_config(config_data)
-
-
 def set_input_output_format(data):
     """
 
@@ -335,12 +366,16 @@ def set_defaults_for_common_objects(data):
     :param data:
     :return:
     """
-    data.quite_mode = PhUtil.set_if_none(data.quite_mode, Defaults.QUITE_MODE)
+    # input_data
     data.print_input = PhUtil.set_if_none(data.print_input, Defaults.PRINT_INPUT)
     data.print_output = PhUtil.set_if_none(data.print_output, Defaults.PRINT_OUTPUT)
     data.print_info = PhUtil.set_if_none(data.print_info, Defaults.PRINT_INFO)
+    data.quite_mode = PhUtil.set_if_none(data.quite_mode, Defaults.QUITE_MODE)
+    # Remarks
     data.encoding = PhUtil.set_if_none(data.encoding, Defaults.ENCODING)
     data.encoding_errors = PhUtil.set_if_none(data.encoding_errors, Defaults.ENCODING_ERRORS)
+    data.output_path = PhUtil.set_if_none(data.output_path, Defaults.OUTPUT_PATH)
+    data.output_file_name_keyword = PhUtil.set_if_none(data.output_file_name_keyword, Defaults.OUTPUT_FILE_NAME_KEYWORD)
     data.archive_output = PhUtil.set_if_none(data.archive_output, Defaults.ARCHIVE_OUTPUT)
     data.archive_output_format = PhUtil.set_if_none(data.archive_output_format, Defaults.ARCHIVE_OUTPUT_FORMAT)
 
@@ -352,8 +387,10 @@ def set_defaults(data, meta_data):
     :param meta_data:
     :return:
     """
-    data.input_format = PhUtil.set_if_none(data.input_format, Defaults.FORMAT_INPUT)
-    data.output_format = PhUtil.set_if_none(data.output_format, Defaults.FORMAT_OUTPUT)
+    data.input_format = PhUtil.set_if_none(data.input_format, Defaults.INPUT_FORMAT)
+    data.output_format = PhUtil.set_if_none(data.output_format, Defaults.OUTPUT_FORMAT)
+    # asn1_element
+    data.tlv_parsing_of_output = PhUtil.set_if_none(data.tlv_parsing_of_output, Defaults.TLV_PARSING_OF_OUTPUT)
     data.re_parse_output = PhUtil.set_if_none(data.re_parse_output, Defaults.RE_PARSE_OUTPUT)
     if meta_data is None:
         return
@@ -372,15 +409,18 @@ def set_defaults(data, meta_data):
     meta_data.export_mode = True if data.output_file_name_keyword == KeyWords.EXPORT_FILE_NAME_KEYWORD else False
     meta_data.output_file_ext_default = default_output_file_mapping.get(
         Formats.YML if (meta_data.export_mode or meta_data.input_mode_key == PhKeys.INPUT_YML) else data.output_format,
-        PhFileExtensions.TXT)
+        Defaults.OUTPUT_FILE_EXT)
     meta_data.output_file_location_default = Folders.in_user()
 
 
-def read_yaml(input_file):
+def handle_yml_request(input_file):
     yaml_object = YAML()
     file_dic = yaml_object.load(input_file)
-    config_data = validate_config_data(copy.deepcopy(file_dic))
-    return file_dic, Data(**config_data)
+    config_data = copy.deepcopy(file_dic)
+    config_data = dict(config_data).get(PhKeys.INPUT, None)
+    if config_data is None:
+        raise ValueError(PhExceptionHelper(msg_key=PhConstants.MISSING_INPUT_YML))
+    return file_dic, Data(**dict_to_data(config_data))
 
 
 def write_yml_file(output_file_path, file_dic, output_dic=None, output_versions_dic=None):
@@ -396,8 +436,8 @@ def write_yml_file(output_file_path, file_dic, output_dic=None, output_versions_
         yaml_object.dump(file_dic, file)
 
 
-def read_web_request(request_form):
-    return Data(**parse_config(request_form))
+def handle_web_request(request_form):
+    return Data(**dict_to_data(request_form))
 
 
 def set_output_file_path(data, meta_data):
@@ -412,31 +452,30 @@ def set_output_file_path(data, meta_data):
     sample_file_name_from_input_file = False
     sample_file_name = ''
     name_as_per_remarks = ''
-    if not (meta_data.input_mode_key == PhKeys.INPUT_YML or data.output_file or data.output_file_name_keyword):
+    if not (meta_data.input_mode_key == PhKeys.INPUT_YML or data.output_path or data.output_file_name_keyword):
         return
-    output_file = data.output_file
+    output_path = data.output_path
     output_file_location = meta_data.output_file_location_default
     input_file_name = ''
     if meta_data.input_mode_key == PhKeys.INPUT_YML or meta_data.input_mode_key == PhKeys.INPUT_FILE:
         # YML File writing is mandatory, But output_file is not Provided, so Dest File will be source File only
-        # File writing is needed, But output_file is not Provided,so Dest File will be prepared from source File only
+        # File writing is needed, But output_file is not Provided, so Dest File will be prepared from source File only
         input_file_name = meta_data.input_data_org
         file_mode = True
-        if not output_file:
-            output_file = input_file_name
-    if output_file:
-        sample_file_ext = PhUtil.get_file_name_and_extn(output_file, only_extn=True)
-        sample_file_folder = PhUtil.get_file_name_and_extn(output_file, only_path=True)
-        sample_file_name = PhUtil.get_file_name_and_extn(output_file)
-        if Variables.ITEM_INDEX in sample_file_name:
+        if not output_path:
+            output_path = input_file_name
+    if output_path:
+        sample_file_ext = PhUtil.get_file_name_and_extn(output_path, only_extn=True)
+        sample_file_folder = PhUtil.get_file_name_and_extn(output_path, only_path=True)
+        sample_file_name = PhUtil.get_file_name_and_extn(output_path)
+        if PhVariables.ITEM_INDEX in sample_file_name:
             remarks_with_indexes = True
-            sample_file_name = sample_file_name.replace(Variables.ITEM_INDEX, '')
-        if sample_file_name == Variables.REMARKS:
+            sample_file_name = sample_file_name.replace(PhVariables.ITEM_INDEX, '')
+        if sample_file_name == PhVariables.REMARKS:
             # Only Target Directory is provided; Remarks usage is explicitly mentioned
             remarks_needed = True
-            sample_file_name = sample_file_name.replace(Variables.REMARKS, '')
+            sample_file_name = sample_file_name.replace(PhVariables.REMARKS, '')
             output_file_location = sample_file_folder
-            pass
         elif sample_file_ext:
             # Target File Provided
             output_file_name = sample_file_name
@@ -455,9 +494,9 @@ def set_output_file_path(data, meta_data):
     if data.validate_if_input_modes_hierarchy(PhKeys.INPUT_LIST) and not file_mode:
         # unique name needed
         remarks_needed = True
-    if not output_file and meta_data.export_mode:
+    if not output_path and meta_data.export_mode:
         remarks_needed = True
-    if data.output_file_name_keyword and not output_file:
+    if data.output_file_name_keyword and not output_path:
         remarks_needed = True
     if remarks_needed or data.output_file_name_keyword or sample_file_name_from_input_file:
         if remarks_needed:
@@ -471,6 +510,7 @@ def set_output_file_path(data, meta_data):
                                                                   data.output_file_name_keyword],
                                                       new_ext=meta_data.output_file_ext_default)
     meta_data.output_file_path = os.sep.join([output_file_location, output_file_name])
+    PhUtil.make_dirs(dir_path=output_file_location)
 
 
 def set_re_output_file_name(data, meta_data):
@@ -516,8 +556,8 @@ def replace_data(target_data, keyword, new_value):
 def replace_version(target_data, data):
     module_version = data.get_asn1_module_version()
     if not module_version:
-        # needed when yml file is being read with $VERSION
-        # Sample: '..\..\Data\SampleData\GSMA\SGP_22\$VERSION\StoreMetadataRequest\StoreMetadataRequest.hex.yml'
+        # needed when yml file is being read with PhVariables.VERSION
+        # Sample: f'..\..\data\sample_data\GSMA\SGP_22\{PhVariables.VERSION}\StoreMetadataRequest\StoreMetadataRequest.hex.yml'
         # Set version based on path
         if KeyWords.CLASS_EPP in target_data:
             module_version = epp_version
@@ -526,9 +566,9 @@ def replace_version(target_data, data):
         elif KeyWords.CLASS_SGP22 in target_data:
             module_version = sgp22_version
         else:
-            # default version is of SGP
+            # the default version is of SGP
             module_version = sgp22_version
-    return replace_data(target_data, Variables.VERSION, module_version)
+    return replace_data(target_data, PhVariables.VERSION, module_version)
 
 
 def path_generalisation(data, key):
@@ -537,8 +577,8 @@ def path_generalisation(data, key):
             data.input_data = replace_version(data.input_data, data)
 
     if key == PhKeys.OUTPUT_FILE:
-        if data.output_file:
-            data.output_file = replace_version(data.output_file, data)
+        if data.output_path:
+            data.output_path = replace_version(data.output_path, data)
 
 
 def get_mode(input_format, output_format, meta_data_input_mode_key, data_input_mode_hierarchy):
@@ -556,10 +596,10 @@ def get_mode(input_format, output_format, meta_data_input_mode_key, data_input_m
     else:
         if not input_format:
             # Temp assignment to find the mode
-            input_format = Defaults.FORMAT_INPUT
+            input_format = Defaults.INPUT_FORMAT
         if not output_format:
             # Temp assignment to find the mode
-            output_format = Defaults.FORMAT_OUTPUT
+            output_format = Defaults.OUTPUT_FORMAT
     if input_format in FormatsGroup.INPUT_FORMATS_YML:
         mode.append(Constants.STR_YML_MODE)
     elif output_format in FormatsGroup.INPUT_FORMATS_ASN:

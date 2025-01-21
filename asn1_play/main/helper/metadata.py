@@ -18,7 +18,7 @@ class MetaData:
         self.operation_mode = None
         # TODO: Use this new one time key; must be reset after use
         self.flip_output_ots = None
-        # Specific Param #TODO
+        # Specific Param # TODO
         self.input_mode_key = None
         self.output_file_path = None
         self.re_output_file_path = None

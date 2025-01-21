@@ -1,0 +1,26 @@
+input:
+    remarks: Base64Input; DerOutput; YmlInput; OutputKeyword;
+    asn1_element: None
+    input_format: Formats.DER_64
+    output_format: Formats.DER
+    input_data: vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAxmQIGQA==
+    output_file_name_keyword: output
+output:
+    remarks: Base64Input; DerOutput; YmlInput; OutputKeyword
+    info: 'Transaction Id: wwcqsbd5wwpc; Mode: Yml_Conversion_Mode; Input Format: der_as_base64; Output Format: der; Output File Name Keyword: output; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip'
+    input_yml: data\sample_data\Generic\Base64\base64_to_der.yml
+    output_path: data/sample_data/Generic/Base64/\base64_to_der_output.yml
+    input_data: vyU3WgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAxmQIGQA==
+    input_data_length: 80
+    output_data: bf25375a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d65203199020640
+    output_data_length: 116
+output_version:
+    Python: v3.9.13 (tags/v3.9.13:6de2ca5, May 17 2022, 16:36:42) [MSC v.1929 64 bit (AMD64)]
+    asn1Play: v8.5.1
+    pythonHelpers: v5.2.2.dev1
+    tlvPlay: v4.3.1
+    pycrate: v0.6.0
+    SGP22: v3_1
+    SGP32: v1_1
+    eUICC_Profile_Package: v3_3_1
+    time_stamp: Monday, Jan 20 2025, 14:40:10:334655, IST (GMT+0530)

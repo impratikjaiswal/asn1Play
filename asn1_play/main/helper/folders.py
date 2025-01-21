@@ -22,81 +22,99 @@ class Folders:
     DIR_SAMPLE_DATA_EPP = 33
     DIR_SAMPLE_DATA_GENERIC = 34
 
+    DIR_RES = 8
+    DIR_RES_IMAGES = 81
+
     DIR_TEST = 9
     DIR_TEST_LOGS = 91
 
     LOCATIONS_MAPPING = {
         #
-        DIR_DATA: ['Data'],
+        DIR_RES: [PACKAGE_NAME, 'res'],
+        DIR_RES_IMAGES: [PACKAGE_NAME, 'res', 'images'],
         #
-        DIR_SAMPLE_DATA: ['Data', 'SampleData'],
-        DIR_SAMPLE_DATA_SGP22: ['Data', 'SampleData', 'GSMA', 'SGP_22'],
-        DIR_SAMPLE_DATA_SGP32: ['Data', 'SampleData', 'GSMA', 'SGP_32'],
-        DIR_SAMPLE_DATA_EPP: ['Data', 'SampleData', 'TCA', 'eUICC_Profile_Package'],
-        DIR_SAMPLE_DATA_GENERIC: ['Data', 'SampleData', 'Generic'],
+        DIR_DATA: ['data'],
         #
-        DIR_USER_DATA: ['Data', 'UserData'],
-        DIR_USER_DATA_SGP22: ['Data', 'UserData', 'GSMA', 'SGP_22'],
-        DIR_USER_DATA_SGP32: ['Data', 'UserData', 'GSMA', 'SGP_32'],
-        DIR_USER_DATA_EPP: ['Data', 'UserData', 'TCA', 'eUICC_Profile_Package'],
-        DIR_USER_DATA_GENERIC: ['Data', 'UserData', 'Generic'],
+        DIR_SAMPLE_DATA: ['data', 'sample_data'],
+        DIR_SAMPLE_DATA_SGP22: ['data', 'sample_data', 'GSMA', 'SGP_22'],
+        DIR_SAMPLE_DATA_SGP32: ['data', 'sample_data', 'GSMA', 'SGP_32'],
+        DIR_SAMPLE_DATA_EPP: ['data', 'sample_data', 'TCA', 'eUICC_Profile_Package'],
+        DIR_SAMPLE_DATA_GENERIC: ['data', 'sample_data', 'Generic'],
+        #
+        DIR_USER_DATA: ['data', 'user_data'],
+        DIR_USER_DATA_SGP22: ['data', 'user_data', 'GSMA', 'SGP_22'],
+        DIR_USER_DATA_SGP32: ['data', 'user_data', 'GSMA', 'SGP_32'],
+        DIR_USER_DATA_EPP: ['data', 'user_data', 'TCA', 'eUICC_Profile_Package'],
+        DIR_USER_DATA_GENERIC: ['data', 'user_data', 'Generic'],
         #
         DIR_TEST: [PACKAGE_NAME, 'test'],
         DIR_TEST_LOGS: [PACKAGE_NAME, 'test', 'logs'],
     }
 
     @classmethod
+    def in_res_images(cls, relative_path=''):
+        return cls.__get_path(Folders.DIR_RES_IMAGES, relative_path)
+
+    @classmethod
     def in_test(cls, relative_path=''):
-        return cls.get_path(Folders.DIR_TEST, relative_path)
+        return cls.__get_path(Folders.DIR_TEST, relative_path)
 
     @classmethod
     def in_test_logs(cls, relative_path=''):
-        return cls.get_path(Folders.DIR_TEST_LOGS, relative_path)
+        return cls.__get_path(Folders.DIR_TEST_LOGS, relative_path)
 
     @classmethod
     def in_sample(cls, relative_path=''):
-        return cls.get_path(Folders.DIR_SAMPLE_DATA, relative_path)
+        return cls.__get_path(Folders.DIR_SAMPLE_DATA, relative_path)
 
     @classmethod
     def in_sample_sgp_22(cls, relative_path=''):
-        return cls.get_path(Folders.DIR_SAMPLE_DATA_SGP22, relative_path)
+        return cls.__get_path(Folders.DIR_SAMPLE_DATA_SGP22, relative_path)
 
     @classmethod
     def in_sample_sgp_32(cls, relative_path=''):
-        return cls.get_path(Folders.DIR_SAMPLE_DATA_SGP32, relative_path)
+        return cls.__get_path(Folders.DIR_SAMPLE_DATA_SGP32, relative_path)
 
     @classmethod
     def in_sample_epp(cls, relative_path=''):
-        return cls.get_path(Folders.DIR_SAMPLE_DATA_EPP, relative_path)
+        return cls.__get_path(Folders.DIR_SAMPLE_DATA_EPP, relative_path)
 
     @classmethod
     def in_sample_gen(cls, relative_path=''):
-        return cls.get_path(Folders.DIR_SAMPLE_DATA_GENERIC, relative_path)
+        return cls.__get_path(Folders.DIR_SAMPLE_DATA_GENERIC, relative_path)
 
     @classmethod
     def in_user(cls, relative_path=''):
-        return cls.get_path(Folders.DIR_USER_DATA, relative_path)
+        return cls.__get_path(Folders.DIR_USER_DATA, relative_path)
 
     @classmethod
     def in_user_sgp_22(cls, relative_path=''):
-        return cls.get_path(Folders.DIR_USER_DATA_SGP22, relative_path)
+        return cls.__get_path(Folders.DIR_USER_DATA_SGP22, relative_path)
 
     @classmethod
     def in_user_sgp_32(cls, relative_path=''):
-        return cls.get_path(Folders.DIR_USER_DATA_SGP32, relative_path)
+        return cls.__get_path(Folders.DIR_USER_DATA_SGP32, relative_path)
 
     @classmethod
     def in_user_epp(cls, relative_path=''):
-        return cls.get_path(Folders.DIR_USER_DATA_EPP, relative_path)
+        return cls.__get_path(Folders.DIR_USER_DATA_EPP, relative_path)
 
     @classmethod
     def in_user_gen(cls, relative_path=''):
-        return cls.get_path(Folders.DIR_USER_DATA_GENERIC, relative_path)
+        return cls.__get_path(Folders.DIR_USER_DATA_GENERIC, relative_path)
 
     @classmethod
-    def get_path(cls, folder_name, relative_path):
+    def __get_path(cls, folder_name, relative_path):
+        """
+
+        :param folder_name:
+        :param relative_path: str or list
+        :return:
+        """
         if folder_name not in cls.LOCATIONS_MAPPING:
-            raise ValueError('Unknown folder name')
+            raise ValueError('Unknown Folder name')
+        # if isinstance(relative_path, list):
+        #     relative_path = os.sep.join(filter(None, relative_path))
         return os.sep.join(
             filter(None, PhUtil.normalise_list(
                 [Folders.top_folder_path, cls.LOCATIONS_MAPPING.get(folder_name), relative_path])))

@@ -41,7 +41,6 @@ class TestData:
                 PhKeys.EUICC_PROFILE_PACKAGE: epp_versions.v3_2,
                 PhKeys.SGP32: sgp_32_versions.v1_0_1,
             },
-
         'sgp22_v3_0_0__epp_v3_1__sgp32_v1_0_1':
             {
                 PhKeys.SGP22: sgp_22_versions.v3_0_0,

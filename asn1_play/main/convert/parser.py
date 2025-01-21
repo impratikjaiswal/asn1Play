@@ -6,16 +6,18 @@ from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_constants_config import PhConfigConst
 from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
+from python_helpers.ph_modules import PhModules
 from python_helpers.ph_util import PhUtil
 from tlv_play.main.data_type.data_type_master import DataTypeMaster
+from tlv_play.main.helper.constants_config import ConfigConst as tlvConfigConst
 from tlv_play.main.helper.data import Data
 
 from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
 from asn1_play.generated_code.asn1.GSMA.SGP_32 import version as sgp_32_version
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
 from asn1_play.main.convert import converter
-from asn1_play.main.convert.handler import process_data
-from asn1_play.main.helper.constants_config import ConfigConst as ConfigConst_local
+from asn1_play.main.convert.handler import handle_data
+from asn1_play.main.helper.constants_config import ConfigConst
 from asn1_play.main.helper.formats_group import FormatsGroup
 from asn1_play.main.helper.infodata import InfoData
 from asn1_play.main.helper.metadata import MetaData
@@ -96,7 +98,7 @@ def process_all_data_types(data, meta_data=None, info_data=None):
         file_ext = PhUtil.get_file_name_and_extn(file_path=data.input_data, only_extn=True)
         if file_ext in FormatsGroup.INPUT_FILE_FORMATS_YML:
             meta_data.input_mode_key = PhKeys.INPUT_YML
-            file_dic_all_str, data = converter.read_yaml(resp)
+            file_dic_all_str, data = converter.handle_yml_request(resp)
             converter.set_defaults_for_common_objects(data)
         else:
             meta_data.input_mode_key = PhKeys.INPUT_FILE
@@ -116,21 +118,24 @@ def process_all_data_types(data, meta_data=None, info_data=None):
         converter.write_yml_file(meta_data.output_file_path, converter.prepare_config_data_for_yml(data))
         return None
     output_versions_dic = OrderedDict()
-    output_versions_dic.update(PhUtil.get_tool_name_w_version(dic_format=True))
-    output_versions_dic.update(
-        PhUtil.get_tool_name_w_version(PhConfigConst.TOOL_NAME, PhConfigConst.TOOL_VERSION, dic_format=True))
-    output_versions_dic.update(
-        PhUtil.get_tool_name_w_version(ConfigConst_local.TOOL_NAME, ConfigConst_local.TOOL_VERSION, dic_format=True))
-    output_versions_dic.update(PhUtil.get_tool_name_w_version(PhKeys.SGP22, sgp_22_version, dic_format=True))
-    output_versions_dic.update(PhUtil.get_tool_name_w_version(PhKeys.SGP32, sgp_32_version, dic_format=True))
-    output_versions_dic.update(
-        PhUtil.get_tool_name_w_version(PhKeys.EUICC_PROFILE_PACKAGE, epp_version, dic_format=True))
+    version_parameters_pool = [
+        {},
+        {'tool_name': ConfigConst.TOOL_NAME, 'tool_version': ConfigConst.TOOL_VERSION},
+        {'tool_name': PhConfigConst.TOOL_NAME, 'tool_version': PhConfigConst.TOOL_VERSION},
+        {'tool_name': PhModules.PYCRATE, 'fetch_tool_version': True},
+        {'tool_name': tlvConfigConst.TOOL_NAME, 'tool_version': tlvConfigConst.TOOL_VERSION},
+        {'tool_name': PhKeys.SGP22, 'tool_version': sgp_22_version},
+        {'tool_name': PhKeys.SGP32, 'tool_version': sgp_32_version},
+        {'tool_name': PhKeys.EUICC_PROFILE_PACKAGE, 'tool_version': epp_version},
+    ]
+    output_versions_dic = PhUtil.dict_update(output_versions_dic,
+                                             PhUtil.print_version(parameters_pool=version_parameters_pool))
     output_versions_dic.update(
         PhUtil.get_key_value_pair(PhKeys.TIME_STAMP, PhUtil.get_time_stamp(files_format=False), dic_format=True))
     """
     Data Processing
     """
-    process_data(data=data, meta_data=meta_data, info_data=info_data)
+    handle_data(data=data, meta_data=meta_data, info_data=info_data)
     """
     Output Handling
     """
@@ -142,7 +147,7 @@ def process_all_data_types(data, meta_data=None, info_data=None):
         if meta_data.parsed_data_tlv and PhConstants.EXCEPTION_OCCURRED not in meta_data.parsed_data_tlv:
             meta_data.parsed_data = meta_data.parsed_data_tlv
     if data.re_parse_output:
-        process_data(data=data, meta_data=meta_data, info_data=info_data, flip_output=True)
+        handle_data(data=data, meta_data=meta_data, info_data=info_data, flip_output=True)
     converter.print_data(data=data, meta_data=meta_data, info_data=info_data)
     if meta_data.input_mode_key == PhKeys.INPUT_YML:
         converter.write_yml_file(meta_data.output_file_path, file_dic_all_str, meta_data.output_dic,

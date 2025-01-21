@@ -2,6 +2,7 @@ import sys
 from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
 from python_helpers.ph_modes_execution import PhExecutionModes
+from python_helpers.ph_modules import PhModules
 from python_helpers.ph_time import PhTime
 from python_helpers.ph_util import PhUtil
 from tlv_play.main.helper.constants_config import ConfigConst as tlvConfigConst
@@ -9,7 +10,7 @@ from tlv_play.main.helper.constants_config import ConfigConst as tlvConfigConst
 from asn1_play.generated_code.asn1.GSMA.SGP_22.compile_time_version import version as sgp_22_compile
 from asn1_play.generated_code.asn1.GSMA.SGP_32.compile_time_version import version as sgp_32_compile
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package.compile_time_version import version as epp_compile
-from asn1_play.main.convert.converter import read_web_request
+from asn1_play.main.convert.converter import handle_web_request
 from asn1_play.main.data_type.any_data import AnyData
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.data_type.dev import Dev
@@ -106,13 +107,14 @@ def process_data():
         PhExecutionModes.UNIT_TESTING: data_type_unit_testing,
         PhExecutionModes.UNIT_TESTING_EXTERNAL: data_type_unit_testing_external,
         PhExecutionModes.DEV: data_type_dev,
-        PhExecutionModes.ALL: data_type_user +
-                              data_types_samples +
-                              data_types_sample_generic +
-                              data_types_sample_specific +
-                              data_type_unit_testing +
-                              data_type_unit_testing_external +
-                              data_type_dev,
+        PhExecutionModes.ALL: data_type_user
+                              + data_types_samples
+                              + data_types_sample_generic
+                              + data_types_sample_specific
+                              + data_type_unit_testing
+                              + data_type_unit_testing_external
+        # + data_type_dev
+        ,
     }
     data_types = data_types_pool.get(execution_mode, Defaults.EXECUTION_MODE)
     if data_cli:
@@ -120,7 +122,7 @@ def process_data():
         _data_type.set_data_pool(data_pool=[data_cli])
         data_types = [_data_type]
     for data_type in data_types:
-        PhUtil.print_heading(str_heading=str(data_type.__class__.__name__))
+        PhUtil.print_heading(str_heading=f'Data Class: {str(data_type.__class__.__name__)}')
         # if isinstance(data_type, UnitTesting):
         #     error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
         # if isinstance(data_type, Dev):
@@ -139,18 +141,43 @@ def process_data():
             data_type.set_remarks()
             data_type.set_encoding()
             data_type.set_encoding_errors()
+            data_type.set_output_path()
+            data_type.set_output_file_name_keyword()
             data_type.set_archive_output()
             data_type.set_archive_output_format()
             #
-            data_type.set_output_file()
-            data_type.set_re_parse_output()
-            data_type.set_output_file_name_keyword()
-            data_type.set_output_format()
             data_type.set_input_format()
+            data_type.set_output_format()
             data_type.set_asn1_element()
+            data_type.set_tlv_parsing_of_output()
+            data_type.set_re_parse_output()
             #
             data_type.set_data_pool()
         DataTypeMaster.process_safe(data_type, error_handling_mode)
+
+
+def handle_cli_request(**kwargs):
+    """
+
+    :param kwargs:
+    :return:
+    """
+    global data_cli
+    data_cli = handle_web_request(kwargs)
+
+
+def print_configurations():
+    # Print Versions
+    version_parameters_pool = [
+        {'tool_name': ConfigConst.TOOL_NAME, 'tool_version': ConfigConst.TOOL_VERSION},
+        # TODO: Fetch & Store this version; Use Stored version throughout as this is not gonna be changed
+        {'tool_name': PhModules.PYCRATE, 'fetch_tool_version': True},
+        {'tool_name': tlvConfigConst.TOOL_NAME, 'tool_version': tlvConfigConst.TOOL_VERSION},
+        {'tool_name': ' '.join([PhKeys.SGP22, PhKeys.COMPILE_TIME]), 'tool_version': sgp_22_version},
+        {'tool_name': ' '.join([PhKeys.SGP32, PhKeys.COMPILE_TIME]), 'tool_version': sgp_32_version},
+        {'tool_name': ' '.join([PhKeys.EUICC_PROFILE_PACKAGE, PhKeys.COMPILE_TIME]), 'tool_version': epp_version},
+    ]
+    PhUtil.print_version(parameters_pool=version_parameters_pool)
 
 
 def set_configurations():
@@ -170,26 +197,6 @@ def set_configurations():
     sgp_22_version = sgp_22_compile
     epp_version = epp_compile
     sgp_32_version = sgp_32_compile
-
-
-def print_configurations():
-    # Print Versions
-    PhUtil.print_version(ConfigConst.TOOL_NAME, ConfigConst.TOOL_VERSION)
-    PhUtil.print_version(tlvConfigConst.TOOL_NAME, tlvConfigConst.TOOL_VERSION, no_additional_info=True)
-    PhUtil.print_version(' '.join([PhKeys.SGP22, PhKeys.COMPILE_TIME]), sgp_22_version, no_additional_info=True)
-    PhUtil.print_version(' '.join([PhKeys.SGP32, PhKeys.COMPILE_TIME]), sgp_32_version, no_additional_info=True)
-    PhUtil.print_version(' '.join([PhKeys.EUICC_PROFILE_PACKAGE, PhKeys.COMPILE_TIME]), epp_version,
-                         no_additional_info=True)
-
-
-def handle_args(**kwargs):
-    """
-
-    :param kwargs:
-    :return:
-    """
-    global data_cli
-    data_cli = read_web_request(kwargs)
 
 
 def main():
@@ -212,7 +219,7 @@ def main():
             # Print Configurations
             print_configurations()
             standalone_mode = True
-        handle_args(standalone_mode=standalone_mode)
+        handle_cli_request(standalone_mode=standalone_mode)
     """
     Configurations
     """

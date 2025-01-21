@@ -58,8 +58,8 @@ Issue tracker can be found [here](CONTRIBUTING.md#issue-tracker).
 
 # Data Folders
 
-  - <b>\asn1Play\Data\SampleData</b>: Sample Data folder containing various version specific data files.
-  - <b>\asn1Play\Data\UserData</b>: User Data folder containing various version specific data files (Default Output Directory).
+  - <b>\asn1Play\data\sample_data</b>: Sample Data folder containing various version specific data files.
+  - <b>\asn1Play\data\user_data</b>: User Data folder containing various version specific data files (Default Output Directory).
 
 # Sample Usage References
 
@@ -118,13 +118,13 @@ To Refer Sample usages, search for below keywords in source code (\asn1Play\asn1
 
 # Reserve Variables
 
-  - $VERSION
+  - $version
     - Used for input_path, when version of asn specification needs to be considered in file path on run time.
-  - $REMARKS
+  - $remarks
     - Used for output_file_path, when Remarks needs to be considered in output path.
-  - $ASN1_ELEMENT
+  - $asn1_element
     - Used for remarks, when Asn Element Name needs to be considered in remarks.
-  - $ITEM_INDEX
+  - $item_index
     - Used for output_file_path, when Item Index (For Bulk Mode) needs to be considered in output path.
 
 # Reserve Keywords

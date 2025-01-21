@@ -19,7 +19,6 @@ class Constants:
     ASN1_ELEMENT_IS_NOT_NEEDED = 'asn1_element is not needed; Conversion can be performed'
     INPUT_DATA_TRIMMING_IS_DONE = 'input data trimming is done'
     INPUT_DATA_MISSING = 'Mandatory input data is missing.'
-    CONFIG_INPUT_MISSING = 'Mandatory Config "input" is missing.'
     STR_CONVERSION_MODE = 'Conversion'
     STR_ENCODING_MODE = 'Encoding'
     STR_DECODING_MODE = 'Decoding'

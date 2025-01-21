@@ -20,7 +20,7 @@ _debug = False
 # _debug = True
 
 
-def process_data(data, meta_data, info_data, flip_output=False):
+def handle_data(data, meta_data, info_data, flip_output=False):
     """
 
     :param data:
@@ -38,33 +38,15 @@ def process_data(data, meta_data, info_data, flip_output=False):
         output_format = data.input_format
     parse_only = True
     asn1_element = data.asn1_element
-    res = decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
-                            output_format=output_format, asn1_element=asn1_element, info_data=info_data)
+    res = __handle_data(input_data=input_data, parse_only=parse_only, input_format=input_format,
+                        output_format=output_format, asn1_element=asn1_element, info_data=info_data)
     if flip_output is True:
         meta_data.re_parsed_data = res
     else:
         meta_data.parsed_data = res
 
 
-def convert_data(input_data, output_format, info_data):
-    # Data is converted to Hex
-    if output_format in FormatsGroup.BASE64_FORMATS:
-        return PhUtil.decode_to_base64_if_hex(input_data)
-    if output_format in FormatsGroup.ASCII_FORMATS:
-        decoding_format = PhConstants.CHAR_ENCODING_UTF8
-        if info_data is not None:
-            info_data.set_info(f'Trying with {decoding_format}')
-        return PhUtil.hex_str_to_ascii(input_data, only_if_printable=False, encoding=decoding_format)
-    if output_format in FormatsGroup.INPUT_FORMATS_DER:
-        return input_data
-    if output_format in Formats.DER_BYTE_ARRAY:
-        return PhUtil.hex_str_to_dec_list(input_data)
-    if output_format in Formats.DER_BYTE_ARRAY_SIGNED:
-        return PhUtil.hex_str_to_dec_list(input_data, signed_byte_handling=True)
-    return None
-
-
-def decode_encode_asn(input_data, parse_only, input_format, output_format, asn1_element, info_data):
+def __handle_data(input_data, parse_only, input_format, output_format, asn1_element, info_data):
     """
     Ref: https://github.com/P1sec/pycrate/wiki/Using-the-pycrate-asn1-runtime
     :param input_data:
@@ -74,7 +56,7 @@ def decode_encode_asn(input_data, parse_only, input_format, output_format, asn1_
     :param asn1_element:
     :return:
     """
-    func_name = decode_encode_asn.__name__
+    func_name = __handle_data.__name__
     exception = None
     print_debug_var_v('input_data', input_data)
     print_debug_var_v('parse_only', parse_only)
@@ -171,12 +153,7 @@ def decode_encode_asn(input_data, parse_only, input_format, output_format, asn1_
             offset += (len(temp) * 2)
         elif input_format in FormatsGroup.INPUT_FORMATS_ASN:
             temp = input_data[offset:]
-            next_offset = find_offset_of_section(temp, PhConstants.STR_CURLY_BRACE_START,
-                                                 PhConstants.STR_CURLY_BRACE_END) + 1
-            print_debug_var_v('next_offset', next_offset)
-            # There could be n white spaces (\n, \r , or both)
-            next_offset = find_offset_of_next_non_white_space_char(temp, next_offset)
-            print_debug_var_v('next_offset', next_offset)
+            next_offset = find_offset_of_next_block(temp)
             try:  # Needed For Unknown data / TLV
                 M.from_asn1(temp)
                 temp = M.to_asn1()
@@ -187,12 +164,7 @@ def decode_encode_asn(input_data, parse_only, input_format, output_format, asn1_
         elif input_format in FormatsGroup.INPUT_FORMATS_JSON:
             # TODO: Can be merged with ASN1 Above
             temp = input_data[offset:]
-            next_offset = find_offset_of_section(temp, PhConstants.STR_CURLY_BRACE_START,
-                                                 PhConstants.STR_CURLY_BRACE_END) + 1
-            print_debug_var_v('next_offset', next_offset)
-            # There could be n white spaces (\n, \r , or both)
-            next_offset = find_offset_of_next_non_white_space_char(temp, next_offset)
-            print_debug_var_v('next_offset', next_offset)
+            next_offset = find_offset_of_next_block(temp)
             try:  # Needed For Unknown data / TLV
                 M.from_json(temp)
                 temp = M.to_json()
@@ -246,6 +218,24 @@ def decode_encode_asn(input_data, parse_only, input_format, output_format, asn1_
     if parse_only:
         return parsing_data_concatenated
     return new_profile
+
+
+def convert_data(input_data, output_format, info_data):
+    # Data is converted to Hex
+    if output_format in FormatsGroup.BASE64_FORMATS:
+        return PhUtil.decode_to_base64_if_hex(input_data)
+    if output_format in FormatsGroup.ASCII_FORMATS:
+        decoding_format = PhConstants.CHAR_ENCODING_UTF8
+        if info_data is not None:
+            info_data.set_info(f'Trying with {decoding_format}')
+        return PhUtil.hex_str_to_ascii(input_data, only_if_printable=False, encoding=decoding_format)
+    if output_format in FormatsGroup.INPUT_FORMATS_DER:
+        return input_data
+    if output_format in Formats.DER_BYTE_ARRAY:
+        return PhUtil.hex_str_to_dec_list(input_data)
+    if output_format in Formats.DER_BYTE_ARRAY_SIGNED:
+        return PhUtil.hex_str_to_dec_list(input_data, signed_byte_handling=True)
+    return None
 
 
 def process_pe(profile_element, level=1, data_to_update=PhConstants.STR_EMPTY):
@@ -314,10 +304,20 @@ def parse_data(parsing_format, record_count):
     return str(parsing_data_current)
 
 
-def find_offset_of_section(data, char_to_find, corresponding_char_to_find):
+def find_offset_of_next_block(temp, start_char=PhConstants.STR_CURLY_BRACE_START,
+                              end_char=PhConstants.STR_CURLY_BRACE_END):
+    next_offset = find_offset_of_block(temp, start_char, end_char) + 1
+    print_debug_var_v('next_offset', next_offset)
+    # There could be n white spaces (\n, \r , or both)
+    next_offset = find_offset_of_next_non_white_space_char(temp, next_offset)
+    print_debug_var_v('next_offset', next_offset)
+    return next_offset
+
+
+def find_offset_of_block(data, char_to_find, corresponding_char_to_find):
     """
     Considering Ideal Scenario: Any target char is not present as a comment
-    Data Pattern is correct,target characters are available in pairs
+    Data Pattern is correct, target characters are available in pairs
 
     :param data:
     :param char_to_find:

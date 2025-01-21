@@ -106,6 +106,7 @@ class TestAutoBatch:
             PhDos.get_seperator(test_case_data.get(PhKeys.TEST_CASE_ID)),
             PhDos.change_directory_parent(),
             PhDos.change_directory_parent(),
+            PhDos.create_directory(file_path=log_file_path),
             PhDos.call_script_for_env_handling(True),
             PhConstants.SEPERATOR_TWO_WORDS.join(filter(None, [
                 PhDos.run_python(module_name=MODULE_NAME),

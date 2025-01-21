@@ -15,7 +15,7 @@ from asn1_play.generated_code.asn1.GSMA.SGP_32 import default_asn_version_sgp32
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import default_asn_version_epp
 from asn1_play.generated_code.asn1.asn1 import Asn1
 from asn1_play.main.convert import converter
-from asn1_play.main.convert.converter import read_web_request, set_defaults
+from asn1_play.main.convert.converter import handle_web_request, set_defaults
 from asn1_play.main.convert.parser import process_all_data_types
 from asn1_play.main.helper.data import Data
 from asn1_play.main.helper.infodata import InfoData
@@ -33,15 +33,16 @@ class DataTypeMaster(object):
         self.remarks = None
         self.encoding = None
         self.encoding_errors = None
+        self.output_path = None
+        self.output_file_name_keyword = None
         self.archive_output = None
         self.archive_output_format = None
         # Specific Objects
-        self.output_file = None
-        self.re_parse_output = None
-        self.output_file_name_keyword = None
-        self.output_format = None
         self.input_format = None
+        self.output_format = None
         self.asn1_element = None
+        self.tlv_parsing_of_output = None
+        self.re_parse_output = None
         self.data_pool = []
         self.__master_data = PhMasterData(
             data=Data(input_data=None),
@@ -71,29 +72,32 @@ class DataTypeMaster(object):
     def set_encoding_errors(self, encoding_errors):
         self.encoding_errors = encoding_errors
 
+    def set_output_path(self, output_path):
+        self.output_path = output_path
+
+    def set_output_file_name_keyword(self, output_file_name_keyword):
+        self.output_file_name_keyword = output_file_name_keyword
+
     def set_archive_output(self, archive_output):
         self.archive_output = archive_output
 
     def set_archive_output_format(self, archive_output_format):
         self.archive_output_format = archive_output_format
 
-    def set_output_file(self, output_file):
-        self.output_file = output_file
-
-    def set_re_parse_output(self, re_parse_output):
-        self.re_parse_output = re_parse_output
-
-    def set_output_file_name_keyword(self, output_file_name_keyword):
-        self.output_file_name_keyword = output_file_name_keyword
+    def set_input_format(self, input_format):
+        self.input_format = input_format
 
     def set_output_format(self, output_format):
         self.output_format = output_format
 
-    def set_input_format(self, input_format):
-        self.input_format = input_format
-
     def set_asn1_element(self, asn1_element):
         self.asn1_element = asn1_element
+
+    def set_tlv_parsing_of_output(self, tlv_parsing_of_output):
+        self.tlv_parsing_of_output = tlv_parsing_of_output
+
+    def set_re_parse_output(self, re_parse_output):
+        self.re_parse_output = re_parse_output
 
     def set_data_pool(self, data_pool):
         self.data_pool = data_pool
@@ -109,7 +113,7 @@ class DataTypeMaster(object):
             data = self.data_pool
         if isinstance(data, list):
             """
-            Handle Pool
+            Handle Requests Pool; Multiple Data Request are sent
             """
             for data_item in data:
                 self.process_safe(error_handling_mode=error_handling_mode, data=data_item)
@@ -122,7 +126,7 @@ class DataTypeMaster(object):
                 """
                 Web Form
                 """
-                data = read_web_request(data)
+                data = handle_web_request(data)
             self.__process_safe_individual(data)
         except Exception as e:
             known = False
@@ -180,14 +184,15 @@ class DataTypeMaster(object):
             data.remarks = data.remarks if data.remarks is not None else self.remarks
             data.encoding = data.encoding if data.encoding is not None else self.encoding
             data.encoding_errors = data.encoding_errors if data.encoding_errors is not None else self.encoding_errors
+            data.output_path = data.output_path if data.output_path is not None else self.output_path
+            data.output_file_name_keyword = data.output_file_name_keyword if data.output_file_name_keyword is not None else self.output_file_name_keyword
             data.archive_output = data.archive_output if data.archive_output is not None else self.archive_output
             data.archive_output_format = data.archive_output_format if data.archive_output_format is not None else self.archive_output_format
-            data.asn1_element = data.asn1_element if data.asn1_element is not None else self.asn1_element
-            data.output_file = data.output_file if data.output_file is not None else self.output_file
             data.input_format = data.input_format if data.input_format is not None else self.input_format
             data.output_format = data.output_format if data.output_format is not None else self.output_format
+            data.asn1_element = data.asn1_element if data.asn1_element is not None else self.asn1_element
+            data.tlv_parsing_of_output = data.tlv_parsing_of_output if data.tlv_parsing_of_output is not None else self.tlv_parsing_of_output
             data.re_parse_output = data.re_parse_output if data.re_parse_output is not None else self.re_parse_output
-            data.output_file_name_keyword = data.output_file_name_keyword if data.output_file_name_keyword is not None else self.output_file_name_keyword
         else:
             data = Data(
                 input_data=data,
@@ -198,14 +203,15 @@ class DataTypeMaster(object):
                 remarks=self.remarks,
                 encoding=self.encoding,
                 encoding_errors=self.encoding_errors,
+                output_path=self.output_path,
+                output_file_name_keyword=self.output_file_name_keyword,
                 archive_output=self.archive_output,
                 archive_output_format=self.archive_output_format,
-                asn1_element=self.asn1_element,
-                output_file=self.output_file,
                 input_format=self.input_format,
                 output_format=self.output_format,
+                asn1_element=self.asn1_element,
+                tlv_parsing_of_output=self.tlv_parsing_of_output,
                 re_parse_output=self.re_parse_output,
-                output_file_name_keyword=self.output_file_name_keyword,
             )
         current_asn1_element = data.get_asn1_element()
         if current_asn1_element:
@@ -250,18 +256,26 @@ class DataTypeMaster(object):
         """
         set_defaults(data, None)
         common_data = {
+            #
             PhKeys.INPUT_DATA: data.input_data,
+            PhKeys.PRINT_INPUT: data.print_input,
+            PhKeys.PRINT_OUTPUT: data.print_output,
+            PhKeys.PRINT_INFO: data.print_info,
+            PhKeys.QUITE_MODE: data.quite_mode,
             PhKeys.REMARKS: data.get_remarks_as_str(),
-            PhKeys.DATA_GROUP: data.data_group,
             PhKeys.ENCODING: data.encoding,
             PhKeys.ENCODING_ERRORS: data.encoding_errors,
+            PhKeys.OUTPUT_PATH: data.output_path,
+            PhKeys.OUTPUT_FILE_NAME_KEYWORD: data.output_file_name_keyword,
             PhKeys.ARCHIVE_OUTPUT: data.archive_output,
             PhKeys.ARCHIVE_OUTPUT_FORMAT: data.archive_output_format,
+            #
             PhKeys.INPUT_FORMAT: data.input_format,
             PhKeys.OUTPUT_FORMAT: data.output_format,
-            PhKeys.OUTPUT_FILE: data.output_file,
+            # asn1_element
             PhKeys.RE_PARSE_OUTPUT: data.re_parse_output,
             PhKeys.TLV_PARSING_OF_OUTPUT: data.tlv_parsing_of_output,
-            PhKeys.OUTPUT_FILE_NAME_KEYWORD: data.output_file_name_keyword,
+            #
+            PhKeys.DATA_GROUP: data.data_group,
         }
         return PhUtil.dict_clean(PhUtil.dict_merge(common_data, data.get_asn1_element_info()))

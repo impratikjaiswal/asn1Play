@@ -1,6 +1,7 @@
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_keys import PhKeys
 from python_helpers.ph_util import PhUtil
+from python_helpers.ph_variables import PhVariables
 
 from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp22_version
 from asn1_play.generated_code.asn1.GSMA.SGP_32 import version as sgp32_version
@@ -8,7 +9,6 @@ from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import version as e
 from asn1_play.generated_code.asn1.asn1 import Asn1
 from asn1_play.main.helper.formats_group import FormatsGroup
 from asn1_play.main.helper.keywords import KeyWords
-from asn1_play.main.helper.variables import Variables
 
 
 class Data:
@@ -22,19 +22,23 @@ class Data:
                  remarks=[],
                  encoding=None,
                  encoding_errors=None,
+                 # TODO: Check if output_path (export yml) can be part of common param
+                 output_path=None,
+                 # TODO: Rename to output_file_name_suffix ?
+                 output_file_name_keyword=None,
                  archive_output=None,
                  # TODO: Check if file can be exported, then zip also can be exported
                  archive_output_format=None,
                  # Specific Param
+                 # TODO: Could be a common param; with default value as STR (e.g. qr Play)
                  input_format=None,
+                 # TODO: Could be a common param;
                  output_format=None,
-                 # TODO: Check if output_file/output_path (export yml) can be part of common param
-                 output_file=None,
                  asn1_element=None,
                  tlv_parsing_of_output=None,
+                 # TODO: Could be a common param; with default value as STR (e.g. qr Play)
                  re_parse_output=None,
-                 output_file_name_keyword=None,
-                 # Unknown Param
+                 # Unknown/System Param
                  **kwargs,
                  ):
         """
@@ -48,21 +52,22 @@ class Data:
         :param remarks: Remarks for Input Data
         :param encoding: Encoding for Input/Output Data
         :param encoding_errors: Encoding Errors Handling for Input/Output Data
+        :param output_path: Output Path
+        :param output_file_name_keyword:
         :param archive_output: Archiving of output needed?
         :param archive_output_format: Archive Output Format
         :param input_format: Format of Input Data
-        :param output_format:
+        :param output_format: Output Format
         :param asn1_element:
         :param tlv_parsing_of_output:
-        :param output_file:
         :param re_parse_output:
-        :param output_file_name_keyword:
         :param kwargs: To Handle unwanted/deprecated/internal/additional arguments (See Description)
         ----------
 
         kwargs -- (handled arguments description)
             raw_data -- @Deprecated!!! Use input_data instead \n
             remarks_list -- @Deprecated!!! Use remarks instead \n
+            output_file -- @Deprecated!!! Use output_path instead \n
             data_group -- Used for Web App
         ----------
         """
@@ -75,20 +80,22 @@ class Data:
         self.remarks = remarks
         self.encoding = encoding
         self.encoding_errors = encoding_errors
+        self.output_path = output_path
+        self.output_file_name_keyword = output_file_name_keyword
         self.archive_output = archive_output
         self.archive_output_format = archive_output_format
         self.input_format = input_format
         self.output_format = output_format
         self.asn1_element = asn1_element
         self.tlv_parsing_of_output = tlv_parsing_of_output
-        self.output_file = output_file
         self.re_parse_output = re_parse_output
-        self.output_file_name_keyword = output_file_name_keyword
         # Handle kwargs
         if self.input_data is None and PhKeys.RAW_DATA in kwargs:
             self.input_data = kwargs[PhKeys.RAW_DATA]
         if self.remarks is None and PhKeys.REMARKS_LIST in kwargs:
             self.remarks = kwargs[PhKeys.REMARKS_LIST]
+        if self.output_path is None and PhKeys.OUTPUT_FILE in kwargs:
+            self.output_path = kwargs[PhKeys.OUTPUT_FILE]
         self.data_group = kwargs.get(PhKeys.DATA_GROUP, None)
         # Handle Internal args
         self.__input_modes_hierarchy = []
@@ -108,8 +115,8 @@ class Data:
     def set_user_remarks(self, remarks):
         self.remarks = PhUtil.to_list(remarks, trim_data=True, all_str=True)
         self.remarks = [
-            x.replace(Variables.ASN_ELEMENT, self.get_asn1_element_name()) if self.get_asn1_element_name() else x for x
-            in self.remarks]
+            x.replace(PhVariables.ASN1_ELEMENT, self.get_asn1_element_name()) if self.get_asn1_element_name() else x
+            for x in self.remarks]
 
     def __get_default_remarks(self):
         self.set_asn1_element_name()

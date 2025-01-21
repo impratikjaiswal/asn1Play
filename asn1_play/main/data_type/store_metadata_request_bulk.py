@@ -1,3 +1,5 @@
+from python_helpers.ph_variables import PhVariables
+
 from asn1_play.generated_code.asn1.GSMA import SGP_22
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.helper.data import Data
@@ -6,6 +8,9 @@ from asn1_play.main.helper.formats import Formats
 
 
 class StoreMetaDataBulk(DataTypeMaster):
+
+    def __init__(self):
+        super().__init__()
 
     def set_print_input(self):
         print_input = None
@@ -35,6 +40,15 @@ class StoreMetaDataBulk(DataTypeMaster):
         encoding_errors = None
         super().set_encoding_errors(encoding_errors)
 
+    def set_output_path(self):
+        # RemarksVariable;
+        output_path = Folders.in_user(['bulk', 'StoreMetadataRequest', PhVariables.REMARKS])
+        super().set_output_path(output_path)
+
+    def set_output_file_name_keyword(self):
+        output_file_name_keyword = None
+        super().set_output_file_name_keyword(output_file_name_keyword)
+
     def set_archive_output(self):
         archive_output = None
         super().set_archive_output(archive_output)
@@ -43,30 +57,25 @@ class StoreMetaDataBulk(DataTypeMaster):
         archive_output_format = None
         super().set_archive_output_format(archive_output_format)
 
-    def set_output_file(self):
-        # RemarksVariable;
-        output_file = Folders.in_user(r'bulk\StoreMetadataRequest\$REMARKS')
-        super().set_output_file(output_file)
-
-    def set_re_parse_output(self):
-        re_parse_output = None
-        super().set_re_parse_output(re_parse_output)
-
-    def set_output_file_name_keyword(self):
-        output_file_name_keyword = None
-        super().set_output_file_name_keyword(output_file_name_keyword)
+    def set_input_format(self):
+        input_format = Formats.DER
+        super().set_input_format(input_format)
 
     def set_output_format(self):
         output_format = Formats.ASN1
         super().set_output_format(output_format)
 
-    def set_input_format(self):
-        input_format = Formats.DER
-        super().set_input_format(input_format)
-
     def set_asn1_element(self):
         asn1_element = SGP_22.RSPDefinitions.StoreMetadataRequest
         super().set_asn1_element(asn1_element)
+
+    def set_tlv_parsing_of_output(self):
+        tlv_parsing_of_output = None
+        super().set_tlv_parsing_of_output(tlv_parsing_of_output)
+
+    def set_re_parse_output(self):
+        re_parse_output = None
+        super().set_re_parse_output(re_parse_output)
 
     def set_data_pool(self):
         data_pool = [
