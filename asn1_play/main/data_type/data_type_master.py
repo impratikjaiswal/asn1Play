@@ -218,7 +218,7 @@ class DataTypeMaster(object):
             if isinstance(current_asn1_element, Asn1):
                 pass
             elif isinstance(current_asn1_element, str):
-                data.asn1_element = Asn1(asn1_object=current_asn1_element)
+                data.set_asn1_element(Asn1(asn1_object=current_asn1_element))
             else:  # Existing Asn Object; Legacy Code
                 name = current_asn1_element.fullname()
                 mod = current_asn1_element._mod
@@ -230,9 +230,7 @@ class DataTypeMaster(object):
                         asn1_schema = default_asn_version_sgp32
                     if mod == KeyWords.MODULE_EPP:
                         asn1_schema = default_asn_version_epp
-                data.asn1_element = Asn1(asn1_schema=asn1_schema, asn1_object=name)
-            if isinstance(data.asn1_element, Asn1):
-                data.set_asn1_element_name()
+                data.set_asn1_element(Asn1(asn1_schema=asn1_schema, asn1_object=name))
         converter.path_generalisation(data, PhKeys.INPUT_DATA)
         converter.path_generalisation(data, PhKeys.OUTPUT_FILE)
         converter.path_generalisation(data, PhKeys.REMARKS)

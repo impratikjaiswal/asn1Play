@@ -15,6 +15,7 @@ from tlv_play.main.helper.data import Data
 from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp_22_version
 from asn1_play.generated_code.asn1.GSMA.SGP_32 import version as sgp_32_version
 from asn1_play.generated_code.asn1.TCA.eUICC_Profile_Package import version as epp_version
+from asn1_play.generated_code.asn1.asn1 import Asn1
 from asn1_play.main.convert import converter
 from asn1_play.main.convert.handler import handle_data
 from asn1_play.main.helper.constants_config import ConfigConst
@@ -31,16 +32,17 @@ def process_all_data_types(data, meta_data=None, info_data=None):
     :param data:
     :return:
     """
-    """
-    Bulk Data Handling (Recursive)
-    """
     converter.set_defaults_for_common_objects(data)
     byte_array_format = True if data.input_format in FormatsGroup.BYTE_ARRAY_FORMATS else False
     if meta_data is None:
         meta_data = MetaData(input_data_org=data.input_data)
     if info_data is None:
         info_data = InfoData()
+    """
+    Bulk Data Handling (Recursive; List / Tuple / Dict)
+    """
     multiple_inputs = False
+    dict_format = False
     if not byte_array_format and isinstance(data.input_data, list):
         # List is provided
         multiple_inputs = True
@@ -49,28 +51,41 @@ def process_all_data_types(data, meta_data=None, info_data=None):
         # CUI (Click) Multi is a tuple
         multiple_inputs = True
         meta_data.input_mode_key = PhKeys.INPUT_TUPLE
+    if isinstance(data.input_data, dict):
+        multiple_inputs = True
+        dict_format = True
+        meta_data.input_mode_key = PhKeys.INPUT_DICT
     if multiple_inputs:
+        elements_count = len(data.input_data)
         data.append_input_modes_hierarchy(meta_data.input_mode_key)
         data.set_auto_generated_remarks_if_needed()
-        data.set_one_time_remarks(f'({len(data.input_data)} Elements)')
+        data.set_one_time_remarks(f'({elements_count} Elements)')
         PhUtil.print_heading(data.get_remarks_as_str(), heading_level=3)
         converter.print_data(data, meta_data)
         parsed_data_list = []
         actual_remarks_length = len(data.remarks)
         current_remarks = PhUtil.extend_list(data.remarks, expected_length=len(data.input_data))
-        for index, input_data_item in enumerate(data.input_data, start=1):
+        iterator = data.input_data
+        for index, input_data_item in enumerate(iterator, start=1):
             sub_data = copy.deepcopy(data)
-            sub_data.input_data = input_data_item
+            if dict_format:
+                sub_data.input_data = data.input_data.get(input_data_item, None)
+                sub_data.set_asn1_element(Asn1(asn1_object=input_data_item))
+            else:
+                sub_data.input_data = input_data_item
             sub_data.reset_auto_generated_remarks()
             sub_data.set_extended_remarks_available(False if index <= actual_remarks_length else True)
             sub_data.set_user_remarks(current_remarks[index - 1])
-            sub_data.set_auto_generated_remarks_if_needed(PhUtil.get_key_value_pair(key='item', value=index,
-                                                                                    sep=PhConstants.SEPERATOR_TWO_WORDS,
-                                                                                    dic_format=False))
+            if elements_count > 1:
+                sub_data.set_auto_generated_remarks_if_needed(
+                    PhUtil.get_key_value_pair(key='item', value=index, sep=PhConstants.SEPERATOR_TWO_WORDS,
+                                              dic_format=False))
             parsed_data_list.append(process_all_data_types(sub_data))
         return parsed_data_list
-    if not byte_array_format and data.input_data and isinstance(data.input_data, str) and os.path.isdir(
-            os.path.abspath(data.input_data)):
+    """
+    Dir Handling (Bulk Mode)
+    """
+    if data.input_data and isinstance(data.input_data, str) and os.path.isdir(os.path.abspath(data.input_data)):
         # XXX: path should be string, bytes or os.PathLike; throwing error during full testing
         # directory is provided
         meta_data.input_mode_key = PhKeys.INPUT_DIR
@@ -92,7 +107,7 @@ def process_all_data_types(data, meta_data=None, info_data=None):
     file_dic_all_str = {}
     data.set_auto_generated_remarks_if_needed()
     PhUtil.print_heading(data.get_remarks_as_str(), heading_level=2)
-    if not byte_array_format and data.input_data and os.path.isfile(data.input_data):
+    if data.input_data and isinstance(data.input_data, str) and os.path.isfile(os.path.abspath(data.input_data)):
         # file is provided
         resp = converter.read_input_file(data=data, meta_data=meta_data, info_data=info_data)
         file_ext = PhUtil.get_file_name_and_extn(file_path=data.input_data, only_extn=True)
@@ -128,8 +143,8 @@ def process_all_data_types(data, meta_data=None, info_data=None):
         {'tool_name': PhKeys.SGP32, 'tool_version': sgp_32_version},
         {'tool_name': PhKeys.EUICC_PROFILE_PACKAGE, 'tool_version': epp_version},
     ]
-    output_versions_dic = PhUtil.dict_update(output_versions_dic,
-                                             PhUtil.print_version(parameters_pool=version_parameters_pool))
+    versions_data = PhUtil.print_version(parameters_pool=version_parameters_pool, get_only=True, dic_format=True)
+    output_versions_dic = PhUtil.dict_update(output_versions_dic, versions_data)
     output_versions_dic.update(
         PhUtil.get_key_value_pair(PhKeys.TIME_STAMP, PhUtil.get_time_stamp(files_format=False), dic_format=True))
     """

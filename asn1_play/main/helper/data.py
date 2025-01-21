@@ -166,6 +166,10 @@ class Data:
     def set_one_time_remarks(self, one_time_remarks):
         self.__one_time_remarks = one_time_remarks
 
+    def set_asn1_element(self, asn1_element):
+        self.asn1_element = asn1_element
+        self.set_asn1_element_name()
+
     def set_asn1_element_name(self):
         if not self.asn1_element or self.asn1_element is None:
             self.__asn1_schema_name = None

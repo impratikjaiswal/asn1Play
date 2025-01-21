@@ -78,7 +78,6 @@ class Dev(DataTypeMaster):
 
     def set_data_pool(self):
         data_pool = [
-            #
             # Needs to Check
             Data(
                 input_data="""{
@@ -123,10 +122,16 @@ class Dev(DataTypeMaster):
             # Needs to Check
             {
                 PhKeys.REMARKS: 'Web Request; Hex to Ascii; _getfullpathname: path should be string, bytes or os.PathLike, not int',
-                'input_data': '85',
-                'input_format': Formats.HEX,
-                'output_format': Formats.ASCII,
+                PhKeys.INPUT_DATA: '85',
+                PhKeys.INPUT_FORMAT: Formats.HEX,
+                PhKeys.OUTPUT_FORMAT: Formats.ASCII,
             },
-            #
+            # Needs to Check
+            {
+                PhKeys.REMARKS: 'Web Request; Hex to Ascii; (Non UTF) input data conversion is not possible; Input Data: ',
+                PhKeys.INPUT_DATA: '\x85',
+                PhKeys.INPUT_FORMAT: Formats.HEX,
+                PhKeys.OUTPUT_FORMAT: Formats.ASCII,
+            },
         ]
         super().set_data_pool(data_pool)

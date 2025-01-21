@@ -12,6 +12,8 @@ from asn1_play.test.test_data import TestData
 
 
 class TestAutoBatch:
+    full_test = True
+
     PROJECT_PATH = r'D:\Other\Github_Self\asn1Play'
 
     get_file_path_mapping_relative = {
@@ -165,18 +167,26 @@ class TestAutoBatch:
             common_data = PhUtil.to_list(PhDos.echo(f'Iteration {index + 1}', wrap_up=True))
             common_data.extend(PhDos.common_info())
             cls.test(test_case_data=test_case_data, default_batch_data=common_data)
-        """
-        CLI Tests
-        """
-        TestData.generate_dynamic_cli_from_read_me()
-        for index, key in enumerate(TestData.dynamic_data_cli.keys()):
-            test_case_data = TestData.get_test_data_cli(key=key)
-            common_data = PhUtil.to_list(PhDos.echo(f'Iteration {index + 1}', wrap_up=True))
-            common_data.extend(PhDos.common_info())
-            cls.test_cli(test_case_data=test_case_data, default_batch_data=common_data)
+            if not TestAutoBatch.full_test:
+                break
+        if TestAutoBatch.full_test:
+            """
+            CLI Tests
+            """
+            TestData.generate_dynamic_cli_from_read_me()
+            for index, key in enumerate(TestData.dynamic_data_cli.keys()):
+                test_case_data = TestData.get_test_data_cli(key=key)
+                common_data = PhUtil.to_list(PhDos.echo(f'Iteration {index + 1}', wrap_up=True))
+                common_data.extend(PhDos.common_info())
+                cls.test_cli(test_case_data=test_case_data, default_batch_data=common_data)
 
 
 def main():
+    """
+
+    :return:
+    """
+    # TestAutoBatch.full_test = False
     TestAutoBatch.test_all()
 
 

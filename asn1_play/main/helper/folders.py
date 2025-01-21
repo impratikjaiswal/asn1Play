@@ -113,8 +113,6 @@ class Folders:
         """
         if folder_name not in cls.LOCATIONS_MAPPING:
             raise ValueError('Unknown Folder name')
-        # if isinstance(relative_path, list):
-        #     relative_path = os.sep.join(filter(None, relative_path))
         return os.sep.join(
             filter(None, PhUtil.normalise_list(
                 [Folders.top_folder_path, cls.LOCATIONS_MAPPING.get(folder_name), relative_path])))

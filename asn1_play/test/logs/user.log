@@ -19,11 +19,11 @@ Python executable Path is D:\Other\Github_Self\asn1Play\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Monday, Jan 20 2025, 14:39:41:262325, IST (GMT+0530)
+Time Stamp is Tuesday, Jan 21 2025, 19:05:03:045235, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is b6d00e3;  (HEAD -> main, origin/main, origin/HEAD); 2024-12-09 21:48:12 +0530; imPratik <impratikjaiswal@gmail.com>; fav icon changed
+Git Summary is 85e429f;  (HEAD -> main, origin/main, origin/HEAD); 2025-01-21 09:58:26 +0530; imPratik <impratikjaiswal@gmail.com>; multi versions print, sync with latest lib, preparation for dict format support
 --------------------------------------------------------------------------------
-pythonHelpers version is v5.2.2.dev1
+pythonHelpers version is v5.2.3
 --------------------------------------------------------------------------------
 asn1Play version is v8.5.1
 --------------------------------------------------------------------------------
@@ -45,7 +45,7 @@ eUICC_Profile_Package compile_time version is v3_1
 ------------------------------------------------- Data Class: UserData -------------------------------------------------
 ************************************************** SGP22; Der to Asn1 **************************************************
 Remarks: SGP22; Der to Asn1
-Info => Transaction Id: h17623puwbyv; Mode: Encoding_Mode; Asn1 Schema: GSMA_SGP_22_v3_1; Asn1 Object: StoreMetadataRequest; Input Format: der; Output Format: asn1; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip
+Info => Transaction Id: fklm0zdf46j9; Mode: Encoding_Mode; Asn1 Schema: GSMA_SGP_22_v3_1; Asn1 Object: StoreMetadataRequest; Input Format: der; Output Format: asn1; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Input Data Length: 108
 Output Data:
@@ -59,7 +59,7 @@ Output Data Length: 114
 ************************************************ SGP22; Asn1 to Der; Tlv ***********************************************
 ***** bf25335a0a989209012143658709f591095350204e616d652031921a4f7065726174696f6e616c2050726f66696c65204e616d652031 *****
 Remarks: SGP22; Asn1 to Der; Tlv
-Info => Transaction Id: ag9bgbiimaaf; Mode: Decoding_Mode; Asn1 Schema: GSMA_SGP_22_v3_1; Asn1 Object: StoreMetadataRequest; Input Format: asn1; Output Format: der; Tlv Parsing Of Output: True; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip
+Info => Transaction Id: tghj9sx8qbl9; Mode: Decoding_Mode; Asn1 Schema: GSMA_SGP_22_v3_1; Asn1 Object: StoreMetadataRequest; Input Format: asn1; Output Format: der; Tlv Parsing Of Output: True; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip
 Input Data:
 {
     iccid '989209012143658709F5'H,
@@ -76,7 +76,7 @@ Output Data Length: 124
 --------------------------------------------------------------------------------
 *************************************************** TCA; Asn1 to Der ***************************************************
 Remarks: TCA; Asn1 to Der
-Info => Transaction Id: lnoml1nkyjqq; Mode: Decoding_Mode; Asn1 Schema: TCA_EPP_v3_1; Asn1 Object: ProfileHeader; Input Format: asn1; Output Format: der; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip
+Info => Transaction Id: okbtdlhbn8xg; Mode: Decoding_Mode; Asn1 Schema: TCA_EPP_v3_1; Asn1 Object: ProfileHeader; Input Format: asn1; Output Format: der; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip
 Input Data:
 {
     major-version 2,
@@ -96,7 +96,7 @@ Output Data Length: 112
 --------------------------------------------------------------------------------
 ************************************************** Der(Hex) to Base 64 *************************************************
 Remarks: Der(Hex) to Base 64
-Info => Transaction Id: f7wyeje2b2t9; Mode: Conversion_Mode; Input Format: der; Output Format: der_as_base64; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip
+Info => Transaction Id: mcjc9jx80xlv; Mode: Conversion_Mode; Input Format: der; Output Format: der_as_base64; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip
 Input Data: BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031
 Input Data Length: 108
 Output Data: vyUzWgqYkgkBIUNlhwn1kQlTUCBOYW1lIDGSGk9wZXJhdGlvbmFsIFByb2ZpbGUgTmFtZSAx
@@ -104,7 +104,7 @@ Output Data Length: 72
 --------------------------------------------------------------------------------
 ***************************************************** Ascii to Hex *****************************************************
 Remarks: Ascii to Hex
-Info => Transaction Id: 9pu8li4gednv; Mode: Conversion_Mode; Input Format: ascii; Output Format: hex; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip
+Info => Transaction Id: 8epn7foyja0b; Mode: Conversion_Mode; Input Format: ascii; Output Format: hex; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip
 Input Data: Welcome To AsnPlay !!!
 Input Data Length: 22
 Output Data: 57656c636f6d6520546f2041736e506c617920212121
@@ -114,15 +114,15 @@ Output Data Length: 44
 Remarks: Hex to ASCII
 Info Data: Trying with utf-8
 Info Data Length: 17
-Info => Transaction Id: g9ae1q2jhddk; Mode: Conversion_Mode; Input Format: hex; Output Format: ascii; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip
+Info => Transaction Id: 3zon2j84ei8v; Mode: Conversion_Mode; Input Format: hex; Output Format: ascii; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip
 Input Data: 57656c636f6d6520546f2041736e506c617920212121
 Input Data Length: 44
 Output Data: Welcome To AsnPlay !!!
 Output Data Length: 22
 --------------------------------------------------------------------------------
 ---------------------------------- Time Details ----------------------------------
-Current Time Stamp: 2025-01-20 14:39:41.271638+05:30
-Execution Time: 00:00:00; Milliseconds: 13.004302978515625
+Current Time Stamp: 2025-01-21 19:05:03.068506+05:30
+Execution Time: 00:00:00; Milliseconds: 13.963937759399414
 Execution Time CPU: 00:00:00; Milliseconds: 15.625
 Timer State: TIMER_OFF
 --------------------------------------------------------------------------------

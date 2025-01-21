@@ -586,43 +586,43 @@ class UnitTesting(DataTypeMaster):
             #
             {
                 PhKeys.REMARKS: 'Web Request; asn1_element;',
-                'input_data': 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
-                'input_format': Formats.DER,
-                'output_format': Formats.ASN1,
-                'asn1_element': SGP_22.RSPDefinitions.StoreMetadataRequest
+                PhKeys.INPUT_DATA: 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
+                PhKeys.INPUT_FORMAT: Formats.DER,
+                PhKeys.OUTPUT_FORMAT: Formats.ASN1,
+                PhKeys.ASN1_ELEMENT: SGP_22.RSPDefinitions.StoreMetadataRequest
             },
             {
                 PhKeys.REMARKS: 'Web Request; asn1_schema; asn1_object;',
-                'input_data': 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
-                'input_format': Formats.DER,
-                'output_format': Formats.ASN1,
-                'asn1_schema': 'GSMA_SGP_22_v3_0_0',
-                'asn1_object': 'StoreMetadataRequest',
+                PhKeys.INPUT_DATA: 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
+                PhKeys.INPUT_FORMAT: Formats.DER,
+                PhKeys.OUTPUT_FORMAT: Formats.ASN1,
+                PhKeys.ASN1_SCHEMA: 'GSMA_SGP_22_v3_0_0',
+                PhKeys.ASN1_OBJECT: 'StoreMetadataRequest',
             },
             {
                 PhKeys.REMARKS: 'Web Request; asn1_schema; asn1_object; Extra Quotation',
-                'input_data': '"BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640"',
-                'input_format': Formats.DER,
-                'output_format': Formats.ASN1,
-                'asn1_schema': 'GSMA_SGP_22_v3_0_0',
-                'asn1_object': 'StoreMetadataRequest',
+                PhKeys.INPUT_DATA: '"BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640"',
+                PhKeys.INPUT_FORMAT: Formats.DER,
+                PhKeys.OUTPUT_FORMAT: Formats.ASN1,
+                PhKeys.ASN1_SCHEMA: 'GSMA_SGP_22_v3_0_0',
+                PhKeys.ASN1_OBJECT: 'StoreMetadataRequest',
             },
             {
                 PhKeys.REMARKS: 'Web Request; asn1_object_alternate;',
-                'input_data': 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
-                'input_format': Formats.DER,
-                'output_format': Formats.ASN1,
-                'asn1_schema': 'GSMA_SGP_22_v3_0_0',
-                'asn1_object_alternate': 'StoreMetadataRequest'
+                PhKeys.INPUT_DATA: 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
+                PhKeys.INPUT_FORMAT: Formats.DER,
+                PhKeys.OUTPUT_FORMAT: Formats.ASN1,
+                PhKeys.ASN1_SCHEMA: 'GSMA_SGP_22_v3_0_0',
+                PhKeys.ASN1_OBJECT_ALTERNATE: 'StoreMetadataRequest'
             },
             {
                 PhKeys.REMARKS: 'Web Request; asn1_object; asn1_object_alternate;',
-                'input_data': 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
-                'input_format': Formats.DER,
-                'output_format': Formats.ASN1,
-                'asn1_schema': 'GSMA_SGP_22_v3_0_0',
-                'asn1_object': 'StoreMetadataRequest',
-                'asn1_object_alternate': 'StoreMetadataRequest'
+                PhKeys.INPUT_DATA: 'BF25375A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D65203199020640',
+                PhKeys.INPUT_FORMAT: Formats.DER,
+                PhKeys.OUTPUT_FORMAT: Formats.ASN1,
+                PhKeys.ASN1_SCHEMA: 'GSMA_SGP_22_v3_0_0',
+                PhKeys.ASN1_OBJECT: 'StoreMetadataRequest',
+                PhKeys.ASN1_OBJECT_ALTERNATE: 'StoreMetadataRequest'
             },
             {
                 PhKeys.REMARKS: 'Web Request; fetch_asn1_objects; True',
@@ -1089,32 +1089,295 @@ class UnitTesting(DataTypeMaster):
             ),
             {
                 PhKeys.REMARKS: 'Web Request; Hex to Ascii; (Non UTF) input data conversion is not possible; Input Data: ',
-                'input_data': '\x85',
-                'input_format': Formats.HEX,
-                'output_format': Formats.ASCII,
+                PhKeys.INPUT_DATA: '\x85',
+                PhKeys.INPUT_FORMAT: Formats.HEX,
+                PhKeys.OUTPUT_FORMAT: Formats.ASCII,
             },
             {
                 PhKeys.REMARKS: 'Web Request; Hex to Ascii; non-hexadecimal number found in fromhex()',
-                'input_data': '\85',
-                'input_format': Formats.HEX,
-                'output_format': Formats.ASCII,
+                PhKeys.INPUT_DATA: '\85',
+                PhKeys.INPUT_FORMAT: Formats.HEX,
+                PhKeys.OUTPUT_FORMAT: Formats.ASCII,
             },
         ]
-
+        #
+        data_pool_type_casting_boolean = [
+            #
+            Data(
+                remarks='print_input is having garbage string',
+                input_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+                print_input='gkjghkg',
+            ),
+            #
+            Data(
+                remarks='print_input is having valid Boolean value (True) as string',
+                input_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+                print_input='True',
+            ),
+            #
+            Data(
+                remarks='print_input is having valid Boolean value (False) as string',
+                input_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+                print_input='False',
+            ),
+            #
+            Data(
+                remarks='print_input is having valid Boolean value (True)',
+                input_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+                print_input=True,
+            ),
+            #
+            Data(
+                remarks='print_input is having valid Boolean value (False)',
+                input_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+                print_input=False,
+            ),
+            #
+            Data(
+                remarks='print_input is having valid Boolean value (faLsE)',
+                input_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+                print_input='faLsE',
+            ),
+            #
+        ]
+        #
+        data_pool_type_casting_boolean_web_request = [
+            #
+            {
+                PhKeys.REMARKS: 'dict; print_input is having garbage string',
+                PhKeys.INPUT_DATA: 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                PhKeys.ASN1_ELEMENT: 'StoreMetadataRequest',
+                PhKeys.INPUT_FORMAT: 'der',
+                PhKeys.OUTPUT_FORMAT: 'asn1',
+                PhKeys.PRINT_INPUT: 'gkjghkg',
+            },
+            #
+            {
+                PhKeys.REMARKS: 'dict; print_input is having valid Boolean value (True) as string',
+                PhKeys.INPUT_DATA: 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                PhKeys.ASN1_ELEMENT: 'StoreMetadataRequest',
+                PhKeys.INPUT_FORMAT: 'der',
+                PhKeys.OUTPUT_FORMAT: 'asn1',
+                PhKeys.PRINT_INPUT: 'True',
+            },
+            #
+            {
+                PhKeys.REMARKS: 'dict; print_input is having valid Boolean value (False) as string',
+                PhKeys.INPUT_DATA: 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                PhKeys.ASN1_ELEMENT: 'StoreMetadataRequest',
+                PhKeys.INPUT_FORMAT: 'der',
+                PhKeys.OUTPUT_FORMAT: 'asn1',
+                PhKeys.PRINT_INPUT: 'False',
+            },
+            #
+            {
+                PhKeys.REMARKS: 'dict; print_input is having valid Boolean value (true) as string',
+                PhKeys.INPUT_DATA: 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                PhKeys.ASN1_ELEMENT: 'StoreMetadataRequest',
+                PhKeys.INPUT_FORMAT: 'der',
+                PhKeys.OUTPUT_FORMAT: 'asn1',
+                PhKeys.PRINT_INPUT: 'true',
+            },
+            #
+            {
+                PhKeys.REMARKS: 'dict; print_input is having valid Boolean value (false) as string',
+                PhKeys.INPUT_DATA: 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                PhKeys.ASN1_ELEMENT: 'StoreMetadataRequest',
+                PhKeys.INPUT_FORMAT: 'der',
+                PhKeys.OUTPUT_FORMAT: 'asn1',
+                PhKeys.PRINT_INPUT: 'false',
+            },
+            #
+            {
+                PhKeys.REMARKS: 'dict; print_input is having valid Boolean value (faLsE) as string',
+                PhKeys.INPUT_DATA: 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                PhKeys.ASN1_ELEMENT: 'StoreMetadataRequest',
+                PhKeys.INPUT_FORMAT: 'der',
+                PhKeys.OUTPUT_FORMAT: 'asn1',
+                PhKeys.PRINT_INPUT: 'faLsE',
+            },
+            #
+        ]
+        #
+        data_pool_type_casting_string = [
+            #
+            #
+            Data(
+                remarks='input_format is having garbage string',
+                input_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format='Kuch Bhi',
+                output_format=Formats.ASN1,
+                print_input=True,
+            ),
+            #
+            Data(
+                remarks='input_format is having valid value as string (Capital)',
+                input_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format='DER',
+                output_format=Formats.ASN1,
+                print_input=True,
+            ),
+            #
+            Data(
+                remarks='input_format is having valid value as string (Lower)',
+                input_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format='der',
+                output_format=Formats.ASN1,
+                print_input=True,
+            ),
+            #
+            Data(
+                remarks='input_format is having valid value as string (Mix case)',
+                input_data='BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
+                input_format='dEr',
+                output_format=Formats.ASN1,
+                print_input=True,
+            ),
+        ]
+        #
+        data_pool_type_casting_string_web_request = [
+            #
+            {
+                PhKeys.REMARKS: 'dict; input_format is having garbage string',
+                PhKeys.INPUT_DATA: 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                PhKeys.ASN1_ELEMENT: 'StoreMetadataRequest',
+                PhKeys.INPUT_FORMAT: 'Kuch Bhi',
+                PhKeys.OUTPUT_FORMAT: 'asn1',
+                PhKeys.PRINT_INPUT: 'True',
+            },
+            #
+            {
+                PhKeys.REMARKS: 'dict; input_format is having valid value as string (Capital)',
+                PhKeys.INPUT_DATA: 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                PhKeys.ASN1_ELEMENT: 'StoreMetadataRequest',
+                PhKeys.INPUT_FORMAT: 'DER',
+                PhKeys.OUTPUT_FORMAT: 'asn1',
+                PhKeys.PRINT_INPUT: 'True',
+            },
+            #
+            {
+                PhKeys.REMARKS: 'dict; input_format is having valid value as string (lower)',
+                PhKeys.INPUT_DATA: 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                PhKeys.ASN1_ELEMENT: 'StoreMetadataRequest',
+                PhKeys.INPUT_FORMAT: 'der',
+                PhKeys.OUTPUT_FORMAT: 'asn1',
+                PhKeys.PRINT_INPUT: 'True',
+            },
+            #
+            {
+                PhKeys.REMARKS: 'dict; input_format is having valid value as string (Mix case)',
+                PhKeys.INPUT_DATA: 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                PhKeys.ASN1_ELEMENT: 'StoreMetadataRequest',
+                PhKeys.INPUT_FORMAT: 'dEr',
+                PhKeys.OUTPUT_FORMAT: 'asn1',
+                PhKeys.PRINT_INPUT: 'True',
+            },
+        ]
+        #
+        data_pool_dicts = [
+            #
+            Data(
+                remarks='SGP22; StoreMetadataRequest as Dict',
+                input_data={
+                    'StoreMetadataRequest': 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031'
+                },
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+            #
+            {
+                PhKeys.REMARKS: 'SGP22; StoreMetadataRequest as Dict; Web Request',
+                PhKeys.INPUT_DATA: {
+                    'StoreMetadataRequest': 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031'
+                },
+                PhKeys.INPUT_FORMAT: Formats.DER,
+                PhKeys.OUTPUT_FORMAT: Formats.ASN1,
+            },
+            #
+            Data(
+                remarks=f'SGP22; Dict w multiple unrelated keys; {PhVariables.ASN1_ELEMENT};',
+                input_data={
+                    "EUICCInfo1": "vyBhggMCAQCpLAQU9UFyvfmKldZcvriKOKHBHYAKhcMEFMC8cLo2kp1DtGf/V1cFMOV6uPzYqiwEFPVBcr35ipXWXL64ijihwR2ACoXDBBTAvHC6NpKdQ7Rn/1dXBTDlerj82A==",
+                    'StoreMetadataRequest': 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                },
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+            #
+            {
+                PhKeys.REMARKS: f'SGP22; Dict w multiple unrelated keys; {PhVariables.ASN1_ELEMENT}; Web Request;',
+                PhKeys.INPUT_DATA: {
+                    "EUICCInfo1": "vyBhggMCAQCpLAQU9UFyvfmKldZcvriKOKHBHYAKhcMEFMC8cLo2kp1DtGf/V1cFMOV6uPzYqiwEFPVBcr35ipXWXL64ijihwR2ACoXDBBTAvHC6NpKdQ7Rn/1dXBTDlerj82A==",
+                    'StoreMetadataRequest': 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                },
+                PhKeys.INPUT_FORMAT: Formats.DER,
+                PhKeys.OUTPUT_FORMAT: Formats.ASN1,
+            },
+            #
+            Data(
+                remarks=f'SGP22; InitiateAuthentication Dict; {PhVariables.ASN1_ELEMENT};',
+                input_data={
+                    "EUICCInfo1": "vyBhggMCAQCpLAQU9UFyvfmKldZcvriKOKHBHYAKhcMEFMC8cLo2kp1DtGf/V1cFMOV6uPzYqiwEFPVBcr35ipXWXL64ijihwR2ACoXDBBTAvHC6NpKdQ7Rn/1dXBTDlerj82A==",
+                    "euiccChallenge": "DOEKZlP8xS8i7GwFcyEZfQ==",
+                    "smdpAddress": "testsmdpplus1.example.com",
+                },
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+            #
+            {
+                PhKeys.REMARKS: f'SGP22; InitiateAuthentication Dict; {PhVariables.ASN1_ELEMENT}; Web Request;',
+                PhKeys.INPUT_DATA: {
+                    "EUICCInfo1": "vyBhggMCAQCpLAQU9UFyvfmKldZcvriKOKHBHYAKhcMEFMC8cLo2kp1DtGf/V1cFMOV6uPzYqiwEFPVBcr35ipXWXL64ijihwR2ACoXDBBTAvHC6NpKdQ7Rn/1dXBTDlerj82A==",
+                    "euiccChallenge": "DOEKZlP8xS8i7GwFcyEZfQ==",
+                    "smdpAddress": "testsmdpplus1.example.com",
+                },
+                PhKeys.INPUT_FORMAT: Formats.DER,
+                PhKeys.OUTPUT_FORMAT: Formats.ASN1,
+            },
+        ]
+        #
         super().set_data_pool(
-            data_pool_positive +
-            data_pool_byte_array +
-            data_pool_remarks +
-            data_pool_remarks_extend +
-            data_pool_output_file +
-            data_pool_output_file_keyword +
-            data_pool_asn1_element +
-            data_pool_tlv +
-            data_pool_asn_element_with_schema +
-            data_pool_web_requests +
-            data_pool_negative +
-            data_pool_json +
-            data_pool_asn1_to_all_formats +
-            data_pool_reported +
-            data_pool_self_correction
+            data_pool_positive
+            + data_pool_byte_array
+            + data_pool_remarks
+            + data_pool_remarks_extend
+            + data_pool_output_file
+            + data_pool_output_file_keyword
+            + data_pool_asn1_element
+            + data_pool_tlv
+            + data_pool_asn_element_with_schema
+            + data_pool_web_requests
+            + data_pool_negative
+            + data_pool_json
+            + data_pool_asn1_to_all_formats
+            + data_pool_reported
+            + data_pool_self_correction
+            + data_pool_type_casting_boolean
+            + data_pool_type_casting_boolean_web_request
+            + data_pool_type_casting_string
+            + data_pool_type_casting_string_web_request
+            + data_pool_dicts
         )
