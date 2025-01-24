@@ -1082,11 +1082,33 @@ class UnitTesting(DataTypeMaster):
             ),
             #
             Data(
-                remarks='Hex to Ascii; expected str, bytes or os.PathLike object, not int',
+                remarks='Hex to Ascii; input data conversion is not possible;',
                 input_data='85',
                 input_format=Formats.HEX,
                 output_format=Formats.ASCII,
             ),
+            #
+            Data(
+                remarks='Hex to Ascii; input data conversion is possible;',
+                input_data='61',
+                input_format=Formats.HEX,
+                output_format=Formats.ASCII,
+            ),
+            #
+            {
+                PhKeys.REMARKS: 'Web Request; Hex to Ascii; input data conversion is not possible;',
+                PhKeys.INPUT_DATA: '85',
+                PhKeys.INPUT_FORMAT: Formats.HEX,
+                PhKeys.OUTPUT_FORMAT: Formats.ASCII,
+            },
+            #
+            {
+                PhKeys.REMARKS: 'Web Request; Hex to Ascii; input data conversion is possible;',
+                PhKeys.INPUT_DATA: '61',
+                PhKeys.INPUT_FORMAT: Formats.HEX,
+                PhKeys.OUTPUT_FORMAT: Formats.ASCII,
+            },
+
             {
                 PhKeys.REMARKS: 'Web Request; Hex to Ascii; (Non UTF) input data conversion is not possible; Input Data: ',
                 PhKeys.INPUT_DATA: '\x85',
@@ -1317,6 +1339,13 @@ class UnitTesting(DataTypeMaster):
             },
             #
             Data(
+                remarks='StoreMetaData; Der to Asn1; Dictionary; (With ASN1 Element)',
+                input_data="""{
+    'StoreMetadataRequest': 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031'
+}""",
+            ),
+            #
+            Data(
                 remarks=f'SGP22; Dict w multiple unrelated keys; {PhVariables.ASN1_ELEMENT};',
                 input_data={
                     "EUICCInfo1": "vyBhggMCAQCpLAQU9UFyvfmKldZcvriKOKHBHYAKhcMEFMC8cLo2kp1DtGf/V1cFMOV6uPzYqiwEFPVBcr35ipXWXL64ijihwR2ACoXDBBTAvHC6NpKdQ7Rn/1dXBTDlerj82A==",
@@ -1359,6 +1388,44 @@ class UnitTesting(DataTypeMaster):
             },
         ]
         #
+        data_pool_lists = [
+            #
+            Data(
+                remarks='StoreMetaData; Der to Asn1; List; ',
+                input_data=[
+                    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', ],
+                asn1_element='StoreMetadataRequest',
+            ),
+            #
+            Data(
+                remarks='StoreMetaData; Der to Asn1; List String;',
+                input_data="['BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031','BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031','BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',]",
+                asn1_element='StoreMetadataRequest',
+            ),
+            #
+            Data(
+                remarks='StoreMetaData; Der to Asn1; List (Array);',
+                input_data="""[
+    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+]""",
+                asn1_element='StoreMetadataRequest',
+            ),
+            #
+            {
+                PhKeys.REMARKS: 'StoreMetaData; Der to Asn1; List (Array); Web Request',
+                PhKeys.INPUT_DATA: """[
+    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+]""",
+                PhKeys.ASN1_ELEMENT: 'StoreMetadataRequest',
+            },
+        ]
+        #
         super().set_data_pool(
             data_pool_positive
             + data_pool_byte_array
@@ -1380,4 +1447,5 @@ class UnitTesting(DataTypeMaster):
             + data_pool_type_casting_string
             + data_pool_type_casting_string_web_request
             + data_pool_dicts
+            + data_pool_lists
         )

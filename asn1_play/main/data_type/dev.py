@@ -1,10 +1,4 @@
-from python_helpers.ph_keys import PhKeys
-
-from asn1_play.generated_code.asn1.asn1 import Asn1
-from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
-from asn1_play.main.helper.data import Data
-from asn1_play.main.helper.formats import Formats
 
 
 class Dev(DataTypeMaster):
@@ -78,60 +72,6 @@ class Dev(DataTypeMaster):
 
     def set_data_pool(self):
         data_pool = [
-            # Needs to Check
-            Data(
-                input_data="""{
-                "ipaEuiccData": {
-                  "euiccCertificate": "MIICADCCAaWgAwIBAgIJAgAAAAAAAAABMAoGCCqGSM49BAMCMDcxCzAJBgNVBAYTAkVTMRUwEwYDVQQKDAxSU1AgVGVzdCBFVU0xETAPBgNVBAMMCEVVTSBUZXN0MCAXDTIwMDQwMTA5NDg1OFoYDzc0OTYwMTI0MDk0ODU4WjBkMQswCQYDVQQGEwJFUzEVMBMGA1UECgwMUlNQIFRlc3QgRVVNMSkwJwYDVQQFEyA4OTA0OTAzMjEyMzQ1MTIzNDUxMjM0NTY3ODkwMTIzNTETMBEGA1UEAwwKVGVzdCBlVUlDQzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABG2z9Trch9wv8Qx7/Nh60TrpcAmvoGWmdX7lcbPy67GPRsHWjz7esOdLLl1UIFHn0n9QlSAoYFr973n+n//QOVmjazBpMB8GA1UdIwQYMBaAFN09ok01DBzF0K8JZfQOw0xe5AnxMB0GA1UdDgQWBBSlJHavXVCqN2Q3zLHaIXLvRfSE8DAOBgNVHQ8BAf8EBAMCB4AwFwYDVR0gAQH/BA0wCzAJBgdngRIBAgEBMAoGCCqGSM49BAMCA0kAMEYCIQDXK0F9FNHwZV6z0OuERGAKhwYfruAzTfwrkO0sVXvviAIhAO9Rwsb+xS6HoTRoVNVebwGP5umD3hEqy7hDWOx88S9T"
-                }
-            }
-            """,
-                asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'IpaEuiccDataResponse'),
-                input_format=Formats.JSON,
-                output_format=Formats.ASN1,
-            ),
-            # Needs to Check
-            Data(
-                input_data="""{
-                    "ipaEuiccData": {
-                      "euiccCertificate": "MIICADCCAaWgAwIBAgIJAgAAAAAAAAABMAoGCCqGSM49BAMCMDcxCzAJBgNVBAYTAkVTMRUwEwYDVQQKDAxSU1AgVGVzdCBFVU0xETAPBgNVBAMMCEVVTSBUZXN0MCAXDTIwMDQwMTA5NDg1OFoYDzc0OTYwMTI0MDk0ODU4WjBkMQswCQYDVQQGEwJFUzEVMBMGA1UECgwMUlNQIFRlc3QgRVVNMSkwJwYDVQQFEyA4OTA0OTAzMjEyMzQ1MTIzNDUxMjM0NTY3ODkwMTIzNTETMBEGA1UEAwwKVGVzdCBlVUlDQzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABG2z9Trch9wv8Qx7/Nh60TrpcAmvoGWmdX7lcbPy67GPRsHWjz7esOdLLl1UIFHn0n9QlSAoYFr973n+n//QOVmjazBpMB8GA1UdIwQYMBaAFN09ok01DBzF0K8JZfQOw0xe5AnxMB0GA1UdDgQWBBSlJHavXVCqN2Q3zLHaIXLvRfSE8DAOBgNVHQ8BAf8EBAMCB4AwFwYDVR0gAQH/BA0wCzAJBgdngRIBAgEBMAoGCCqGSM49BAMCA0kAMEYCIQDXK0F9FNHwZV6z0OuERGAKhwYfruAzTfwrkO0sVXvviAIhAO9Rwsb+xS6HoTRoVNVebwGP5umD3hEqy7hDWOx88S9T",
-                      "ipaCapabilities": {
-                        "ipaFeatures": {
-                          "directRspServerCommunication": true,
-                          "indirectRspServerCommunication": false,
-                          "eimDownloadDataHandling": false,
-                          "eimCtxParams1Generation": false,
-                          "eimProfileMetadataVerification": false,
-                          "minimizeESipaBytes": false
-                        },
-                        "ipaSupportedProtocols": {
-                          "ipaRetrieveHttps": false,
-                          "ipaRetrieveCoaps": false,
-                          "ipaInjectHttps": false,
-                          "ipaInjectCoaps": false,
-                          "ipaProprietary": false
-                      }
-                    }
-                  }
-                }
-                """,
-                asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'IpaEuiccDataResponse'),
-                input_format=Formats.JSON,
-                output_format=Formats.ASN1,
-            ),
-            # Needs to Check
-            {
-                PhKeys.REMARKS: 'Web Request; Hex to Ascii; _getfullpathname: path should be string, bytes or os.PathLike, not int',
-                PhKeys.INPUT_DATA: '85',
-                PhKeys.INPUT_FORMAT: Formats.HEX,
-                PhKeys.OUTPUT_FORMAT: Formats.ASCII,
-            },
-            # Needs to Check
-            {
-                PhKeys.REMARKS: 'Web Request; Hex to Ascii; (Non UTF) input data conversion is not possible; Input Data: ',
-                PhKeys.INPUT_DATA: '\x85',
-                PhKeys.INPUT_FORMAT: Formats.HEX,
-                PhKeys.OUTPUT_FORMAT: Formats.ASCII,
-            },
+            #
         ]
         super().set_data_pool(data_pool)

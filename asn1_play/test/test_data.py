@@ -27,6 +27,10 @@ class TestData:
             {
                 PhKeys.VAR_EXECUTION_MODE: 'DEV',
             },
+        PhExecutionModes.KNOWN_ISSUES:
+            {
+                PhKeys.VAR_EXECUTION_MODE: 'KNOWN_ISSUES',
+            },
         PhExecutionModes.UNIT_TESTING_EXTERNAL:
             {
                 PhKeys.VAR_EXECUTION_MODE: 'UNIT_TESTING_EXTERNAL',

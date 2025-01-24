@@ -81,7 +81,8 @@ def process_all_data_types(data, meta_data=None, info_data=None):
                     PhUtil.get_key_value_pair(key='item', value=index, sep=PhConstants.SEPERATOR_TWO_WORDS,
                                               dic_format=False))
             parsed_data_list.append(process_all_data_types(sub_data))
-        return parsed_data_list
+        meta_data.parsed_data = parsed_data_list
+        return meta_data.parsed_data
     """
     Dir Handling (Bulk Mode)
     """

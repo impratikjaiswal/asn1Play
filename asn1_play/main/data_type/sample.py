@@ -111,6 +111,23 @@ class Sample(DataTypeMaster):
             ),
             #
             Data(
+                remarks='StoreMetaData; Der to Asn1; Dictionary; (With ASN1 Element)',
+                input_data="""{
+    'StoreMetadataRequest': 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031'
+}""",
+            ),
+            #
+            Data(
+                remarks='StoreMetaData; Der to Asn1; List (Array);',
+                input_data="""[
+    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+]""",
+                asn1_element='StoreMetadataRequest',
+            ),
+            #
+            Data(
                 remarks='SGP22; StoreMetaData; Asn1 to Der',
                 input_data="""{
     iccid '989209012143658709F5'H,

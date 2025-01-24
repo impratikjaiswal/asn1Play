@@ -14,6 +14,7 @@ from asn1_play.main.convert.converter import handle_web_request
 from asn1_play.main.data_type.any_data import AnyData
 from asn1_play.main.data_type.data_type_master import DataTypeMaster
 from asn1_play.main.data_type.dev import Dev
+from asn1_play.main.data_type.known_issues import KnownIssues
 from asn1_play.main.data_type.profile_element import ProfileElement
 from asn1_play.main.data_type.sample import Sample
 from asn1_play.main.data_type.store_metadata_request import StoreMetaData
@@ -55,6 +56,12 @@ def process_data():
         # class for dev
         #####
         Dev(),
+    ]
+    data_type_known_issues = [
+        #####
+        # class for known issues
+        #####
+        KnownIssues(),
     ]
     data_types_sample_generic = [
         #####
@@ -107,6 +114,7 @@ def process_data():
         PhExecutionModes.UNIT_TESTING: data_type_unit_testing,
         PhExecutionModes.UNIT_TESTING_EXTERNAL: data_type_unit_testing_external,
         PhExecutionModes.DEV: data_type_dev,
+        PhExecutionModes.KNOWN_ISSUES: data_type_known_issues,
         PhExecutionModes.ALL: data_type_user
                               + data_types_samples
                               + data_types_sample_generic
@@ -114,6 +122,7 @@ def process_data():
                               + data_type_unit_testing
                               + data_type_unit_testing_external
         # + data_type_dev
+        # + data_type_known_issues
         ,
     }
     data_types = data_types_pool.get(execution_mode, Defaults.EXECUTION_MODE)
