@@ -19,13 +19,13 @@ Python executable Path is D:\Other\Github_Self\asn1Play\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Tuesday, Jan 21 2025, 19:05:07:325409, IST (GMT+0530)
+Time Stamp is Saturday, Jan 25 2025, 08:59:21:733624, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is 85e429f;  (HEAD -> main, origin/main, origin/HEAD); 2025-01-21 09:58:26 +0530; imPratik <impratikjaiswal@gmail.com>; multi versions print, sync with latest lib, preparation for dict format support
+Git Summary is baf1e02;  (HEAD -> main, origin/main, origin/HEAD); 2025-01-24 09:57:08 +0530; imPratik <impratikjaiswal@gmail.com>; known issues seperated
 --------------------------------------------------------------------------------
-pythonHelpers version is v5.2.3
+pythonHelpers version is v5.2.3.dev6
 --------------------------------------------------------------------------------
-asn1Play version is v8.5.1
+asn1Play version is v8.5.1.dev6
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 pycrate version is v0.6.0
@@ -45,7 +45,7 @@ eUICC_Profile_Package compile_time version is v3_1
 --------------------------------------------------- Data Class: Test ---------------------------------------------------
 ************************************************ Welcome To AsnPlay !!! ************************************************
 Remarks Generated: Welcome To AsnPlay !!!
-Info => Transaction Id: 3vz7nsb88iir; Mode: Conversion_Mode; Input Format: ascii; Output Format: hex; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip
+Info => Transaction Id: co9wiu3b6dc4; Mode: Conversion_Mode; Input Format: ascii; Output Format: hex; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip
 Input Data: Welcome To AsnPlay !!!
 Input Data Length: 22
 Output Data: 57656c636f6d6520546f2041736e506c617920212121
@@ -89,8 +89,8 @@ TCA_EPP_v3_3
 TCA_EPP_v3_3_1
 
 ---------------------------------- Time Details ----------------------------------
-Current Time Stamp: 2025-01-21 19:05:07.331407+05:30
-Execution Time: 00:00:00; Milliseconds: 6.997108459472656
+Current Time Stamp: 2025-01-25 08:59:21.737633+05:30
+Execution Time: 00:00:00; Milliseconds: 5.998849868774414
 Execution Time CPU: 00:00:00; Milliseconds: 15.625
 Timer State: TIMER_OFF
 --------------------------------------------------------------------------------

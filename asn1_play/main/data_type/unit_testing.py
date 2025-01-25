@@ -1321,7 +1321,7 @@ class UnitTesting(DataTypeMaster):
         data_pool_dicts = [
             #
             Data(
-                remarks='SGP22; StoreMetadataRequest as Dict',
+                remarks='StoreMetaData; Der to Asn1; Dictionary; (With ASN1 Element)',
                 input_data={
                     'StoreMetadataRequest': 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031'
                 },
@@ -1330,20 +1330,13 @@ class UnitTesting(DataTypeMaster):
             ),
             #
             {
-                PhKeys.REMARKS: 'SGP22; StoreMetadataRequest as Dict; Web Request',
+                PhKeys.REMARKS: 'StoreMetaData; Der to Asn1; Dictionary; (With ASN1 Element); Web Request',
                 PhKeys.INPUT_DATA: {
                     'StoreMetadataRequest': 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031'
                 },
                 PhKeys.INPUT_FORMAT: Formats.DER,
                 PhKeys.OUTPUT_FORMAT: Formats.ASN1,
             },
-            #
-            Data(
-                remarks='StoreMetaData; Der to Asn1; Dictionary; (With ASN1 Element)',
-                input_data="""{
-    'StoreMetadataRequest': 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031'
-}""",
-            ),
             #
             Data(
                 remarks=f'SGP22; Dict w multiple unrelated keys; {PhVariables.ASN1_ELEMENT};',
@@ -1391,28 +1384,15 @@ class UnitTesting(DataTypeMaster):
         data_pool_lists = [
             #
             Data(
-                remarks='StoreMetaData; Der to Asn1; List; ',
+                remarks='StoreMetaData; Der to Asn1; List (Array);',
                 input_data=[
                     'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
                     'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
-                    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031', ],
+                    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+                ],
                 asn1_element='StoreMetadataRequest',
-            ),
-            #
-            Data(
-                remarks='StoreMetaData; Der to Asn1; List String;',
-                input_data="['BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031','BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031','BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',]",
-                asn1_element='StoreMetadataRequest',
-            ),
-            #
-            Data(
-                remarks='StoreMetaData; Der to Asn1; List (Array);',
-                input_data="""[
-    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
-    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
-    'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
-]""",
-                asn1_element='StoreMetadataRequest',
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
             ),
             #
             {

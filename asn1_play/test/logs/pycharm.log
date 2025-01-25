@@ -19,13 +19,13 @@ Python executable Path is D:\Other\Github_Self\asn1Play\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Monday, Jan 20 2025, 17:41:15:314369, IST (GMT+0530)
+Time Stamp is Saturday, Jan 25 2025, 08:48:20:145056, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is b6d00e3;  (HEAD -> main, origin/main, origin/HEAD); 2024-12-09 21:48:12 +0530; imPratik <impratikjaiswal@gmail.com>; fav icon changed
+Git Summary is baf1e02;  (HEAD -> main, origin/main, origin/HEAD); 2025-01-24 09:57:08 +0530; imPratik <impratikjaiswal@gmail.com>; known issues seperated
 --------------------------------------------------------------------------------
-pythonHelpers version is v5.2.2.dev3
+pythonHelpers version is v5.2.3.dev6
 --------------------------------------------------------------------------------
-asn1Play version is v8.5.1
+asn1Play version is v8.5.1.dev6
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 pycrate version is v0.6.0
@@ -56,7 +56,7 @@ execution_mode: value_original was USER; target_value is UNIT_TESTING
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
 Executing "run_tc.bat"
 Iteration 1
-Time Stamp is: 20-01-2025 17:41:15.34
+Time Stamp is: 25-01-2025  8:48:20.19
 impra
 PJ-LEGION
 
@@ -89,7 +89,7 @@ top_folder_path: []
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
 Executing "run_tc.bat"
 Iteration 2
-Time Stamp is: 20-01-2025 17:41:17.82
+Time Stamp is: 25-01-2025  8:48:23.61
 impra
 PJ-LEGION
 
@@ -122,7 +122,7 @@ execution_mode: value_original was USER; target_value is SAMPLES_LIST
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
 Executing "run_tc.bat"
 Iteration 3
-Time Stamp is: 20-01-2025 17:41:19.54
+Time Stamp is: 25-01-2025  8:48:24.94
 impra
 PJ-LEGION
 
@@ -156,7 +156,7 @@ execution_mode: value_original was USER; target_value is DEV
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
 Executing "run_tc.bat"
 Iteration 4
-Time Stamp is: 20-01-2025 17:41:21.29
+Time Stamp is: 25-01-2025  8:48:26.51
 impra
 PJ-LEGION
 
@@ -167,18 +167,68 @@ Microsoft Windows [Version 10.0.19045.5371]
 
 "dev"
 Attempting to activate existing Virtual Environment
+Attempting to deactivate existing (and activated) Virtual Environment
+
+
+
+
+"Batch Execution Done"
+******************************************************* clean_up *******************************************************
+execution_mode: value_original was DEV; target_value is USER
+top_folder_path: value_original was []; target_value is [os.pardir, os.pardir]
+----------------------------------------------------- known_issues -----------------------------------------------------
+test_case_data:
+test_case_id: known_issues
+test_case_name: known_issues
+test_case_file_name: known_issues.log
+execution_mode: KNOWN_ISSUES
+error_handling_mode: CONTINUE_ON_ERROR
+top_folder_path: []
+
+*********************************************** update_variables_in_file ***********************************************
+execution_mode: value_original was USER; target_value is KNOWN_ISSUES
+top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
+Executing "run_tc.bat"
+Iteration 5
+Time Stamp is: 25-01-2025  8:48:27.82
+impra
+PJ-LEGION
+
+Microsoft Windows [Version 10.0.19045.5371]
+
+
+
+
+"known_issues"
+Attempting to activate existing Virtual Environment
 Traceback (most recent call last):
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 126, in process_safe
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 130, in process_safe
     self.__process_safe_individual(data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 236, in __process_safe_individual
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 240, in __process_safe_individual
     process_all_data_types(data, meta_data, info_data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\parser.py", line 133, in process_all_data_types
-    process_data(data=data, meta_data=meta_data, info_data=info_data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 41, in process_data
-    res = decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 106, in decode_encode_asn
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\parser.py", line 154, in process_all_data_types
+    handle_data(data=data, meta_data=meta_data, info_data=info_data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 41, in handle_data
+    res = __handle_data(input_data=input_data, parse_only=parse_only, input_format=input_format,
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 88, in __handle_data
     input_data = PhUtil.trim_and_kill_all_white_spaces(input_data)
-  File "D:\Other\Github_Self\asn1Play\venv\lib\site-packages\python_helpers\ph_util.py", line 91, in trim_and_kill_all_white_spaces
+  File "D:\Other\Github_Self\asn1Play\venv\lib\site-packages\python_helpers\ph_util.py", line 130, in trim_and_kill_all_white_spaces
+    return re.sub(r'\s+', '', str_data)
+  File "D:\ProgramFiles\Python39\lib\re.py", line 210, in sub
+    return _compile(pattern, flags).sub(repl, string, count)
+TypeError: expected string or bytes-like object
+Traceback (most recent call last):
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 130, in process_safe
+    self.__process_safe_individual(data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 240, in __process_safe_individual
+    process_all_data_types(data, meta_data, info_data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\parser.py", line 154, in process_all_data_types
+    handle_data(data=data, meta_data=meta_data, info_data=info_data)
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 41, in handle_data
+    res = __handle_data(input_data=input_data, parse_only=parse_only, input_format=input_format,
+  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 88, in __handle_data
+    input_data = PhUtil.trim_and_kill_all_white_spaces(input_data)
+  File "D:\Other\Github_Self\asn1Play\venv\lib\site-packages\python_helpers\ph_util.py", line 130, in trim_and_kill_all_white_spaces
     return re.sub(r'\s+', '', str_data)
   File "D:\ProgramFiles\Python39\lib\re.py", line 210, in sub
     return _compile(pattern, flags).sub(repl, string, count)
@@ -190,7 +240,7 @@ Attempting to deactivate existing (and activated) Virtual Environment
 
 "Batch Execution Done"
 ******************************************************* clean_up *******************************************************
-execution_mode: value_original was DEV; target_value is USER
+execution_mode: value_original was KNOWN_ISSUES; target_value is USER
 top_folder_path: value_original was []; target_value is [os.pardir, os.pardir]
 ------------------------------------------------- unit_testing_external ------------------------------------------------
 test_case_data:
@@ -205,8 +255,8 @@ top_folder_path: []
 execution_mode: value_original was USER; target_value is UNIT_TESTING_EXTERNAL
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
 Executing "run_tc.bat"
-Iteration 5
-Time Stamp is: 20-01-2025 17:41:22.66
+Iteration 6
+Time Stamp is: 25-01-2025  8:48:29.26
 impra
 PJ-LEGION
 
@@ -239,8 +289,8 @@ top_folder_path: []
 execution_mode: value_original was USER; target_value is ALL
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
 Executing "run_tc.bat"
-Iteration 6
-Time Stamp is: 20-01-2025 17:41:23.99
+Iteration 7
+Time Stamp is: 25-01-2025  8:48:30.56
 impra
 PJ-LEGION
 
@@ -251,22 +301,6 @@ Microsoft Windows [Version 10.0.19045.5371]
 
 "all"
 Attempting to activate existing Virtual Environment
-Traceback (most recent call last):
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 126, in process_safe
-    self.__process_safe_individual(data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 236, in __process_safe_individual
-    process_all_data_types(data, meta_data, info_data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\parser.py", line 133, in process_all_data_types
-    process_data(data=data, meta_data=meta_data, info_data=info_data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 41, in process_data
-    res = decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 106, in decode_encode_asn
-    input_data = PhUtil.trim_and_kill_all_white_spaces(input_data)
-  File "D:\Other\Github_Self\asn1Play\venv\lib\site-packages\python_helpers\ph_util.py", line 91, in trim_and_kill_all_white_spaces
-    return re.sub(r'\s+', '', str_data)
-  File "D:\ProgramFiles\Python39\lib\re.py", line 210, in sub
-    return _compile(pattern, flags).sub(repl, string, count)
-TypeError: expected string or bytes-like object
 Attempting to deactivate existing (and activated) Virtual Environment
 
 
@@ -295,8 +329,8 @@ eUICC_Profile_Package: value_original was v3_1; target_value is v3_2
 execution_mode: value_original was USER; target_value is ALL
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
 Executing "run_tc.bat"
-Iteration 7
-Time Stamp is: 20-01-2025 17:41:26.76
+Iteration 8
+Time Stamp is: 25-01-2025  8:48:36.48
 impra
 PJ-LEGION
 
@@ -307,22 +341,6 @@ Microsoft Windows [Version 10.0.19045.5371]
 
 "sgp22_v2_4__epp_v3_2__sgp32_v1_0_1"
 Attempting to activate existing Virtual Environment
-Traceback (most recent call last):
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 126, in process_safe
-    self.__process_safe_individual(data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 236, in __process_safe_individual
-    process_all_data_types(data, meta_data, info_data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\parser.py", line 133, in process_all_data_types
-    process_data(data=data, meta_data=meta_data, info_data=info_data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 41, in process_data
-    res = decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 106, in decode_encode_asn
-    input_data = PhUtil.trim_and_kill_all_white_spaces(input_data)
-  File "D:\Other\Github_Self\asn1Play\venv\lib\site-packages\python_helpers\ph_util.py", line 91, in trim_and_kill_all_white_spaces
-    return re.sub(r'\s+', '', str_data)
-  File "D:\ProgramFiles\Python39\lib\re.py", line 210, in sub
-    return _compile(pattern, flags).sub(repl, string, count)
-TypeError: expected string or bytes-like object
 Attempting to deactivate existing (and activated) Virtual Environment
 
 
@@ -353,8 +371,8 @@ SGP32: value_original was v1_2; target_value is v1_0_1
 execution_mode: value_original was USER; target_value is ALL
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
 Executing "run_tc.bat"
-Iteration 8
-Time Stamp is: 20-01-2025 17:41:29.68
+Iteration 9
+Time Stamp is: 25-01-2025  8:48:41.27
 impra
 PJ-LEGION
 
@@ -365,22 +383,6 @@ Microsoft Windows [Version 10.0.19045.5371]
 
 "sgp22_v3_0_0__epp_v3_1__sgp32_v1_0_1"
 Attempting to activate existing Virtual Environment
-Traceback (most recent call last):
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 126, in process_safe
-    self.__process_safe_individual(data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 236, in __process_safe_individual
-    process_all_data_types(data, meta_data, info_data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\parser.py", line 133, in process_all_data_types
-    process_data(data=data, meta_data=meta_data, info_data=info_data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 41, in process_data
-    res = decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 106, in decode_encode_asn
-    input_data = PhUtil.trim_and_kill_all_white_spaces(input_data)
-  File "D:\Other\Github_Self\asn1Play\venv\lib\site-packages\python_helpers\ph_util.py", line 91, in trim_and_kill_all_white_spaces
-    return re.sub(r'\s+', '', str_data)
-  File "D:\ProgramFiles\Python39\lib\re.py", line 210, in sub
-    return _compile(pattern, flags).sub(repl, string, count)
-TypeError: expected string or bytes-like object
 Attempting to deactivate existing (and activated) Virtual Environment
 
 
@@ -411,8 +413,8 @@ eUICC_Profile_Package: value_original was v3_1; target_value is v3_2
 execution_mode: value_original was USER; target_value is ALL
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
 Executing "run_tc.bat"
-Iteration 9
-Time Stamp is: 20-01-2025 17:41:33.33
+Iteration 10
+Time Stamp is: 25-01-2025  8:48:47.19
 impra
 PJ-LEGION
 
@@ -423,22 +425,6 @@ Microsoft Windows [Version 10.0.19045.5371]
 
 "sgp22_v3_0_0__epp_v3_2__sgp32_v1_1"
 Attempting to activate existing Virtual Environment
-Traceback (most recent call last):
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 126, in process_safe
-    self.__process_safe_individual(data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 236, in __process_safe_individual
-    process_all_data_types(data, meta_data, info_data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\parser.py", line 133, in process_all_data_types
-    process_data(data=data, meta_data=meta_data, info_data=info_data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 41, in process_data
-    res = decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 106, in decode_encode_asn
-    input_data = PhUtil.trim_and_kill_all_white_spaces(input_data)
-  File "D:\Other\Github_Self\asn1Play\venv\lib\site-packages\python_helpers\ph_util.py", line 91, in trim_and_kill_all_white_spaces
-    return re.sub(r'\s+', '', str_data)
-  File "D:\ProgramFiles\Python39\lib\re.py", line 210, in sub
-    return _compile(pattern, flags).sub(repl, string, count)
-TypeError: expected string or bytes-like object
 Attempting to deactivate existing (and activated) Virtual Environment
 
 
@@ -469,8 +455,8 @@ eUICC_Profile_Package: value_original was v3_1; target_value is v3_3_1
 execution_mode: value_original was USER; target_value is ALL
 top_folder_path: value_original was [os.pardir, os.pardir]; target_value is []
 Executing "run_tc.bat"
-Iteration 10
-Time Stamp is: 20-01-2025 17:41:37.06
+Iteration 11
+Time Stamp is: 25-01-2025  8:48:53.07
 impra
 PJ-LEGION
 
@@ -481,22 +467,6 @@ Microsoft Windows [Version 10.0.19045.5371]
 
 "sgp22_v3_1__epp_v3_3_1__sgp32_v1_1"
 Attempting to activate existing Virtual Environment
-Traceback (most recent call last):
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 126, in process_safe
-    self.__process_safe_individual(data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\data_type\data_type_master.py", line 236, in __process_safe_individual
-    process_all_data_types(data, meta_data, info_data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\parser.py", line 133, in process_all_data_types
-    process_data(data=data, meta_data=meta_data, info_data=info_data)
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 41, in process_data
-    res = decode_encode_asn(input_data=input_data, parse_only=parse_only, input_format=input_format,
-  File "D:\Other\Github_Self\asn1Play\asn1_play\main\convert\handler.py", line 106, in decode_encode_asn
-    input_data = PhUtil.trim_and_kill_all_white_spaces(input_data)
-  File "D:\Other\Github_Self\asn1Play\venv\lib\site-packages\python_helpers\ph_util.py", line 91, in trim_and_kill_all_white_spaces
-    return re.sub(r'\s+', '', str_data)
-  File "D:\ProgramFiles\Python39\lib\re.py", line 210, in sub
-    return _compile(pattern, flags).sub(repl, string, count)
-TypeError: expected string or bytes-like object
 Attempting to deactivate existing (and activated) Virtual Environment
 
 
@@ -517,7 +487,7 @@ batch_params:
 
 Executing "run_tc.bat"
 Iteration 1
-Time Stamp is: 20-01-2025 17:41:40.35
+Time Stamp is: 25-01-2025  8:48:58.86
 impra
 PJ-LEGION
 
@@ -543,7 +513,7 @@ batch_params: --help
 
 Executing "run_tc.bat"
 Iteration 2
-Time Stamp is: 20-01-2025 17:41:41.87
+Time Stamp is: 25-01-2025  8:49:00.19
 impra
 PJ-LEGION
 

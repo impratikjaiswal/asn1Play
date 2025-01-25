@@ -214,6 +214,45 @@ class KnownIssues(DataTypeMaster):
                 PhKeys.INPUT_FORMAT: Formats.HEX,
                 PhKeys.OUTPUT_FORMAT: Formats.ASCII,
             },
+            #
+            # (Should be considered as feature request)
+            # --------------------------------------------------------------------------------
+            # Known Exception Occurred At Function: __handle_data; Summary: Check all your Inputs; Details: Asn1 Schema is either empty or not provided.
+            #
+            Data(
+                remarks='StoreMetaData; Der to Asn1; Dictionary (Casted as String); (With ASN1 Element); ',
+                input_data="""{
+            'StoreMetadataRequest': 'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031'
+        }""",
+            ),
+            #
+            # (Should be considered as feature request)
+            # --------------------------------------------------------------------------------
+            # Known Exception Occurred; Summary: Check all your Inputs; Details: non-hexadecimal number found in fromhex() arg at position 0
+            #
+            Data(
+                remarks='StoreMetaData; Der to Asn1; (Casted as String); List (Array);',
+                input_data="""[
+            'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+            'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+            'BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',
+        ]""",
+                asn1_element='StoreMetadataRequest',
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
+            #
+            # (Should be considered as feature request)
+            # --------------------------------------------------------------------------------
+            # Known Exception Occurred; Summary: Check all your Inputs; Details: non-hexadecimal number found in fromhex() arg at position 0
+            #
+            Data(
+                remarks='StoreMetaData; Der to Asn1; (Casted as String, Single Line); List (Array);',
+                input_data="['BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031','BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031','BF25335A0A989209012143658709F591095350204E616D652031921A4F7065726174696F6E616C2050726F66696C65204E616D652031',]",
+                asn1_element='StoreMetadataRequest',
+                input_format=Formats.DER,
+                output_format=Formats.ASN1,
+            ),
             # Needs to Fix the error msg:
             # Through some graceful Error: Reason for failure or something else
             #
