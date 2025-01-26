@@ -111,12 +111,39 @@ class Data:
         self.set_asn1_element_name()
         # Handle Remarks
         self.set_user_remarks(self.remarks)
+        # Handle Remarks Variables
+        self.__variables_pool = {
+            #           _key : (_var_name, _var_value)
+            PhKeys.INPUT_FORMAT: (PhVariables.INPUT_FORMAT, self.input_format),
+            PhKeys.OUTPUT_FORMAT: (PhVariables.OUTPUT_FORMAT, self.output_format),
+            PhKeys.ASN1_ELEMENT: (PhVariables.ASN1_ELEMENT, self.asn1_element),
+            PhKeys.TLV_PARSING_OF_OUTPUT: (PhVariables.TLV_PARSING_OF_OUTPUT, self.tlv_parsing_of_output),
+            PhKeys.RE_PARSE_OUTPUT: (PhVariables.RE_PARSE_OUTPUT, self.re_parse_output),
+        }
 
     def set_user_remarks(self, remarks):
         self.remarks = PhUtil.to_list(remarks, trim_data=True, all_str=True)
         self.remarks = [
             x.replace(PhVariables.ASN1_ELEMENT, self.get_asn1_element_name()) if self.get_asn1_element_name() else x
             for x in self.remarks]
+
+    def set_user_remarks_expand_variables(self):
+        def __set_value(x, var_name, var_value, key_name_needed, key_):
+            if var_name in x and var_value is not None:
+                var_value = str(var_value)
+                y = '_'.join([key_, var_value]) if key_name_needed else var_value
+                return x.replace(var_name, y)
+            return x
+
+        def __expand_variable(x):
+            key_name_needed = True if PhVariables.KEY_NAME in x else False
+            if key_name_needed:
+                x = x.replace(PhVariables.KEY_NAME, '')
+            for key, value in self.__variables_pool.items():
+                x = __set_value(x=x, var_name=value[0], var_value=value[1], key_name_needed=key_name_needed, key_=key)
+            return x
+
+        self.remarks = [__expand_variable(x) for x in self.remarks]
 
     def __get_default_remarks(self):
         self.set_asn1_element_name()

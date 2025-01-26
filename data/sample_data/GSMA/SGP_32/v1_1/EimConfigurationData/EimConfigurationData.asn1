@@ -1,5 +1,0 @@
-{
-  eimId "testeim1",
-  eimIdType 3 -- eimIdTypeProprietary --,
-  eimSupportedProtocol '1'B -- eimRetrieveHttps --
-}

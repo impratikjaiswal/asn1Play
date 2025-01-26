@@ -19,13 +19,13 @@ Python executable Path is D:\Other\Github_Self\asn1Play\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Saturday, Jan 25 2025, 08:59:21:733624, IST (GMT+0530)
+Time Stamp is Sunday, Jan 26 2025, 11:12:22:773852, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is baf1e02;  (HEAD -> main, origin/main, origin/HEAD); 2025-01-24 09:57:08 +0530; imPratik <impratikjaiswal@gmail.com>; known issues seperated
+Git Summary is 4ca6aff;  (HEAD -> main); 2025-01-25 09:04:28 +0530; imPratik <impratikjaiswal@gmail.com>; bulk data support minor fixes with logs
 --------------------------------------------------------------------------------
-pythonHelpers version is v5.2.3.dev6
+pythonHelpers version is v5.2.4
 --------------------------------------------------------------------------------
-asn1Play version is v8.5.1.dev6
+asn1Play version is v8.5.2
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 pycrate version is v0.6.0
@@ -45,7 +45,7 @@ eUICC_Profile_Package compile_time version is v3_1
 --------------------------------------------------- Data Class: Test ---------------------------------------------------
 ************************************************ Welcome To AsnPlay !!! ************************************************
 Remarks Generated: Welcome To AsnPlay !!!
-Info => Transaction Id: co9wiu3b6dc4; Mode: Conversion_Mode; Input Format: ascii; Output Format: hex; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip
+Info => Transaction Id: dnzb8ajv5j48; Mode: Conversion_Mode; Input Format: ascii; Output Format: hex; Encoding: utf-8; Encoding Errors: replace; Archive Output: True; Archive Output Format: .zip
 Input Data: Welcome To AsnPlay !!!
 Input Data Length: 22
 Output Data: 57656c636f6d6520546f2041736e506c617920212121
@@ -89,9 +89,9 @@ TCA_EPP_v3_3
 TCA_EPP_v3_3_1
 
 ---------------------------------- Time Details ----------------------------------
-Current Time Stamp: 2025-01-25 08:59:21.737633+05:30
-Execution Time: 00:00:00; Milliseconds: 5.998849868774414
-Execution Time CPU: 00:00:00; Milliseconds: 15.625
+Current Time Stamp: 2025-01-26 11:12:22.788082+05:30
+Execution Time: 00:00:00; Milliseconds: 7.003545761108398
+Execution Time CPU: 00:00:00; Milliseconds: 0.0
 Timer State: TIMER_OFF
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------

@@ -19,13 +19,13 @@ Python executable Path is D:\Other\Github_Self\asn1Play\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Saturday, Jan 25 2025, 08:59:19:050557, IST (GMT+0530)
+Time Stamp is Sunday, Jan 26 2025, 11:12:20:082694, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is baf1e02;  (HEAD -> main, origin/main, origin/HEAD); 2025-01-24 09:57:08 +0530; imPratik <impratikjaiswal@gmail.com>; known issues seperated
+Git Summary is 4ca6aff;  (HEAD -> main); 2025-01-25 09:04:28 +0530; imPratik <impratikjaiswal@gmail.com>; bulk data support minor fixes with logs
 --------------------------------------------------------------------------------
-pythonHelpers version is v5.2.3.dev6
+pythonHelpers version is v5.2.4
 --------------------------------------------------------------------------------
-asn1Play version is v8.5.1.dev6
+asn1Play version is v8.5.2
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 pycrate version is v0.6.0
@@ -44,8 +44,8 @@ eUICC_Profile_Package compile_time version is v3_1
 --------------------------------------------------------------------------------
 ---------------------------------------------------- Data Class: Dev ---------------------------------------------------
 ---------------------------------- Time Details ----------------------------------
-Current Time Stamp: 2025-01-25 08:59:19.058622+05:30
-Execution Time: 00:00:00; Milliseconds: 4.999399185180664
+Current Time Stamp: 2025-01-26 11:12:20.099695+05:30
+Execution Time: 00:00:00; Milliseconds: 6.000041961669922
 Execution Time CPU: 00:00:00; Milliseconds: 0.0
 Timer State: TIMER_OFF
 --------------------------------------------------------------------------------

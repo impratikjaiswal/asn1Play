@@ -316,7 +316,7 @@ class UnitTesting(DataTypeMaster):
             ),
             #
             Data(
-                input_data=Folders.in_sample_sgp_22(r'v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex'),
+                input_data=Folders.in_sample_sgp_22(fr'{PhVariables.VERSION}\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex'),
                 asn1_element=SGP_22.RSPDefinitions.StoreMetadataRequest,
             ),
             #
@@ -523,12 +523,12 @@ class UnitTesting(DataTypeMaster):
             ),
             #
             Data(
-                input_data=Folders.in_sample_sgp_22(r'v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex'),
+                input_data=Folders.in_sample_sgp_22(fr'{PhVariables.VERSION}\StoreMetadataRequest\StoreMetadataRequest_wo_icon.hex'),
             ),
             #
             Data(
                 input_data=Folders.in_sample_sgp_22(
-                    r'v3_0_0\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1'),
+                    fr'{PhVariables.VERSION}\StoreMetadataRequest\StoreMetadataRequest_wo_icon_wo_serviceSpecific.asn1'),
             ),
             #
         ]
@@ -984,7 +984,8 @@ class UnitTesting(DataTypeMaster):
             #
             Data(
                 remarks='Reported; DER to JSON | JSON to DER conversion #3; Json to Der',
-                input_data=Folders.in_user_sgp_32(r'v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json'),
+                input_data=Folders.in_user_sgp_32(
+                    fr'{PhVariables.VERSION}\GetEimPackageResponse\GetEimPackageResponse.json'),
                 asn1_element=SGP_32.SGP32Definitions.GetEimPackageResponse,
                 input_format=Formats.JSON,
                 output_format=Formats.DER,
@@ -992,7 +993,8 @@ class UnitTesting(DataTypeMaster):
             #
             Data(
                 remarks='Reported; DER to JSON | JSON to DER conversion #3; Json to Asn1',
-                input_data=Folders.in_user_sgp_32(r'v1_0_1\GetEimPackageResponse\GetEimPackageResponse.json'),
+                input_data=Folders.in_user_sgp_32(
+                    fr'{PhVariables.VERSION}\GetEimPackageResponse\GetEimPackageResponse.json'),
                 asn1_element=Asn1(Asn1Versions.GSMA_SGP_32_v1_0_1, 'GetEimPackageResponse'),
                 input_format=Formats.JSON,
                 output_format=Formats.ASN1,

@@ -3,6 +3,7 @@ import os
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_dos import PhDos
 from python_helpers.ph_keys import PhKeys
+from python_helpers.ph_modes_execution import PhExecutionModes
 from python_helpers.ph_process import PhProcess
 from python_helpers.ph_util import PhUtil
 
@@ -12,7 +13,7 @@ from asn1_play.test.test_data import TestData
 
 
 class TestAutoBatch:
-    full_test = True
+    white_listed_tcs = None
 
     PROJECT_PATH = r'D:\Other\Github_Self\asn1Play'
 
@@ -126,6 +127,15 @@ class TestAutoBatch:
         PhProcess.run_batch_file(batch_file_path)
 
     @classmethod
+    def tc_is_not_whitelisted(cls, key):
+        if TestAutoBatch.white_listed_tcs is None or len(TestAutoBatch.white_listed_tcs) == 0:
+            return False
+        key_name = PhExecutionModes.get_key_name(key)
+        if key_name in TestAutoBatch.white_listed_tcs:
+            return False
+        return True
+
+    @classmethod
     def test(cls, test_case_data, default_batch_data=None):
         """
 
@@ -163,22 +173,23 @@ class TestAutoBatch:
         Non CLI Tests
         """
         for index, key in enumerate(TestData.dynamic_data.keys()):
+            if cls.tc_is_not_whitelisted(key):
+                continue
             test_case_data = TestData.get_test_data(key=key)
             common_data = PhUtil.to_list(PhDos.echo(f'Iteration {index + 1}', wrap_up=True))
             common_data.extend(PhDos.common_info())
             cls.test(test_case_data=test_case_data, default_batch_data=common_data)
-            if not TestAutoBatch.full_test:
-                break
-        if TestAutoBatch.full_test:
-            """
-            CLI Tests
-            """
-            TestData.generate_dynamic_cli_from_read_me()
-            for index, key in enumerate(TestData.dynamic_data_cli.keys()):
-                test_case_data = TestData.get_test_data_cli(key=key)
-                common_data = PhUtil.to_list(PhDos.echo(f'Iteration {index + 1}', wrap_up=True))
-                common_data.extend(PhDos.common_info())
-                cls.test_cli(test_case_data=test_case_data, default_batch_data=common_data)
+        """
+        CLI Tests
+        """
+        TestData.generate_dynamic_cli_from_read_me()
+        for index, key in enumerate(TestData.dynamic_data_cli.keys()):
+            if cls.tc_is_not_whitelisted(key):
+                continue
+            test_case_data = TestData.get_test_data_cli(key=key)
+            common_data = PhUtil.to_list(PhDos.echo(f'Iteration {index + 1}', wrap_up=True))
+            common_data.extend(PhDos.common_info())
+            cls.test_cli(test_case_data=test_case_data, default_batch_data=common_data)
 
 
 def main():
@@ -186,7 +197,10 @@ def main():
 
     :return:
     """
-    # TestAutoBatch.full_test = False
+    TestAutoBatch.white_listed_tcs = [
+        # PhExecutionModes.ALL,
+        # unit_testing',
+    ]
     TestAutoBatch.test_all()
 
 

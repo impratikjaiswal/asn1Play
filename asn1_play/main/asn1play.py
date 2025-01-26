@@ -132,10 +132,10 @@ def process_data():
         data_types = [_data_type]
     for data_type in data_types:
         PhUtil.print_heading(str_heading=f'Data Class: {str(data_type.__class__.__name__)}')
-        # if isinstance(data_type, UnitTesting):
-        #     error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
-        # if isinstance(data_type, Dev):
-        #     error_handling_mode = PhErrorHandlingModes.STOP_ON_ERROR
+        if isinstance(data_type, UnitTesting):
+            error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
+        if isinstance(data_type, Dev):
+            error_handling_mode = PhErrorHandlingModes.STOP_ON_ERROR
         if isinstance(data_type, Test):
             Test.test_all()
             continue
@@ -189,25 +189,6 @@ def print_configurations():
     PhUtil.print_version(parameters_pool=version_parameters_pool)
 
 
-def set_configurations():
-    """
-
-    :return:
-    """
-    global execution_mode, error_handling_mode, sgp_22_version, sgp_32_version, epp_version
-    """
-    Set Execution Mode, First time users can try #PhExecutionModes.SAMPLE_GENERIC
-    """
-    execution_mode = PhExecutionModes.USER
-    error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
-    """
-    Set/Change Default Target Version of SGP22, SGP32, eUICC Profile Package (if needed)
-    """
-    sgp_22_version = sgp_22_compile
-    epp_version = epp_compile
-    sgp_32_version = sgp_32_compile
-
-
 def main():
     """
 
@@ -246,6 +227,25 @@ def main():
     ph_time_obj.stop()
     ph_time_obj.print()
     PhUtil.print_done()
+
+
+def set_configurations():
+    """
+
+    :return:
+    """
+    global execution_mode, error_handling_mode, sgp_22_version, sgp_32_version, epp_version
+    """
+    Set Execution Mode, First time users can try #PhExecutionModes.SAMPLE_GENERIC
+    """
+    execution_mode = PhExecutionModes.USER
+    error_handling_mode = PhErrorHandlingModes.CONTINUE_ON_ERROR
+    """
+    Set/Change Default Target Version of SGP22, SGP32, eUICC Profile Package (if needed)
+    """
+    sgp_22_version = sgp_22_compile
+    epp_version = epp_compile
+    sgp_32_version = sgp_32_compile
 
 
 if __name__ == '__main__':

@@ -89,7 +89,7 @@ class TestData:
     @classmethod
     def get_test_data(cls, key):
         dynamic_data = cls.dynamic_data.get(key, PhConstants.DICT_EMPTY)
-        key_name = PhExecutionModes.get_key_name(key) if key in PhExecutionModes.KEYS_NAME else key
+        key_name = PhExecutionModes.get_key_name(key)
         for temp_key in cls.default_data:
             if temp_key not in dynamic_data:
                 dynamic_data[temp_key] = cls.default_data[temp_key]
