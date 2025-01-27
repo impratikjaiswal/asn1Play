@@ -155,7 +155,7 @@ class Sample(DataTypeMaster):
                 output_format=Formats.DER,
                 tlv_parsing_of_output=True,
             ),
-            #########
+            #
             Data(
                 remarks='TCA; Asn1 to Der',
                 input_data="""{
