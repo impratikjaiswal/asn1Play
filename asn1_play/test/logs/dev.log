@@ -19,9 +19,9 @@ Python executable Path is D:\Other\Github_Self\asn1Play\venv\Scripts
 User Name is Pratik Jaiswal
 User Account is impra
 --------------------------------------------------------------------------------
-Time Stamp is Sunday, Jan 26 2025, 11:12:20:082694, IST (GMT+0530)
+Time Stamp is Monday, Jan 27 2025, 10:06:05:143636, IST (GMT+0530)
 --------------------------------------------------------------------------------
-Git Summary is 4ca6aff;  (HEAD -> main); 2025-01-25 09:04:28 +0530; imPratik <impratikjaiswal@gmail.com>; bulk data support minor fixes with logs
+Git Summary is 2fe3521;  (HEAD -> main, origin/main, origin/HEAD); 2025-01-27 10:00:22 +0530; imPratik <impratikjaiswal@gmail.com>; v8.5.2
 --------------------------------------------------------------------------------
 pythonHelpers version is v5.2.4
 --------------------------------------------------------------------------------
@@ -31,7 +31,7 @@ asn1Play version is v8.5.2
 pycrate version is v0.6.0
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
-tlvPlay version is v4.3.1
+tlvPlay version is v4.4.0
 --------------------------------------------------------------------------------
 --------------------------------------------------------------------------------
 SGP22 compile_time version is v3_1
@@ -44,8 +44,8 @@ eUICC_Profile_Package compile_time version is v3_1
 --------------------------------------------------------------------------------
 ---------------------------------------------------- Data Class: Dev ---------------------------------------------------
 ---------------------------------- Time Details ----------------------------------
-Current Time Stamp: 2025-01-26 11:12:20.099695+05:30
-Execution Time: 00:00:00; Milliseconds: 6.000041961669922
+Current Time Stamp: 2025-01-27 10:06:05.149643+05:30
+Execution Time: 00:00:00; Milliseconds: 4.999637603759766
 Execution Time CPU: 00:00:00; Milliseconds: 0.0
 Timer State: TIMER_OFF
 --------------------------------------------------------------------------------
