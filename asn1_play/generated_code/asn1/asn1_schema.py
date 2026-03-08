@@ -1,8 +1,9 @@
 class Asn1Schema:
-    def __init__(self, asn1_family=None, asn1_version=None, asn1_class_name=None):
+    def __init__(self, asn1_family=None, asn1_version=None, asn1_class_name=None, asn1_sources=None):
         self.asn1_family = asn1_family
         self.asn1_version = asn1_version
         self.asn1_class_name = asn1_class_name
+        self.asn1_sources = asn1_sources
 
     def get_asn1_family(self):
         return self.asn1_family
@@ -18,3 +19,6 @@ class Asn1Schema:
             return '_'.join(filter(None, [self.asn1_family, self.asn1_version, self.asn1_class_name]))
         else:
             return '_'.join(filter(None, [self.asn1_family, self.asn1_version]))
+
+    def get_asn1_sources(self):
+        return self.asn1_sources

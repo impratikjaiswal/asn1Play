@@ -1,7 +1,6 @@
+import binascii
 import subprocess
 import traceback
-
-import binascii
 from python_helpers.ph_constants import PhConstants
 from python_helpers.ph_data_master import PhMasterData, PhMasterDataKeys
 from python_helpers.ph_exception_helper import PhExceptionHelper
@@ -131,6 +130,7 @@ class DataTypeMaster(object):
         except Exception as e:
             known = False
             summary_msg = None
+            # TODO: PhExceptionHelper.get_exception_object
             exception_object = e.args[0] if len(e.args) > 0 else e
             if not isinstance(exception_object, PhExceptionHelper):
                 # for scenarios like FileExistsError where a touple is returned, (17, 'Cannot create a file when that file already exists')
@@ -159,11 +159,10 @@ class DataTypeMaster(object):
             elif isinstance(e, subprocess.CalledProcessError):
                 known = True
                 summary_msg = e.stderr if e.stderr else PhConstants.NON_ZERO_EXIT_STATUS_ERROR
-            exception_object.set_summary_msg(summary_msg)
+            exception_object.set_summary_msg(msg=summary_msg, known=known)
             self.__master_data.set_master_data(PhMasterDataKeys.ERROR_DATA, exception_object)
             converter.print_data(master_data=self.__master_data)
-            msg = PhConstants.SEPERATOR_TWO_WORDS.join(
-                [PhConstants.KNOWN if known else PhConstants.UNKNOWN, exception_object.get_details()])
+            msg = exception_object.get_details()
             print(f'{msg}')
             if not known:
                 traceback.print_exc()

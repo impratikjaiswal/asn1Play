@@ -66,7 +66,7 @@ class TestData:
     }
 
     default_data = {
-        PhKeys.VAR_EXECUTION_MODE: 'ALL',
+        PhKeys.VAR_EXECUTION_MODE: 'USER',
         PhKeys.VAR_ERROR_HANDLING_MODE: 'CONTINUE_ON_ERROR',
         PhKeys.VAR_TOP_FOLDER_PATH: '[]',
     }
@@ -76,10 +76,12 @@ class TestData:
         'no_param':
             {
                 PhKeys.BATCH_PARAMS: '',
+                PhKeys.VAR_EXECUTION_MODE: 'USER',
             },
         '--help':
             {
                 PhKeys.BATCH_PARAMS: '--help',
+                PhKeys.VAR_EXECUTION_MODE: 'USER',
             },
     }
 
