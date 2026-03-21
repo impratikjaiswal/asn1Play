@@ -2,16 +2,13 @@ from play_helpers.ph_util import PhUtil
 
 from asn1_play.generated_code.asn1.asn1_families import Asn1Family
 from asn1_play.generated_code.asn1.asn1_schema import Asn1Schema
-from asn1_play.generated_code.asn1.asn1_source import Asn1Source, ASN1_SOURCE_PATH
+from asn1_play.generated_code.asn1.asn1_source import Asn1Source
 
 
 class Asn1Versions:
     #
     GSMA_SGP_22_v1_0 = Asn1Schema(asn1_family=Asn1Family.GSMA_SGP_22, asn1_version='v1_0',
-                                  asn1_class_name='RSPDefinitions',
-                                  asn1_sources=Asn1Source(ASN1_SOURCE_PATH.
-                                      asn1_paths={}
-                                  ))
+                                  asn1_class_name='RSPDefinitions')
     GSMA_SGP_22_v1_1 = Asn1Schema(asn1_family=Asn1Family.GSMA_SGP_22, asn1_version='v1_1',
                                   asn1_class_name='RSPDefinitions')
     GSMA_SGP_22_v1_2 = Asn1Schema(asn1_family=Asn1Family.GSMA_SGP_22, asn1_version='v1_2',

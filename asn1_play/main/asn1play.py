@@ -44,7 +44,7 @@ def process_data():
 
     :return:
     """
-    global execution_mode, error_handling_mode, data_cli
+    global error_handling_mode
     data_type_user = [
         #####
         # Empty class for user usage
