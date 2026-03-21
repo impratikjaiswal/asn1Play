@@ -1,0 +1,12 @@
+[flake8]
+max-line-length = 127
+show-source = True
+statistics = True
+count = True
+
+# Defaults as per https://flake8.pycqa.org/en/latest/user/options.html
+# --exclude=.svn,CVS,.bzr,.hg,.git,__pycache__,.tox,.nox,.eggs,*.egg
+
+extend-exclude =
+    .venv*
+    venv*

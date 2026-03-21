@@ -1,11 +1,11 @@
 import os
 
-from python_helpers.ph_constants import PhConstants
-from python_helpers.ph_dos import PhDos
-from python_helpers.ph_keys import PhKeys
-from python_helpers.ph_modes_execution import PhExecutionModes
-from python_helpers.ph_process import PhProcess
-from python_helpers.ph_util import PhUtil
+from play_helpers.ph_constants import PhConstants
+from play_helpers.ph_dos import PhDos
+from play_helpers.ph_keys import PhKeys
+from play_helpers.ph_modes_execution import PhExecutionModes
+from play_helpers.ph_process import PhProcess
+from play_helpers.ph_util import PhUtil
 
 from asn1_play import MODULE_NAME, PACKAGE_NAME
 from asn1_play.main.asn1play import print_configurations

@@ -1,5 +1,5 @@
-from python_helpers.ph_keys import PhKeys
-from python_helpers.ph_variables import PhVariables
+from play_helpers.ph_keys import PhKeys
+from play_helpers.ph_variables import PhVariables
 
 from asn1_play.generated_code.asn1.GSMA import SGP_22, SGP_32
 from asn1_play.generated_code.asn1.TCA import eUICC_Profile_Package

@@ -3,14 +3,14 @@
 
 # }**************************************************{ Remote Theme
 plugins:
-- jekyll-remote-theme # add this line to the plugins list if you already have one
+  - jekyll-remote-theme # add this line to the plugins list if you already have one
 
 # supported Themes: https://pages.github.com/themes/
 remote_theme: pages-themes/architect@v0.2.0
 
 # }**************************************************{ 
 title: ASN1 Play
-description: Bookmark this to keep an eye on my project updates!
+description: Bookmark this to keep an eye on our project updates !!!
 
 # }**************************************************{ 
 # to preview your site on your computer, add the following to your site's Gemfile:

@@ -1,0 +1,21 @@
+##################################################
+#### List of Needed CI CD Tools / Libraries
+##################################################
+
+# Build
+build
+
+# sphinx Docs
+sphinx
+
+# sphinx Docs Theme
+sphinx_rtd_theme
+
+# coverage
+coverage
+
+# flake8; Source linting
+flake8
+
+# UT
+pytest

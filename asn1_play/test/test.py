@@ -1,5 +1,5 @@
-from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
-from python_helpers.ph_util import PhUtil
+from play_helpers.ph_modes_error_handling import PhErrorHandlingModes
+from play_helpers.ph_util import PhUtil
 
 from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions
 from asn1_play.main.data_type.data_type_master import DataTypeMaster

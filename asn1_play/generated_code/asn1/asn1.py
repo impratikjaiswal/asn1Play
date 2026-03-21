@@ -1,4 +1,4 @@
-from python_helpers.ph_constants import PhConstants
+from play_helpers.ph_constants import PhConstants
 
 from asn1_play.generated_code.asn1.GSMA import SGP_22 as package_sgp_22
 from asn1_play.generated_code.asn1.GSMA import SGP_32 as package_sgp_32

@@ -1,6 +1,6 @@
 from collections import OrderedDict
 
-from python_helpers.ph_util import PhUtil
+from play_helpers.ph_util import PhUtil
 
 from asn1_play.generated_code.asn1.asn1 import Asn1
 from asn1_play.generated_code.asn1.asn1_versions import Asn1Versions

@@ -1,4 +1,4 @@
-from python_helpers.ph_variables import PhVariables
+from play_helpers.ph_variables import PhVariables
 
 from asn1_play.generated_code.asn1.TCA import eUICC_Profile_Package
 from asn1_play.main.data_type.data_type_master import DataTypeMaster

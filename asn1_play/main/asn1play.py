@@ -1,10 +1,10 @@
 import sys
-from python_helpers.ph_keys import PhKeys
-from python_helpers.ph_modes_error_handling import PhErrorHandlingModes
-from python_helpers.ph_modes_execution import PhExecutionModes
-from python_helpers.ph_modules import PhModules
-from python_helpers.ph_time import PhTime
-from python_helpers.ph_util import PhUtil
+from play_helpers.ph_keys import PhKeys
+from play_helpers.ph_modes_error_handling import PhErrorHandlingModes
+from play_helpers.ph_modes_execution import PhExecutionModes
+from play_helpers.ph_modules import PhModules
+from play_helpers.ph_time import PhTime
+from play_helpers.ph_util import PhUtil
 from tlv_play.main.helper.constants_config import ConfigConst as tlvConfigConst
 
 from asn1_play.generated_code.asn1.GSMA.SGP_22.compile_time_version import version as sgp_22_compile

@@ -1,8 +1,8 @@
 import os
 
 import sys
-from python_helpers.ph_keys import PhKeys
-from python_helpers.ph_util import PhUtil
+from play_helpers.ph_keys import PhKeys
+from play_helpers.ph_util import PhUtil
 
 from asn1_play.test.test_data import TestData
 

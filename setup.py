@@ -1,7 +1,6 @@
 # -*- coding: UTF−8 -*-
 
 import os
-
 from setuptools import setup, find_packages
 
 from asn1_play.main.helper.constants_config import ConfigConst
@@ -9,24 +8,25 @@ from asn1_play.main.helper.constants_config import ConfigConst
 # all packages dependencies
 packages = find_packages()
 if not packages:
-    print(f'Selecting Hardcoded Packages')
+    print('Selecting Hardcoded Packages')
     packages = [
         "asn1_play.generated_code",
-        "asn1_play.main",
-        "asn1_play.test",
+        ConfigConst.TOOL_SW_PACKAGE_NAME,
+        ConfigConst.TOOL_TEST_PACKAGE_NAME,
     ]
+# Packages are ['asn1_play.main', 'asn1_play.test']
 print(f'Packages are {packages}')
-# potential dependencies
+
+# run-time dependencies
 install_reqs = [
-    'incremental',
-    'click',
-    'twisted',
-    'ruamel.yaml',
+    'playHelpers',
+	'tlvPlay',
     'pycrate',
 ]
 
+# build-time dependencies
 setup_reqs = [
-    'incremental',
+    'playHelpers',
 ]
 
 # get long description from the README.md

@@ -2,17 +2,3 @@
 #### List of Needed Build Tools / Libraries
 ##################################################
 
-# Required Build Tool
-wheel
-
-# Required Build Tool
-cmake
-
-# Required Versioning Tool
-incremental
-
-# Required by incremental CLI
-click
-
-# Required by incremental CLI
-twisted

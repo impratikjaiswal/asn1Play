@@ -1,0 +1,5 @@
+##################################################
+#### List of Needed Tools / Libraries (Names Only)
+### This is not part of requirements.txt
+### This is mainly used for uninstallation scenario where installtion is done using some other source than pypi.org
+##################################################

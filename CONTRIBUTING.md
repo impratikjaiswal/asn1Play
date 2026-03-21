@@ -4,12 +4,13 @@ Thanks for your interest in contributing to this project. Please take a moment t
 the contribution process easy and effective for everyone involved.
 
 Following these guidelines helps to communicate that you respect the time of the developers managing and developing this
-open source project. In return, they should reciprocate that respect in addressing your issue or assessing patches and features.
+open source project. In return, they should reciprocate that respect in addressing your issue or assessing patches and
+features.
 
 ## Issue tracker
 
-The issue tracker is the preferred channel for [discussions](#discussions), [features requests](#feature-requests), 
-[bug reports](#bug-reports) &amp; [pull requests](#pull-requests), but please respect the following 
+The issue tracker is the preferred channel for [discussions](#discussions), [features requests](#feature-requests),
+[bug reports](#bug-reports) &amp; [pull requests](#pull-requests), but please respect the following
 restrictions:
 
 * Please **do not** use the issue tracker for personal support requests (use
@@ -20,7 +21,7 @@ restrictions:
 
 ## Discussions
 
-For any questions, support, or ideas, etc. 
+For any questions, support, or ideas, etc.
 [please create a GitHub discussion](https://github.com/impratikjaiswal/asn1Play/discussions/new/choose).
 
 ## Feature requests
@@ -30,7 +31,8 @@ fits with the scope and aims of the project. It's up to *you* to make a strong
 case to convince the project's developers of the merits of this feature. Please
 provide as much detail and context as possible.
 
-If you've an idea in mind, [please submit a feature request](https://github.com/impratikjaiswal/asn1Play/discussions/new?category=ideas).
+If you've an idea in
+mind, [please submit a feature request](https://github.com/impratikjaiswal/asn1Play/discussions/new?category=ideas).
 
 Your ideas and suggestions are always welcome!
 
@@ -52,7 +54,7 @@ If you've noticed a bug, [please submit an issue](https://github.com/impratikjai
 3. **Provide environment details.** Provide your operating system, browser(s),
    python version, project version and other details.
 
-4. **Include supporting references (if any).** 
+4. **Include supporting references (if any).**
 
 A good bug report shouldn't leave others needing to chase you up for more
 information. Please try to be as detailed as possible in your report. What is
@@ -81,10 +83,10 @@ Example:
 **Please ask first before starting work on any significant new features.**
 
 It's never a fun experience to have your pull request declined after investing a lot of time and effort into a new
-feature. To avoid this from happening, we request that contributors create a [features requests](#feature-requests) to 
+feature. To avoid this from happening, we request that contributors create a [features requests](#feature-requests) to
 first discuss any new ideas.
 
-Please ensure that the tests are passing when submitting a pull request. 
+Please ensure that the tests are passing when submitting a pull request.
 If you're adding new features to this project, please include tests.
 
 ## Pull Request Guidelines
@@ -103,6 +105,7 @@ a branch with a descriptive name.
   to the issue on the tracker, as a team member may be working on the issue in
   a branch or fork.
 * Non-trivial changes should be discussed in an issue first
-* When modifying files, please do not edit the generated or minified files in the dist/ directory. Please edit the original files.
+* When modifying files, please do not edit the generated or minified files in the dist/ directory. Please edit the
+  original files.
 * If possible, add relevant tests to cover the change
 * Write a convincing description of your PR and why we should land it

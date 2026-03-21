@@ -1,4 +1,4 @@
-from python_helpers.ph_util import PhUtil
+from play_helpers.ph_util import PhUtil
 
 from asn1_play.generated_code.asn1.asn1_families import Asn1Family
 from asn1_play.generated_code.asn1.asn1_schema import Asn1Schema

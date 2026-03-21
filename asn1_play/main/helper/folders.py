@@ -1,6 +1,6 @@
 import os
 
-from python_helpers.ph_util import PhUtil
+from play_helpers.ph_util import PhUtil
 
 from asn1_play import PACKAGE_NAME
 

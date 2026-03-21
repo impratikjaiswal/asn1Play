@@ -1,4 +1,4 @@
-from python_helpers.ph_variables import PhVariables
+from play_helpers.ph_variables import PhVariables
 
 from asn1_play.generated_code.asn1.GSMA import SGP_22
 from asn1_play.generated_code.asn1.GSMA.SGP_22.v0_0.python_gen.sgp22.sgp22 import PKIX1Explicit88

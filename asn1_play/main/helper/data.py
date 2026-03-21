@@ -1,7 +1,7 @@
-from python_helpers.ph_constants import PhConstants
-from python_helpers.ph_keys import PhKeys
-from python_helpers.ph_util import PhUtil
-from python_helpers.ph_variables import PhVariables
+from play_helpers.ph_constants import PhConstants
+from play_helpers.ph_keys import PhKeys
+from play_helpers.ph_util import PhUtil
+from play_helpers.ph_variables import PhVariables
 
 from asn1_play.generated_code.asn1.GSMA.SGP_22 import version as sgp22_version
 from asn1_play.generated_code.asn1.GSMA.SGP_32 import version as sgp32_version
